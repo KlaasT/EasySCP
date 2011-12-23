@@ -1,0 +1,109 @@
+/**
+ * EasySCP a Virtual Hosting Control Panel
+ * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ *
+ * @link 		http://www.easyscp.net
+ * @author 		EasySCP Team
+ */
+ 
+@CHARSET "UTF-8";
+
+* {
+	font-family:		Geneva, Arial, Helvetica, sans-serif;
+	margin:				0;
+	padding:			0;
+}
+
+a img {
+	border:				none;
+}
+
+a.link, a.link:link, a.link:visited {
+	color:				#009;
+	background-color:	#fff;
+	text-decoration:	underline;
+	font-weight:		normal;
+}
+
+a.link:hover, a.link:active, a.link:focus {
+	color:				#000;
+	background-color:	#fff;
+	text-decoration:	none;
+}
+
+body {
+	/* background: url(../images/background/left_bg.jpg) repeat-y top left; */
+	border: 			0;
+	color:				#000;
+	font-size:			0.9em;
+	height:				100%;
+	left: 				0;
+	overflow:			auto;
+	position: 			absolute;
+	right: 				0;
+	top: 				0;
+	width:				100%;
+}
+
+.login {
+	font-size:			0.8em;
+	white-space: 		nowrap;
+	text-decoration:	none;
+	text-align:			right;
+}
+
+.login p {
+	text-align:			right;
+}
+
+/***********************************************************************************
+ * Header STYLE
+ ***********************************************************************************/
+.header {
+	background:			url(./images/top_bg.jpg) repeat-x top left;
+	height:				89px;
+}
+
+/***********************************************************************************
+ * Main STYLE
+ ***********************************************************************************/
+.main {
+	margin:				50px auto;
+	width:				500px;
+}
+
+.content p {
+	margin-top:			50px;
+	margin-bottom:		5px;
+}
+
+/***********************************************************************************
+ * Footer STYLE
+ ***********************************************************************************/
+.footer {
+	bottom:				0;
+	position:			absolute;
+	right:				10px;
+	text-align:			right;
+	z-index:			0;
+}
+
+.footer img {
+	border: 			0;
+	height:				15px;
+	width:				80px;
+}

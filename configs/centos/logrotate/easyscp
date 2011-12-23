@@ -1,0 +1,124 @@
+# EasySCP a Virtual Hosting Control Panel
+# Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+# @link 		http://www.easyscp.net
+# @author 		EasySCP Team
+
+# Rotation for user logs for EasySCP traffic count
+#
+/var/log/httpd/users/*.log {
+  weekly
+  missingok
+  rotate 52
+  compress
+  delaycompress
+  notifempty
+  create 640 root adm
+  sharedscripts
+  prerotate
+    /srv/www/easyscp/engine/traffic/easyscp-srv-traff >/var/log/easyscp/easyscp-srv-traff.log 2>&1
+  endscript
+  postrotate
+    /etc/init.d/httpd reload > /dev/null
+  endscript
+}
+
+# Rotation for user traffic prevs
+#
+/var/log/httpd/backup/*.log.perv {
+  size 5M
+  missingok
+  rotate 5
+  compress
+  delaycompress
+  notifempty
+  create 640 root adm
+}
+
+# Rotation for apache2, launching general statistics if awstats is installed
+#
+/var/log/httpd/*.log {
+  weekly
+  rotate 52
+  missingok
+  compress
+  delaycompress
+  notifempty
+  create 640 root adm
+  sharedscripts
+  prerotate
+    if [ `cat /etc/easyscp/easyscp.conf | grep -c 'AWSTATS_ACTIVE *= *yes'` = 1 ]; then
+      perl /var/www/easyscp/engine/awstats/awstats_updateall.pl now -awstatsprog=/usr/lib/cgi-bin/awstats.pl >/dev/null 2>&1
+    fi
+  endscript
+  postrotate
+    if [ -f "`. /etc/apache2/envvars ; echo ${APACHE_PID_FILE:-/var/run/apache2.pid}`" ]; then
+      /etc/init.d/apache2 reload > /dev/null
+    fi
+  endscript
+}
+
+# Rotation for easyscp-apache-logger logfiles
+#
+"/var/log/easyscp/easyscp-apache-logger.stderr" /var/log/easyscp/easyscp-apache-logger.stdout {
+  weekly
+  rotate 2
+  size 10M
+  missingok
+  compress
+  delaycompress
+  notifempty
+  create 640 root adm
+}
+
+# Transfer rotation for ProFTPd
+#
+/var/log/xferlog {
+  daily
+  missingok
+  rotate 185
+  dateext
+  compress
+  delaycompress
+  postrotate
+    if [ -e /var/run/syslogd.pid ]; then
+      /usr/bin/killall -HUP syslogd
+    elif [ -e /var/run/rsyslogd.pid ]; then
+      /usr/bin/killall -HUP rsyslogd
+    fi
+  endscript
+}
+
+# ProFTPd traffic rotation for EasySCP traffic count
+#
+/var/log/ftp_traff.log {
+  daily
+  rotate 7
+  missingok
+  compress
+  delaycompress
+  prerotate
+    /var/www/easyscp/engine/traffic/easyscp-vrl-traff >/var/log/easyscp/easyscp-vrl-traff.log 2>&1
+  endscript
+  postrotate
+    if [ -e /var/run/syslogd.pid ]; then
+      /usr/bin/killall -HUP syslogd
+    elif [ -e /var/run/rsyslogd.pid ]; then
+      /usr/bin/killall -HUP rsyslogd
+    fi
+  endscript
+}

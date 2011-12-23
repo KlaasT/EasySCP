@@ -1,0 +1,126 @@
+#!/usr/bin/make -f
+
+# EasySCP a Virtual Hosting Control Panel
+# Copyright (C) 2001-2006 by moleSoftware GmbH - http://www.molesoftware.com
+# Copyright (C) 2006-2010 by isp Control Panel - http://ispcp.net
+# Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+#
+# Version: $Id$
+#
+# The contents of this file are subject to the Mozilla Public License
+# Version 1.1 (the "License"); you may not use this file except in
+# compliance with the License. You may obtain a copy of the License at
+# http://www.mozilla.org/MPL/
+#
+# Software distributed under the License is distributed on an "AS IS"
+# basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+# License for the specific language governing rights and limitations
+# under the License.
+#
+# The Original Code is "VHCS - Virtual Hosting Control System".
+#
+# The Initial Developer of the Original Code is moleSoftware GmbH.
+# Portions created by Initial Developer are Copyright (C) 2001-2006
+# by moleSoftware GmbH. All Rights Reserved.
+#
+# Portions created by the ispCP Team are Copyright (C) 2006-2010 by
+# isp Control Panel. All Rights Reserved.
+#
+# Portions created by the EasySCP Team are Copyright (C) 2010-2011 by
+# Easy Server Control Panel. All Rights Reserved.
+
+SYSTEM_ENGINE_ROOT=$(SYSTEM_ROOT)/engine
+
+CMD_CHOWN=/bin/chown
+CMD_RM=/bin/rm -rf
+CMD_INSTALL=/usr/bin/install -m 0700 -o root -g root
+CMD_MAIL_INSTALL=/usr/bin/install -m 0700 -o vmail -g mail
+CMD_DIR_INSTALL=/usr/bin/install -d -o root -g root
+
+export
+
+install:
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)
+	$(CMD_DIR_INSTALL) -m 0755 $(SYSTEM_ENGINE_ROOT)
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/awstats
+	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/awstats
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/backup
+	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/backup
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/quota
+	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/quota
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/traffic
+	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/traffic
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/messenger
+	$(CMD_DIR_INSTALL) -m 0755 $(SYSTEM_ENGINE_ROOT)/messenger
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/setup
+
+	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/tools
+	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/tools
+
+	cd ./traffic && $(MAKE) install
+
+	$(CMD_INSTALL) ./easyscp_common_code.pl $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp_common_methods.pl $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp_common_methods.pm $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-load-db-keys.pl $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-apache-logger $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-rqst-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-dmn-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-sub-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-alssub-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-als-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-htusers-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-htaccess-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-htgroups-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-mbox-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-serv-mngr $(SYSTEM_ENGINE_ROOT)
+	$(CMD_INSTALL) ./easyscp-db-passwd $(SYSTEM_ENGINE_ROOT)
+
+	$(CMD_INSTALL) ./awstats/awstats_buildstaticpages.pl $(SYSTEM_ENGINE_ROOT)/awstats
+	$(CMD_INSTALL) ./awstats/awstats_updateall.pl $(SYSTEM_ENGINE_ROOT)/awstats
+
+	$(CMD_INSTALL) ./backup/easyscp-bk-task $(SYSTEM_ENGINE_ROOT)/backup
+	$(CMD_INSTALL) ./backup/easyscp-backup-all $(SYSTEM_ENGINE_ROOT)/backup
+	$(CMD_INSTALL) ./backup/easyscp-backup-easyscp $(SYSTEM_ENGINE_ROOT)/backup
+
+	$(CMD_INSTALL) ./quota/easyscp-dsk-quota $(SYSTEM_ENGINE_ROOT)/quota
+
+	$(CMD_INSTALL) ./messenger/easyscp-arpl-msgr $(SYSTEM_ENGINE_ROOT)/messenger
+
+	$(CMD_INSTALL) ./setup/easyscp-permission-functions.sh $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/set-engine-permissions.sh $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/set-gui-permissions.sh $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/easyscp-setup $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/easyscp-setup-methods.pl $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/easyscp-update $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/easyscp-uninstall $(SYSTEM_ENGINE_ROOT)/setup
+	$(CMD_INSTALL) ./setup/updDB.php $(SYSTEM_ENGINE_ROOT)/setup
+
+	cp -dR ./setup/PerlVendor $(SYSTEM_ENGINE_ROOT)/setup
+	cp -dR ./setup/PerlLib $(SYSTEM_ENGINE_ROOT)/setup
+
+	$(CMD_INSTALL) ./tools/easyscp-del-logs.sh $(SYSTEM_ENGINE_ROOT)/tools
+	$(CMD_INSTALL) ./tools/easyscp-del-phptemp.sh $(SYSTEM_ENGINE_ROOT)/tools
+	$(CMD_INSTALL) ./tools/easyscp-httpd-logs-mngr $(SYSTEM_ENGINE_ROOT)/tools
+	$(CMD_INSTALL) ./tools/easyscp-net-interfaces-mngr $(SYSTEM_ENGINE_ROOT)/tools
+
+	$(CMD_INSTALL) ./traffic/easyscp-srv-traff $(SYSTEM_ENGINE_ROOT)/traffic
+	$(CMD_INSTALL) ./traffic/easyscp-vrl-traff $(SYSTEM_ENGINE_ROOT)/traffic
+
+	if test $(HOST_OS) = suse ; then \
+		$(CMD_INSTALL) ./traffic/easyscp-vrl-traff-SUSE $(SYSTEM_ENGINE_ROOT)/traffic; \
+	elif test $(HOST_OS) = opensuse ; then \
+		$(CMD_INSTALL) ./traffic/easyscp-vrl-traff-SUSE $(SYSTEM_ENGINE_ROOT)/traffic; \
+	fi
+
+uninstall:
+
+	rm -rf $(SYSTEM_ENGINE_ROOT)

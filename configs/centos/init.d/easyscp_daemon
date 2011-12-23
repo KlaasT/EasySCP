@@ -1,0 +1,138 @@
+#!/bin/sh
+
+# EasySCP a Virtual Hosting Control Panel
+# Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+#
+# @link 		http://www.easyscp.net
+# @author 		EasySCP Team
+
+### BEGIN INIT INFO
+# chkconfig: - 91 35
+# description: Starts and stops the EasySCP daemon
+#
+# pidfile: /var/run/easyscp.pid
+# config:  /etc/easyscp/easyscp.conf
+### END INIT INFO
+
+# Source function library.
+if [ -f /etc/init.d/functions ] ; then
+  . /etc/init.d/functions
+elif [ -f /etc/rc.d/init.d/functions ] ; then
+  . /etc/rc.d/init.d/functions
+else
+  exit 0
+fi
+
+# Avoid using root's TMPDIR
+unset TMPDIR
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+if [ -f /var/www/easyscp/daemon ]; then
+   . /var/www/easyscp/daemon
+fi
+
+# Check that networking is up.
+[ ${NETWORKING} = "no" ] && exit 0
+
+# Check that easyscp.conf exists.
+[ -f /etc/easyscp/easyscp.conf ] || exit 0
+
+RETVAL=0
+
+
+start() {
+        KIND="EASYSCP"
+	echo -n $"Starting $KIND services: "
+	daemon /var/www/easyscp/daemon/easyscp_daemon
+	RETVAL=$?
+	echo
+      	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/easyscp || RETVAL=1
+	echo ""
+	return $RETVAL
+}
+
+stop() {
+        KIND="EASYSCP"
+	echo -n $"Shutting down $KIND services: "
+	killproc easyscp_daemon
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/easyscp
+	echo ""
+	return $RETVAL
+}
+
+restart() {
+	stop
+	start
+}
+
+reload() {
+        echo -n $"Reloading easyscp.conf: "
+	killproc easyscp_daemon -HUP
+	RETVAL=$?
+	echo
+	return $RETVAL
+}
+
+rhstatus() {
+	status easyscp_daemon
+	RETVAL=$?
+	if [ $? -ne 0 -o $RETVAL -ne 0 ] ; then
+		return 1
+	fi
+}
+
+
+# Allow status as non-root.
+if [ "$1" = status ]; then
+       rhstatus
+       exit $?
+fi
+
+# Check that we can write to it... so non-root users stop here
+[ -w /etc/easyscp/easyscp.conf ] || exit 0
+
+
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  restart)
+  	restart
+	;;
+  reload)
+  	reload
+	;;
+  status)
+  	rhstatus
+	;;
+  condrestart)
+  	[ -f /var/lock/subsys/easyscp ] && restart || :
+	;;
+  *)
+	echo $"Usage: $0 {start|stop|restart|reload|status|condrestart}"
+	exit 1
+esac
+
+exit $?

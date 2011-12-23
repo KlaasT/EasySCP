@@ -1,0 +1,321 @@
+EasySCP HowTo Install for CentOS
+================================================================================
+For other Linux distributions please check the other INSTALL files.
+================================================================================
+
+Table of Content
+================
+1) Version Info
+2) Requirements
+3) Introduction
+4) Preparation
+5) Installation
+6) Post-Installation
+7) Update
+8) Uninstall
+9) Credits
+
+================================================================================
+1) Version Info
+---------------
+
+easySCP Version:       1.1.0
+INSTALL Script:        2.10
+Maintainer:            Tom Winterhalder
+Homepage:              http://www.easyscp.net
+Linux Distros:         CentOS 6.1
+
+This documentation was written for CentOS 6.1. While you might
+be able to install on earlier versions, you may encounter difficulties or
+differences. In addition, this guide uses the YUM tool to install packages. If
+you normally use a different tool, you will need to modify the instructions to
+fit your system.
+The instructions are based on a minimum installation of CentOS with no optional
+packages marked during OS install. If you selected additional options during the
+install process, some extra server services may need to be disabled to avoid
+interfering with the packages used by EasySCP.
+The install instructions attempt to keep system changes to a minimum, so these
+instructions should also work under Red Hat Enterprise Linux 6. If you encounter
+differences, please notify the maintainer.
+The installation tasks should be run as root
+
+================================================================================
+2) Requirements
+---------------
+There is no must have for a system using EasySCP. This is only a recommendation:
+
+Pentium III or K6-4 with 500 MHz
+512 MB RAM
+100 MB disk space (only for install of EasySCP)
+Debian (or even any other *NIX-Distribution)
+
+All required packages are listed in /docs/CentOS/centos-packages
+
+================================================================================
+3) Introduction
+---------------
+EasySCP delivers a complete hosting automation appliance by offering significant
+security, total-cost-of-ownership, and performance advantages over competing
+commercial solutions.
+
+With EasySCP you can configure your server and applications, create user with
+domains with a few point-and-click operations that take less than a minute.
+There is no limit to the number of resellers, users and domains that can be
+created. The core of EasySCP are 3 easy-to-use, web-based control panels. EasySCP
+provides graphic user interfaces for the administrators, resellers and users.
+
+================================================================================
+4) Preparation
+--------------
+For the following steps, you will need to be logged in as root.
+
+1. Make sure your OS is updated
+   The very first thing you should do is make sure your base Linux install is
+   fully updated. To do so, simply run "yum update" as root. If there was a
+   kernel upgrade, you will want to reboot before continuing.
+        # yum update
+
+2. Additional Software Repositories
+   The CentOS repositories do not include all the software needed to run EasySCP.
+   You will need to add two repositories to your system to install everything
+   you need.
+
+   EPEL (Extra Packages for Enterprise Linux):
+        EPEL contains most of the additional packages needed.
+        Install this repository following
+        http://fedoraproject.org/wiki/EPEL/FAQ#howtouse
+
+    RPMForge:
+ 	RPMForge is needed for one package that none of the other repositories
+ 	currently has.
+ 	Install the repository following http://dag.wieers.com/rpm/FAQ.php#B2
+
+        It seems that the link for CentOS 6 has not been published now. So just
+        install it from here:
+            http://apt.sw.be/redhat/el6/en/x86_64/rpmforge/RPMS/
+
+ 	We do not want all the packages from RPMForge as it replaces a good deal
+ 	of the system. To avoid this, edit the file /etc/yum.repos.d/rpmforge.repo.
+ 	In the file, add the following line at the end:
+
+ 	includepkgs=postgrey perl*
+
+
+3. Non-Repository Software
+   There are a few pieces of software you will need to download individually
+   that are in any of the major repositories.
+
+   Courier-IMAP:
+        At the time of writing this installation guide there were no binary courier 
+        packages for CentOS 6 available. Please inform the maintainer if you find 
+        a repository containing the required packages.
+
+        At HowtoForge there is an easy to follow installation guide:
+        http://www.howtoforge.com/virtual-users-and-domains-with-postfix-courier-mysql-and-squirrelmail-centos-6.0-x86_64
+        
+        We need to build RPMs for courier-imap, courier-authlib, and courier-authlib-userdb
+
+   policyd-weight:
+        RPMs for policyd-weight can be found at
+        http://sourceforge.net/projects/policyd-weight/files/
+
+4. Disabling SELinux
+   SELinux will need to be disabled if it is enabled. To disable, run
+
+    # setenforce 0
+
+   as root. To ensure that it stays disabled between reboots, edit the file
+   /etc/selinux/config and change the value of SELINUX to disabled.
+
+5. Configuring Services
+    Courier needs a user and group account configured to run, and the following
+    commands run as root will create them:
+     # groupadd -g 3000 courier
+     # useradd -u 3000 -c 'Courier Mail Server' -d /dev/null -g courier -d /bin/false courier
+
+================================================================================
+5) Installation
+---------------
+Make sure you are logged in as root and MySQL is running (Start with "service mysqld start").
+
+1. Untar or unzip the distribution files to a secure directory:
+	# cd /usr/local/src
+	# tar xjvf easyscp-1.1.0.tar.bz2
+
+2. Change to the newly created directory:
+	# cd ./easyscp-1.1.0
+
+3. Install the required modules
+   A list of packages required by this software is located in
+   /docs/CentOS/centos-packages and can be used to easily install the packages
+   you need by running the following commands:
+	# rpm --rebuilddb
+    # yum install `cat ./docs/CentOS/centos-packages`
+
+   NOTE: Running this command will install both x86_64 and i3/5/686 packages on
+   x86_64 installs for all packages that have both architectures in the
+   repository! To avoid, either add "exclude=*.i386 *.i586 *.i686" for your yum
+   repository configuration files, or install the packages listed in the file
+   one-by-one, making sure to specify the package name in the format
+   packagename.x86_64.
+
+4. Install required Perl package
+    # perl -MCPAN -e 'install Term::ReadPassword'
+
+   If you have not run CPAN before, you will be prompted for manual
+   configuration. You can simply say no and the install will continue.
+
+5. Install downloaded RPMs
+    # rpm -Uvh courier-*
+    # rpm -Uvh policyd-weight-*
+
+6. Clean Apache's conf.d directory
+    # mv /etc/httpd/conf.d /etc/httpd/conf.d-disabled
+
+7. Configure BIND DNS
+    # mv /var/named/data /var/named/data-disabled
+    # ln -s /var/named/chroot/var/named/data /var/named/data
+    # echo 'include "/etc/named-easyscp.conf";' >> /var/named/chroot/etc/named.conf
+    # mkdir -p /var/named/chroot/var/named/data
+
+    Change /var/named/chroot/etc/named.conf to listen on all addresses.
+
+    Change 
+	listen-on port 53 { 127.0.0.1; };
+    to
+        listen-on port 53 { any; };
+
+8. (optional) Check the easyscp.conf and adapt it to your requirements.
+
+9. Build the Software by using make:
+	# make -f Makefile.centos
+	# make -f Makefile.centos install
+
+10. Copy all the directories into your system. If you have not yet, now is a good
+   time to make backups of your server. The following steps do fundamental
+   changes to your system configuration.
+	# cp -RLf /tmp/easyscp/* /
+
+7. Change or create MySQL root password, remove anonymous users, disallow root
+	login remotely, remove test database (and access to it), reload privilege tables.
+	# mysql_secure_installation
+
+8. Now it's time to set up the frontend. Change into the engine directory and
+	start the engine setup:
+	# cd /var/www/easyscp/engine/setup
+	# perl easyscp-setup
+
+9. Install EasySCP step-by-step
+
+    NOTE: During setup, you will be asked if you are using fastcgi or fcgid.
+    You will want to choose the option for fcgid (shortcut key "f" on the prompt).
+
+    If you get no error, all went good; if you get one, look at
+    http://www.easyscp.net to solve the problem.
+
+10. Clean the temporary folders:
+	# rm -fR /tmp/easyscp/
+
+================================================================================
+6) Post-Installation
+--------------------
+
+1. Configuring Services
+
+    Postfix and SASL Authentication:
+        We need to create the SASL database for authenticating mail users and
+        configure SASL authenitcation. First, we create the SASL database with
+        the following commands:
+        # touch /etc/sasldb2
+        # mkdir -p /var/spool/postfix/etc
+        # cp /etc/sasldb2 /var/spool/postfix/etc
+
+        To allow authentication, edit /etc/sasl2/smtpd.conf
+        and replace the contents with the following:
+
+        pwcheck_method: auxprop
+        auxprop_plugin: sasldb
+        mech_list: PLAIN LOGIN CRAM-MD5 DIGEST-MD5
+
+    Configure Apache HTTPd:
+        The Apache webserver needs to be configured to read website configuration
+        in the directory /etc/httpd/vhosts/. To establish this, run the following
+        command:
+
+        # echo 'include vhosts/*.conf' >> /etc/httpd/conf/httpd.conf
+
+    Configure Postgrey:
+        By default, Postgrey runs on a socket. We want it to run on port 10023.
+        Edit the file /etc/init.d/postgrey and change the line:
+
+        OPTIONS="--unix=$SOCKET"
+
+        to
+
+        OPTIONS="--unix=$SOCKET --inet=10023"
+
+2. Setting Services to Run on Boot
+    Several services need to be set to run on boot. To do this, run the
+    following commands:
+
+    # chkconfig --level 345 httpd on
+    # chkconfig --level 345 mysqld on
+    # chkconfig --level 345 easyscp_network on
+    # chkconfig --level 345 easyscp_daemon on
+    # chkconfig --level 345 amavisd on
+    # chkconfig --level 345 named on
+    # chkconfig --level 345 proftpd on
+    # chkconfig --level 345 postgrey on
+    # chkconfig --level 345 spamassassin on
+
+    If you want to start the services without a reboot, run the following
+    commands:
+
+    # service httpd start
+    # service mysqld start
+    # service EasySCP_network start
+    # service EasySCP_daemon start
+    # service amavisd start
+    # service named start
+    # service proftpd start
+    # service postgrey start
+    # service spamassassin start
+
+3. Set Permissions
+    The default permissions for the temporary directory of the control panel
+    need to be adjusted. Please run the following command:
+
+    # chmod 775 /var/www/easyscp/gui/phptmp
+
+================================================================================
+7) Update
+---------
+NOTE: EasySCP can only be updated from post 1.1.0. If you have a
+version prior 1.1.0 (final release) installed, update to EasySCP 1.1.0 first.
+
+================================================================================
+8) Uninstall
+------------
+Make sure you are logged in as root and MySQL is running.
+
+1. Change into the engine directory:
+	# cd /var/www/easyscp/engine/setup
+
+2. Start the uninstall script:
+	# perl easyscp-uninstall
+
+3. Clean up your system
+
+================================================================================
+9) Credits
+----------
+
+EasySCP is a project of Easy Server Control Panel.
+EasySCP, Easy Server Control Panel, the EasySCP logo are trademarks of the EasySCP Project.
+
+
+Please visit our site under http://www.easyscp.net for further information on
+EasySCP and other themes.
+
+We hope you enjoy using EasySCP. If you like it, help us, to make it better. We
+would be glad on any help provided!
