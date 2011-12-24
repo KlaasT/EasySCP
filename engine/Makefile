@@ -100,7 +100,6 @@ install:
 	$(CMD_INSTALL) ./setup/set-gui-permissions.sh $(SYSTEM_ENGINE_ROOT)/setup
 	$(CMD_INSTALL) ./setup/easyscp-setup $(SYSTEM_ENGINE_ROOT)/setup
 	$(CMD_INSTALL) ./setup/easyscp-setup-methods.pl $(SYSTEM_ENGINE_ROOT)/setup
-	$(CMD_INSTALL) ./setup/easyscp-update $(SYSTEM_ENGINE_ROOT)/setup
 	$(CMD_INSTALL) ./setup/easyscp-uninstall $(SYSTEM_ENGINE_ROOT)/setup
 	$(CMD_INSTALL) ./setup/updDB.php $(SYSTEM_ENGINE_ROOT)/setup
 

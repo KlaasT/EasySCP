@@ -105,7 +105,7 @@ function get_update_infos($tpl) {
 	if (EasySCP_Update_Database::getInstance()->checkUpdateExists()) {
 		$tpl->assign(
 			array(
-				'DATABASE_UPDATE'	=> '<a href="database_update.php" class="link">' . tr('A database update is available') . '</a>',
+				'DATABASE_UPDATE'	=> '<a href="easyscp_updates.php" class="link">' . tr('A database update is available') . '</a>',
 				'DATABASE_MSG_TYPE'	=> 'info'
 			)
 		);
