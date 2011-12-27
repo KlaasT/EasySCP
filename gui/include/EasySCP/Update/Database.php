@@ -1964,7 +1964,51 @@ class EasySCP_Update_Database extends EasySCP_Update {
 
 		return $sqlUpd;
 	}
+	
+	/**
+	 * Adds database fields for SSL configuration
+	 *
+	 * @author Tom Winterhalder <tom.winterhalder@easyscp.net>
+	 * @return array
+	 */
+	protected function _databaseUpdate_51(){
+		$sqlUpd = array();
 
+		$sqlUpd[] = "
+			INSERT INTO
+				`config` (name, value)
+			VALUES
+				('SSL_KEY', ''),
+				('SSL_CERT',''),
+				('SSL_STATUS','0')
+			;
+		";
+                
+                $sqlUpd[] = "
+                        ALTER TABLE 
+                                `domain` 
+                        ADD 
+                                `SSL_KEY` VARCHAR( 5000 ) NULL DEFAULT NULL 
+			;
+		";
+                
+                $sqlUpd[] = "
+                        ALTER TABLE 
+                                `domain` 
+                        ADD 
+                                `SSL_CERT` VARCHAR( 5000 ) NULL DEFAULT NULL 
+			;
+		";
+                
+                $sqlUpd[] = "
+                        ALTER TABLE 
+                                `domain` 
+                        ADD 
+                                `SSL_STATUS` INT( 1 ) unsigned NOT NULL DEFAULT '0' 
+			;
+		";
+                return $sqlUpd;
+	}
 	/*
 	 * DO NOT CHANGE ANYTHING BELOW THIS LINE!
 	 */

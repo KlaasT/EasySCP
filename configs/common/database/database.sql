@@ -117,6 +117,9 @@ INSERT INTO `config` (`name`, `value`) VALUES
 ('PREVENT_EXTERNAL_LOGIN_ADMIN', '1'),
 ('PREVENT_EXTERNAL_LOGIN_RESELLER', '1'),
 ('PREVENT_EXTERNAL_LOGIN_CLIENT', '1'),
+('SSL_KEY',''),
+('SSL_CERT',''),
+('SSL_STATUS',0),
 ('DATABASE_REVISION', '50');
 
 -- --------------------------------------------------------
@@ -166,6 +169,9 @@ CREATE TABLE IF NOT EXISTS `domain` (
   `domain_cgi` varchar(15) collate utf8_unicode_ci default NULL,
   `allowbackup` varchar(8) collate utf8_unicode_ci NOT NULL default 'full',
   `domain_dns` varchar(15) collate utf8_unicode_ci NOT NULL default 'no',
+  `ssl_key` varchar(5000) collate utf8_unicode_ci NULL default NULL,
+  `ssl_cert` varchar(5000) collate utf8_unicode_ci NULL default NULL,
+  `ssl_status` int(1) unsigned NOT NULL default '0',
   UNIQUE KEY `domain_id` (`domain_id`),
   UNIQUE KEY `domain_name` (`domain_name`),
   KEY `i_domain_admin_id` (`domain_admin_id`)
