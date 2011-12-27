@@ -195,6 +195,7 @@ function gen_admin_menu($tpl, $menu_file) {
 			'TR_GENERAL_SETTINGS'			=> tr('General settings'),
 			'TR_SERVERPORTS'				=> tr('Server ports'),
 			'TR_MENU_IP_USAGE'				=> tr('IP Usage'),
+			'TR_CONFIG_SSL'				=> tr('SSL configuration'),
 			'VERSION'						=> $cfg->Version,
 			'BUILDDATE'						=> $cfg->BuildDate,
 			'CODENAME'						=> $cfg->CodeName
