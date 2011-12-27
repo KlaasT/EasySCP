@@ -95,6 +95,14 @@
 					</td>
 				</tr>
 				<tr>
+					<td>{$TR_SSL_SUPP}</td>
+					<td><select name="domain_ssl" id="domain_ssl">
+							<option value="_yes_" {$SSL_YES}>{$TR_YES}</option>
+							<option value="_no_" {$SSL_NO}>{$TR_NO}</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
 					<td>{$TR_DNS_SUPP}</td>
 					<td><select name="domain_dns" id="domain_dns">
 							<option value="_yes_" {$DNS_YES}>{$TR_YES}</option>

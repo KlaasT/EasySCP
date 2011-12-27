@@ -19,28 +19,32 @@
  *
  * @link 		http://www.easyscp.net
  * @author 		EasySCP Team
- * @since 1.2.0
+ * @since               1.2.0
  */
 require '../../include/easyscp-lib.php';
 
 check_login(__FILE__);
 
-// Get a reference to the Config object
 $cfg = EasySCP_Registry::get('Config');
-
-$tpl = EasySCP_TemplateEngine::getInstance();
-$template = 'admin/tools_config_ssl.tpl';
-
 $html_selected = $cfg->HTML_SELECTED;
 
-if (isset($_POST['uaction']) && $_POST['uaction'] == 'apply') {
-    $values = update_ssl_data();
-}
-else {
-    $values = EasySCP_Registry::get('Db_Config');
+$tpl = EasySCP_TemplateEngine::getInstance();
+$template = 'client/domain_manage_ssl.tpl';
+
+// static page messages.
+gen_logged_from($tpl);
+
+check_permissions($tpl);
+
+$sql = EasySCP_Registry::get('Db');
+
+if (isset($_POST['uaction']) && ($_POST['uaction'] === 'apply')) {
+    update_ssl_data($sql);
 }
 
-switch ($values['SSL_STATUS']) {
+$values = get_domain_default_props($sql, $_SESSION['user_id'], true);
+
+switch ($values['ssl_status']) {
     case 0:
         $tpl->assign('SSL_SELECTED_DISABLED', $html_selected);
         $tpl->assign('SSL_SELECTED_SSLONLY', '');
@@ -56,10 +60,11 @@ switch ($values['SSL_STATUS']) {
         $tpl->assign('SSL_SELECTED_SSLONLY', '');
         $tpl->assign('SSL_SELECTED_BOTH', $html_selected);
 } // end switch
+
 // static page messages
 $tpl->assign(
         array(
-            'TR_PAGE_TITLE'             => tr('EasySCP - Virtual Hosting Control System'),
+            'TR_PAGE_TITLE'		=> tr('EasySCP - Manage SSL configuration'),
             'TR_SSL_CONFIG_TITLE'       => tr('EasySCP SSL config'),
             'TR_SSL_CERTIFICATE'        => tr('SSL certificate'),
             'TR_SSL_KEY'                => tr('SSL key'),
@@ -69,52 +74,52 @@ $tpl->assign(
             'TR_SSL_STATUS_SSLONLY'     => tr('SSL enabled'),
             'TR_SSL_STATUS_BOTH'        => tr('both'),
             'TR_MESSAGE'                => tr('Message'),
-            'SSL_KEY'                   => $values['SSL_KEY'],
-            'SSL_CERTIFICATE'           => $values['SSL_CERT'],
-            'SSL_STATUS'                => $values['SSL_STATUS']
+            'SSL_KEY'                   => $values['ssl_key'],
+            'SSL_CERTIFICATE'           => $values['ssl_cert'],
+            'SSL_STATUS'                => $values['ssl_status']
         )
 );
 
-gen_admin_mainmenu($tpl, 'admin/main_menu_system_tools.tpl');
-gen_admin_menu($tpl, 'admin/menu_system_tools.tpl');
+gen_client_mainmenu($tpl, 'client/main_menu_manage_domains.tpl');
+gen_client_menu($tpl, 'client/menu_manage_domains.tpl');
 
 gen_page_message($tpl);
 
 if ($cfg->DUMP_GUI_DEBUG) {
-    dump_gui_debug($tpl);
+	dump_gui_debug($tpl);
 }
 
 $tpl->display($template);
 
 unset_messages();
 
-function update_ssl_data() {
-    // Gets a reference to the EasySCP_ConfigHandler_Db instance
-    $db_cfg = EasySCP_Registry::get('Db_Config');
-    $db_cfg->resetQueriesCounter('update');
+function update_ssl_data($sql){
+    if ((isset($_POST['ssl_key'])) && 
+            isset($_POST['ssl_cert']) && 
+            isset($_POST['ssl_status']))
 
-    $sslkey=clean_input($_POST['ssl_key']);
-    $sslcert=clean_input($_POST['ssl_cert']);
-    $sslstatus=clean_input($_POST['ssl_status']);
-    // update the ssl related values
-    $db_cfg->set('SSL_KEY', $sslkey);
-    $db_cfg->set('SSL_CERT', $sslcert);
-    $db_cfg->set('SSL_STATUS', $sslstatus);
+        $cert = clean_input($_POST['ssl_cert']);
+        $key = clean_input($_POST['ssl_key']);
+        $domainid = get_user_domain_id($sql, $_SESSION['user_id']);
+	$query = "
+		UPDATE `domain` set 
+                       `ssl_cert`   = '$cert',
+                       `ssl_key`    = '$key',
+                       `ssl_status` = ${_POST['ssl_status']}
+                WHERE `domain_id` = $domainid
+		;";
+        
+        $rs = exec_query($sql, $query);
+        
+        // get number of updates 
+        $update_count = $rs->recordCount();
 
-    write_log(
-            get_session('user_logged') . ": Updated SSL configuration!"
-    );
+        if ($update_count==0){
+            set_page_message(tr("SSL configuration unchanged"), 'info');
+        }elseif ($update_count > 0) {
+            set_page_message(tr('SSL configuration updated!'), 'success');
+        }
 
-    // get number of updates 
-    $update_count = $db_cfg->countQueries('update');
-
-    if ($update_count == 0) {
-        set_page_message(tr("SSL configuration unchanged"), 'info');
-    } elseif ($update_count > 0) {
-        set_page_message(tr('SSL configuration updated!'), 'success');
-    }
-
-    user_goto('tools_config_ssl.php');
+    user_goto('domain_manage_ssl.php');
 }
-
 ?>

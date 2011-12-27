@@ -9,4 +9,8 @@
 	{if isset($ISACTIVE_DNS_MENU)}
 	<li><a href="dns_add.php">{$TR_MENU_ADD_DNS}</a></li>
 	{/if}
+	{if isset($ISACTIVE_SSL_MENU)}
+	<li><a href="domain_manage_ssl.php">{$TR_MENU_MANAGE_SSL}</a></li>
+	{/if}
+        
 </ul>

@@ -63,7 +63,11 @@ function get_domain_default_props($sql, $domain_admin_id, $returnWKeys = false) 
 			`domain_php`,
 			`domain_cgi`,
 			`allowbackup`,
-			`domain_dns`
+			`domain_dns`,
+                        `domain_ssl`,
+                        `ssl_key`,
+                        `ssl_cert`,
+                        `ssl_status`
 		FROM
 			`domain`
 		WHERE
@@ -97,7 +101,8 @@ function get_domain_default_props($sql, $domain_admin_id, $returnWKeys = false) 
 			$rs->fields['domain_php'],
 			$rs->fields['domain_cgi'],
 			$rs->fields['allowbackup'],
-			$rs->fields['domain_dns']
+			$rs->fields['domain_dns'],
+                        $rs->fields['domain_ssl']
 		);
 	} else {
 		return $rs->fields;
@@ -457,7 +462,7 @@ function gen_client_mainmenu($tpl, $menu_file) {
 			'TR_MENU_ADD_ALIAS'				=> tr('Add alias'),
 			'TR_MENU_UPDATE_HP'				=> tr('Update Hosting Package'),
 			'TR_MENU_ADD_DNS'				=> tr("Add DNS zone's record"),
-			'TR_MENU_SSL_MANAGE'			=> tr('Manage SSL certificate')
+			'TR_MENU_MANAGE_SSL'			=> tr('Manage SSL certificate')
 		)
 	);
 
@@ -510,7 +515,8 @@ function gen_client_mainmenu($tpl, $menu_file) {
 		$dmn_sqld_limit,,,
 		$dmn_als_limit,
 		$dmn_subd_limit,,,,,,,
-		$domain_dns
+		$domain_dns,
+                $domain_ssl
 	) = get_domain_default_props($sql, $_SESSION['user_id']);
 
 	if ($dmn_mailacc_limit != -1){
@@ -529,6 +535,10 @@ function gen_client_mainmenu($tpl, $menu_file) {
 		$tpl->assign('ISACTIVE_SQL', true);
 	}
 
+        if ($domain_ssl=='yes'){
+                $tpl->assign('ISACTIVE_SSL',true);
+        }
+        
 	$query = "
 		SELECT
 			`support_system`
@@ -628,7 +638,8 @@ function gen_client_menu($tpl, $menu_file) {
 		$dmn_als_limit,
 		$dmn_subd_limit,,,,,,
 		$allowbackup,
-		$dmn_dns
+		$dmn_dns,
+                $dmn_ssl
 	) = get_domain_default_props($sql, $_SESSION['user_id']);
 
 	if ($dmn_als_limit != -1 || $dmn_subd_limit != -1 || $dmn_dns == 'yes'){
@@ -668,6 +679,10 @@ function gen_client_menu($tpl, $menu_file) {
 
 	if ($dmn_dns == 'yes'){
 		$tpl->assign('ISACTIVE_DNS_MENU', true);
+	}
+
+        if ($dmn_ssl == 'yes'){
+		$tpl->assign('ISACTIVE_SSL_MENU', true);
 	}
 
 	if ($cfg->AWSTATS_ACTIVE == 'yes') {
@@ -867,6 +882,9 @@ function check_permissions($tpl) {
 		&& isset($_SESSION['subdomain_support']) && $_SESSION['subdomain_support'] == "no") {
 		$tpl->assign('DMN_MNGMNT', '');
 	}
+	if (isset($_SESSION['ssl_support']) && $_SESSION['sl_support'] == "no") {
+		$tpl->assign('SSL_SUPPORT', '');
+	}        
 }
 
 function check_usr_sql_perms($sql, $db_user_id) {

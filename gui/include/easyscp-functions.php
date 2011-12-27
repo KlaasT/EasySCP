@@ -200,7 +200,7 @@ function update_user_props($user_id, $props) {
 
 	list(
 		,$sub_max,,$als_max,,$mail_max,,$ftp_max,,$sql_db_max,,$sql_user_max,
-		$traff_max,$disk_max,$domain_php,$domain_cgi,,$domain_dns
+		$traff_max,$disk_max,$domain_php,$domain_cgi,$domain_ssl,,$domain_dns
 	) = explode (';', $props);
 
 	// have to check if PHP and/or CGI and/or IP change
@@ -217,13 +217,15 @@ function update_user_props($user_id, $props) {
 			`domain_php` = ?
 		AND
 			`domain_cgi` = ?
+                AND
+                        `domain_ssl` = ?
 		AND
 			`domain_dns` = ?
 		;
 	";
 
 	$rs = exec_query(
-		$db, $query, array($user_id, $domain_php, $domain_cgi, $domain_dns)
+		$db, $query, array($user_id, $domain_php, $domain_cgi, $domain_ssl, $domain_dns)
 	);
 
 	if ($rs->recordCount() == 0) {
@@ -253,6 +255,7 @@ function update_user_props($user_id, $props) {
 				`domain_disk_limit` = ?,
 				`domain_php` = ?,
 				`domain_cgi` = ?,
+                                `domain_ssl` = ?,
 				`domain_dns` = ?
 			WHERE
 				`domain_id` = ?
@@ -265,7 +268,7 @@ function update_user_props($user_id, $props) {
 			array(
 				$domain_last_modified, $mail_max, $ftp_max, $traff_max,
 				$sql_db_max, $sql_user_max, $update_status, $als_max, $sub_max,
-				$disk_max, $domain_php, $domain_cgi, $domain_dns, $user_id
+				$disk_max, $domain_php, $domain_cgi, $domain_ssl, $domain_dns, $user_id
 			)
 		);
 

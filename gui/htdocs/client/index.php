@@ -71,6 +71,7 @@ list(
 		$dmn_disk_usage,
 		$dmn_php,
 		$dmn_cgi,
+                $dmn_ssl,
 		$backup,
 		$dns
 	) = get_domain_default_props($sql, $_SESSION['user_id']);
@@ -100,7 +101,7 @@ gen_user_messages_label($tpl, $sql, $_SESSION['user_id']);
 
 check_user_permissions(
 						$tpl, $dmn_sqld_limit, $dmn_sqlu_limit, $dmn_php,
-						$dmn_cgi, $backup, $dns, $dmn_subd_limit, $dmn_als_limit,
+						$dmn_cgi, $dmn_ssl,$backup, $dns, $dmn_subd_limit, $dmn_als_limit,
 						$dmn_mailacc_limit
 );
 
@@ -182,6 +183,7 @@ $tpl->assign(
 		'TR_MAIN_DOMAIN'			=> tr('Main domain'),
 		'TR_PHP_SUPPORT' 			=> tr('PHP support'),
 		'TR_CGI_SUPPORT' 			=> tr('CGI support'),
+                'TR_SSL_SUPPORT'                => tr('SSL support'),
 		'TR_DNS_SUPPORT' 			=> tr('Manual DNS support'),
 		'TR_BACKUP_SUPPORT' 		=> tr('Backup support'),
 		'TR_MYSQL_SUPPORT' 			=> tr('SQL support'),
@@ -330,7 +332,7 @@ function gen_disk_usage($tpl, $usage, $max_usage, $bars_max) {
  * @param int $dmn_mailacc_limit
  */
 function check_user_permissions($tpl, $dmn_sqld_limit, $dmn_sqlu_limit, $dmn_php,
-	$dmn_cgi,$backup, $dns, $dmn_subd_limit, $als_cnt, $dmn_mailacc_limit) {
+	$dmn_cgi,$dmn_ssl,$backup, $dns, $dmn_subd_limit, $als_cnt, $dmn_mailacc_limit) {
 
 	// check if mail accouts available are available for this user
 	if ($dmn_mailacc_limit == -1) {
@@ -376,6 +378,11 @@ function check_user_permissions($tpl, $dmn_sqld_limit, $dmn_sqlu_limit, $dmn_php
 		$tpl->assign( array('CGI_SUPPORT' => tr('Yes')));
 	}
 
+	// check if CGI Support is available for this user
+	if ($dmn_ssl == 'yes') {
+		$tpl->assign( array('SSL_SUPPORT' => tr('Yes')));
+	}        
+        
 	// Check if Backup support is available for this user
 	switch($backup){
 	case "full":

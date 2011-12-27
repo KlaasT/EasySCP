@@ -55,6 +55,12 @@
 				<td>{$CGI_SUPPORT}</td>
 			</tr>
 			{/if}
+			{if isset($SSL_SUPPORT)}
+			<tr>
+				<td>{$TR_SSL_SUPPORT}</td>
+				<td>{$SSL_SUPPORT}</td>
+			</tr>
+			{/if}
 			{if isset($MYSQL_SUPPORT)}
 			<tr>
 				<td>{$TR_MYSQL_SUPPORT}</td>

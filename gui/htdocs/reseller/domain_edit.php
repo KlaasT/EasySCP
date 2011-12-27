@@ -42,47 +42,48 @@ $tpl->assign(
 	array(
 		'TR_PAGE_TITLE'			=> tr('EasySCP - Domain/Edit'),
 		'TR_EDIT_DOMAIN'		=> tr('Edit Domain'),
-		'TR_DOMAIN_PROPERTIES'	=> tr('Domain properties'),
+		'TR_DOMAIN_PROPERTIES'          => tr('Domain properties'),
 		'TR_DOMAIN_NAME'		=> tr('Domain name'),
 		'TR_DOMAIN_EXPIRE'		=> tr('Domain expire'),
 		'TR_DOMAIN_IP'			=> tr('Domain IP'),
 		'TR_PHP_SUPP'			=> tr('PHP support'),
 		'TR_CGI_SUPP'			=> tr('CGI support'),
+                'TR_SSL_SUPP'                   => tr('SSL support'),
 		'TR_DNS_SUPP'			=> tr('Manual DNS support'),
 		'TR_SUBDOMAINS'			=> tr('Max subdomains<br /><em>(-1 disabled, 0 unlimited)</em>'),
-		'TR_ALIAS'				=> tr('Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>'),
+		'TR_ALIAS'			=> tr('Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>'),
 		'TR_MAIL_ACCOUNT'		=> tr('Mail accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>'),
 		'TR_FTP_ACCOUNTS'		=> tr('FTP accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>'),
-		'TR_SQL_DB'				=> tr('SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>'),
+		'TR_SQL_DB'			=> tr('SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>'),
 		'TR_SQL_USERS'			=> tr('SQL users limit<br /><em>(-1 disabled, 0 unlimited)</em>'),
 		'TR_TRAFFIC'			=> tr('Traffic limit [MB]<br /><em>(0 unlimited)</em>'),
-		'TR_DISK'				=> tr('Disk limit [MB]<br /><em>(0 unlimited)</em>'),
+		'TR_DISK'			=> tr('Disk limit [MB]<br /><em>(0 unlimited)</em>'),
 		'TR_USER_NAME'			=> tr('Username'),
-		'TR_BACKUP'				=> tr('Backup'),
+		'TR_BACKUP'			=> tr('Backup'),
 		'TR_BACKUP_DOMAIN'		=> tr('Domain'),
 		'TR_BACKUP_SQL'			=> tr('SQL'),
 		'TR_BACKUP_FULL'		=> tr('Full'),
 		'TR_BACKUP_NO'			=> tr('No'),
 		'TR_UPDATE_DATA'		=> tr('Submit changes'),
-		'TR_CANCEL'				=> tr('Cancel'),
-		'TR_YES'				=> tr('Yes'),
-		'TR_NO'					=> tr('No'),
-		'TR_EXPIRE_CHECKBOX'	=> tr('or check if domain should <strong>never</strong> expire'),
-		'TR_SU'					=> tr('Su'),
-		'TR_MO'					=> tr('Mo'),
-		'TR_TU'					=> tr('Tu'),
-		'TR_WE'					=> tr('We'),
-		'TR_TH'					=> tr('Th'),
-		'TR_FR'					=> tr('Fr'),
-		'TR_SA'					=> tr('Sa'),
+		'TR_CANCEL'			=> tr('Cancel'),
+		'TR_YES'			=> tr('Yes'),
+		'TR_NO'				=> tr('No'),
+		'TR_EXPIRE_CHECKBOX'            => tr('or check if domain should <strong>never</strong> expire'),
+		'TR_SU'				=> tr('Su'),
+		'TR_MO'				=> tr('Mo'),
+		'TR_TU'				=> tr('Tu'),
+		'TR_WE'				=> tr('We'),
+		'TR_TH'				=> tr('Th'),
+		'TR_FR'				=> tr('Fr'),
+		'TR_SA'				=> tr('Sa'),
 		'TR_JANUARY'			=> tr('January'),
 		'TR_FEBRUARY'			=> tr('February'),
-		'TR_MARCH'				=> tr('March'),
-		'TR_APRIL'				=> tr('April'),
-		'TR_MAY'				=> tr('May'),
-		'TR_JUNE'				=> tr('June'),
-		'TR_JULY'				=> tr('July'),
-		'TR_AUGUST'				=> tr('August'),
+		'TR_MARCH'			=> tr('March'),
+		'TR_APRIL'			=> tr('April'),
+		'TR_MAY'			=> tr('May'),
+		'TR_JUNE'			=> tr('June'),
+		'TR_JULY'			=> tr('July'),
+		'TR_AUGUST'			=> tr('August'),
 		'TR_SEPTEMBER'			=> tr('September'),
 		'TR_OCTOBER'			=> tr('October'),
 		'TR_NOVEMBER'			=> tr('November'),
@@ -178,7 +179,7 @@ function load_user_data($user_id, $domain_id) {
  */
 function load_additional_data($user_id, $domain_id) {
 	global $domain_name, $domain_expires, $domain_ip, $php_sup;
-	global $cgi_supp, $username, $allowbackup;
+	global $cgi_supp, $ssl_supp, $username, $allowbackup;
 	global $dns_supp;
 
 	$sql = EasySCP_Registry::get('Db');
@@ -192,6 +193,7 @@ function load_additional_data($user_id, $domain_id) {
 			`domain_ip_id`,
 			`domain_php`,
 			`domain_cgi`,
+                        `domain_ssl`,
 			`domain_admin_id`,
 			`allowbackup`,
 			`domain_dns`
@@ -217,11 +219,12 @@ function load_additional_data($user_id, $domain_id) {
 	}
 
 	$domain_ip_id		= $data['domain_ip_id'];
-	$php_sup			= $data['domain_php'];
-	$cgi_supp			= $data['domain_cgi'];
+	$php_sup		= $data['domain_php'];
+	$cgi_supp		= $data['domain_cgi'];
+        $ssl_supp               = $data['domain_ssl'];
 	$allowbackup		= $data['allowbackup'];
 	$domain_admin_id	= $data['domain_admin_id'];
-	$dns_supp			= $data['domain_dns'];
+	$dns_supp		= $data['domain_dns'];
 	// Get IP of domain
 	$query = "
 		SELECT
@@ -263,7 +266,7 @@ function load_additional_data($user_id, $domain_id) {
  */
 function gen_editdomain_page($tpl) {
 	global $domain_name, $domain_expires, $domain_new_expire, $domain_ip, $php_sup;
-	global $cgi_supp , $sub, $als;
+	global $cgi_supp, $ssl_supp, $sub, $als;
 	global $mail, $ftp, $sql_db;
 	global $sql_user, $traff, $disk;
 	global $username, $allowbackup;
@@ -338,6 +341,8 @@ function gen_editdomain_page($tpl) {
 			'PHP_NO'					=> ($php_sup != 'yes') ? $cfg->HTML_SELECTED : '',
 			'CGI_YES'					=> ($cgi_supp == 'yes') ? $cfg->HTML_SELECTED : '',
 			'CGI_NO'					=> ($cgi_supp != 'yes') ? $cfg->HTML_SELECTED : '',
+			'SSL_YES'					=> ($ssl_supp == 'yes') ? $cfg->HTML_SELECTED : '',
+			'SSL_NO'					=> ($ssl_supp != 'yes') ? $cfg->HTML_SELECTED : '',
 			'DNS_YES'					=> ($dns_supp == 'yes') ? $cfg->HTML_SELECTED : '',
 			'DNS_NO'					=> ($dns_supp != 'yes') ? $cfg->HTML_SELECTED : '',
 			'VL_EXPIRE_DATE_DISABLED'	=> ($domain_expires == 0) ? $cfg->HTML_DISABLED : '',
@@ -368,7 +373,7 @@ function gen_editdomain_page($tpl) {
 function check_user_data($tpl, $sql, $reseller_id, $user_id) {
 
 	global $sub, $als, $mail, $ftp, $sql_db, $sql_user, $traff, $disk, $sql,
-		$domain_php, $domain_cgi, $allowbackup, $domain_dns, $domain_expires;
+		$domain_php, $domain_cgi, $domain_ssl, $allowbackup, $domain_dns, $domain_expires;
 
 	$domain_expires_date  = (isset($_POST['dmn_expire_date'])) ? clean_input($_POST['dmn_expire_date']) : 0;
 	$domain_expires_never = (isset($_POST['dmn_expire_never'])) ? $_POST['dmn_expire_never'] : "off";
@@ -384,6 +389,7 @@ function check_user_data($tpl, $sql, $reseller_id, $user_id) {
 	// $domain_ip = $_POST['domain_ip'];
 	$domain_php		= preg_replace("/\_/", "", $_POST['domain_php']);
 	$domain_cgi		= preg_replace("/\_/", "", $_POST['domain_cgi']);
+        $domain_ssl		= preg_replace("/\_/", "", $_POST['domain_ssl']);
 	$domain_dns		= preg_replace("/\_/", "", $_POST['domain_dns']);
 	$allowbackup	= preg_replace("/\_/", "", $_POST['backup']);
 
@@ -520,6 +526,7 @@ function check_user_data($tpl, $sql, $reseller_id, $user_id) {
 		// $user_props .= "$domain_ip;";
 		$user_props .= "$domain_php;";
 		$user_props .= "$domain_cgi;";
+                $user_props .= "$domain_ssl;";
 		$user_props .= "$allowbackup;";
 		$user_props .= "$domain_dns";
 		update_user_props($user_id, $user_props);
