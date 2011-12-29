@@ -2304,9 +2304,9 @@ sub sort_domains {
 ## SN tag. In case  where the SN tag was never generated, $wrkFile should
 ## contains the prepared SN tag like:
 ##
-## ; dmn [ispcp.net] timestamp entry BEGIN.
+## ; dmn [easyscp.net] timestamp entry BEGIN.
 ##                {TIMESTAMPS}      ; Serial
-## ; dmn [ispcp.net] timestamp entry END.
+## ; dmn [easyscp.net] timestamp entry END.
 ##
 ## @author  Laurent Declercq <laurent.declercq@ispcp.net>
 ## @since   1.0.7

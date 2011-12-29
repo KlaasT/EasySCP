@@ -1,8 +1,14 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2011-12-29 Markus Szywon
+	- Engine:
+		* Some fixes
+	- GUI:
+		* Some small fixes
+
 2011-12-27 Tom Winterhalder
 	- GUI:
 		* Added SSL support
-        -DB:
+        - Config:
                 * Added fields for SSL support
