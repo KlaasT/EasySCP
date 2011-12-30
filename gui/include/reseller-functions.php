@@ -1315,7 +1315,7 @@ function gen_domain_details($tpl, $sql, $domain_id) {
 			while (!$alias_rs->EOF) {
 				$alias_name = $alias_rs->fields['alias_name'];
 
-				$tpl->assign('ALIAS_DOMAIN', tohtml(decode_idna($alias_name)));
+				$tpl->append('ALIAS_DOMAIN', tohtml(decode_idna($alias_name)));
 
 				$alias_rs->moveNext();
 			}
