@@ -105,10 +105,10 @@
 						<a href="domain_delete.php?domain_id={$DOMAIN_ID[i]}" title="{$TR_DELETE}" class="icon i_delete"></a>
 					</td>
 				</tr>
-				{if isset($ALIAS_DOMAIN)}
+				{if isset($ALIAS_DOMAIN[1])}
 				<tr>
 					<td style="width:50px">&nbsp;</td>
-					<td colspan="4"><a href="http://www.{$ALIAS_DOMAIN}/" class="icon i_goto">{$ALIAS_DOMAIN}</a></td>
+					<td colspan="4"><a href="http://www.{$ALIAS_DOMAIN[1]}/" title="{$ALIAS_DOMAIN[1]}" class="icon i_goto">{$ALIAS_DOMAIN[1]}</a></td>
 				</tr>
 				{/if}
 				{/section}
