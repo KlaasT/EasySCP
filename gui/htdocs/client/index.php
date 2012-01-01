@@ -378,7 +378,7 @@ function check_user_permissions($tpl, $dmn_sqld_limit, $dmn_sqlu_limit, $dmn_php
 		$tpl->assign( array('CGI_SUPPORT' => tr('Yes')));
 	}
 
-	// check if CGI Support is available for this user
+	// check if SSL Support is available for this user
 	if ($dmn_ssl == 'yes') {
 		$tpl->assign( array('SSL_SUPPORT' => tr('Yes')));
 	}        

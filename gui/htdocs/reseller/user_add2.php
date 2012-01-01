@@ -97,7 +97,6 @@ if (isset($_POST['uaction'])
 	unset($_SESSION['step_one']);
 	global $dmn_chp;
 	get_hp_data($dmn_chp, $_SESSION['user_id']);
-	$tpl->assign('MESSAGE', '');
 }
 
 get_init_au2_page($tpl);
@@ -358,7 +357,6 @@ function check_user_data($tpl) {
 	}
 
 	if (empty($ehp_error) && empty($_SESSION['user_page_message'])) {
-		$tpl->assign('MESSAGE', '');
 		// send data through session
 		return true;
 	} else {

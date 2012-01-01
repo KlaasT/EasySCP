@@ -71,7 +71,7 @@
 		</table>
 		<h2 class="users"><span>{$TR_RESELLERS}</span></h2>
 		{if isset($RSL_MESSAGE)}
-		<div class="warning">{$RSL_MESSAGE}</div>
+		<div class="info">{$RSL_MESSAGE}</div>
 		{/if}
 		{if isset($RSL_USERNAME)}
 		<table class="tablesorter">
@@ -125,7 +125,7 @@
 			</p>
 		</form>
 		{if isset($USR_MESSAGE)}
-		<div class="warning">{$USR_MESSAGE}</div>
+		<div class="info">{$USR_MESSAGE}</div>
 		{/if}
 		{if isset($USR_USERNAME)}
 		<table class="tablesorter">

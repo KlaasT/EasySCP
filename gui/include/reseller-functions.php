@@ -1309,9 +1309,7 @@ function gen_domain_details($tpl, $sql, $domain_id) {
 		";
 		$alias_rs = exec_query($sql, $alias_query, $domain_id);
 
-		if ($alias_rs->recordCount() == 0) {
-			$tpl->assign('USER_DETAILS', '');
-		} else {
+		if ($alias_rs->recordCount() != 0) {
 			while (!$alias_rs->EOF) {
 				$alias_name = $alias_rs->fields['alias_name'];
 
