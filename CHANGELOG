@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-01-01 Markus Szywon
+	- GUI:
+		* Update language files
+
 2011-12-29 Markus Szywon
 	- Engine:
 		* Some fixes
