@@ -25,8 +25,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Νέα Ελληνικά - Greek"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega ένα σύστημα ελέγχου εικονικής φιλοξενίας στο internet"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP ένα σύστημα ελέγχου εικονικής φιλοξενίας στο internet"
 
 msgid "Administrator login"
 msgstr "Είσοδος Διαχειριστή"

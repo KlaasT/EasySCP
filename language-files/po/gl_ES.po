@@ -28,8 +28,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Galego - Galician"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega un Sistema de Control de Hospedaxe Virtual"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP un Sistema de Control de Hospedaxe Virtual"
 
 msgid "Administrator login"
 msgstr "Inicio de sesión de administrador"

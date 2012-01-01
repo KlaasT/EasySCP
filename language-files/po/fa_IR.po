@@ -28,7 +28,7 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "ایران) فارسی) - Iranian (Farsi)"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
 msgstr "آی اس پی سی پی امگا - سیستم کنترل پنل مجازی"
 
 msgid "Administrator login"

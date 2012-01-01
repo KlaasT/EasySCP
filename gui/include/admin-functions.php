@@ -86,6 +86,7 @@ function gen_admin_mainmenu($tpl, $menu_file) {
 			'TR_MAINTENANCEMODE'			=> tr('Maintenance mode'),
 			'TR_GENERAL_SETTINGS'			=> tr('General settings'),
 			'TR_SERVERPORTS'				=> tr('Server ports'),
+			'TR_MANAGE_SSL'					=> tr('Manage SSL certificate'),
 			'TR_OPEN_TICKETS'				=> tr('Open tickets'),
 			'TR_CLOSED_TICKETS'				=> tr('Closed tickets'),
 			'PMA_PATH'						=> $cfg->PMA_PATH,
@@ -195,7 +196,7 @@ function gen_admin_menu($tpl, $menu_file) {
 			'TR_GENERAL_SETTINGS'			=> tr('General settings'),
 			'TR_SERVERPORTS'				=> tr('Server ports'),
 			'TR_MENU_IP_USAGE'				=> tr('IP Usage'),
-			'TR_MANAGE_SSL'				=> tr('Manage SSL certificate'),
+			'TR_MANAGE_SSL'					=> tr('Manage SSL certificate'),
 			'VERSION'						=> $cfg->Version,
 			'BUILDDATE'						=> $cfg->BuildDate,
 			'CODENAME'						=> $cfg->CodeName

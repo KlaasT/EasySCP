@@ -25,8 +25,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Dansk - Danish"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega er et Virtuelt Hosting Kontrol System"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP er et Virtuelt Hosting Kontrol System"
 
 msgid "Administrator login"
 msgstr "Administrator logind"

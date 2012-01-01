@@ -23,8 +23,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Suomi - Finnish"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP a Virtual Hosting Control System"
 
 msgid "Administrator login"
 msgstr "Pääkäyttäjän kirjautuminen"

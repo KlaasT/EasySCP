@@ -22,8 +22,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Magyar (Magyarország) - Hungarian (Hungary)"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega egy Virtuális Tárhely Kezelő Rendszer"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP egy Virtuális Tárhely Kezelő Rendszer"
 
 msgid "Administrator login"
 msgstr "Adminisztrátori belépés"

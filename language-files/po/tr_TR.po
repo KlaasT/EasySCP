@@ -1,5 +1,5 @@
-# EasySCP Omega Turkish Language File
-# EasySCP Omega Türkçe Dil Dosyası
+# EasySCP Turkish Language File
+# EasySCP Türkçe Dil Dosyası
 # Copyright (C) 2008 EasySCP Team
 # This file is distributed under the same license as the PACKAGE package.
 # VOLKAN KIRIK <volkirik@yahoo.com.tr>, 2008
@@ -28,8 +28,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Türkçe - Turkish"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega Sanal Barındırma Kontrol Sistemi"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP Sanal Barındırma Kontrol Sistemi"
 
 msgid "Administrator login"
 msgstr "Yönetici Girişi"
