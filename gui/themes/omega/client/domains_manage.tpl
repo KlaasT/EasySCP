@@ -2,10 +2,6 @@
 <body>
 	<script type="text/javascript">
 	/* <![CDATA[ */
-		jQuery(document).ready(function(){
-			jQuery('.tablesorter').tablesorter({ cssHeader: 'tablesorter'});
-		});
-
 		function action_delete(url, subject) {
 			if (!confirm(sprintf("{$TR_MESSAGE_DELETE}", subject)))
 				return false;

@@ -2,17 +2,6 @@
 <body>
 	<script type="text/javascript">
 	/* <![CDATA[ */
-		{literal}
-		$(document).ready(function(){
-			// Target - begin
-			$('a.i_goto').attr('rel', 'external').attr('target', '_blank');
-			// Target - end
-
-			// TableSorter - begin
-			$('.tablesorter').tablesorter({cssHeader: 'tablesorter'});
-			// TableSorter - end
-		});
-		{/literal}
 		function change_status(dom_id, dmn_name) {
 			if (!confirm(sprintf("Are you sure you want to change the status of %s?", dmn_name)))
 				return false;
