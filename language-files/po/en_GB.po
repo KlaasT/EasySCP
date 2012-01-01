@@ -1,11 +1,11 @@
-#
-msgid ""
-msgstr ""
+# EasySCP English translation.
+# Copyright (C) 2010-2012 EasySCP Team
+# This file is distributed under the same license as the PACKAGE package.
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-21 20:54+0100\n"
-"PO-Revision-Date: 2009-12-18 14:29+0100\n"
-"Last-Translator: Laurent Declercq <l.declercq@nuxwin.com>\n"
+"POT-Creation-Date: 2012-01-01 11:00+0100\n"
+"PO-Revision-Date: 2012-01-01 11:00+0100\n"
+"Last-Translator: Markus Szywon <markus.szywon@easyscp.net>\n"
 "Language-Team: English (Britain) <en_GB@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,7 @@ msgstr ""
 "X-Generator: x64PoPot 0.2\n"
 "X-Poedit-Language: EnglishBritain\n"
 "X-Poedit-Country: GREAT BRITAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #. Please ignore this entry
 msgid "encoding"
@@ -3450,9 +3451,6 @@ msgstr ""
 msgid "Update Hosting Package"
 msgstr ""
 
-msgid "Manage SSL certificate"
-msgstr ""
-
 msgid "Domain mail"
 msgstr ""
 
@@ -4358,4 +4356,11 @@ msgid "Path is relativ to your root directory. The mount point will contain a su
 msgstr ""
 
 msgid "Can't use an existing folder as mount point!"
+msgstr ""
+
+# SSL Konfiguration
+msgid "Manage SSL certificate"
+msgstr ""
+
+msgid "SSL support"
 msgstr ""

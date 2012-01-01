@@ -1,11 +1,10 @@
-# translation of de_DE.po to Deutsch
-#
-msgid ""
-msgstr ""
+# EasySCP German translation.
+# Copyright (C) 2010-2012 EasySCP Team
+# This file is distributed under the same license as the PACKAGE package.
 "Project-Id-Version: de_DE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-28 20:41+0100\n"
-"PO-Revision-Date: 2011-12-23 01:14+0100\n"
+"POT-Creation-Date: 2012-01-01 11:00+0100\n"
+"PO-Revision-Date: 2012-01-01 11:00+0100\n"
 "Last-Translator: Markus Szywon <markus.szywon@easyscp.net>\n"
 "Language-Team: German (Germany) <de_DE@li.org>\n"
 "Language: \n"
@@ -3460,9 +3459,6 @@ msgstr "FTP-Zugänge"
 msgid "Update Hosting Package"
 msgstr "Tarifwechsel"
 
-msgid "Manage SSL certificate"
-msgstr "SSL Zertifikat verwalten"
-
 msgid "Domain mail"
 msgstr "Domain-E-Mail"
 
@@ -4654,3 +4650,10 @@ msgstr "Ein bereits existierender Ordner kann nicht als mount point verwendet we
 #~ msgid ""
 #~ "You have more SQL database users in use than the new hosting plan limits"
 #~ msgstr "Sie haben mehr Datenbanknutzer als im neuen Tarif vorgesehen."
+
+# SSL Konfiguration
+msgid "Manage SSL certificate"
+msgstr "SSL Zertifikat verwalten"
+
+msgid "SSL support"
+msgstr ""
