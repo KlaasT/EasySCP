@@ -213,7 +213,7 @@ function update_ftp_account($sql, $ftp_acc, $dmn_name) {
 						`ftp_users`
 					SET
 						`passwd` = ?,
-						`net2ftppasswd` = ?,
+						`net2ftppasswd` = ?
 					WHERE
 						`userid` = ?
 				";
