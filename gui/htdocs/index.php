@@ -38,10 +38,10 @@ if (isset($_POST['uname'])
 	&& !empty($_POST['uname'])
 	&& !empty($_POST['upass'])) {
 
-	$uname = encode_idna($_POST['uname']);
-
 	check_input(trim($_POST['uname']));
 	check_input(trim($_POST['upass']));
+
+	$uname = encode_idna($_POST['uname']);
 
 	if (register_user($uname, $_POST['upass'])) {
 		redirect_to_level_page();

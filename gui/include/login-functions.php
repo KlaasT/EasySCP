@@ -121,8 +121,11 @@ function init_login() {
 function username_exists($username) {
 
 	$sql = EasySCP_Registry::get('Db');
-
-	$username = encode_idna($username);
+        /* TODO remove double encoding thwint 11.1.2011
+         * To be deleted. Encoding of username occures twice. This could lead
+         * to errors with domain/usernames containing umlaut.
+         */
+        //$username = encode_idna($username);
 
 	$query = "
 		SELECT
