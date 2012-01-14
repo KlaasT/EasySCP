@@ -3571,9 +3571,6 @@ msgstr "Altua"
 msgid "Very high"
 msgstr "Oso altua"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Erabiltzailea/Web Tresnak"
-
 msgid "Webtools"
 msgstr "Web tresnak"
 

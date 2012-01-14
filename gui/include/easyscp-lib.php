@@ -22,8 +22,8 @@
  */
 
 /**
- * This is the primarly file that should be included in all the EasySCP's user
- * levels scripts such as all scripts that live under gui/{admin,reseller,client}
+ * This is the primary file that should be included in all the EasySCP's user
+ * levels scripts such as all scripts that live under gui/htdocs/{admin,reseller,client}
  */
 
 // Set default error reporting level
@@ -38,12 +38,10 @@ ini_set('display_errors', 1);
 define('INCLUDEPATH', dirname(__FILE__));
 
 /**
- * Autoloading classes
- *
- * @todo switch to POO
+ * Register the AutoLoader for needed Classes
  */
-require_once INCLUDEPATH . '/easyscp-loader.php';
-spl_autoload_register('autoload_class');
+require_once INCLUDEPATH . '/easyscp-autoloader.php';
+spl_autoload_register('AutoLoader::loadClass');
 
 /**
  * Exception Handler for uncaught exceptions

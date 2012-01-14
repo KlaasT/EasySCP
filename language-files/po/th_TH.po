@@ -3435,9 +3435,6 @@ msgstr ""
 msgid "Very high"
 msgstr ""
 
-msgid "EasySCP - Client/Webtools"
-msgstr ""
-
 msgid "Webtools"
 msgstr ""
 

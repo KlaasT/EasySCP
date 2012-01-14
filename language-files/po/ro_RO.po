@@ -3545,9 +3545,6 @@ msgstr "Ridicat"
 msgid "Very high"
 msgstr "Foarte ridicat"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Client/ Instrumente Web"
-
 msgid "Webtools"
 msgstr "Instrumente Web"
 

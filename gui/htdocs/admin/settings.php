@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -63,6 +63,7 @@ if (isset($_POST['uaction']) && $_POST['uaction'] == 'apply') {
 	$max_dnames_labels = clean_input($_POST['max_dnames_labels']);
 	$max_subdnames_labels = clean_input($_POST['max_subdnames_labels']);
 	$log_level = defined($_POST['log_level']) ? constant($_POST['log_level']) : false;
+	$migration_enabled = $_POST['migration_enabled'];
 
 	if ((!is_number($lostpwd_timeout))
 		|| (!is_number($pwd_chars))
@@ -115,6 +116,7 @@ if (isset($_POST['uaction']) && $_POST['uaction'] == 'apply') {
 		$db_cfg->SLD_STRICT_VALIDATION = $sld_strict_validation;
 		$db_cfg->MAX_DNAMES_LABELS = $max_dnames_labels;
 		$db_cfg->MAX_SUBDNAMES_LABELS = $max_subdnames_labels;
+		$db_cfg->MIGRATION_ENABLED = $migration_enabled;
 
 		$cfg->replaceWith($db_cfg);
 
@@ -338,6 +340,14 @@ switch ($cfg->LOG_LEVEL) {
 		$tpl->assign('LOG_LEVEL_SELECTED_ERROR', $html_selected);
 } // end switch
 
+if ($cfg->MIGRATION_ENABLED) {
+	$tpl->assign('MIGRATION_ENABLED_SELECTED_ON', $html_selected);
+	$tpl->assign('MIGRATION_ENABLED_SELECTED_OFF', '');
+} else {
+	$tpl->assign('MIGRATION_ENABLED_SELECTED_ON', '');
+	$tpl->assign('MIGRATION_ENABLED_SELECTED_OFF', $html_selected);
+}
+
 // static page messages
 $tpl->assign(
 	array(
@@ -390,7 +400,8 @@ $tpl->assign(
 		'TR_SLD_STRICT_VALIDATION'			=> tr('Second Level Domain name strict validation'),
 		'TR_SLD_STRICT_VALIDATION_HELP'		=> tr('Single letter Second Level Domains (SLD) are not allowed under the most Top Level Domains (TLD). There is a small list of exceptions, e.g. the TLD .de.'),
 		'TR_MAX_DNAMES_LABELS'				=> tr('Maximal number of labels for domain names<br />(<em>Excluding SLD & TLD</em>)'),
-		'TR_MAX_SUBDNAMES_LABELS'			=> tr('Maximal number of labels for subdomains')
+		'TR_MAX_SUBDNAMES_LABELS'			=> tr('Maximal number of labels for subdomains'),
+		'TR_MIGRATION_ENABLED'				=> tr('Allow Migration/Import from other Panels')
 	)
 );
 

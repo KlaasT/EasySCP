@@ -3588,9 +3588,6 @@ msgstr "Alto"
 msgid "Very high"
 msgstr "Muy alto"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Cliente/Herramientas Web"
-
 msgid "Webtools"
 msgstr "Herramientas Web"
 

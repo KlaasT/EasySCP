@@ -3564,9 +3564,6 @@ msgstr "Hög"
 msgid "Very high"
 msgstr "Mycket hög"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Kund/Webbverktyg"
-
 msgid "Webtools"
 msgstr "Webbverktyg"
 

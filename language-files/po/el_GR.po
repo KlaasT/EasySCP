@@ -3594,9 +3594,6 @@ msgstr "Υψηλό"
 msgid "Very high"
 msgstr "Πολύ υψηλό"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Πελάτης/Εργαλεία Web"
-
 msgid "Webtools"
 msgstr "Εργαλεία Web"
 

@@ -3,7 +3,7 @@
 # EasySCP a Virtual Hosting Control Panel
 # Copyright (C) 2001-2006 by moleSoftware GmbH - http://www.molesoftware.com
 # Copyright (C) 2006-2010 by isp Control Panel - http://ispcp.net
-# Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+# Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
 #
 # The contents of this file are subject to the Mozilla Public License
 # Version 1.1 (the "License"); you may not use this file except in

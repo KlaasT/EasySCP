@@ -21,24 +21,24 @@
  * @author 		EasySCP Team
  */
 
-require '../../include/easyscp-lib.php';
+/**
+ * Autoloader for classes
+ */
 
-check_login(__FILE__);
+class AutoLoader {
 
-// we need to check only if all vars are OK
-// admin can walk into all interfaces
-if (isset($_SESSION['user_id']) && isset($_GET['to_id'])) {
-	$from_id = $_SESSION['user_id'];
+	/**
+	 * Load the required class if they exists
+	 *
+	 * @param string $className Class name to be loaded
+	 */
+	public static function loadClass($className) {
 
-	$to_id = $_GET['to_id'];
-	// admin logged as an other admin:
-	if (isset($_SESSION['logged_from']) && isset($_SESSION['logged_from_id'])) {
-		$from_id = $_SESSION['logged_from_id'];
-	} else {
-		$from_id = $_SESSION['user_id'];
+		$path = str_replace('_', '/', $className);
+
+		if(file_exists(INCLUDEPATH . '/' . $path . '.php')) {
+			require_once INCLUDEPATH . '/' . $path . '.php';
+		}
 	}
-
-	change_user_interface($from_id, $to_id);
-} else {
-	user_goto('manage_users.php');
 }
+?>

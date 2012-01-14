@@ -3553,9 +3553,6 @@ msgstr "高"
 msgid "Very high"
 msgstr "非常高"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - 客戶/Web工具"
-
 msgid "Webtools"
 msgstr "Web工具"
 

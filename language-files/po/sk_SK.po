@@ -3294,9 +3294,6 @@ msgstr "Veľa"
 msgid "Very high"
 msgstr "Veľmi veľa"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Klient/Web nástroje"
-
 msgid "Webtools"
 msgstr "Web nástroje"
 

@@ -1,5 +1,5 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR EasySCP Team
+# EasySCP LANGUAGE translation.
+# Copyright (C) 2010-2012 EasySCP Team
 # This file is distributed under the same license as the PACKAGE package.
 msgid ""
 msgstr ""
@@ -13,11 +13,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: "
-"X-Poedit-Language: "
-"X-Poedit-Country: "
-"X-Poedit-SourceCharset: utf-8\n"
 
 #. Please ignore this entry
 msgid "encoding"
@@ -1343,9 +1338,6 @@ msgstr ""
 msgid "Directory listing"
 msgstr ""
 
-msgid "Logo upload"
-msgstr ""
-
 msgid "Support system"
 msgstr ""
 
@@ -2259,10 +2251,10 @@ msgstr ""
 msgid "Custom DNS record scheduled for deletion!"
 msgstr ""
 
-msgid "EasySCP - Manage Domain Alias/Add DNS zones record"
+msgid "EasySCP - Manage Domain Alias/Add DNS zone's record"
 msgstr ""
 
-msgid "EasySCP - Manage Domain Alias/Edit DNS zones record"
+msgid "EasySCP - Manage Domain Alias/Edit DNS zone's record"
 msgstr ""
 
 msgid "Add DNS zone's record"

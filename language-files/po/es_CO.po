@@ -3350,9 +3350,6 @@ msgstr "Alta"
 msgid "Very high"
 msgstr "Urgente"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Cliente/Herramientas web"
-
 msgid "Webtools"
 msgstr "Herramientas web"
 

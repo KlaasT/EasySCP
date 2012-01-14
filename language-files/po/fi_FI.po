@@ -3418,9 +3418,6 @@ msgstr "Suuri"
 msgid "Very high"
 msgstr "Todella suuri"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Asiakas / Web-työkalut"
-
 msgid "Webtools"
 msgstr "Web-työkalut"
 

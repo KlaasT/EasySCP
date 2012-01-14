@@ -1,6 +1,6 @@
 ﻿/**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@
 	padding: 0;
 }
 
+/*
 body {
 	background-color: #FFFFFF;
 }
@@ -112,3 +113,4 @@ td.content3 {
 	background-repeat: repeat-x;
 	border: 1px solid #326BC0;
 }
+*/

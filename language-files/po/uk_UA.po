@@ -3620,10 +3620,6 @@ msgstr "Високий"
 msgid "Very high"
 msgstr "Невідкладний"
 
-#, fuzzy
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Клієнт/Web-інструменти"
-
 msgid "Webtools"
 msgstr "Web-інструменти"
 

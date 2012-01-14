@@ -3364,9 +3364,6 @@ msgstr "高"
 msgid "Very high"
 msgstr "緊急"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - クライアント/Webツール"
-
 msgid "Webtools"
 msgstr "Webツール"
 

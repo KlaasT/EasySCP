@@ -106,16 +106,18 @@ class EasySCP_TemplateEngine {
 
 	/**
 	 * Returns the EasySCP_TemplateEngine template dir
+	 *
+	 * @return String template_dir the current EasySCP_TemplateEngine template dir
 	 */
-
 	public function get_template_dir() {
 		return $this->template_engine->getTemplateDir('EasySCP');
 	}
 
 	/**
 	 * Sets the EasySCP_TemplateEngine template dir
+	 *
+	 * @param String $dir The new EasySCP_TemplateEngine template dir
 	 */
-
 	public function set_template_dir($dir) {
 		$this->template_engine->setTemplateDir($dir);
 	}
