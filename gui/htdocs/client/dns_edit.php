@@ -248,7 +248,7 @@ function gen_editdns_page($tpl, $edit_id) {
 		$sel = '';
 		while ($row = $res->fetchRow()) {
 			$sel.= '<option value="' . $row['alias_id'] . '">' .
-					$row['domain_name'] . '</option>';
+					decode_idna($row['domain_name']) . '</option>';
 		}
 		$tpl->assign(
 			array(

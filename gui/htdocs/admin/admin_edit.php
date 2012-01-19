@@ -124,7 +124,7 @@ $tpl->assign(
 		'STREET_2'						=> empty($rs->fields['street2']) ? '' : tohtml($rs->fields['street2']),
 		'PHONE'							=> empty($rs->fields['phone']) ? '' : tohtml($rs->fields['phone']),
 		'FAX'							=> empty($rs->fields['fax']) ? '' : tohtml($rs->fields['fax']),
-		'USERNAME'						=> tohtml($admin_name),
+		'USERNAME'						=> decode_idna($admin_name),
 		'EMAIL'							=> tohtml($rs->fields['email']),
 		'VL_MALE'						=> (($rs->fields['gender'] === 'M') ? $cfg->HTML_SELECTED : ''),
 		'VL_FEMALE'						=> (($rs->fields['gender'] === 'F') ? $cfg->HTML_SELECTED : ''),

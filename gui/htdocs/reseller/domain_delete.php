@@ -90,8 +90,8 @@ function validate_domain_deletion($domain_id) {
 			'TR_REALLY_WANT_TO_DELETE_DOMAIN'	=> tr('Do you really want to delete the entire domain? This operation cannot be undone!'),
 			'TR_BUTTON_DELETE'	=> tr('Delete domain'),
 			'TR_YES_DELETE_DOMAIN'	=> tr('Yes, delete the domain.'),
-			'DOMAIN_NAME'		=> $data['domain_name'],
-			'DOMAIN_ID'			=> $data['domain_id']
+			'DOMAIN_NAME'		=> decode_idna($data['domain_name']),
+			'DOMAIN_ID'		=> $data['domain_id']
 		)
 	);
 
@@ -111,7 +111,7 @@ function validate_domain_deletion($domain_id) {
 
 			$tpl->append(
 				array(
-					'MAIL_ADDR' => tohtml($res->fields['mail_addr']),
+					'MAIL_ADDR' => decode_idna($res->fields['mail_addr']),
 					'MAIL_TYPE' => $mdisplay_txt
 				)
 			);
@@ -130,7 +130,7 @@ function validate_domain_deletion($domain_id) {
 
 			$tpl->append(
 				array(
-					'FTP_USER' => tohtml($res->fields['userid']),
+					'FTP_USER' => decode_idna($res->fields['userid']),
 					'FTP_HOME' => tohtml($res->fields['homedir'])
 				)
 			);
@@ -151,7 +151,7 @@ function validate_domain_deletion($domain_id) {
 
 			$tpl->append(
 				array(
-					'ALS_NAME' => tohtml($res->fields['alias_name']),
+					'ALS_NAME' => decode_idna($res->fields['alias_name']),
 					'ALS_MNT' => tohtml($res->fields['alias_mount'])
 				)
 			);
