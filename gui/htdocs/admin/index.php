@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -87,8 +87,7 @@ function gen_system_message($tpl, $sql) {
 		$tpl->assign(
 			array(
 				'TR_NEW_MSGS'	=> tr('You have <strong>%d</strong> new support questions', $num_question),
-				'NEW_MSG_TYPE'	=> 'info',
-				'TR_VIEW'		=> tr('View')
+				'NEW_MSG_TYPE'	=> 'info'
 			)
 		);
 	}
@@ -105,7 +104,7 @@ function get_update_infos($tpl) {
 	if (EasySCP_Update_Database::getInstance()->checkUpdateExists()) {
 		$tpl->assign(
 			array(
-				'DATABASE_UPDATE'	=> '<a href="database_update.php" class="link">' . tr('A database update is available') . '</a>',
+				'DATABASE_UPDATE'	=> '<a href="easyscp_updates.php" class="link">' . tr('A database update is available') . '</a>',
 				'DATABASE_MSG_TYPE'	=> 'info'
 			)
 		);

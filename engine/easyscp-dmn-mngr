@@ -2752,8 +2752,8 @@ sub dmn_add_crontab_data {
 	my $tpl_dir = "$conf_dir/cron.d/parts";
 	my $working_dir = "$conf_dir/cron.d/working";
 	my $backup_dir = "$conf_dir/cron.d/backup";
-	my $working_cfg = "$working_dir/ispcp";
-	my $backup_cfg = "$backup_dir/ispcp." . time();
+	my $working_cfg = "$working_dir/easyscp";
+	my $backup_cfg = "$backup_dir/easyscp." . time();
 
 	# Getting needed templates;
 
@@ -2836,7 +2836,7 @@ sub dmn_add_crontab_data {
 		);
 	} else {
 		$rs = sys_command_rs(
-			"$main::cfg{'CMD_CP'} /etc/cron.d/ispcp $backup_cfg"
+			"$main::cfg{'CMD_CP'} /etc/cron.d/easyscp $backup_cfg"
 		);
 	}
 
@@ -2885,8 +2885,8 @@ sub dmn_del_crontab_data {
 	my $tpl_dir = "$conf_dir/cron.d/parts";
 	my $working_dir = "$conf_dir/cron.d/working";
 	my $backup_dir = "$conf_dir/cron.d/backup";
-	my $working_cfg = "$working_dir/ispcp";
-	my $backup_cfg = "$backup_dir/ispcp." . time();
+	my $working_cfg = "$working_dir/easyscp";
+	my $backup_cfg = "$backup_dir/easyscp." . time();
 
 	# Getting needed templates;
 
@@ -2956,7 +2956,7 @@ sub dmn_del_crontab_data {
 		);
 	} else {
 		$rs = sys_command_rs(
-			"$main::cfg{'CMD_CP'} /etc/cron.d/ispcp $backup_cfg"
+			"$main::cfg{'CMD_CP'} /etc/cron.d/easyscp $backup_cfg"
 		);
 	}
 
@@ -3010,8 +3010,8 @@ sub dmn_add_bkp_crontab_data {
 	my $tpl_dir = "$conf_dir/cron.d/parts";
 	my $working_dir = "$conf_dir/cron.d/working";
 	my $backup_dir = "$conf_dir/cron.d/backup";
-	my $working_cfg = "$working_dir/ispcp";
-	my $backup_cfg = "$backup_dir/ispcp." . time;
+	my $working_cfg = "$working_dir/easyscp";
+	my $backup_cfg = "$backup_dir/easyscp." . time;
 
 	#
 	# Getting needed templates;
@@ -3090,7 +3090,7 @@ sub dmn_add_bkp_crontab_data {
 		);
 	} else {
 		$rs = sys_command_rs(
-			"$main::cfg{'CMD_CP'} /etc/cron.d/ispcp $backup_cfg"
+			"$main::cfg{'CMD_CP'} /etc/cron.d/easyscp $backup_cfg"
 		);
 	}
 
@@ -3141,8 +3141,8 @@ sub dmn_del_bkp_crontab_data {
 	my $tpl_dir = "$conf_dir/cron.d/parts";
 	my $working_dir = "$conf_dir/cron.d/working";
 	my $backup_dir = "$conf_dir/cron.d/backup";
-	my $working_cfg = "$working_dir/ispcp";
-	my $backup_cfg = "$backup_dir/ispcp." . time;
+	my $working_cfg = "$working_dir/easyscp";
+	my $backup_cfg = "$backup_dir/easyscp." . time;
 	#
 	# Getting needed templates;
 	#
@@ -3210,7 +3210,7 @@ sub dmn_del_bkp_crontab_data {
 		);
 	} else {
 		$rs = sys_command_rs(
-			"$main::cfg{'CMD_CP'} /etc/cron.d/ispcp $backup_cfg"
+			"$main::cfg{'CMD_CP'} /etc/cron.d/easyscp $backup_cfg"
 		);
 	}
 
@@ -3470,8 +3470,8 @@ sub dmn_add_awstats_cron {
 	my $tpl_dir = "$conf_dir/cron.d/parts";
 	my $working_dir = "$conf_dir/cron.d/working";
 	my $backup_dir = "$conf_dir/cron.d/backup";
-	my $working_cfg = "$working_dir/ispcp";
-	my $backup_cfg = "$backup_dir/ispcp." . time;
+	my $working_cfg = "$working_dir/easyscp";
+	my $backup_cfg = "$backup_dir/easyscp." . time;
 	my $user_lang = 'en';
 	my $awstats_root_dir = $main::cfg{'AWSTATS_ROOT_DIR'};
 	my $awstats_engine_dir = $main::cfg{'AWSTATS_ENGINE_DIR'};
@@ -3620,7 +3620,7 @@ sub dmn_add_awstats_cron {
 		);
 	} else {
 		$rs = sys_command_rs(
-			"$main::cfg{'CMD_CP'} /etc/cron.d/ispcp $backup_cfg"
+			"$main::cfg{'CMD_CP'} /etc/cron.d/easyscp $backup_cfg"
 		);
 	}
 
@@ -3668,8 +3668,8 @@ sub dmn_del_awstats_cron {
 	my $tpl_dir = "$conf_dir/cron.d/parts";
 	my $working_dir = "$conf_dir/cron.d/working";
 	my $backup_dir = "$conf_dir/cron.d/backup";
-	my $working_cfg = "$working_dir/ispcp";
-	my $backup_cfg = "$backup_dir/ispcp." . time;
+	my $working_cfg = "$working_dir/easyscp";
+	my $backup_cfg = "$backup_dir/easyscp." . time;
 
 	#
 	# Getting needed templates;
@@ -3731,7 +3731,7 @@ sub dmn_del_awstats_cron {
 		);
 	} else {
 		$rs = sys_command_rs(
-			"$main::cfg{'CMD_CP'} /etc/cron.d/ispcp $backup_cfg"
+			"$main::cfg{'CMD_CP'} /etc/cron.d/easyscp $backup_cfg"
 		);
 	}
 

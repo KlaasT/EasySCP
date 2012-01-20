@@ -135,8 +135,6 @@ if (isset($_POST['uaction'])) {
 	if(isset($_SESSION['alias_added_succesfully'])) {
 		set_page_message(tr('Domain alias added!'), 'success');
 		unset($_SESSION['alias_added_succesfully']);
-	} else {
-		$tpl->assign("PAGE_MESSAGE", '');
 	}
 }
 
