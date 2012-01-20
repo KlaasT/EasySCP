@@ -25,8 +25,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Nederlands - Dutch"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega een Virtueel Hosting Beheer Systeem"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP een Virtueel Hosting Beheer Systeem"
 
 msgid "Administrator login"
 msgstr "Beheerder login"
@@ -3548,9 +3548,6 @@ msgstr "Hoog"
 
 msgid "Very high"
 msgstr "Zeer hoog"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Client/Webtools"
 
 msgid "Webtools"
 msgstr "Webtools"

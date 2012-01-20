@@ -4,7 +4,7 @@
  *
  * @copyright 	2001-2006 by moleSoftware GmbH
  * @copyright 	2006-2010 by ispCP | http://isp-control.net
- * @copyright 	2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * @copyright 	2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  * @link 		http://www.easyscp.net
  * @author 		EasySCP Team
  *
@@ -28,7 +28,7 @@
  * Portions created by the ispCP Team are Copyright (C) 2006-2010 by
  * isp Control Panel. All Rights Reserved.
  *
- * Portions created by the EasySCP Team are Copyright (C) 2010-2011 by
+ * Portions created by the EasySCP Team are Copyright (C) 2010-2012 by
  * Easy Server Control Panel. All Rights Reserved.
  */
 
@@ -1398,7 +1398,7 @@ function calc_bar_value($value, $value_max, $bar_width) {
 		return 0;
 	} else {
 		$ret_value = ($value * $bar_width) / $value_max;
-		return ($ret_value > $bar_width) ? $bar_width : $ret_value;
+		return ($ret_value > $bar_width) ? $bar_width : round($ret_value, 3);
 	}
 }
 

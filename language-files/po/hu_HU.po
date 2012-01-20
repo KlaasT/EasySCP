@@ -22,8 +22,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Magyar (Magyarország) - Hungarian (Hungary)"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega egy Virtuális Tárhely Kezelő Rendszer"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP egy Virtuális Tárhely Kezelő Rendszer"
 
 msgid "Administrator login"
 msgstr "Adminisztrátori belépés"
@@ -1476,7 +1476,7 @@ msgstr "A létrehozott jelszót a 'CTRL+C' kombinációval lehet a vágólapra m
 #, php-format
 msgid "EasySCP NOTICE:\\n\\nThe `Enter` key is disabled for performance reasons!\\nInstead, use the %s button to update the data."
 msgstr "EasySCP MEGJEGYZÉS:\\n\\nAz \"Enter\" billentyű letiltva a jobb teljesítés "
-"érdekében\\nHelyette a(z) % gomb használható az adatok frissítéséhez."
+"érdekében\\nHelyette a(z) %s gomb használható az adatok frissítéséhez."
 
 msgid "EasySCP - Admin/Reseller statistics"
 msgstr "EasySCP - Adminisztrator / Viszonteladói statisztika"
@@ -2934,11 +2934,11 @@ msgstr "Aldomain álnevek"
 
 #, php-format
 msgid "%s list is empty! You cannot add mail accounts!"
-msgstr "A(z) %d lista üres! Nem lehet több e-mail fiókot felvenni!"
+msgstr "A(z) %s lista üres! Nem lehet több e-mail fiókot felvenni!"
 
 #, php-format
 msgid "%s ID is invalid! You cannot add mail accounts!"
-msgstr "Érvénytelen a(z) %d azonosító! Nem lehet több e-mail fiókot felvenni!"
+msgstr "Érvénytelen a(z) %s azonosító! Nem lehet több e-mail fiókot felvenni!"
 
 msgid "Forward list is empty!"
 msgstr "A továbbítási lista üres!"
@@ -3161,11 +3161,11 @@ msgstr "A létrehozni kívánt felhasználó már létezik!"
 
 #, php-format
 msgid "User was assigned to the %s group"
-msgstr "Felhasználó hozzáadva a(z) % csoporthoz"
+msgstr "Felhasználó hozzáadva a(z) %s csoporthoz"
 
 #, php-format
 msgid "User was deleted from the %s group."
-msgstr "Felhasználó törölve a(z) % csoportból"
+msgstr "Felhasználó törölve a(z) %s csoportból"
 
 msgid "User assign"
 msgstr "Felhasználó csoporttagságának kezelése"
@@ -3400,9 +3400,6 @@ msgstr "Magas"
 
 msgid "Very high"
 msgstr "Nagyon magas"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Ügyfél / Webes eszközök"
 
 msgid "Webtools"
 msgstr "Webes eszközök"
@@ -3877,7 +3874,7 @@ msgid ""
 "\n"
 "You have an answer for this ticket:\n"
 msgstr ""
-"Tisztelt {NAME}!\n"
+"Tisztelt %s!\n"
 "\n"
 "Válasz érkezett a következő hibajegyre:\n"
 
@@ -4601,7 +4598,7 @@ msgstr "EasySCP - Felhasználók"
 
 #, php-format
 msgid "Are you sure you want to change the status of %s?"
-msgstr "Biztos, hogy megváltozzon a(z) %d domain státusza?"
+msgstr "Biztos, hogy megváltozzon a(z) %s domain státusza?"
 
 msgid "Stats"
 msgstr "Statisztikák"

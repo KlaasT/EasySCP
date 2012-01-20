@@ -4,7 +4,7 @@
  *
  * @copyright 	2001-2006 by moleSoftware GmbH
  * @copyright 	2006-2010 by ispCP | http://isp-control.net
- * @copyright 	2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * @copyright 	2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  * @version 	SVN: $Id$
  * @link 		http://www.easyscp.net
  * @author 		EasySCP Team
@@ -29,7 +29,7 @@
  * Portions created by the ispCP Team are Copyright (C) 2006-2010 by
  * isp Control Panel. All Rights Reserved.
  *
- * Portions created by the EasySCP Team are Copyright (C) 2010-2011 by
+ * Portions created by the EasySCP Team are Copyright (C) 2010-2012 by
  * Easy Server Control Panel. All Rights Reserved.
  */
 
@@ -1309,13 +1309,11 @@ function gen_domain_details($tpl, $sql, $domain_id) {
 		";
 		$alias_rs = exec_query($sql, $alias_query, $domain_id);
 
-		if ($alias_rs->recordCount() == 0) {
-			$tpl->assign('USER_DETAILS', '');
-		} else {
+		if ($alias_rs->recordCount() != 0) {
 			while (!$alias_rs->EOF) {
 				$alias_name = $alias_rs->fields['alias_name'];
 
-				$tpl->assign('ALIAS_DOMAIN', tohtml(decode_idna($alias_name)));
+				$tpl->append('ALIAS_DOMAIN', tohtml(decode_idna($alias_name)));
 
 				$alias_rs->moveNext();
 			}

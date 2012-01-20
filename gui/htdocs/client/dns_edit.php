@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -39,8 +39,8 @@ $add_mode = preg_match('~dns_add.php~', $_SERVER['REQUEST_URI']);
 $tpl->assign(
 	array(
 		'TR_PAGE_TITLE'			=> ($add_mode)
-			? tr("EasySCP - Manage Domain Alias/Add DNS zones record")
-			: tr("EasySCP - Manage Domain Alias/Edit DNS zones record"),
+			? tr("EasySCP - Manage Domain Alias/Add DNS zone's record")
+			: tr("EasySCP - Manage Domain Alias/Edit DNS zone's record"),
 		'ACTION_MODE'			=> ($add_mode) ? 'dns_add.php' : 'dns_edit.php?edit_id={ID}',
 		'TR_MODIFY'				=> tr('Modify'),
 		'TR_CANCEL'				=> tr('Cancel'),
@@ -248,7 +248,7 @@ function gen_editdns_page($tpl, $edit_id) {
 		$sel = '';
 		while ($row = $res->fetchRow()) {
 			$sel.= '<option value="' . $row['alias_id'] . '">' .
-					$row['domain_name'] . '</option>';
+					decode_idna($row['domain_name']) . '</option>';
 		}
 		$tpl->assign(
 			array(

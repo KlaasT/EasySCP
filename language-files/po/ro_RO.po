@@ -24,8 +24,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Română - Romanian"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega un Sistem Virtual De Control al Hostingului"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP un Sistem Virtual De Control al Hostingului"
 
 msgid "Administrator login"
 msgstr "Autentificare Administrator"
@@ -3544,9 +3544,6 @@ msgstr "Ridicat"
 
 msgid "Very high"
 msgstr "Foarte ridicat"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Client/ Instrumente Web"
 
 msgid "Webtools"
 msgstr "Instrumente Web"

@@ -27,6 +27,7 @@
 				defaultDate: '+1y',
 				minDate: new Date()
 			});
+			jQuery('#ui-datepicker-div').hide();
 		});
 	/* ]]> */
 	</script>

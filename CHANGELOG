@@ -1,8 +1,39 @@
-EasySCP 1.1.1 ChangeLog
+EasySCP 1.1.2 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2011-12-29 Markus Szywon
+2012-01-18 Markus Szywon
 	- Engine:
 		* Some fixes
-        - GUI:
-                * Some small fixes
+	- GUI:
+		* Some fixes
+
+2012-01-12 Tom Winterhalder
+	- GUI:
+		* Fixed: Double encoding of username
+
+2012-01-08 Markus Szywon
+	- Engine:
+   		* Some fixes
+	- GUI:
+		* Update language files
+
+2012-01-04 Markus Szywon
+	- GUI:
+		* Fixed: Server traffic was shown in wrong way
+
+2012-01-03 Markus Szywon
+	- GUI:
+		* Fixed: Get error when try to change the ftp user password
+
+2012-01-01 Markus Szywon
+	- Engine:
+    		* Some fixes
+	- GUI:
+		* Update language files
+		* Fixed: Expiration date cannot be set when create new domain
+		* Fixed: Sort order of users doesn't work
+		* Some small fixes
+
+2011-12-30 Tom Winterhalder
+	- GUI:
+		* Fixed: Multiplying of alias entries

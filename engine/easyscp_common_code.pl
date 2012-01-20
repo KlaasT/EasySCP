@@ -3,7 +3,7 @@
 # EasySCP a Virtual Hosting Control Panel
 # Copyright (C) 2001-2006 by moleSoftware GmbH - http://www.molesoftware.com
 # Copyright (C) 2006-2010 by isp Control Panel - http://ispcp.net
-# Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+# Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
 #
 # The contents of this file are subject to the Mozilla Public License
 # Version 1.1 (the "License"); you may not use this file except in
@@ -23,6 +23,9 @@
 #
 # Portions created by the ispCP Team are Copyright (C) 2006-2010 by
 # isp Control Panel. All Rights Reserved.
+#
+# Portions created by the EasySCP Team are Copyright (C) 2010-2012 by
+# Easy Server Control Panel. All Rights Reserved.
 
 BEGIN {
 
@@ -121,9 +124,7 @@ if ($main::db_pass_key eq '{KEY}' || $main::db_pass_iv eq '{IV}') {
 		"wait...\n";
 
 	print STDOUT "\tIf it takes to long, please check: ".
-	 "http://isp-control.net/documentation/frequently_asked_questions/what".
-	 "_does_generating_database_keys_it_may_take_some_time_please_wait..._on_".
-	 "setup_mean\n";
+	 "http://www.easyscp,net\n";
 
 	map {s/'/\\'/g, chop}
 		my $db_pass_key = generateRandomChars(32, ''),

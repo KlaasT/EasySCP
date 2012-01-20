@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -217,11 +217,11 @@ function load_additional_data($user_id, $domain_id) {
 	}
 
 	$domain_ip_id		= $data['domain_ip_id'];
-	$php_sup			= $data['domain_php'];
-	$cgi_supp			= $data['domain_cgi'];
+	$php_sup		= $data['domain_php'];
+	$cgi_supp		= $data['domain_cgi'];
 	$allowbackup		= $data['allowbackup'];
 	$domain_admin_id	= $data['domain_admin_id'];
-	$dns_supp			= $data['domain_dns'];
+	$dns_supp		= $data['domain_dns'];
 	// Get IP of domain
 	$query = "
 		SELECT

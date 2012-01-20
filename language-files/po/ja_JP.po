@@ -34,8 +34,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "日本語 - Japanese"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega バーチャルホスティングコントロールシステム"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP バーチャルホスティングコントロールシステム"
 
 msgid "Administrator login"
 msgstr "管理者ログイン"
@@ -3363,9 +3363,6 @@ msgstr "高"
 
 msgid "Very high"
 msgstr "緊急"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - クライアント/Webツール"
 
 msgid "Webtools"
 msgstr "Webツール"

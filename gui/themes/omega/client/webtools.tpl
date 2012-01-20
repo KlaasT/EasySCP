@@ -27,23 +27,57 @@
 		<div class="{$MSG_TYPE}">{$MESSAGE}</div>
 		{/if}
 		<h2 class="tools"><span>{$TR_MENU_WEBTOOLS}</span></h2>
-	   	<a href="protected_areas.php">{$TR_HTACCESS}</a>
-		<p>{$TR_HTACCESS_TEXT}</p>
-		<a href="protected_user_manage.php">{$TR_HTACCESS_USER}</a>
-		<p>{$TR_HTACCESS_USER}</p>
-		<a href="error_pages.php">{$TR_ERROR_PAGES}</a>
-		<p>{$TR_ERROR_PAGES_TEXT}</p>
-		<a href="backup.php">{$TR_BACKUP}</a>
-		<p>{$TR_BACKUP_TEXT}</p>
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_htaccessicon">&nbsp;</span></td>
+				<td><a href="protected_areas.php">{$TR_HTACCESS}</a><br />{$TR_HTACCESS_TEXT}</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_usersicon">&nbsp;</span></td>
+				<td><a href="protected_user_manage.php">{$TR_HTACCESS_USER}</a><br />{$TR_HTACCESS_USER}</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_errordocsicon">&nbsp;</span></td>
+				<td><a href="error_pages.php">{$TR_ERROR_PAGES}</a><br />{$TR_ERROR_PAGES_TEXT}</td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_backupicon">&nbsp;</span></td>
+				<td><a href="backup.php">{$TR_BACKUP}</a><br />{$TR_BACKUP_TEXT}</td>
+			</tr>
+		</table>
 		{if isset($WEBMAIL_PATH)}
-		<a href="{$WEBMAIL_PATH}">{$TR_WEBMAIL}</a>
-		<p>{$TR_WEBMAIL_TEXT}</p>
+		<br />
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_webmailicon">&nbsp;</span></td>
+				<td><a href="{$WEBMAIL_PATH}" class="external">{$TR_WEBMAIL}</a><br />{$TR_WEBMAIL_TEXT}</td>
+			</tr>
+		</table>
 		{/if}
-		<a href="{$FILEMANAGER_PATH}">{$TR_FILEMANAGER}</a>
-		<p>{$TR_FILEMANAGER_TEXT}</p>
+		<br />
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_filemanagericon">&nbsp;</span></td>
+				<td><a href="{$FILEMANAGER_PATH}" class="external">{$TR_FILEMANAGER}</a><br />{$TR_FILEMANAGER_TEXT}</td>
+			</tr>
+		</table>
 		{if isset($AWSTATS_PATH)}
-		<a href="{$AWSTATS_PATH}">{$TR_AWSTATS}</a>
-		<p>{$TR_AWSTATS_TEXT}</p>
+		<br />
+		<table>
+			<tr>
+				<td style="width: 50px;"><span class="icon_big i_awstatsicon">&nbsp;</span></td>
+				<td><a href="{$AWSTATS_PATH}" class="external">{$TR_AWSTATS}</a><br />{$TR_AWSTATS_TEXT}</td>
+			</tr>
+		</table>
 		{/if}
 	</div>
 {include file='client/footer.tpl'}

@@ -25,8 +25,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Norsk (Bokmål) - Norwegian (Bokmål)"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP a Virtual Hosting Control System"
 
 msgid "Administrator login"
 msgstr "Administrator login"
@@ -3583,9 +3583,6 @@ msgstr "Høy"
 
 msgid "Very high"
 msgstr "Veldig høy"
-
-msgid "EasySCP - Client/Webtools"
-msgstr ""
 
 msgid "Webtools"
 msgstr "Webverktøy"

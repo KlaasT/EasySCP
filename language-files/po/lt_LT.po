@@ -23,8 +23,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Lietuviø - Lithuanian"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega yra Virtualaus Hostingo Valdymo Sistema"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP yra Virtualaus Hostingo Valdymo Sistema"
 
 msgid "Administrator login"
 msgstr "Administratoriaus prisijungimas"
@@ -3528,9 +3528,6 @@ msgid "High"
 msgstr ""
 
 msgid "Very high"
-msgstr ""
-
-msgid "EasySCP - Client/Webtools"
 msgstr ""
 
 msgid "Webtools"

@@ -23,7 +23,7 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Português (Brazil) - Portuguese (Brasil)"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
 msgstr "EasySCP - Sistema de Controle de Hospedagem Virtual"
 
 msgid "Administrator login"
@@ -3575,9 +3575,6 @@ msgstr "Alto"
 
 msgid "Very high"
 msgstr "Urgente"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Cliente / Ferramentas Web"
 
 msgid "Webtools"
 msgstr "Ferramentas Web"

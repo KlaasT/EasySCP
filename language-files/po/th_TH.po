@@ -23,7 +23,7 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "ไทย - Thai"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
 msgstr ""
 
 msgid "Administrator login"
@@ -3433,9 +3433,6 @@ msgid "High"
 msgstr ""
 
 msgid "Very high"
-msgstr ""
-
-msgid "EasySCP - Client/Webtools"
 msgstr ""
 
 msgid "Webtools"

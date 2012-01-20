@@ -1,14 +1,11 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR EasySCP Team
+# EasySCP LANGUAGE translation.
+# Copyright (C) 2010-2012 EasySCP Team
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-21 20:54+0100\n"
+"POT-Creation-Date: 2012-01-01 11:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +16,7 @@ msgstr ""
 
 #. Please ignore this entry
 msgid "encoding"
-msgstr ""
+msgstr "UTF-8"
 
 #. Please fill in the language you are translating to in the following form:
 #. native language name (native country name) - english language name (english country name)
@@ -540,22 +537,22 @@ msgstr ""
 msgid "Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr ""
 
-msgid "Mail accounts limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "Mail accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr ""
 
-msgid "FTP accounts limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "FTP accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr ""
 
-msgid "SQL databases limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr ""
 
-msgid "SQL users limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "SQL users limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr ""
 
-msgid "Traffic limit [MB] <br /><em>(0 unlimited)</em>"
+msgid "Traffic limit [MB]<br /><em>(0 unlimited)</em>"
 msgstr ""
 
-msgid "Disk limit [MB] <br /><em>(0 unlimited)</em>"
+msgid "Disk limit [MB]<br /><em>(0 unlimited)</em>"
 msgstr ""
 
 msgid "Backup"
@@ -641,7 +638,7 @@ msgid "The <em>%s</em> service cannot be disabled! "
 msgstr ""
 
 #, php-format
-msgid "There are <em>%s</em> records on system!"
+msgid "There are <em>%s</em> records on the system!"
 msgstr ""
 
 #, php-format
@@ -969,9 +966,6 @@ msgid "orphan entry"
 msgstr ""
 
 msgid "No htaccess related system errors"
-msgstr ""
-
-msgid "Missing domain"
 msgstr ""
 
 #, php-format
@@ -1344,9 +1338,6 @@ msgstr ""
 msgid "Directory listing"
 msgstr ""
 
-msgid "Logo upload"
-msgstr ""
-
 msgid "Support system"
 msgstr ""
 
@@ -1427,7 +1418,7 @@ msgid "Type `CTRL+C` to copy the generated password in the clipboard."
 msgstr ""
 
 #, php-format
-msgid "EasySCP NOTICE:\\n\\nThe `Enter` key is disabled for performance reasons!\\nInstead, use the %s button to update the data."
+msgid "EasySCP NOTICE:\n\nThe `Enter` key is disabled for performance reasons!\nInstead, use the %s button to update the data."
 msgstr ""
 
 msgid "EasySCP - Admin/Reseller statistics"
@@ -2260,10 +2251,10 @@ msgstr ""
 msgid "Custom DNS record scheduled for deletion!"
 msgstr ""
 
-msgid "EasySCP - Manage Domain Alias/Add DNS zones record"
+msgid "EasySCP - Manage Domain Alias/Add DNS zone's record"
 msgstr ""
 
-msgid "EasySCP - Manage Domain Alias/Edit DNS zones record"
+msgid "EasySCP - Manage Domain Alias/Edit DNS zone's record"
 msgstr ""
 
 msgid "Add DNS zone's record"
@@ -2672,10 +2663,7 @@ msgid "[EasySCP OrderPanel] - You have an update order"
 msgstr ""
 
 #, php-format
-msgid ""
-"You have an update order for the account %s\n"
-"\n"
-"Please login into your EasySCP control panel at %s for more details"
+msgid "You have an update order for the account %s\n\nPlease login into your EasySCP control panel at %s for more details"
 msgstr ""
 
 msgid "Your request for hosting pack update was removed successfully"
@@ -3451,9 +3439,6 @@ msgstr ""
 msgid "Update Hosting Package"
 msgstr ""
 
-msgid "Manage SSL certificate"
-msgstr ""
-
 msgid "Domain mail"
 msgstr ""
 
@@ -3484,125 +3469,34 @@ msgstr ""
 msgid "Welcome {USERNAME} to EasySCP!"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"\n"
-"A new EasySCP account has been created for you.\n"
-"Your account information:\n"
-"\n"
-"User type: {USERTYPE}\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Remember to change your password often and the first time you login.\n"
-"\n"
-"You can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Statistics: {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/{USERNAME}/stats/\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Best wishes with EasySCP!\n"
-"The EasySCP Team.\n"
-"\n"
+msgid "\n\nHello {NAME}!\n\nA new EasySCP account has been created for you.\nYour account information:\n\nUser type: {USERTYPE}\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nRemember to change your password often and the first time you login.\n\nYou can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nStatistics: {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/{USERNAME}/stats/\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nBest wishes with EasySCP!\nThe EasySCP Team.\n\n"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"\n"
-"A new EasySCP account has been created for you.\n"
-"Your account information:\n"
-"\n"
-"User type: {USERTYPE}\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Remember to change your password often and the first time you login.\n"
-"\n"
-"You can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Best wishes with EasySCP!\n"
-"The EasySCP Team.\n"
-"\n"
+msgid "\n\nHello {NAME}!\n\nA new EasySCP account has been created for you.\nYour account information:\n\nUser type: {USERTYPE}\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nRemember to change your password often and the first time you login.\n\nYou can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nBest wishes with EasySCP!\nThe EasySCP Team.\n\n"
 msgstr ""
 
 msgid "Please activate your new EasySCP password!"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"Use this link to activate your new EasySCP password:\n"
-"\n"
-"{LINK}\n"
-"\n"
-"Good Luck with the EasySCP System\n"
-"The EasySCP Team\n"
-"\n"
+msgid "\n\nHello {NAME}!\nUse this link to activate your new EasySCP password:\n\n{LINK}\n\nGood Luck with the EasySCP System\nThe EasySCP Team\n\n"
 msgstr ""
 
 msgid "Your new EasySCP login!"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"\n"
-"Your user name is: {USERNAME}\n"
-"Your password is: {PASSWORD}\n"
-"\n"
-"You can login at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Best wishes with EasySCP!\n"
-"The EasySCP Team\n"
-"\n"
+msgid "\n\nHello {NAME}!\n\nYour user name is: {USERNAME}\nYour password is: {PASSWORD}\n\nYou can login at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nBest wishes with EasySCP!\nThe EasySCP Team\n\n"
 msgstr ""
 
 msgid "Confirmation for domain order {DOMAIN}!"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Dear {NAME},\n"
-"This is an automatic confirmation for the order of the domain:\n"
-"\n"
-"{DOMAIN}\n"
-"\n"
-"You have to click the following link to continue the domain creation process.\n"
-"\n"
-"{ACTIVATE_LINK}\n"
-"\n"
-"Thank you for using EasySCP services.\n"
-"The EasySCP Team\n"
-"\n"
+msgid "\n\nDear {NAME},\nThis is an automatic confirmation for the order of the domain:\n\n{DOMAIN}\n\nYou have to click the following link to continue the domain creation process.\n\n{ACTIVATE_LINK}\n\nThank you for using EasySCP services.\nThe EasySCP Team\n\n"
 msgstr ""
 
 msgid "New alias order for {CUSTOMER}!"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Dear {RESELLER},\n"
-"Your customer {CUSTOMER} is awaiting for the approval of his new alias:\n"
-"\n"
-"{ALIAS}\n"
-"\n"
-"Once logged in, you can activate his new alias at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n"
-"\n"
-"Thank you for using EasySCP services.\n"
-"The EasySCP Team\n"
-"\n"
+msgid "\n\nDear {RESELLER},\nYour customer {CUSTOMER} is awaiting for the approval of his new alias:\n\n{ALIAS}\n\nOnce logged in, you can activate his new alias at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n\nThank you for using EasySCP services.\nThe EasySCP Team\n\n"
 msgstr ""
 
 msgid "Your message has been sent!"
@@ -3636,17 +3530,11 @@ msgid "[Ticket]"
 msgstr ""
 
 #, php-format
-msgid ""
-"Hello %s!\n"
-"\n"
-"You have a new ticket:\n"
+msgid "Hello %s!\n\nYou have a new ticket:\n"
 msgstr ""
 
 #, php-format
-msgid ""
-"Hello %s!\n"
-"\n"
-"You have an answer for this ticket:\n"
+msgid "Hello %s!\n\nYou have an answer for this ticket:\n"
 msgstr ""
 
 #, php-format
@@ -3837,14 +3725,7 @@ msgstr ""
 msgid "You have a new order"
 msgstr ""
 
-msgid ""
-"\n"
-"\n"
-"Dear {RESELLER},\n"
-"you have a new order from {NAME} <{MAIL}> for domain {DOMAIN}\n"
-"\n"
-"Please login into your EasySCP control panel for more details.\n"
-"\n"
+msgid "\n\nDear {RESELLER},\nyou have a new order from {NAME} <{MAIL}> for domain {DOMAIN}\n\nPlease login into your EasySCP control panel for more details.\n\n"
 msgstr ""
 
 msgid "Your order has been successfully created."
@@ -4359,4 +4240,24 @@ msgid "Path is relativ to your root directory. The mount point will contain a su
 msgstr ""
 
 msgid "Can't use an existing folder as mount point!"
+msgstr ""
+
+# SSL Configuration
+msgid "Manage SSL certificate"
+msgstr ""
+
+msgid "SSL support"
+msgstr ""
+
+# Migration
+msgid "Allow Migration/Import from other Panels"
+msgstr ""
+
+msgid "Data Migration/Import from other Panels"
+msgstr ""
+
+msgid "Available migrations"
+msgstr ""
+
+msgid "Execute migration"
 msgstr ""

@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -38,10 +38,10 @@ if (isset($_POST['uname'])
 	&& !empty($_POST['uname'])
 	&& !empty($_POST['upass'])) {
 
-	$uname = encode_idna($_POST['uname']);
-
 	check_input(trim($_POST['uname']));
 	check_input(trim($_POST['upass']));
+
+	$uname = encode_idna($_POST['uname']);
 
 	if (register_user($uname, $_POST['upass'])) {
 		redirect_to_level_page();

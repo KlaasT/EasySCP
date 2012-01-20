@@ -87,13 +87,13 @@
 			<span class="icon i_next_gray">&nbsp;</span>
 			{/if}
 			{if !isset($SCROLL_NEXT)}
-			<a href="manage_users.php?psi={$NEXT_PSI}" title="next" class="icon i_next">next</a>
+			<a href="alias.php?psi={$NEXT_PSI}" title="next" class="icon i_next">next</a>
 			{/if}
 			{if !isset($SCROLL_PREV_GRAY)}
 			<span class="icon i_prev_gray">&nbsp;</span>
 			{/if}
 			{if !isset($SCROLL_PREV)}
-			<a href="manage_users.php?psi={$PREV_PSI}" title="previous" class="icon i_prev">previous</a>
+			<a href="alias.php?psi={$PREV_PSI}" title="previous" class="icon i_prev">previous</a>
 			{/if}
 		</div>
 	</div>

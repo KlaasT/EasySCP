@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -290,11 +290,12 @@ function gen_user_sub_list($tpl, $sql, $user_id) {
 			list($sub_action, $sub_action_script) = gen_user_sub_action($rs->fields['subdomain_id'], $rs->fields['subdomain_status']);
 			list($sub_forward, $sub_edit_link, $sub_edit) = gen_user_sub_forward($rs->fields['subdomain_id'], $rs->fields['subdomain_status'], $rs->fields['subdomain_url_forward'], 'dmn');
 			$sbd_name = decode_idna($rs->fields['subdomain_name']);
+			$dmn_name = decode_idna($rs->fields['domain_name']);
 			$sub_forward = decode_idna($sub_forward);
 			$tpl->append(
 				array(
 					'SUB_NAME'			=> tohtml($sbd_name),
-					'SUB_ALIAS_NAME'	=> tohtml($rs->fields['domain_name']),
+					'SUB_ALIAS_NAME'	=> tohtml($dmn_name),
 					'SUB_MOUNT'			=> tohtml($rs->fields['subdomain_mount']),
 					'SUB_FORWARD'		=> $sub_forward,
 					'SUB_STATUS'		=> translate_dmn_status($rs->fields['subdomain_status']),

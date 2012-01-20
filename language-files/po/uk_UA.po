@@ -24,7 +24,7 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Українська - Ukrainian"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
 msgstr ""
 
 msgid "Administrator login"
@@ -3619,10 +3619,6 @@ msgstr "Високий"
 
 msgid "Very high"
 msgstr "Невідкладний"
-
-#, fuzzy
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Клієнт/Web-інструменти"
 
 msgid "Webtools"
 msgstr "Web-інструменти"

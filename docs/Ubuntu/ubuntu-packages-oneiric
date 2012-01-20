@@ -75,6 +75,7 @@ php5-common
 php5-gd
 php5-mcrypt
 php5-mysql
+php5-suhosin
 policyd-weight
 postfix
 postgrey

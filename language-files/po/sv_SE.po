@@ -26,7 +26,7 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Svenska - Swedish"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
 msgstr "EasySCP Omega, ett virtuellt hanteringssystem för hosting"
 
 msgid "Administrator login"
@@ -3563,9 +3563,6 @@ msgstr "Hög"
 
 msgid "Very high"
 msgstr "Mycket hög"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Kund/Webbverktyg"
 
 msgid "Webtools"
 msgstr "Webbverktyg"

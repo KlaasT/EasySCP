@@ -23,7 +23,7 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Español (Argentina) - Spanish (Argentina)"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
+msgid "EasySCP a Virtual Hosting Control System"
 msgstr ""
 
 msgid "Administrator login"
@@ -3621,10 +3621,6 @@ msgstr "Alto"
 
 msgid "Very high"
 msgstr "Muy alto"
-
-#, fuzzy
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Cliente/Herramientas Web"
 
 msgid "Webtools"
 msgstr "Herramientas Web"

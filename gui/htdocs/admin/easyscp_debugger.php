@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -730,7 +730,7 @@ function get_error_htaccess($sql, $tpl) {
 		while (!$rs->EOF) {
 			$tpl->append(
 				array(
-					'TR_HTACCESS_NAME'	=> $rs->fields['domain_name'] == null ? tr('Missing domain') : tohtml($rs->fields['domain_name']) ,
+					'TR_HTACCESS_NAME'	=> $rs->fields['domain_name'] == null ? tr('missing domain') : tohtml($rs->fields['domain_name']) ,
 					'TR_HTACCESS_ERROR'	=> tohtml($rs->fields['status']),
 					'CHANGE_ID'			=> $rs->fields['id'],
 					'CHANGE_TYPE'		=> $rs->fields['type']

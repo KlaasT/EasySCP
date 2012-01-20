@@ -1,2674 +1,2677 @@
-#
+# EasySCP LANGUAGE translation.
+# Copyright (C) 2010-2012 EasySCP Team
+# This file is distributed under the same license as the PACKAGE package.
+# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: en_GB\n"
+"Project-Id-Version: EasySCP\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-21 20:54+0100\n"
-"PO-Revision-Date: 2009-12-18 14:29+0100\n"
-"Last-Translator: Laurent Declercq <l.declercq@nuxwin.com>\n"
-"Language-Team: English (Britain) <en_GB@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-01-01 11:00+0100\n"
+"PO-Revision-Date: 2012-01-08 22:03+0100\n"
+"Last-Translator: Markus Szywon <markus.szywon@easyscp.net>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.net/projects/p/EasySCP/team/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: x64PoPot 0.2\n"
-"X-Poedit-Language: EnglishBritain\n"
-"X-Poedit-Country: GREAT BRITAIN\n"
+"Language: en_GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #. Please ignore this entry
 msgid "encoding"
 msgstr "UTF-8"
 
 #. Please fill in the language you are translating to in the following form:
-#. native language name (native country name) - english language name (english country name)
+#. native language name (native country name) - english language name (english
+#. country name)
 msgid "_: Localised language"
 msgstr "English - English"
 
 msgid "EasySCP a Virtual Hosting Control System"
-msgstr ""
+msgstr "EasySCP a Virtual Hosting Control System"
 
 msgid "Administrator login"
-msgstr ""
+msgstr "Administrator login"
 
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 msgid "Username"
-msgstr ""
+msgstr "Username"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Please enter your login information"
-msgstr ""
+msgstr "Please enter your login information"
 
 msgid "Secure Connection"
-msgstr ""
+msgstr "Secure Connection"
 
 msgid "Normal Connection"
-msgstr ""
+msgstr "Normal Connection"
 
 msgid "Lost password"
-msgstr ""
+msgstr "Lost password"
 
 msgid "Retrieving lost passwords is currently not possible"
-msgstr ""
+msgstr "Retrieving lost passwords is currently not possible"
 
 msgid "EasySCP - Virtual Hosting Control System"
-msgstr ""
+msgstr "EasySCP - Virtual Hosting Control System"
 
 msgid "Your new password has been sent."
-msgstr ""
+msgstr "Your new password has been sent."
 
 msgid "New password could not been sent."
-msgstr ""
+msgstr "New password could not been sent."
 
 #, php-format
 msgid "Your password request has been initiated. You will receive an email with instructions to complete the process. This reset request will expire in %s minutes."
-msgstr ""
+msgstr "Your password request has been initiated. You will receive an email with instructions to complete the process. This reset request will expire in %s minutes."
 
 msgid "Back"
-msgstr ""
+msgstr "Back"
 
 msgid "User or security code was incorrect!"
-msgstr ""
+msgstr "User or security code was incorrect!"
 
 msgid "Retry"
-msgstr ""
+msgstr "Retry"
 
 msgid "Security code"
-msgstr ""
+msgstr "Security code"
 
 msgid "(To avoid abuse, we ask you to write the combination of letters on the above picture into the field \"Security code\")"
-msgstr ""
+msgstr "(To avoid abuse, we ask you to write the combination of letters on the above picture into the field \"Security code\")"
 
 msgid "Request password"
-msgstr ""
+msgstr "Request password"
 
 msgid "EasySCP - Admin/Manage users/Add User"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Add User"
 
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 msgid "Incorrect username length or syntax!"
-msgstr ""
+msgstr "Incorrect username length or syntax!"
 
 #, php-format
 msgid "The password must be at least %s chars long and contain letters and numbers to be valid."
-msgstr ""
+msgstr "The password must be at least %s chars long and contain letters and numbers to be valid."
 
 #, php-format
 msgid "Password data is shorter than %s signs or includes not permitted signs!"
-msgstr ""
+msgstr "Password data is shorter than %s signs or includes not permitted signs!"
 
 msgid "Entered passwords do not match!"
-msgstr ""
+msgstr "Entered passwords do not match!"
 
 msgid "Incorrect email length or syntax!"
-msgstr ""
+msgstr "Incorrect email length or syntax!"
 
 msgid "This user name already exist!"
-msgstr ""
+msgstr "This user name already exist!"
 
 msgid "Empty data or wrong field!"
-msgstr ""
+msgstr "Empty data or wrong field!"
 
 msgid "Passwords don't match!"
-msgstr ""
+msgstr "Passwords don't match!"
 
 msgid "Add admin"
-msgstr ""
+msgstr "Add admin"
 
 msgid "Core data"
-msgstr ""
+msgstr "Core data"
 
 msgid "Repeat password"
-msgstr ""
+msgstr "Repeat password"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Additional data"
-msgstr ""
+msgstr "Additional data"
 
 msgid "First name"
-msgstr ""
+msgstr "First name"
 
 msgid "Last name"
-msgstr ""
+msgstr "Last name"
 
 msgid "Gender"
-msgstr ""
+msgstr "Gender"
 
 msgid "Male"
-msgstr ""
+msgstr "Male"
 
 msgid "Female"
-msgstr ""
+msgstr "Female"
 
 msgid "Unknown"
-msgstr ""
+msgstr "Unknown"
 
 msgid "Company"
-msgstr ""
+msgstr "Company"
 
 msgid "Zip/Postal code"
-msgstr ""
+msgstr "Zip/Postal code"
 
 msgid "City"
-msgstr ""
+msgstr "City"
 
 msgid "State/Province"
-msgstr ""
+msgstr "State/Province"
 
 msgid "Country"
-msgstr ""
+msgstr "Country"
 
 msgid "Street 1"
-msgstr ""
+msgstr "Street 1"
 
 msgid "Street 2"
-msgstr ""
+msgstr "Street 2"
 
 msgid "Phone"
-msgstr ""
+msgstr "Phone"
 
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 msgid "Add"
-msgstr ""
+msgstr "Add"
 
 msgid "User session was killed!"
-msgstr ""
+msgstr "User session was killed!"
 
 msgid "Reseller"
-msgstr ""
+msgstr "Reseller"
 
 msgid "Domain account"
-msgstr ""
+msgstr "Domain account"
 
 msgid "EasySCP - Admin/Manage users/Edit Administrator"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Edit Administrator"
 
 msgid "EasySCP - Admin/Manage users/Edit User"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Edit User"
 
 msgid "Edit admin"
-msgstr ""
+msgstr "Edit admin"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Edit user"
 
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 msgid "Send new login data"
-msgstr ""
+msgstr "Send new login data"
 
 msgid "Generate password"
-msgstr ""
+msgstr "Generate password"
 
 msgid "Password change is disabled!"
-msgstr ""
+msgstr "Password change is disabled!"
 
 msgid "Demo Version!"
-msgstr ""
+msgstr "Demo Version!"
 
 msgid "EasySCP - Admin/Admin Log"
-msgstr ""
+msgstr "EasySCP - Admin/Admin Log"
 
 msgid "Log is empty!"
-msgstr ""
+msgstr "Log is empty!"
 
 #, php-format
 msgid "%s deleted the full admin log!"
-msgstr ""
+msgstr "%s deleted the full admin log!"
 
 #, php-format
 msgid "%s deleted the admin log older than two weeks!"
-msgstr ""
+msgstr "%s deleted the admin log older than two weeks!"
 
 #, php-format
 msgid "%s deleted the admin log older than one month!"
-msgstr ""
+msgstr "%s deleted the admin log older than one month!"
 
 #, php-format
 msgid "%s deleted the admin log older than three months!"
-msgstr ""
+msgstr "%s deleted the admin log older than three months!"
 
 #, php-format
 msgid "%s deleted the admin log older than six months!"
-msgstr ""
+msgstr "%s deleted the admin log older than six months!"
 
 #, php-format
 msgid "%s deleted the admin log older than one year!"
-msgstr ""
+msgstr "%s deleted the admin log older than one year!"
 
 msgid "Invalid time period!"
-msgstr ""
+msgstr "Invalid time period!"
 
 msgid "Admin Log"
-msgstr ""
+msgstr "Admin Log"
 
 msgid "Clear log"
-msgstr ""
+msgstr "Clear log"
 
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Delete from log:"
-msgstr ""
+msgstr "Delete from log:"
 
 msgid "everything"
-msgstr ""
+msgstr "everything"
 
 msgid "older than 2 weeks"
-msgstr ""
+msgstr "older than 2 weeks"
 
 msgid "older than 1 month"
-msgstr ""
+msgstr "older than 1 month"
 
 msgid "older than 3 months"
-msgstr ""
+msgstr "older than 3 months"
 
 msgid "older than 6 months"
-msgstr ""
+msgstr "older than 6 months"
 
 msgid "older than 12 months"
-msgstr ""
+msgstr "older than 12 months"
 
 msgid "EasySCP - Admin - Email Marketing"
-msgstr ""
+msgstr "EasySCP - Admin - Email Marketing"
 
 msgid "Please specify a message subject!"
-msgstr ""
+msgstr "Please specify a message subject!"
 
 msgid "Please specify a message content!"
-msgstr ""
+msgstr "Please specify a message content!"
 
 msgid "Please specify a sender name!"
-msgstr ""
+msgstr "Please specify a sender name!"
 
 msgid "Please specify a sender email!"
-msgstr ""
+msgstr "Please specify a sender email!"
 
 msgid "You send email to your users successfully!"
-msgstr ""
+msgstr "You send email to your users successfully!"
 
 msgid "Email marketing"
-msgstr ""
+msgstr "Email marketing"
 
 msgid "Send message to"
-msgstr ""
+msgstr "Send message to"
 
 msgid "All users"
-msgstr ""
+msgstr "All users"
 
 msgid "All resellers"
-msgstr ""
+msgstr "All resellers"
 
 msgid "All users & resellers"
-msgstr ""
+msgstr "All users & resellers"
 
 msgid "Message subject"
-msgstr ""
+msgstr "Message subject"
 
 msgid "Senders email"
-msgstr ""
+msgstr "Senders email"
 
 msgid "Senders name"
-msgstr ""
+msgstr "Senders name"
 
 msgid "Send message"
-msgstr ""
+msgstr "Send message"
 
 msgid "You have no custom menus."
-msgstr ""
+msgstr "You have no custom menus."
 
 msgid "User"
-msgstr ""
+msgstr "User"
 
 msgid "All"
-msgstr ""
+msgstr "All"
 
 msgid "Missing or incorrect data input!"
-msgstr ""
+msgstr "Missing or incorrect data input!"
 
 msgid "Invalid URL!"
-msgstr ""
+msgstr "Invalid URL!"
 
 msgid "Invalid target!"
-msgstr ""
+msgstr "Invalid target!"
 
 msgid "Custom menu data updated successful!"
-msgstr ""
+msgstr "Custom menu data updated successful!"
 
 msgid "Custom menu deleted successful!"
-msgstr ""
+msgstr "Custom menu deleted successful!"
 
 msgid "EasySCP - Admin - Manage custom menus"
-msgstr ""
+msgstr "EasySCP - Admin - Manage custom menus"
 
 msgid "Manage custom menus"
-msgstr ""
+msgstr "Manage custom menus"
 
 msgid "Add new button"
-msgstr ""
+msgstr "Add new button"
 
 msgid "Button name"
-msgstr ""
+msgstr "Button name"
 
 msgid "Button link"
-msgstr ""
+msgstr "Button link"
 
 msgid "Button target"
-msgstr ""
+msgstr "Button target"
 
 msgid "Button icon"
-msgstr ""
+msgstr "Button icon"
 
 msgid "Show in"
-msgstr ""
+msgstr "Show in"
 
 msgid "Administrator level"
-msgstr ""
+msgstr "Administrator level"
 
 msgid "Reseller level"
-msgstr ""
+msgstr "Reseller level"
 
 msgid "Enduser level"
-msgstr ""
+msgstr "Enduser level"
 
 msgid "Reseller and enduser level"
-msgstr ""
+msgstr "Reseller and enduser level"
 
 msgid "Menu button"
-msgstr ""
+msgstr "Menu button"
 
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 msgid "Edit"
-msgstr ""
+msgstr "Edit"
 
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 msgid "Level"
-msgstr ""
+msgstr "Level"
 
 msgid "Save"
-msgstr ""
+msgstr "Save"
 
 msgid "Edit button"
-msgstr ""
+msgstr "Edit button"
 
 #, php-format
 msgid "Are you sure you want to delete %s?"
-msgstr ""
+msgstr "Are you sure you want to delete %s?"
 
 msgid "Database updates"
-msgstr ""
+msgstr "Database updates"
 
 msgid "Available database updates"
-msgstr ""
+msgstr "Available database updates"
 
 msgid "Update details"
-msgstr ""
+msgstr "Update details"
 
 msgid "New Database update is now available"
-msgstr ""
+msgstr "New Database update is now available"
 
 msgid "Do you want to execute the Updates now?"
-msgstr ""
+msgstr "Do you want to execute the Updates now?"
 
 msgid "Execute updates"
-msgstr ""
+msgstr "Execute updates"
 
 msgid "No database updates available"
-msgstr ""
+msgstr "No database updates available"
 
 msgid "EasySCP - Domain/Details"
-msgstr ""
+msgstr "EasySCP - Domain/Details"
 
 msgid "Domain details"
-msgstr ""
+msgstr "Domain details"
 
 msgid "Domain name"
-msgstr ""
+msgstr "Domain name"
 
 msgid "Domain IP"
-msgstr ""
+msgstr "Domain IP"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "PHP support"
-msgstr ""
+msgstr "PHP support"
 
 msgid "CGI support"
-msgstr ""
+msgstr "CGI support"
 
 msgid "Manual DNS support"
-msgstr ""
+msgstr "Manual DNS support"
 
 msgid "Backup support"
-msgstr ""
+msgstr "Backup support"
 
 msgid "MySQL support"
-msgstr ""
+msgstr "MySQL support"
 
 msgid "Traffic in MB"
-msgstr ""
+msgstr "Traffic in MB"
 
 msgid "Disk in MB"
-msgstr ""
+msgstr "Disk in MB"
 
 msgid "Feature"
-msgstr ""
+msgstr "Feature"
 
 msgid "Used"
-msgstr ""
+msgstr "Used"
 
 msgid "Limit"
-msgstr ""
+msgstr "Limit"
 
 msgid "Mail accounts"
-msgstr ""
+msgstr "Mail accounts"
 
 msgid "FTP accounts"
-msgstr ""
+msgstr "FTP accounts"
 
 msgid "SQL databases"
-msgstr ""
+msgstr "SQL databases"
 
 msgid "SQL users"
-msgstr ""
+msgstr "SQL users"
 
 msgid "Subdomains"
-msgstr ""
+msgstr "Subdomains"
 
 msgid "Domain aliases"
-msgstr ""
+msgstr "Domain aliases"
 
 msgid "Submit changes"
-msgstr ""
+msgstr "Submit changes"
 
 msgid "Full"
-msgstr ""
+msgstr "Full"
 
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 msgid "Domain"
-msgstr ""
+msgstr "Domain"
 
 msgid "No"
-msgstr ""
+msgstr "No"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Enabled"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Disabled"
 
 msgid "EasySCP - Admin/Edit Domain"
-msgstr ""
+msgstr "EasySCP - Admin/Edit Domain"
 
 msgid "Edit Domain"
-msgstr ""
+msgstr "Edit Domain"
 
 msgid "Domain properties"
-msgstr ""
+msgstr "Domain properties"
 
 msgid "Domain expire"
-msgstr ""
+msgstr "Domain expire"
 
 msgid "New expire date"
-msgstr ""
+msgstr "New expire date"
 
 msgid "Max subdomains<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgstr "Max subdomains<br /><em>(-1 disabled, 0 unlimited)</em>"
 
 msgid "Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgstr "Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>"
 
-msgid "Mail accounts limit <br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgid "Mail accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
+msgstr "Mail accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 
-msgid "FTP accounts limit <br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgid "FTP accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
+msgstr "FTP accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 
-msgid "SQL databases limit <br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgid "SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>"
+msgstr "SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 
-msgid "SQL users limit <br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgid "SQL users limit<br /><em>(-1 disabled, 0 unlimited)</em>"
+msgstr "SQL users limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 
-msgid "Traffic limit [MB] <br /><em>(0 unlimited)</em>"
-msgstr ""
+msgid "Traffic limit [MB]<br /><em>(0 unlimited)</em>"
+msgstr "Traffic limit [MB]<br /><em>(0 unlimited)</em>"
 
-msgid "Disk limit [MB] <br /><em>(0 unlimited)</em>"
-msgstr ""
+msgid "Disk limit [MB]<br /><em>(0 unlimited)</em>"
+msgstr "Disk limit [MB]<br /><em>(0 unlimited)</em>"
 
 msgid "Backup"
-msgstr ""
+msgstr "Backup"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Yes"
-msgstr ""
+msgstr "Yes"
 
 msgid "In case 'Domain expire' is 'N/A', the expiration date will be set from today."
-msgstr ""
+msgstr "In case 'Domain expire' is 'N/A', the expiration date will be set from today."
 
 msgid "User does not exist or you do not have permission to access this interface!"
-msgstr ""
+msgstr "User does not exist or you do not have permission to access this interface!"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Incorrect subdomains limit!"
-msgstr ""
+msgstr "Incorrect subdomains limit!"
 
 msgid "Incorrect aliases limit!"
-msgstr ""
+msgstr "Incorrect aliases limit!"
 
 msgid "Incorrect mail accounts limit!"
-msgstr ""
+msgstr "Incorrect mail accounts limit!"
 
 msgid "Incorrect FTP accounts limit!"
-msgstr ""
+msgstr "Incorrect FTP accounts limit!"
 
 msgid "Incorrect SQL users limit!"
-msgstr ""
+msgstr "Incorrect SQL users limit!"
 
 msgid "SQL databases limit is <em>disabled</em>!"
-msgstr ""
+msgstr "SQL databases limit is <em>disabled</em>!"
 
 msgid "Incorrect SQL databases limit!"
-msgstr ""
+msgstr "Incorrect SQL databases limit!"
 
 msgid "SQL users limit is <em>disabled</em>!"
-msgstr ""
+msgstr "SQL users limit is <em>disabled</em>!"
 
 msgid "Incorrect traffic limit!"
-msgstr ""
+msgstr "Incorrect traffic limit!"
 
 msgid "Incorrect disk quota limit!"
-msgstr ""
+msgstr "Incorrect disk quota limit!"
 
 msgid "Subdomain"
-msgstr ""
+msgstr "Subdomain"
 
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 msgid "Mail"
-msgstr ""
+msgstr "Mail"
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "SQL Database"
-msgstr ""
+msgstr "SQL Database"
 
 msgid "SQL User"
-msgstr ""
+msgstr "SQL User"
 
 msgid "Traffic"
-msgstr ""
+msgstr "Traffic"
 
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 msgid "Domain properties could not be updated!"
-msgstr ""
+msgstr "Domain properties could not be updated!"
 
 msgid "Domain properties updated successfully!"
-msgstr ""
+msgstr "Domain properties updated successfully!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be disabled! "
-msgstr ""
+msgstr "The <em>%s</em> service cannot be disabled! "
 
 #, php-format
-msgid "There are <em>%s</em> records on system!"
-msgstr ""
+msgid "There are <em>%s</em> records on the system!"
+msgstr "There are <em>%s</em> records on the system!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be limited! "
-msgstr ""
+msgstr "The <em>%s</em> service cannot be limited! "
 
 #, php-format
 msgid "Specified number is smaller than <em>%s</em> records, present on the system!"
-msgstr ""
+msgstr "Specified number is smaller than <em>%s</em> records, present on the system!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be unlimited! "
-msgstr ""
+msgstr "The <em>%s</em> service cannot be unlimited! "
 
 #, php-format
 msgid "There are reseller limits for the <em>%s</em> service!"
-msgstr ""
+msgstr "There are reseller limits for the <em>%s</em> service!"
 
 #, php-format
 msgid "You are exceeding reseller limits for the <em>%s</em> service!"
-msgstr ""
+msgstr "You are exceeding reseller limits for the <em>%s</em> service!"
 
 msgid "EasySCP - Domain Statistics Data"
-msgstr ""
+msgstr "EasySCP - Domain Statistics Data"
 
 msgid "Domain statistics"
-msgstr ""
+msgstr "Domain statistics"
 
 msgid "Month"
-msgstr ""
+msgstr "Month"
 
 msgid "Year"
-msgstr ""
+msgstr "Year"
 
 msgid "Show"
-msgstr ""
+msgstr "Show"
 
 msgid "Web traffic"
-msgstr ""
+msgstr "Web traffic"
 
 msgid "FTP traffic"
-msgstr ""
+msgstr "FTP traffic"
 
 msgid "SMTP traffic"
-msgstr ""
+msgstr "SMTP traffic"
 
 msgid "POP3/IMAP traffic"
-msgstr ""
+msgstr "POP3/IMAP traffic"
 
 msgid "All traffic"
-msgstr ""
+msgstr "All traffic"
 
 msgid "Day"
-msgstr ""
+msgstr "Day"
 
 msgid "EasySCP - Administrator/Hosting Plan Management"
-msgstr ""
+msgstr "EasySCP - Administrator/Hosting Plan Management"
 
 msgid "Hosting plans"
-msgstr ""
+msgstr "Hosting plans"
 
 msgid "Manage hosting plans"
-msgstr ""
+msgstr "Manage hosting plans"
 
 msgid "Purchasing"
-msgstr ""
+msgstr "Purchasing"
 
 msgid "Add hosting plan"
-msgstr ""
+msgstr "Add hosting plan"
 
 msgid "Add new user hosting plan"
-msgstr ""
+msgstr "Add new user hosting plan"
 
 msgid "Return to previous menu"
-msgstr ""
+msgstr "Return to previous menu"
 
 msgid "Hosting plan added!"
-msgstr ""
+msgstr "Hosting plan added!"
 
 msgid "Hosting plan deleted!"
-msgstr ""
+msgstr "Hosting plan deleted!"
 
 msgid "Hosting plan updated!"
-msgstr ""
+msgstr "Hosting plan updated!"
 
 msgid "Hosting plan can't be deleted, there are orders!"
-msgstr ""
+msgstr "Hosting plan can't be deleted, there are orders!"
 
 msgid "Hosting plans not found!"
-msgstr ""
+msgstr "Hosting plans not found!"
 
 msgid "No."
-msgstr ""
+msgstr "No."
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Show hosting plan"
-msgstr ""
+msgstr "Show hosting plan"
 
 msgid "EasySCP - Administrator/Add hosting plan"
-msgstr ""
+msgstr "EasySCP - Administrator/Add hosting plan"
 
 msgid "Hosting plan properties"
-msgstr ""
+msgstr "Hosting plan properties"
 
 msgid "Template name"
-msgstr ""
+msgstr "Template name"
 
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 msgid "CGI / Perl"
-msgstr ""
+msgstr "CGI / Perl"
 
 msgid "Allow adding records to DNS zone"
-msgstr ""
+msgstr "Allow adding records to DNS zone"
 
 msgid "Apache logfiles"
-msgstr ""
+msgstr "Apache logfiles"
 
 msgid "AwStats"
-msgstr ""
+msgstr "AwStats"
 
 msgid "Billing Settings"
-msgstr ""
+msgstr "Billing Settings"
 
 msgid "Price"
-msgstr ""
+msgstr "Price"
 
 msgid "Setup fee"
-msgstr ""
+msgstr "Setup fee"
 
 msgid "Currency"
-msgstr ""
+msgstr "Currency"
 
 msgid "Payment period"
-msgstr ""
+msgstr "Payment period"
 
 msgid "Available for purchasing"
-msgstr ""
+msgstr "Available for purchasing"
 
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 msgid "(e.g. EUR)"
-msgstr ""
+msgstr "(e.g. EUR)"
 
 msgid "Term Of Service"
-msgstr ""
+msgstr "Term Of Service"
 
 msgid "<strong>Optional:</strong> Leave this field empty if you do not want term of service for this hosting plan."
-msgstr ""
+msgstr "<strong>Optional:</strong> Leave this field empty if you do not want term of service for this hosting plan."
 
 msgid "Text Only"
-msgstr ""
+msgstr "Text Only"
 
 msgid "Add plan"
-msgstr ""
+msgstr "Add plan"
 
 msgid "Incorrect template name length!"
-msgstr ""
+msgstr "Incorrect template name length!"
 
 msgid "Incorrect template description length!"
-msgstr ""
+msgstr "Incorrect template description length!"
 
 msgid "Incorrect price syntax!"
-msgstr ""
+msgstr "Incorrect price syntax!"
 
 msgid "Incorrect setup fee syntax!"
-msgstr ""
+msgstr "Incorrect setup fee syntax!"
 
 msgid "Hosting plan with entered name already exists!"
-msgstr ""
+msgstr "Hosting plan with entered name already exists!"
 
 msgid "EasySCP - Administrator/Edit hosting plan"
-msgstr ""
+msgstr "EasySCP - Administrator/Edit hosting plan"
 
 msgid "Price Style"
-msgstr ""
+msgstr "Price Style"
 
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 msgid "Update plan"
-msgstr ""
+msgstr "Update plan"
 
 msgid "Edit hosting plan"
-msgstr ""
+msgstr "Edit hosting plan"
 
 msgid "Undefined reference to data!"
-msgstr ""
+msgstr "Undefined reference to data!"
 
 msgid "Incorrect price. Example: 9.99"
-msgstr ""
+msgstr "Incorrect price. Example: 9.99"
 
 msgid "Incorrect setup fee. Example: 19.99"
-msgstr ""
+msgstr "Incorrect setup fee. Example: 19.99"
 
 #, php-format
 msgid "You have <strong>%d</strong> new support questions"
-msgstr ""
+msgstr "You have <strong>%d</strong> new support questions"
 
 msgid "View"
-msgstr ""
+msgstr "View"
 
 msgid "A database update is available"
-msgstr ""
+msgstr "A database update is available"
 
 msgid "Update checking is disabled!"
-msgstr ""
+msgstr "Update checking is disabled!"
 
 msgid "New EasySCP update is now available"
-msgstr ""
+msgstr "New EasySCP update is now available"
 
 msgid "You are exceeding your traffic limit!"
-msgstr ""
+msgstr "You are exceeding your traffic limit!"
 
 #, php-format
 msgid "%1$d%% [%2$s of unlimited]"
-msgstr ""
+msgstr "%1$d%% [%2$s of unlimited]"
 
 #, php-format
 msgid "%1$d%% [%2$s of %3$s]"
-msgstr ""
+msgstr "%1$d%% [%2$s of %3$s]"
 
 msgid "EasySCP - Admin/Main Index"
-msgstr ""
+msgstr "EasySCP - Admin/Main Index"
 
 msgid "You cannot delete the last active IP address!"
-msgstr ""
+msgstr "You cannot delete the last active IP address!"
 
 msgid "You have a domain using this IP!"
-msgstr ""
+msgstr "You have a domain using this IP!"
 
 msgid "You have a reseller using this IP!"
-msgstr ""
+msgstr "You have a reseller using this IP!"
 
 msgid "IP was deleted!"
-msgstr ""
+msgstr "IP was deleted!"
 
 msgid "EasySCP - Admin/IP manage"
-msgstr ""
+msgstr "EasySCP - Admin/IP manage"
 
 msgid "Remove IP"
-msgstr ""
+msgstr "Remove IP"
 
 msgid "New IP was added!"
-msgstr ""
+msgstr "New IP was added!"
 
 msgid "Wrong IP number!"
-msgstr ""
+msgstr "Wrong IP number!"
 
 msgid "Please specify domain!"
-msgstr ""
+msgstr "Please specify domain!"
 
 msgid "Please specify alias!"
-msgstr ""
+msgstr "Please specify alias!"
 
 msgid "This IP already exist!"
-msgstr ""
+msgstr "This IP already exist!"
 
 msgid "Please select nework interface!"
-msgstr ""
+msgstr "Please select nework interface!"
 
 msgid "Manage IPs"
-msgstr ""
+msgstr "Manage IPs"
 
 msgid "Available IPs"
-msgstr ""
+msgstr "Available IPs"
 
 msgid "IP"
-msgstr ""
+msgstr "IP"
 
 msgid "Network interface"
-msgstr ""
+msgstr "Network interface"
 
 msgid "Add new IP"
-msgstr ""
+msgstr "Add new IP"
 
 #, php-format
 msgid "Are you sure you want to delete this IP: %s?"
-msgstr ""
+msgstr "Are you sure you want to delete this IP: %s?"
 
 msgid "EasySCP - Admin/IP Usage"
-msgstr ""
+msgstr "EasySCP - Admin/IP Usage"
 
 msgid "Total Domains"
-msgstr ""
+msgstr "Total Domains"
 
 msgid "No records found"
-msgstr ""
+msgstr "No records found"
 
 msgid "IP Usage"
-msgstr ""
+msgstr "IP Usage"
 
 msgid "Domain Name"
-msgstr ""
+msgstr "Domain Name"
 
 msgid "Reseller Name"
-msgstr ""
+msgstr "Reseller Name"
 
 msgid "No domain system errors"
-msgstr ""
+msgstr "No domain system errors"
 
 msgid "No domain alias system errors"
-msgstr ""
+msgstr "No domain alias system errors"
 
 msgid "No subdomain system errors"
-msgstr ""
+msgstr "No subdomain system errors"
 
 msgid "No alias subdomain system errors"
-msgstr ""
+msgstr "No alias subdomain system errors"
 
 msgid "No email account system errors"
-msgstr ""
+msgstr "No email account system errors"
 
 msgid "missing domain"
-msgstr ""
+msgstr "missing domain"
 
 msgid "missing alias"
-msgstr ""
+msgstr "missing alias"
 
 msgid "orphan entry"
-msgstr ""
+msgstr "orphan entry"
 
 msgid "No htaccess related system errors"
-msgstr ""
-
-msgid "Missing domain"
-msgstr ""
+msgstr "No htaccess related system errors"
 
 #, php-format
 msgid "Daemon returned %d as status code"
-msgstr ""
+msgstr "Daemon returned %d as status code"
 
 msgid "Unknown type!"
-msgstr ""
+msgstr "Unknown type!"
 
 msgid "Done"
-msgstr ""
+msgstr "Done"
 
 msgid "Unknown Error"
-msgstr ""
+msgstr "Unknown Error"
 
 msgid "EasySCP debugger"
-msgstr ""
+msgstr "EasySCP debugger"
 
 msgid "Domain errors"
-msgstr ""
+msgstr "Domain errors"
 
 msgid "Domain alias errors"
-msgstr ""
+msgstr "Domain alias errors"
 
 msgid "Subdomain errors"
-msgstr ""
+msgstr "Subdomain errors"
 
 msgid "Alias subdomain errors"
-msgstr ""
+msgstr "Alias subdomain errors"
 
 msgid "Mail account errors"
-msgstr ""
+msgstr "Mail account errors"
 
 msgid ".htaccess related errors"
-msgstr ""
+msgstr ".htaccess related errors"
 
 msgid "EasySCP Daemon tools"
-msgstr ""
+msgstr "EasySCP Daemon tools"
 
 msgid "Execute requests"
-msgstr ""
+msgstr "Execute requests"
 
 msgid "Set status to 'change'"
-msgstr ""
+msgstr "Set status to 'change'"
 
 #, php-format
 msgid "%s Errors in database"
-msgstr ""
+msgstr "%s Errors in database"
 
 msgid "Enable update at"
-msgstr ""
+msgstr "Enable update at"
 
 msgid "Settings"
-msgstr ""
+msgstr "Settings"
 
 msgid "Get it at"
-msgstr ""
+msgstr "Get it at"
 
 msgid "EasySCP updates"
-msgstr ""
+msgstr "EasySCP updates"
 
 msgid "Available EasySCP updates"
-msgstr ""
+msgstr "Available EasySCP updates"
 
 msgid "No new EasySCP updates available"
-msgstr ""
+msgstr "No new EasySCP updates available"
 
 msgid "User language updated successfully!"
-msgstr ""
+msgstr "User language updated successfully!"
 
 msgid "EasySCP - Admin/Change Language"
-msgstr ""
+msgstr "EasySCP - Admin/Change Language"
 
 msgid "Language"
-msgstr ""
+msgstr "Language"
 
 msgid "Choose your default language"
-msgstr ""
+msgstr "Choose your default language"
 
 msgid "It is not possible to delete system default's language!"
-msgstr ""
+msgstr "It is not possible to delete system default's language!"
 
 msgid "There are users who use this language!"
-msgstr ""
+msgstr "There are users who use this language!"
 
 msgid "Language was removed!"
-msgstr ""
+msgstr "Language was removed!"
 
 msgid "Reseller list is empty!"
-msgstr ""
+msgstr "Reseller list is empty!"
 
 msgid "EasySCP - Admin/Manage users/Reseller assignment"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Reseller assignment"
 
 msgid "Reseller assignment"
-msgstr ""
+msgstr "Reseller assignment"
 
 msgid "Reseller users"
-msgstr ""
+msgstr "Reseller users"
 
 msgid "Mark"
-msgstr ""
+msgstr "Mark"
 
 msgid "Owner"
-msgstr ""
+msgstr "Owner"
 
 msgid "To Admin"
-msgstr ""
+msgstr "To Admin"
 
 msgid "Move"
-msgstr ""
+msgstr "Move"
 
 msgid "Reseller or user list is empty!"
-msgstr ""
+msgstr "Reseller or user list is empty!"
 
 msgid "User list is empty!"
-msgstr ""
+msgstr "User list is empty!"
 
 msgid "User was moved"
-msgstr ""
+msgstr "User was moved"
 
 msgid "Please select at least one user!"
-msgstr ""
+msgstr "Please select at least one user!"
 
 msgid "Source and destination reseller are the same!"
-msgstr ""
+msgstr "Source and destination reseller are the same!"
 
 #, php-format
 msgid "<strong>%1$s</strong> has unlimited rights for a <strong>%2$s</strong> Service !<br>"
-msgstr ""
+msgstr "<strong>%1$s</strong> has unlimited rights for a <strong>%2$s</strong> Service !<br>"
 
 #, php-format
 msgid "You cannot move <strong>%1$s</strong> in a destination reseller,<br>which has limits for the <strong>%2$s</strong> service!"
-msgstr ""
+msgstr "You cannot move <strong>%1$s</strong> in a destination reseller,<br>which has limits for the <strong>%2$s</strong> service!"
 
 #, php-format
 msgid "<strong>%1$s</strong> is exceeding limits for a <strong>%2$s</strong><br>service in destination reseller!<br>"
-msgstr ""
+msgstr "<strong>%1$s</strong> is exceeding limits for a <strong>%2$s</strong><br>service in destination reseller!<br>"
 
 msgid "Moving aborted!"
-msgstr ""
+msgstr "Moving aborted!"
 
 #, php-format
 msgid "<strong>%s</strong> has IP address that cannot be managed from the destination reseller !<br>This user cannot be moved!"
-msgstr ""
+msgstr "<strong>%s</strong> has IP address that cannot be managed from the destination reseller !<br>This user cannot be moved!"
 
 msgid "EasySCP - Admin/Manage users/User assignment"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/User assignment"
 
 msgid "User assignment"
-msgstr ""
+msgstr "User assignment"
 
 msgid "Users"
-msgstr ""
+msgstr "Users"
 
 msgid "User name"
-msgstr ""
+msgstr "User name"
 
 msgid "From reseller"
-msgstr ""
+msgstr "From reseller"
 
 msgid "To reseller"
-msgstr ""
+msgstr "To reseller"
 
 msgid "EasySCP - Admin/Manage Users"
-msgstr ""
+msgstr "EasySCP - Admin/Manage Users"
 
 msgid "User added"
-msgstr ""
+msgstr "User added"
 
 msgid "Reseller added"
-msgstr ""
+msgstr "Reseller added"
 
 msgid "User updated"
-msgstr ""
+msgstr "User updated"
 
 msgid "User deleted"
-msgstr ""
+msgstr "User deleted"
 
 msgid "Email Updated"
-msgstr ""
+msgstr "Email Updated"
 
 msgid "This user has a domain!<br />To delete the user first delete the domain!"
-msgstr ""
+msgstr "This user has a domain!<br />To delete the user first delete the domain!"
 
 msgid "User was disabled"
-msgstr ""
+msgstr "User was disabled"
 
 msgid "Uninstall"
-msgstr ""
+msgstr "Uninstall"
 
 #, php-format
 msgid "%d messages translated"
-msgstr ""
+msgstr "%d messages translated"
 
 msgid "Gzipped"
-msgstr ""
+msgstr "Gzipped"
 
 msgid "Upload file error!"
-msgstr ""
+msgstr "Upload file error!"
 
 msgid "You can upload only text files!"
-msgstr ""
+msgstr "You can upload only text files!"
 
 msgid "Could not read language file!"
-msgstr ""
+msgstr "Could not read language file!"
 
 msgid "Uploaded file is not a valid language file!"
-msgstr ""
+msgstr "Uploaded file is not a valid language file!"
 
 msgid "Uploaded file does not contain language information!"
-msgstr ""
+msgstr "Uploaded file does not contain language information!"
 
 #, php-format
 msgid "%s added new language: %s"
-msgstr ""
+msgstr "%s added new language: %s"
 
 msgid "New language installed!"
-msgstr ""
+msgstr "New language installed!"
 
 #, php-format
 msgid "%s updated language: %s"
-msgstr ""
+msgstr "%s updated language: %s"
 
 msgid "Language was updated!"
-msgstr ""
+msgstr "Language was updated!"
 
 msgid "EasySCP - Admin/Internationalisation"
-msgstr ""
+msgstr "EasySCP - Admin/Internationalisation"
 
 msgid "Internationalisation"
-msgstr ""
+msgstr "Internationalisation"
 
 msgid "Installed languages"
-msgstr ""
+msgstr "Installed languages"
 
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
 msgid "Panel Default"
-msgstr ""
+msgstr "Panel Default"
 
 msgid "Install new language"
-msgstr ""
+msgstr "Install new language"
 
 msgid "Language file"
-msgstr ""
+msgstr "Language file"
 
 msgid "Install"
-msgstr ""
+msgstr "Install"
 
 msgid "Export"
-msgstr ""
+msgstr "Export"
 
 msgid "Incorrect data input!"
-msgstr ""
+msgstr "Incorrect data input!"
 
 msgid "EasySCP - Admin/Change Password"
-msgstr ""
+msgstr "EasySCP - Admin/Change Password"
 
 msgid "Please fill up all data fields!"
-msgstr ""
+msgstr "Please fill up all data fields!"
 
 msgid "Passwords do not match!"
-msgstr ""
+msgstr "Passwords do not match!"
 
 msgid "The current password is wrong!"
-msgstr ""
+msgstr "The current password is wrong!"
 
 msgid "User password updated successfully!"
-msgstr ""
+msgstr "User password updated successfully!"
 
 msgid "Change password"
-msgstr ""
+msgstr "Change password"
 
 msgid "Password data"
-msgstr ""
+msgstr "Password data"
 
 msgid "Update password"
-msgstr ""
+msgstr "Update password"
 
 msgid "Current password"
-msgstr ""
+msgstr "Current password"
 
 msgid "Password change is deactivated!"
-msgstr ""
+msgstr "Password change is deactivated!"
 
 msgid "EasySCP - Admin/Change Personal Data"
-msgstr ""
+msgstr "EasySCP - Admin/Change Personal Data"
 
 msgid "Personal data updated successfully!"
-msgstr ""
+msgstr "Personal data updated successfully!"
 
 msgid "Change personal data"
-msgstr ""
+msgstr "Change personal data"
 
 msgid "Personal data"
-msgstr ""
+msgstr "Personal data"
 
 msgid "Update data"
-msgstr ""
+msgstr "Update data"
 
 msgid "EasySCP - Admin/Manage users/Add reseller"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Add reseller"
 
 msgid "Reseller IP list is empty!"
-msgstr ""
+msgstr "Reseller IP list is empty!"
 
 msgid "Assign"
-msgstr ""
+msgstr "Assign"
 
 msgid "Label"
-msgstr ""
+msgstr "Label"
 
 msgid "Number"
-msgstr ""
+msgstr "Number"
 
 #, php-format
 msgid "The password must be at least %s long and contain letters and numbers to be valid."
-msgstr ""
+msgstr "The password must be at least %s long and contain letters and numbers to be valid."
 
 msgid "Incorrect email syntax!"
-msgstr ""
+msgstr "Incorrect email syntax!"
 
 msgid "Incorrect domains limit!"
-msgstr ""
+msgstr "Incorrect domains limit!"
 
 msgid "SQL databases limit is <em>disabled</em> but SQL users limit not!"
-msgstr ""
+msgstr "SQL databases limit is <em>disabled</em> but SQL users limit not!"
 
 msgid "SQL users limit is <em>disabled</em> but SQL databases limit not!"
-msgstr ""
+msgstr "SQL users limit is <em>disabled</em> but SQL databases limit not!"
 
 msgid "You must assign at least one IP number for a reseller!"
-msgstr ""
+msgstr "You must assign at least one IP number for a reseller!"
 
 msgid "Add reseller"
-msgstr ""
+msgstr "Add reseller"
 
 msgid "Domains limit<br><em>(0 unlimited)</em>"
-msgstr ""
+msgstr "Domains limit<br><em>(0 unlimited)</em>"
 
 msgid "Subdomains limit<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgstr "Subdomains limit<br><em>(-1 disabled, 0 unlimited)</em>"
 
 msgid "Aliases limit<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgstr "Aliases limit<br><em>(-1 disabled, 0 unlimited)</em>"
 
 msgid "JSP"
-msgstr ""
+msgstr "JSP"
 
 msgid "SSI"
-msgstr ""
+msgstr "SSI"
 
 msgid "Frontpage extensions"
-msgstr ""
+msgstr "Frontpage extensions"
 
 msgid "Backup and restore"
-msgstr ""
+msgstr "Backup and restore"
 
 msgid "Custom error pages"
-msgstr ""
+msgstr "Custom error pages"
 
 msgid "Protected areas"
-msgstr ""
+msgstr "Protected areas"
 
 msgid "Webmail"
-msgstr ""
+msgstr "Webmail"
 
 msgid "Directory listing"
-msgstr ""
-
-msgid "Logo upload"
-msgstr ""
+msgstr "Directory listing"
 
 msgid "Support system"
-msgstr ""
+msgstr "Support system"
 
 msgid "Reseller IPs"
-msgstr ""
+msgstr "Reseller IPs"
 
 msgid "Customer ID"
-msgstr ""
+msgstr "Customer ID"
 
 msgid "Domains"
-msgstr ""
+msgstr "Domains"
 
 msgid "Aliases"
-msgstr ""
+msgstr "Aliases"
 
 msgid "SQL Databases"
-msgstr ""
+msgstr "SQL Databases"
 
 msgid "SQL Users"
-msgstr ""
+msgstr "SQL Users"
 
 msgid "Web Traffic"
-msgstr ""
+msgstr "Web Traffic"
 
 msgid "Disk storage"
-msgstr ""
+msgstr "Disk storage"
 
 #, php-format
 msgid "This reseller's customers are using/have more/higher <strong>%s</strong> accounts/limits than the new limit you entered."
-msgstr ""
+msgstr "This reseller's customers are using/have more/higher <strong>%s</strong> accounts/limits than the new limit you entered."
 
 #, php-format
 msgid "This reseller has already assigned more/higher <strong>%s</strong> accounts/limits than the new limit you entered."
-msgstr ""
+msgstr "This reseller has already assigned more/higher <strong>%s</strong> accounts/limits than the new limit you entered."
 
 #, php-format
 msgid "This reseller has customer(s) with unlimited rights for the <strong>%s</strong> service!"
-msgstr ""
+msgstr "This reseller has customer(s) with unlimited rights for the <strong>%s</strong> service!"
 
 msgid "If you want to limit a reseller, you must first limit its customers!"
-msgstr ""
+msgstr "If you want to limit a reseller, you must first limit its customers!"
 
 #, php-format
 msgid "This reseller has domains assigned to the <strong>%s</strong> address!"
-msgstr ""
+msgstr "This reseller has domains assigned to the <strong>%s</strong> address!"
 
 msgid "The reseller account you trying to edit does not exist!"
-msgstr ""
+msgstr "The reseller account you trying to edit does not exist!"
 
 msgid "EasySCP - Admin/Manage users/Edit Reseller"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Edit Reseller"
 
 msgid "One or more errors was found! Please, correct them and try again!"
-msgstr ""
+msgstr "One or more errors was found! Please, correct them and try again!"
 
 msgid "Reseller data inconsistency!"
-msgstr ""
+msgstr "Reseller data inconsistency!"
 
 msgid "Please, read the message(s) above and trying to correct!"
-msgstr ""
+msgstr "Please, read the message(s) above and trying to correct!"
 
 msgid "Edit reseller"
-msgstr ""
+msgstr "Edit reseller"
 
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 msgid "unlimited"
-msgstr ""
+msgstr "unlimited"
 
 msgid "Reset"
-msgstr ""
+msgstr "Reset"
 
 msgid "Generated password:"
-msgstr ""
+msgstr "Generated password:"
 
 msgid "Type `CTRL+C` to copy the generated password in the clipboard."
-msgstr ""
+msgstr "Type `CTRL+C` to copy the generated password in the clipboard."
 
 #, php-format
-msgid "EasySCP NOTICE:\\n\\nThe `Enter` key is disabled for performance reasons!\\nInstead, use the %s button to update the data."
+msgid ""
+"EasySCP NOTICE:\n"
+"\n"
+"The `Enter` key is disabled for performance reasons!\n"
+"Instead, use the %s button to update the data."
 msgstr ""
+"EasySCP NOTICE:\n"
+"\n"
+"The `Enter` key is disabled for performance reasons!\n"
+"Instead, use the %s button to update the data."
 
 msgid "EasySCP - Admin/Reseller statistics"
-msgstr ""
+msgstr "EasySCP - Admin/Reseller statistics"
 
 msgid "There are no resellers in your system!"
-msgstr ""
+msgstr "There are no resellers in your system!"
 
 #, php-format
 msgid "%1$s / %2$s <br/>of<br/> <strong>%3$s</strong>"
-msgstr ""
+msgstr "%1$s / %2$s <br/>of<br/> <strong>%3$s</strong>"
 
 #, php-format
 msgid "%1$s / %2$s <br/>of<br/> <strong>unlimited</strong>"
-msgstr ""
+msgstr "%1$s / %2$s <br/>of<br/> <strong>unlimited</strong>"
 
 msgid "<strong>disabled</strong>"
-msgstr ""
+msgstr "<strong>disabled</strong>"
 
 msgid "Reseller statistics table"
-msgstr ""
+msgstr "Reseller statistics table"
 
 msgid "EasySCP - Admin/Reseller User Statistics"
-msgstr ""
+msgstr "EasySCP - Admin/Reseller User Statistics"
 
 #, php-format
 msgid "%1$s <br/>of<br/> <strong>%2$s</strong>"
-msgstr ""
+msgstr "%1$s <br/>of<br/> <strong>%2$s</strong>"
 
 #, php-format
 msgid "%s <br/>of<br/> <strong>unlimited</strong>"
-msgstr ""
+msgstr "%s <br/>of<br/> <strong>unlimited</strong>"
 
 #, php-format
 msgid "%1$d <br/>of<br/> <strong>%2$d</strong>"
-msgstr ""
+msgstr "%1$d <br/>of<br/> <strong>%2$d</strong>"
 
 #, php-format
 msgid "%d <br/>of<br/> <strong>unlimited</strong>"
-msgstr ""
+msgstr "%d <br/>of<br/> <strong>unlimited</strong>"
 
 msgid "Reseller users table"
-msgstr ""
+msgstr "Reseller users table"
 
 msgid "This reseller has no domains."
-msgstr ""
+msgstr "This reseller has no domains."
 
 msgid "Traffic<br />usage"
-msgstr ""
+msgstr "Traffic<br />usage"
 
 msgid "Disk<br />usage"
-msgstr ""
+msgstr "Disk<br />usage"
 
 msgid "Web<br />traffic"
-msgstr ""
+msgstr "Web<br />traffic"
 
 msgid "FTP<br />traffic"
-msgstr ""
+msgstr "FTP<br />traffic"
 
 msgid "SMTP<br />traffic"
-msgstr ""
+msgstr "SMTP<br />traffic"
 
 msgid "POP3/IMAP<br />traffic"
-msgstr ""
+msgstr "POP3/IMAP<br />traffic"
 
 msgid "SQL<br />database"
-msgstr ""
+msgstr "SQL<br />database"
 
 msgid "SQL<br />user"
-msgstr ""
+msgstr "SQL<br />user"
 
 msgid "EasySCP Admin / System Tools / Anti-Rootkits Tools Log Checker"
-msgstr ""
+msgstr "EasySCP Admin / System Tools / Anti-Rootkits Tools Log Checker"
 
 #, php-format
 msgid "%s doesn't exist or is empty"
-msgstr ""
+msgstr "%s doesn't exist or is empty"
 
 msgid "Anti-Rootkits Tools Log Checker"
-msgstr ""
+msgstr "Anti-Rootkits Tools Log Checker"
 
 msgid "EasySCP - Admin/Server statistics"
-msgstr ""
+msgstr "EasySCP - Admin/Server statistics"
 
 msgid "Server statistics"
-msgstr ""
+msgstr "Server statistics"
 
 msgid "Web in"
-msgstr ""
+msgstr "Web in"
 
 msgid "Web out"
-msgstr ""
+msgstr "Web out"
 
 msgid "SMTP in"
-msgstr ""
+msgstr "SMTP in"
 
 msgid "SMTP out"
-msgstr ""
+msgstr "SMTP out"
 
 msgid "POP3/IMAP in"
-msgstr ""
+msgstr "POP3/IMAP in"
 
 msgid "POP3/IMAP out"
-msgstr ""
+msgstr "POP3/IMAP out"
 
 msgid "Other in"
-msgstr ""
+msgstr "Other in"
 
 msgid "Other out"
-msgstr ""
+msgstr "Other out"
 
 msgid "All in"
-msgstr ""
+msgstr "All in"
 
 msgid "All out"
-msgstr ""
+msgstr "All out"
 
 msgid "EasySCP - Admin/Server day stats"
-msgstr ""
+msgstr "EasySCP - Admin/Server day stats"
 
 msgid "Server day statistics"
-msgstr ""
+msgstr "Server day statistics"
 
 msgid "Month:"
-msgstr ""
+msgstr "Month:"
 
 msgid "Year:"
-msgstr ""
+msgstr "Year:"
 
 msgid "Day:"
-msgstr ""
+msgstr "Day:"
 
 msgid "Hour"
-msgstr ""
+msgstr "Hour"
 
 msgid "EasySCP Admin / System Tools / Server Status"
-msgstr ""
+msgstr "EasySCP Admin / System Tools / Server Status"
 
 msgid "UP"
-msgstr ""
+msgstr "UP"
 
 msgid "DOWN"
-msgstr ""
+msgstr "DOWN"
 
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 msgid "Service"
-msgstr ""
+msgstr "Service"
 
 msgid "Server status"
-msgstr ""
+msgstr "Server status"
 
 msgid "EasySCP - Admin/Manage Sessions"
-msgstr ""
+msgstr "EasySCP - Admin/Manage Sessions"
 
 msgid "Manage user sessions"
-msgstr ""
+msgstr "Manage user sessions"
 
 msgid "User type"
-msgstr ""
+msgstr "User type"
 
 msgid "Last access"
-msgstr ""
+msgstr "Last access"
 
 msgid "Options"
-msgstr ""
+msgstr "Options"
 
 msgid "Kill session"
-msgstr ""
+msgstr "Kill session"
 
 msgid "EasySCP - Admin/Settings"
-msgstr ""
+msgstr "EasySCP - Admin/Settings"
 
 msgid "Only positive numbers are allowed !"
-msgstr ""
+msgstr "Only positive numbers are allowed !"
 
 msgid "Nothing has been changed!"
-msgstr ""
+msgstr "Nothing has been changed!"
 
 #, php-format
 msgid "%d configuration parameter was updated!"
-msgstr ""
+msgstr "%d configuration parameter was updated!"
 
 #, php-format
 msgid "%d configuration parameters were updated!"
-msgstr ""
+msgstr "%d configuration parameters were updated!"
 
 #, php-format
 msgid "%d configuration parameter was created!"
-msgstr ""
+msgstr "%d configuration parameter was created!"
 
 #, php-format
 msgid "%d configuration parameters were created!"
-msgstr ""
+msgstr "%d configuration parameters were created!"
 
 msgid "General settings"
-msgstr ""
+msgstr "General settings"
 
 msgid "Activation link expire time (minutes)"
-msgstr ""
+msgstr "Activation link expire time (minutes)"
 
 msgid "Password settings"
-msgstr ""
+msgstr "Password settings"
 
 msgid "Use strong Passwords"
-msgstr ""
+msgstr "Use strong Passwords"
 
 msgid "Password length"
-msgstr ""
+msgstr "Password length"
 
 msgid "Bruteforce detection"
-msgstr ""
+msgstr "Bruteforce detection"
 
 msgid "Block time between logins"
-msgstr ""
+msgstr "Block time between logins"
 
 msgid "Max number of login attempts"
-msgstr ""
+msgstr "Max number of login attempts"
 
 msgid "Blocktime (minutes)"
-msgstr ""
+msgstr "Blocktime (minutes)"
 
 msgid "Block time between logins (seconds)"
-msgstr ""
+msgstr "Block time between logins (seconds)"
 
 msgid "Max number of CAPTCHA validation attempts"
-msgstr ""
+msgstr "Max number of CAPTCHA validation attempts"
 
 msgid "Other settings"
-msgstr ""
+msgstr "Other settings"
 
 msgid "E-Mail settings"
-msgstr ""
+msgstr "E-Mail settings"
 
 msgid "Create default E-Mail addresses"
-msgstr ""
+msgstr "Create default E-Mail addresses"
 
 msgid "Count default E-Mail addresses"
-msgstr ""
+msgstr "Count default E-Mail addresses"
 
 msgid "E-Mail accounts are hard suspended"
-msgstr ""
+msgstr "E-Mail accounts are hard suspended"
 
 msgid "Panel default language"
-msgstr ""
+msgstr "Panel default language"
 
 msgid "Panel default theme"
-msgstr ""
+msgstr "Panel default theme"
 
 msgid "Apply changes"
-msgstr ""
+msgstr "Apply changes"
 
 msgid "Server ports"
-msgstr ""
+msgstr "Server ports"
 
 msgid "Hosting plans available for"
-msgstr ""
+msgstr "Hosting plans available for"
 
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 msgid "Domains per page"
-msgstr ""
+msgstr "Domains per page"
 
 msgid "Log Level"
-msgstr ""
+msgstr "Log Level"
 
 msgid "Notices, Warnings and Errors"
-msgstr ""
+msgstr "Notices, Warnings and Errors"
 
 msgid "Warnings and Errors"
-msgstr ""
+msgstr "Warnings and Errors"
 
 msgid "Errors"
-msgstr ""
+msgstr "Errors"
 
 msgid "Check for update"
-msgstr ""
+msgstr "Check for update"
 
 msgid "Show compression size comment"
-msgstr ""
+msgstr "Show compression size comment"
 
 msgid "Prevent external login for admins"
-msgstr ""
+msgstr "Prevent external login for admins"
 
 msgid "Prevent external login for resellers"
-msgstr ""
+msgstr "Prevent external login for resellers"
 
 msgid "Prevent external login for clients"
-msgstr ""
+msgstr "Prevent external login for clients"
 
 msgid "Custom orderpanel ID"
-msgstr ""
+msgstr "Custom orderpanel ID"
 
 msgid "Domain names validation"
-msgstr ""
+msgstr "Domain names validation"
 
 msgid "Top Level Domain name strict validation"
-msgstr ""
+msgstr "Top Level Domain name strict validation"
 
 msgid "Only Top Level Domains (TLD) listed in IANA root zone database can be used."
-msgstr ""
+msgstr "Only Top Level Domains (TLD) listed in IANA root zone database can be used."
 
 msgid "Second Level Domain name strict validation"
-msgstr ""
+msgstr "Second Level Domain name strict validation"
 
 msgid "Single letter Second Level Domains (SLD) are not allowed under the most Top Level Domains (TLD). There is a small list of exceptions, e.g. the TLD .de."
-msgstr ""
+msgstr "Single letter Second Level Domains (SLD) are not allowed under the most Top Level Domains (TLD). There is a small list of exceptions, e.g. the TLD .de."
 
 msgid "Maximal number of labels for domain names<br />(<em>Excluding SLD & TLD</em>)"
-msgstr ""
+msgstr "Maximal number of labels for domain names<br />(<em>Excluding SLD & TLD</em>)"
 
 msgid "Maximal number of labels for subdomains"
-msgstr ""
+msgstr "Maximal number of labels for subdomains"
 
 msgid "default"
-msgstr ""
+msgstr "default"
 
 msgid "Upload"
-msgstr ""
+msgstr "Upload"
 
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 msgid "Please specify a subject!"
-msgstr ""
+msgstr "Please specify a subject!"
 
 msgid "Please specify message!"
-msgstr ""
+msgstr "Please specify message!"
 
 msgid "Auto email template data updated!"
-msgstr ""
+msgstr "Auto email template data updated!"
 
 msgid "EasySCP - Admin/Lostpw email setup"
-msgstr ""
+msgstr "EasySCP - Admin/Lostpw email setup"
 
 msgid "Lost password e-mail"
-msgstr ""
+msgstr "Lost password e-mail"
 
 msgid "Message template info"
-msgstr ""
+msgstr "Message template info"
 
 msgid "Message template"
-msgstr ""
+msgstr "Message template"
 
 msgid "Activation E-Mail"
-msgstr ""
+msgstr "Activation E-Mail"
 
 msgid "Password E-Mail"
-msgstr ""
+msgstr "Password E-Mail"
 
 msgid "User login (system) name"
-msgstr ""
+msgstr "User login (system) name"
 
 msgid "User password"
-msgstr ""
+msgstr "User password"
 
 msgid "User (first and last) name"
-msgstr ""
+msgstr "User (first and last) name"
 
 msgid "Lost password link"
-msgstr ""
+msgstr "Lost password link"
 
 msgid "Subject"
-msgstr ""
+msgstr "Subject"
 
 msgid "URL to this admin panel"
-msgstr ""
+msgstr "URL to this admin panel"
 
 msgid "URL protocol"
-msgstr ""
+msgstr "URL protocol"
 
 msgid "EasySCP - Admin/Maintenance mode"
-msgstr ""
+msgstr "EasySCP - Admin/Maintenance mode"
 
 msgid "Settings saved!"
-msgstr ""
+msgstr "Settings saved!"
 
 msgid "Maintenance mode"
-msgstr ""
+msgstr "Maintenance mode"
 
 msgid "Under this mode only administrators can login"
-msgstr ""
+msgstr "Under this mode only administrators can login"
 
 msgid "Only letters, numbers, dash and underscore are allowed for services names!"
-msgstr ""
+msgstr "Only letters, numbers, dash and underscore are allowed for services names!"
 
 msgid "Only positive numbers are allowed for services ports!"
-msgstr ""
+msgstr "Only positive numbers are allowed for services ports!"
 
 msgid "Service port with same name already exists!"
-msgstr ""
+msgstr "Service port with same name already exists!"
 
 msgid "Unallowed protocol!"
-msgstr ""
+msgstr "Unallowed protocol!"
 
 msgid "Incorrect value for show entry!"
-msgstr ""
+msgstr "Incorrect value for show entry!"
 
 msgid "Service port was added!"
-msgstr ""
+msgstr "Service port was added!"
 
 #, php-format
 msgid "%d Service port was updated!"
-msgstr ""
+msgstr "%d Service port was updated!"
 
 #, php-format
 msgid "%d Services port were updated!"
-msgstr ""
+msgstr "%d Services port were updated!"
 
 msgid "Nothing's been changed!"
-msgstr ""
+msgstr "Nothing's been changed!"
 
 msgid "You have no custom service ports defined."
-msgstr ""
+msgstr "You have no custom service ports defined."
 
 msgid "Unknown service port name!"
-msgstr ""
+msgstr "Unknown service port name!"
 
 msgid "Service port was removed!"
-msgstr ""
+msgstr "Service port was removed!"
 
 msgid "You are not allowed to remove this port entry!"
-msgstr ""
+msgstr "You are not allowed to remove this port entry!"
 
 msgid "udp"
-msgstr ""
+msgstr "udp"
 
 msgid "tcp"
-msgstr ""
+msgstr "tcp"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protocol"
 
 #, php-format
 msgid "Are you sure you want to delete %s service port ?"
-msgstr ""
+msgstr "Are you sure you want to delete %s service port ?"
 
 msgid "View / Update service(s) port"
-msgstr ""
+msgstr "View / Update service(s) port"
 
 msgid "Add new service port"
-msgstr ""
+msgstr "Add new service port"
 
 msgid "EasySCP - Admin/Server Traffic Settings"
-msgstr ""
+msgstr "EasySCP - Admin/Server Traffic Settings"
 
 msgid "Wrong data input!"
-msgstr ""
+msgstr "Wrong data input!"
 
 msgid "Warning traffic is bigger than max traffic!"
-msgstr ""
+msgstr "Warning traffic is bigger than max traffic!"
 
 msgid "Server traffic settings updated successfully!"
-msgstr ""
+msgstr "Server traffic settings updated successfully!"
 
 msgid "Modify"
-msgstr ""
+msgstr "Modify"
 
 msgid "Server traffic settings"
-msgstr ""
+msgstr "Server traffic settings"
 
 msgid "Set server traffic settings"
-msgstr ""
+msgstr "Set server traffic settings"
 
 msgid "Max traffic [MB]"
-msgstr ""
+msgstr "Max traffic [MB]"
 
 msgid "Warning traffic [MB]"
-msgstr ""
+msgstr "Warning traffic [MB]"
 
 msgid "EasySCP - Admin/Manage users/Email setup"
-msgstr ""
+msgstr "EasySCP - Admin/Manage users/Email setup"
 
 msgid "Email setup"
-msgstr ""
+msgstr "Email setup"
 
 msgid "User real (first and last) name"
-msgstr ""
+msgstr "User real (first and last) name"
 
 msgid "User type (admin, reseller, user)"
-msgstr ""
+msgstr "User type (admin, reseller, user)"
 
 msgid "CPU bogomips"
-msgstr ""
+msgstr "CPU bogomips"
 
 msgid "CPU cache"
-msgstr ""
+msgstr "CPU cache"
 
 msgid "Number of CPU Cores"
-msgstr ""
+msgstr "Number of CPU Cores"
 
 msgid "CPU MHz"
-msgstr ""
+msgstr "CPU MHz"
 
 msgid "CPU model"
-msgstr ""
+msgstr "CPU model"
 
 msgid "CPU system Info"
-msgstr ""
+msgstr "CPU system Info"
 
 msgid "Filesystem system Info"
-msgstr ""
+msgstr "Filesystem system Info"
 
 msgid "Free"
-msgstr ""
+msgstr "Free"
 
 msgid "Kernel Version"
-msgstr ""
+msgstr "Kernel Version"
 
 msgid "Load (1 Min, 5 Min, 15 Min)"
-msgstr ""
+msgstr "Load (1 Min, 5 Min, 15 Min)"
 
 msgid "Memory system info"
-msgstr ""
+msgstr "Memory system info"
 
 msgid "Mount"
-msgstr ""
+msgstr "Mount"
 
 msgid "RAM"
-msgstr ""
+msgstr "RAM"
 
 msgid "Partition"
-msgstr ""
+msgstr "Partition"
 
 msgid "Percent"
-msgstr ""
+msgstr "Percent"
 
 msgid "Size"
-msgstr ""
+msgstr "Size"
 
 msgid "Swap"
-msgstr ""
+msgstr "Swap"
 
 msgid "System info"
-msgstr ""
+msgstr "System info"
 
 msgid "Vital system info"
-msgstr ""
+msgstr "Vital system info"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Up time"
-msgstr ""
+msgstr "Up time"
 
 msgid "EasySCP - Client/Questions & Comments"
-msgstr ""
+msgstr "EasySCP - Client/Questions & Comments"
 
 msgid "Support tickets"
-msgstr ""
+msgstr "Support tickets"
 
 msgid "Priority"
-msgstr ""
+msgstr "Priority"
 
 msgid "Last reply"
-msgstr ""
+msgstr "Last reply"
 
 msgid "Delete all"
-msgstr ""
+msgstr "Delete all"
 
 msgid "Open tickets"
-msgstr ""
+msgstr "Open tickets"
 
 msgid "Closed tickets"
-msgstr ""
+msgstr "Closed tickets"
 
 msgid "From"
-msgstr ""
+msgstr "From"
 
 msgid "Support ticket deleted successfully!"
-msgstr ""
+msgstr "Support ticket deleted successfully!"
 
 msgid "All open support tickets deleted successfully!"
-msgstr ""
+msgstr "All open support tickets deleted successfully!"
 
 msgid "All closed support tickets deleted successfully!"
-msgstr ""
+msgstr "All closed support tickets deleted successfully!"
 
 msgid "EasySCP - Client/Enable Mail Autoresponder"
-msgstr ""
+msgstr "EasySCP - Client/Enable Mail Autoresponder"
 
 msgid "EasySCP - Client: Support System: View Ticket"
-msgstr ""
+msgstr "EasySCP - Client: Support System: View Ticket"
 
 msgid "Please type your message!"
-msgstr ""
+msgstr "Please type your message!"
 
 msgid "Ticket not found!"
-msgstr ""
+msgstr "Ticket not found!"
 
 msgid "EasySCP - Admin: Support System: View Ticket"
-msgstr ""
+msgstr "EasySCP - Admin: Support System: View Ticket"
 
 msgid "View support ticket"
-msgstr ""
+msgstr "View support ticket"
 
 msgid "Send message reply"
-msgstr ""
+msgstr "Send message reply"
 
 msgid "Send reply"
-msgstr ""
+msgstr "Send reply"
 
 msgid "EasySCP - Delete Domain"
-msgstr ""
+msgstr "EasySCP - Delete Domain"
 
 msgid "Invlaid domain ID!"
-msgstr ""
+msgstr "Invlaid domain ID!"
 
 msgid "Invalid user ID!"
-msgstr ""
+msgstr "Invalid user ID!"
 
 msgid "There are active domains of reseller/admin!"
-msgstr ""
+msgstr "There are active domains of reseller/admin!"
 
 msgid "Wrong domain ID!"
-msgstr ""
+msgstr "Wrong domain ID!"
 
 msgid "Delete domain"
-msgstr ""
+msgstr "Delete domain"
 
 msgid "Domain summary:"
-msgstr ""
+msgstr "Domain summary:"
 
 msgid "Domain e-mails:"
-msgstr ""
+msgstr "Domain e-mails:"
 
 msgid "Domain FTP accounts:"
-msgstr ""
+msgstr "Domain FTP accounts:"
 
 msgid "Domain aliases:"
-msgstr ""
+msgstr "Domain aliases:"
 
 msgid "Domain subdomains:"
-msgstr ""
+msgstr "Domain subdomains:"
 
 msgid "Domain databases:"
-msgstr ""
+msgstr "Domain databases:"
 
 msgid "Do you really want to delete the entire domain? This operation cannot be undone!"
-msgstr ""
+msgstr "Do you really want to delete the entire domain? This operation cannot be undone!"
 
 msgid "Yes, delete the domain."
-msgstr ""
+msgstr "Yes, delete the domain."
 
 msgid "EasySCP Client : Add Alias"
-msgstr ""
+msgstr "EasySCP Client : Add Alias"
 
 msgid "Manage domain alias"
-msgstr ""
+msgstr "Manage domain alias"
 
 msgid "Add domain alias"
-msgstr ""
+msgstr "Add domain alias"
 
 msgid "User account"
-msgstr ""
+msgstr "User account"
 
 msgid "Directory mount point"
-msgstr ""
+msgstr "Directory mount point"
 
 msgid "Forward to URL"
-msgstr ""
+msgstr "Forward to URL"
 
 msgid "Add alias"
-msgstr ""
+msgstr "Add alias"
 
 msgid "You do not need 'www.' EasySCP will add it on its own."
-msgstr ""
+msgstr "You do not need 'www.' EasySCP will add it on its own."
 
 msgid "Wrong domain name!"
-msgstr ""
+msgstr "Wrong domain name!"
 
 msgid "Please write mount point!"
-msgstr ""
+msgstr "Please write mount point!"
 
 msgid "Enable Forward"
-msgstr ""
+msgstr "Enable Forward"
 
 msgid "Enable"
-msgstr ""
+msgstr "Enable"
 
 msgid "Disable"
-msgstr ""
+msgstr "Disable"
 
 msgid "Domain alias limit reached!"
-msgstr ""
+msgstr "Domain alias limit reached!"
 
 msgid "Domain with that name already exists on the system!"
-msgstr ""
+msgstr "Domain with that name already exists on the system!"
 
 msgid "Incorrect mount point syntax"
-msgstr ""
+msgstr "Incorrect mount point syntax"
 
 msgid "Master domain cannot be used!"
-msgstr ""
+msgstr "Master domain cannot be used!"
 
 msgid "Wrong address in forward URL!"
-msgstr ""
+msgstr "Wrong address in forward URL!"
 
 msgid "Wrong domain part in forward URL!"
-msgstr ""
+msgstr "Wrong domain part in forward URL!"
 
 msgid "Domain with this name already exist"
-msgstr ""
+msgstr "Domain with this name already exist"
 
 msgid "There is a subdomain with the same mount point!"
-msgstr ""
+msgstr "There is a subdomain with the same mount point!"
 
 msgid "Alias scheduled for activation!"
-msgstr ""
+msgstr "Alias scheduled for activation!"
 
 msgid "Alias scheduled for addition!"
-msgstr ""
+msgstr "Alias scheduled for addition!"
 
 msgid "Domain alias you are trying to remove has subdomains!<br />First remove them!"
-msgstr ""
+msgstr "Domain alias you are trying to remove has subdomains!<br />First remove them!"
 
 msgid "Domain alias you are trying to remove has email accounts!<br />First remove them!"
-msgstr ""
+msgstr "Domain alias you are trying to remove has email accounts!<br />First remove them!"
 
 msgid "Domain alias you are trying to remove has FTP accounts!<br />First remove them!"
-msgstr ""
+msgstr "Domain alias you are trying to remove has FTP accounts!<br />First remove them!"
 
 msgid "Alias scheduled for deletion!"
-msgstr ""
+msgstr "Alias scheduled for deletion!"
 
 msgid "EasySCP - Manage Domain Alias/Edit Alias"
-msgstr ""
+msgstr "EasySCP - Manage Domain Alias/Edit Alias"
 
 msgid "Edit domain alias"
-msgstr ""
+msgstr "Edit domain alias"
 
 msgid "Alias name"
-msgstr ""
+msgstr "Alias name"
 
 msgid "Mount Point"
-msgstr ""
+msgstr "Mount Point"
 
 msgid "Subdomain you are trying to remove has email accounts !<br />First remove them!"
-msgstr ""
+msgstr "Subdomain you are trying to remove has email accounts !<br />First remove them!"
 
 msgid "Alias subdomain scheduled for deletion!"
-msgstr ""
+msgstr "Alias subdomain scheduled for deletion!"
 
 msgid "Backup archive scheduled for restoring!"
-msgstr ""
+msgstr "Backup archive scheduled for restoring!"
 
 msgid "EasySCP - Client/Daily Backup"
-msgstr ""
+msgstr "EasySCP - Client/Daily Backup"
 
 msgid "Daily backup"
-msgstr ""
+msgstr "Daily backup"
 
 msgid "Instructions to download today's backup"
-msgstr ""
+msgstr "Instructions to download today's backup"
 
 msgid "Login with your FTP account"
-msgstr ""
+msgstr "Login with your FTP account"
 
 msgid "Switch to backups/ directory"
-msgstr ""
+msgstr "Switch to backups/ directory"
 
 msgid "Download the files stored in this directory"
-msgstr ""
+msgstr "Download the files stored in this directory"
 
 msgid "(usually named"
-msgstr ""
+msgstr "(usually named"
 
 msgid "Restore backup"
-msgstr ""
+msgstr "Restore backup"
 
 msgid "Click the Restore button and the system will restore the last daily backup"
-msgstr ""
+msgstr "Click the Restore button and the system will restore the last daily backup"
 
 msgid "Restore"
-msgstr ""
+msgstr "Restore"
 
 msgid "Are you sure you want to restore the backup?"
-msgstr ""
+msgstr "Are you sure you want to restore the backup?"
 
 msgid "EasySCP - Client/Cronjob Manager"
-msgstr ""
+msgstr "EasySCP - Client/Cronjob Manager"
 
 msgid "Cronjob Manager"
-msgstr ""
+msgstr "Cronjob Manager"
 
 msgid "Add Cronjob"
-msgstr ""
+msgstr "Add Cronjob"
 
 msgid "Active"
-msgstr ""
+msgstr "Active"
 
 msgid "Cronjob"
-msgstr ""
+msgstr "Cronjob"
 
 msgid "Command to run:"
-msgstr ""
+msgstr "Command to run:"
 
 msgid "Minute(s):"
-msgstr ""
+msgstr "Minute(s):"
 
 msgid "Hour(s):"
-msgstr ""
+msgstr "Hour(s):"
 
 msgid "Day(s):"
-msgstr ""
+msgstr "Day(s):"
 
 msgid "Month(s):"
-msgstr ""
+msgstr "Month(s):"
 
 msgid "Weekday(s):"
-msgstr ""
+msgstr "Weekday(s):"
 
 msgid "Edit Cronjob"
-msgstr ""
+msgstr "Edit Cronjob"
 
 msgid "Cronjobs"
-msgstr ""
+msgstr "Cronjobs"
 
 msgid "You are not allowed to remove this DNS record!"
-msgstr ""
+msgstr "You are not allowed to remove this DNS record!"
 
 msgid "Custom DNS record scheduled for deletion!"
-msgstr ""
+msgstr "Custom DNS record scheduled for deletion!"
 
-msgid "EasySCP - Manage Domain Alias/Add DNS zones record"
-msgstr ""
+msgid "EasySCP - Manage Domain Alias/Add DNS zone's record"
+msgstr "EasySCP - Manage Domain Alias/Add DNS zone's record"
 
-msgid "EasySCP - Manage Domain Alias/Edit DNS zones record"
-msgstr ""
+msgid "EasySCP - Manage Domain Alias/Edit DNS zone's record"
+msgstr "EasySCP - Manage Domain Alias/Edit DNS zone's record"
 
 msgid "Add DNS zone's record"
-msgstr ""
+msgstr "Add DNS zone's record"
 
 msgid "Edit DNS zone's record"
-msgstr ""
+msgstr "Edit DNS zone's record"
 
 msgid "DNS zone's records"
-msgstr ""
+msgstr "DNS zone's records"
 
 msgid "Class"
-msgstr ""
+msgstr "Class"
 
 msgid "Service name"
-msgstr ""
+msgstr "Service name"
 
 msgid "IP address"
-msgstr ""
+msgstr "IP address"
 
 msgid "IPv6 address"
-msgstr ""
+msgstr "IPv6 address"
 
 msgid "Service protocol"
-msgstr ""
+msgstr "Service protocol"
 
 msgid "TTL"
-msgstr ""
+msgstr "TTL"
 
 msgid "Relative weight for records with the same priority"
-msgstr ""
+msgstr "Relative weight for records with the same priority"
 
 msgid "Target host"
-msgstr ""
+msgstr "Target host"
 
 msgid "Target port"
-msgstr ""
+msgstr "Target port"
 
 msgid "Canonical name"
-msgstr ""
+msgstr "Canonical name"
 
 msgid "Plain record data"
-msgstr ""
+msgstr "Plain record data"
 
 msgid "You are not allowed to edit this DNS record!"
-msgstr ""
+msgstr "You are not allowed to edit this DNS record!"
 
 #, php-format
 msgid "Use of disallowed char(\"%s\") in CNAME"
-msgstr ""
+msgstr "Use of disallowed char(\"%s\") in CNAME"
 
 msgid "Name must be filled."
-msgstr ""
+msgstr "Name must be filled."
 
 #, php-format
 msgid "Wrong IPv4 address (\"%s\")."
-msgstr ""
+msgstr "Wrong IPv4 address (\"%s\")."
 
 #, php-format
 msgid "Wrong IPv6 address (\"%s\")."
-msgstr ""
+msgstr "Wrong IPv6 address (\"%s\")."
 
 msgid "Port must be a number!"
-msgstr ""
+msgstr "Port must be a number!"
 
 msgid "TTL must be a number!"
-msgstr ""
+msgstr "TTL must be a number!"
 
 msgid "Priority must be a number!"
-msgstr ""
+msgstr "Priority must be a number!"
 
 msgid "Relative weight must be a number!"
-msgstr ""
+msgstr "Relative weight must be a number!"
 
 msgid "Service must be filled."
-msgstr ""
+msgstr "Service must be filled."
 
 msgid "Host must be filled."
-msgstr ""
+msgstr "Host must be filled."
 
 msgid "conflict with CNAME record"
-msgstr ""
+msgstr "conflict with CNAME record"
 
 #, php-format
 msgid "Use of disallowed char(\"%s\") in NAME"
-msgstr ""
+msgstr "Use of disallowed char(\"%s\") in NAME"
 
 #, php-format
 msgid "Record \"%s\" is not part of domain \"%s\"."
-msgstr ""
+msgstr "Record \"%s\" is not part of domain \"%s\"."
 
 #, php-format
 msgid "Cannot validate %s record. Reason '%s'."
-msgstr ""
+msgstr "Cannot validate %s record. Reason '%s'."
 
 #, php-format
 msgid "Unknown zone type %s!"
-msgstr ""
+msgstr "Unknown zone type %s!"
 
 msgid "Error: DNS record already exist!"
-msgstr ""
+msgstr "Error: DNS record already exist!"
 
 msgid "EasySCP - Client/Domain Statistics"
-msgstr ""
+msgstr "EasySCP - Client/Domain Statistics"
 
 msgid "Web Stats"
-msgstr ""
+msgstr "Web Stats"
 
 msgid "WEB"
-msgstr ""
+msgstr "WEB"
 
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 msgid "POP3/IMAP"
-msgstr ""
+msgstr "POP3/IMAP"
 
 msgid "Sum"
-msgstr ""
+msgstr "Sum"
 
 msgid "Manual zone's records list is empty!"
-msgstr ""
+msgstr "Manual zone's records list is empty!"
 
 #, php-format
 msgid "%s record"
-msgstr ""
+msgstr "%s record"
 
 msgid "Subdomain list is empty!"
-msgstr ""
+msgstr "Subdomain list is empty!"
 
 msgid "Delete order"
-msgstr ""
+msgstr "Delete order"
 
 msgid "Alias list is empty!"
-msgstr ""
+msgstr "Alias list is empty!"
 
 msgid "EasySCP - Client/Manage Domains"
-msgstr ""
+msgstr "EasySCP - Client/Manage Domains"
 
 msgid "Manage domains"
-msgstr ""
+msgstr "Manage domains"
 
 msgid "Mount point"
-msgstr ""
+msgstr "Mount point"
 
 msgid "Forward"
-msgstr ""
+msgstr "Forward"
 
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "Record data"
-msgstr ""
+msgstr "Record data"
 
 msgid "EasySCP - Client/Manage Error Custom Pages"
-msgstr ""
+msgstr "EasySCP - Client/Manage Error Custom Pages"
 
 msgid "Server error - please choose error page"
-msgstr ""
+msgstr "Server error - please choose error page"
 
 msgid "Edit error page"
-msgstr ""
+msgstr "Edit error page"
 
 msgid "Custom error page was updated!"
-msgstr ""
+msgstr "Custom error page was updated!"
 
 msgid "System error - custom error page was NOT updated!"
-msgstr ""
+msgstr "System error - custom error page was NOT updated!"
 
 msgid "Error 401 (unauthorised)"
-msgstr ""
+msgstr "Error 401 (unauthorised)"
 
 msgid "Error 403 (forbidden)"
-msgstr ""
+msgstr "Error 403 (forbidden)"
 
 msgid "Error 404 (not found)"
-msgstr ""
+msgstr "Error 404 (not found)"
 
 msgid "Error 500 (internal server error)"
-msgstr ""
+msgstr "Error 500 (internal server error)"
 
 msgid "Error 503 (service unavailable)"
-msgstr ""
+msgstr "Error 503 (service unavailable)"
 
 msgid "Error pages"
-msgstr ""
+msgstr "Error pages"
 
 msgid "FTP list is empty!"
-msgstr ""
+msgstr "FTP list is empty!"
 
 msgid "EasySCP - Client/Manage Users"
-msgstr ""
+msgstr "EasySCP - Client/Manage Users"
 
 msgid "Manage users"
-msgstr ""
+msgstr "Manage users"
 
 msgid "FTPs total"
-msgstr ""
+msgstr "FTPs total"
 
 msgid "FTP users"
-msgstr ""
+msgstr "FTP users"
 
 msgid "FTP account"
-msgstr ""
+msgstr "FTP account"
 
 msgid "Empty List"
-msgstr ""
+msgstr "Empty List"
 
 msgid "Empty list"
-msgstr ""
+msgstr "Empty list"
 
 msgid "FTP account already exists!"
-msgstr ""
+msgstr "FTP account already exists!"
 
 msgid "Unknown domain type"
-msgstr ""
+msgstr "Unknown domain type"
 
 msgid "Incorrect mount point length or syntax"
-msgstr ""
+msgstr "Incorrect mount point length or syntax"
 
 #, php-format
 msgid "%s does not exist"
-msgstr ""
+msgstr "%s does not exist"
 
 msgid "FTP account added!"
-msgstr ""
+msgstr "FTP account added!"
 
 msgid "Please enter FTP account username!"
-msgstr ""
+msgstr "Please enter FTP account username!"
 
 msgid "Password is missing!"
-msgstr ""
+msgstr "Password is missing!"
 
 msgid "Subdomain list is empty! You cannot add FTP accounts there!"
-msgstr ""
+msgstr "Subdomain list is empty! You cannot add FTP accounts there!"
 
 msgid "Alias list is empty! You cannot add FTP accounts there!"
-msgstr ""
+msgstr "Alias list is empty! You cannot add FTP accounts there!"
 
 msgid "Please specify other FTP account dir!"
-msgstr ""
+msgstr "Please specify other FTP account dir!"
 
 msgid "FTP accounts limit reached!"
-msgstr ""
+msgstr "FTP accounts limit reached!"
 
 msgid "EasySCP - Client/Add FTP User"
-msgstr ""
+msgstr "EasySCP - Client/Add FTP User"
 
 msgid "Add FTP user"
-msgstr ""
+msgstr "Add FTP user"
 
 msgid "To main domain"
-msgstr ""
+msgstr "To main domain"
 
 msgid "To domain alias"
-msgstr ""
+msgstr "To domain alias"
 
 msgid "To subdomain"
-msgstr ""
+msgstr "To subdomain"
 
 msgid "Use other dir"
-msgstr ""
+msgstr "Use other dir"
 
 msgid "Choose dir"
-msgstr ""
+msgstr "Choose dir"
 
 msgid "Cannot open directory!<br />Please contact your administrator!"
-msgstr ""
+msgstr "Cannot open directory!<br />Please contact your administrator!"
 
 msgid "Parent Directory"
-msgstr ""
+msgstr "Parent Directory"
 
 msgid "Protect it"
-msgstr ""
+msgstr "Protect it"
 
 msgid "Directory tree"
-msgstr ""
+msgstr "Directory tree"
 
 msgid "Directories"
-msgstr ""
+msgstr "Directories"
 
 msgid "Choose"
-msgstr ""
+msgstr "Choose"
 
 msgid "FTP account deleted successfully!"
-msgstr ""
+msgstr "FTP account deleted successfully!"
 
 msgid "FTP account data updated!"
-msgstr ""
+msgstr "FTP account data updated!"
 
 msgid "EasySCP - Client/Edit FTP Account"
-msgstr ""
+msgstr "EasySCP - Client/Edit FTP Account"
 
 msgid "Edit FTP user"
-msgstr ""
+msgstr "Edit FTP user"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Save changes"
 
 msgid "Hosting plans available for update"
-msgstr ""
+msgstr "Hosting plans available for update"
 
 msgid "Cancel order"
-msgstr ""
+msgstr "Cancel order"
 
 msgid "Your order"
-msgstr ""
+msgstr "Your order"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Purchase"
 
 msgid "There are no available updates"
-msgstr ""
+msgstr "There are no available updates"
 
 msgid "PHP Support: enabled"
-msgstr ""
+msgstr "PHP Support: enabled"
 
 msgid "PHP Support: disabled"
-msgstr ""
+msgstr "PHP Support: disabled"
 
 msgid "You have PHP enabled, but the new hosting plan doesn't has this feature."
-msgstr ""
+msgstr "You have PHP enabled, but the new hosting plan doesn't has this feature."
 
 msgid "CGI Support: enabled"
-msgstr ""
+msgstr "CGI Support: enabled"
 
 msgid "CGI Support: disabled"
-msgstr ""
+msgstr "CGI Support: disabled"
 
 msgid "You have CGI enabled, but the new hosting plan doesn't has this feature."
-msgstr ""
+msgstr "You have CGI enabled, but the new hosting plan doesn't has this feature."
 
 msgid "DNS Support: enabled"
-msgstr ""
+msgstr "DNS Support: enabled"
 
 msgid "DNS Support: disabled"
-msgstr ""
+msgstr "DNS Support: disabled"
 
 msgid "You have DNS enabled, but the new hosting plan doesn't has this feature."
-msgstr ""
+msgstr "You have DNS enabled, but the new hosting plan doesn't has this feature."
 
 msgid "You have more disk space in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more disk space in use than the new hosting plan limits."
 
 msgid "Disk limit"
-msgstr ""
+msgstr "Disk limit"
 
 msgid "You did have more traffic than the new hosting plan limits."
-msgstr ""
+msgstr "You did have more traffic than the new hosting plan limits."
 
 msgid "Traffic limit"
-msgstr ""
+msgstr "Traffic limit"
 
 msgid "You have more aliases in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more aliases in use than the new hosting plan limits."
 
 msgid "You have more subdomains in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more subdomains in use than the new hosting plan limits."
 
 msgid "You have more Email addresses in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more Email addresses in use than the new hosting plan limits."
 
 msgid "Emails"
-msgstr ""
+msgstr "Emails"
 
 msgid "You have more FTP accounts in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more FTP accounts in use than the new hosting plan limits."
 
 msgid "FTPs"
-msgstr ""
+msgstr "FTPs"
 
 msgid "You have more SQL databases in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more SQL databases in use than the new hosting plan limits."
 
 msgid "You have more SQL database users in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more SQL database users in use than the new hosting plan limits."
 
 msgid "free of charge"
-msgstr ""
+msgstr "free of charge"
 
 msgid "You cannot update to this hosting plan, see notices in text."
-msgstr ""
+msgstr "You cannot update to this hosting plan, see notices in text."
 
 msgid "Warning:"
-msgstr ""
+msgstr "Warning:"
 
 msgid "Caution:"
-msgstr ""
+msgstr "Caution:"
 
 msgid "I understand the warnings - Purchase!"
-msgstr ""
+msgstr "I understand the warnings - Purchase!"
 
 msgid "There are no available hosting plans for update"
-msgstr ""
+msgstr "There are no available hosting plans for update"
 
 msgid "EasySCP - Update hosting plan"
-msgstr ""
+msgstr "EasySCP - Update hosting plan"
 
 msgid "You have more e-mail addresses in use than the new hosting plan limits."
-msgstr ""
+msgstr "You have more e-mail addresses in use than the new hosting plan limits."
 
 msgid "Your request for hosting pack update was added successfully"
-msgstr ""
+msgstr "Your request for hosting pack update was added successfully"
 
 msgid "[EasySCP OrderPanel] - You have an update order"
-msgstr ""
+msgstr "[EasySCP OrderPanel] - You have an update order"
 
 #, php-format
 msgid ""
@@ -2676,812 +2679,812 @@ msgid ""
 "\n"
 "Please login into your EasySCP control panel at %s for more details"
 msgstr ""
+"You have an update order for the account %s\n"
+"\n"
+"Please login into your EasySCP control panel at %s for more details"
 
 msgid "Your request for hosting pack update was removed successfully"
-msgstr ""
+msgstr "Your request for hosting pack update was removed successfully"
 
 msgid "disabled"
-msgstr ""
+msgstr "disabled"
 
 #, php-format
 msgid "You have <strong>%d</strong> new answer to your support questions"
-msgstr ""
+msgstr "You have <strong>%d</strong> new answer to your support questions"
 
 #, php-format
 msgid "%1$s%% [%2$s of %3$s]"
-msgstr ""
+msgstr "%1$s%% [%2$s of %3$s]"
 
 #, php-format
 msgid "%1$s%% [%2$s of unlimited]"
-msgstr ""
+msgstr "%1$s%% [%2$s of unlimited]"
 
 msgid "You are exceeding your disk limit!"
-msgstr ""
+msgstr "You are exceeding your disk limit!"
 
 msgid "You have no new support questions!"
-msgstr ""
+msgstr "You have no new support questions!"
 
 msgid "Not Set"
-msgstr ""
+msgstr "Not Set"
 
 msgid "This Domain is expired"
-msgstr ""
+msgstr "This Domain is expired"
 
 msgid "EasySCP - Client/Main Index"
-msgstr ""
+msgstr "EasySCP - Client/Main Index"
 
 msgid "General information"
-msgstr ""
+msgstr "General information"
 
 msgid "Account name"
-msgstr ""
+msgstr "Account name"
 
 msgid "Main domain"
-msgstr ""
+msgstr "Main domain"
 
 msgid "SQL support"
-msgstr ""
+msgstr "SQL support"
 
 msgid "Choose default language"
-msgstr ""
+msgstr "Choose default language"
 
 msgid "Traffic usage"
-msgstr ""
+msgstr "Traffic usage"
 
 msgid "Disk usage"
-msgstr ""
+msgstr "Disk usage"
 
 msgid "Alternative URL to reach your website"
-msgstr ""
+msgstr "Alternative URL to reach your website"
 
 msgid "EasySCP - Client/Change Language"
-msgstr ""
+msgstr "EasySCP - Client/Change Language"
 
 msgid "Please wait for update"
-msgstr ""
+msgstr "Please wait for update"
 
 msgid "Mail accounts list is empty!"
-msgstr ""
+msgstr "Mail accounts list is empty!"
 
 msgid "Mail users"
-msgstr ""
+msgstr "Mail users"
 
 msgid "Auto respond"
-msgstr ""
+msgstr "Auto respond"
 
 msgid "Domain mails"
-msgstr ""
+msgstr "Domain mails"
 
 msgid "Subdomain mails"
-msgstr ""
+msgstr "Subdomain mails"
 
 msgid "Alias mails"
-msgstr ""
+msgstr "Alias mails"
 
 msgid "Mails total"
-msgstr ""
+msgstr "Mails total"
 
 msgid "Show default E-Mail addresses"
-msgstr ""
+msgstr "Show default E-Mail addresses"
 
 msgid "Hide default E-Mail Addresses"
-msgstr ""
+msgstr "Hide default E-Mail Addresses"
 
 msgid "Mailformat of an address in your forward list is incorrect!"
-msgstr ""
+msgstr "Mailformat of an address in your forward list is incorrect!"
 
 msgid "Mail forward list empty!"
-msgstr ""
+msgstr "Mail forward list empty!"
 
 msgid "Forward to same address is not allowed!"
-msgstr ""
+msgstr "Forward to same address is not allowed!"
 
 msgid "Mail account already exists!"
-msgstr ""
+msgstr "Mail account already exists!"
 
 msgid "Mail account scheduled for addition!"
-msgstr ""
+msgstr "Mail account scheduled for addition!"
 
 msgid "Please select at least one mail type!"
-msgstr ""
+msgstr "Please select at least one mail type!"
 
 msgid "Please enter mail account username!"
-msgstr ""
+msgstr "Please enter mail account username!"
 
 msgid "Invalid mail localpart format used!"
-msgstr ""
+msgstr "Invalid mail localpart format used!"
 
 msgid "Password data is missing!"
-msgstr ""
+msgstr "Password data is missing!"
 
 msgid "Entered passwords differ!"
-msgstr ""
+msgstr "Entered passwords differ!"
 
 msgid "Subdomain alias"
-msgstr ""
+msgstr "Subdomain alias"
 
 #, php-format
 msgid "%s list is empty! You cannot add mail accounts!"
-msgstr ""
+msgstr "%s list is empty! You cannot add mail accounts!"
 
 #, php-format
 msgid "%s ID is invalid! You cannot add mail accounts!"
-msgstr ""
+msgstr "%s ID is invalid! You cannot add mail accounts!"
 
 msgid "Forward list is empty!"
-msgstr ""
+msgstr "Forward list is empty!"
 
 msgid "Mail accounts limit reached!"
-msgstr ""
+msgstr "Mail accounts limit reached!"
 
 msgid "EasySCP - Client/Add Mail User"
-msgstr ""
+msgstr "EasySCP - Client/Add Mail User"
 
 msgid "Add mail users"
-msgstr ""
+msgstr "Add mail users"
 
 msgid "To alias subdomain"
-msgstr ""
+msgstr "To alias subdomain"
 
 msgid "Normal mail"
-msgstr ""
+msgstr "Normal mail"
 
 msgid "Forward mail"
-msgstr ""
+msgstr "Forward mail"
 
 msgid "Forward to"
-msgstr ""
+msgstr "Forward to"
 
 msgid "Separate multiple email addresses with a line-break."
-msgstr ""
+msgstr "Separate multiple email addresses with a line-break."
 
 msgid "You did not fill all required fields"
-msgstr ""
+msgstr "You did not fill all required fields"
 
 msgid "Mail account scheduled for modification!"
-msgstr ""
+msgstr "Mail account scheduled for modification!"
 
 msgid "Please type your mail autorespond message!"
-msgstr ""
+msgstr "Please type your mail autorespond message!"
 
 msgid "Mail account scheduler for modification!"
-msgstr ""
+msgstr "Mail account scheduler for modification!"
 
 msgid "EasySCP - Client/Enable Mail Auto Responder"
-msgstr ""
+msgstr "EasySCP - Client/Enable Mail Auto Responder"
 
 msgid "Edit mail auto responder"
-msgstr ""
+msgstr "Edit mail auto responder"
 
 msgid "Your message"
-msgstr ""
+msgstr "Your message"
 
 msgid "Enable mail auto responder"
-msgstr ""
+msgstr "Enable mail auto responder"
 
 msgid "Delete CatchAll"
-msgstr ""
+msgstr "Delete CatchAll"
 
 msgid "None"
-msgstr ""
+msgstr "None"
 
 msgid "Create catch all"
-msgstr ""
+msgstr "Create catch all"
 
 msgid "Catch all account"
-msgstr ""
+msgstr "Catch all account"
 
 msgid "Catch all"
-msgstr ""
+msgstr "Catch all"
 
 msgid "Catch all account scheduled for creation!"
-msgstr ""
+msgstr "Catch all account scheduled for creation!"
 
 msgid "Mail forward list error!"
-msgstr ""
+msgstr "Mail forward list error!"
 
 msgid "EasySCP - Client/Create CatchAll Mail Account"
-msgstr ""
+msgstr "EasySCP - Client/Create CatchAll Mail Account"
 
 msgid "Create catch all mail account"
-msgstr ""
+msgstr "Create catch all mail account"
 
 msgid "Mail accounts list"
-msgstr ""
+msgstr "Mail accounts list"
 
 msgid "Catch all account scheduled for deletion!"
-msgstr ""
+msgstr "Catch all account scheduled for deletion!"
 
 msgid "First delete the CatchAll account for this email!"
-msgstr ""
+msgstr "First delete the CatchAll account for this email!"
 
 msgid "Email account not found!"
-msgstr ""
+msgstr "Email account not found!"
 
 msgid "EasySCP - Manage Mail and FTP / Edit mail account"
-msgstr ""
+msgstr "EasySCP - Manage Mail and FTP / Edit mail account"
 
 msgid "Mail were updated successfully!"
-msgstr ""
+msgstr "Mail were updated successfully!"
 
 msgid "Edit email account"
-msgstr ""
+msgstr "Edit email account"
 
 msgid "EasySCP - Client/Change Password"
-msgstr ""
+msgstr "EasySCP - Client/Change Password"
 
 msgid "EasySCP - Client/Change Personal Data"
-msgstr ""
+msgstr "EasySCP - Client/Change Personal Data"
 
 msgid "Unknown SQL user id!"
-msgstr ""
+msgstr "Unknown SQL user id!"
 
 msgid "An error occurred while authentication!"
-msgstr ""
+msgstr "An error occurred while authentication!"
 
 msgid "You do not have protected areas"
-msgstr ""
+msgstr "You do not have protected areas"
 
 msgid "Manage users and groups"
-msgstr ""
+msgstr "Manage users and groups"
 
 msgid "Add user"
-msgstr ""
+msgstr "Add user"
 
 msgid "Group name"
-msgstr ""
+msgstr "Group name"
 
 msgid "Group members"
-msgstr ""
+msgstr "Group members"
 
 msgid "Add group"
-msgstr ""
+msgstr "Add group"
 
 msgid "Group"
-msgstr ""
+msgstr "Group"
 
 msgid "Add new protected area"
-msgstr ""
+msgstr "Add new protected area"
 
 msgid "Please choose user or group"
-msgstr ""
+msgstr "Please choose user or group"
 
 msgid "Please enter area name"
-msgstr ""
+msgstr "Please enter area name"
 
 msgid "Please enter area path"
-msgstr ""
+msgstr "Please enter area path"
 
 #, php-format
 msgid "%s doesn't exist"
-msgstr ""
+msgstr "%s doesn't exist"
 
 msgid "You cannot protect area without selected user(s)!"
-msgstr ""
+msgstr "You cannot protect area without selected user(s)!"
 
 msgid "You cannot protect area without selected group(s)"
-msgstr ""
+msgstr "You cannot protect area without selected group(s)"
 
 msgid "Protected area updated successfully!"
-msgstr ""
+msgstr "Protected area updated successfully!"
 
 msgid "Protected area created successfully!"
-msgstr ""
+msgstr "Protected area created successfully!"
 
 msgid "Protected area status should be OK if you want to edit it!"
-msgstr ""
+msgstr "Protected area status should be OK if you want to edit it!"
 
 msgid "You have no users !"
-msgstr ""
+msgstr "You have no users !"
 
 msgid "You have no groups!"
-msgstr ""
+msgstr "You have no groups!"
 
 msgid "Protect this area"
-msgstr ""
+msgstr "Protect this area"
 
 msgid "Path"
-msgstr ""
+msgstr "Path"
 
 msgid "Groups"
-msgstr ""
+msgstr "Groups"
 
 msgid "User auth"
-msgstr ""
+msgstr "User auth"
 
 msgid "Group auth"
-msgstr ""
+msgstr "Group auth"
 
 msgid "Area name"
-msgstr ""
+msgstr "Area name"
 
 msgid "Unprotect it"
-msgstr ""
+msgstr "Unprotect it"
 
 msgid "Protected area status should be OK if you want to delete it!"
-msgstr ""
+msgstr "Protected area status should be OK if you want to delete it!"
 
 msgid "Protected area deleted successfully!"
-msgstr ""
+msgstr "Protected area deleted successfully!"
 
 msgid "Permission deny!"
-msgstr ""
+msgstr "Permission deny!"
 
 msgid "Protected area was deleted successful!"
-msgstr ""
+msgstr "Protected area was deleted successful!"
 
 msgid "Invalid group name!"
-msgstr ""
+msgstr "Invalid group name!"
 
 msgid "Group already exists!"
-msgstr ""
+msgstr "Group already exists!"
 
 msgid "Manage user"
-msgstr ""
+msgstr "Manage user"
 
 msgid "Wrong username!"
-msgstr ""
+msgstr "Wrong username!"
 
 msgid "User already exist !"
-msgstr ""
+msgstr "User already exist !"
 
 #, php-format
 msgid "User was assigned to the %s group"
-msgstr ""
+msgstr "User was assigned to the %s group"
 
 #, php-format
 msgid "User was deleted from the %s group."
-msgstr ""
+msgstr "User was deleted from the %s group."
 
 msgid "User assign"
-msgstr ""
+msgstr "User assign"
 
 msgid "Already in:"
-msgstr ""
+msgstr "Already in:"
 
 msgid "Member of group:"
-msgstr ""
+msgstr "Member of group:"
 
 msgid "Select group:"
-msgstr ""
+msgstr "Select group:"
 
 msgid "Update user"
-msgstr ""
+msgstr "Update user"
 
 msgid "You have no users!"
-msgstr ""
+msgstr "You have no users!"
 
 msgid "Please specify user password!"
-msgstr ""
+msgstr "Please specify user password!"
 
 msgid "User password too long!"
-msgstr ""
+msgstr "User password too long!"
 
 msgid "Don't use special chars like \"@, $, %...\" in the password!"
-msgstr ""
+msgstr "Don't use special chars like \"@, $, %...\" in the password!"
 
 msgid "SQL user password was successfully changed!"
-msgstr ""
+msgstr "SQL user password was successfully changed!"
 
 msgid "EasySCP - Client/Change SQL User Password"
-msgstr ""
+msgstr "EasySCP - Client/Change SQL User Password"
 
 msgid "Change SQL user password"
-msgstr ""
+msgstr "Change SQL user password"
 
 msgid "Change"
-msgstr ""
+msgstr "Change"
 
 msgid "Please specify a database name!"
-msgstr ""
+msgstr "Please specify a database name!"
 
 msgid "Database name is too long!"
-msgstr ""
+msgstr "Database name is too long!"
 
 msgid "Specified database name already exists!"
-msgstr ""
+msgstr "Specified database name already exists!"
 
 #, php-format
 msgid "Wildcards such as %% and ? are not allowed!"
-msgstr ""
+msgstr "Wildcards such as %% and ? are not allowed!"
 
 msgid "SQL database created successfully!"
-msgstr ""
+msgstr "SQL database created successfully!"
 
 msgid "SQL accounts limit reached!"
-msgstr ""
+msgstr "SQL accounts limit reached!"
 
 msgid "EasySCP - Client/Add SQL Database"
-msgstr ""
+msgstr "EasySCP - Client/Add SQL Database"
 
 msgid "Add SQL database"
-msgstr ""
+msgstr "Add SQL database"
 
 msgid "Database name"
-msgstr ""
+msgstr "Database name"
 
 msgid "Use numeric ID"
-msgstr ""
+msgstr "Use numeric ID"
 
 msgid "Before the name"
-msgstr ""
+msgstr "Before the name"
 
 msgid "After the name"
-msgstr ""
+msgstr "After the name"
 
 msgid "SQL database was removed successfully!"
-msgstr ""
+msgstr "SQL database was removed successfully!"
 
 msgid "SQL user was removed successfully!"
-msgstr ""
+msgstr "SQL user was removed successfully!"
 
 msgid "Database user list is empty!"
-msgstr ""
+msgstr "Database user list is empty!"
 
 msgid "Database list is empty!"
-msgstr ""
+msgstr "Database list is empty!"
 
 msgid "EasySCP - Client/Manage SQL"
-msgstr ""
+msgstr "EasySCP - Client/Manage SQL"
 
 msgid "Manage SQL"
-msgstr ""
+msgstr "Manage SQL"
 
 msgid "Database Name and Users"
-msgstr ""
+msgstr "Database Name and Users"
 
 msgid "phpMyAdmin"
-msgstr ""
+msgstr "phpMyAdmin"
 
 msgid "Database users"
-msgstr ""
+msgstr "Database users"
 
 msgid "Add SQL user"
-msgstr ""
+msgstr "Add SQL user"
 
 msgid "Execute query"
-msgstr ""
+msgstr "Execute query"
 
 msgid "Login phpMyAdmin"
-msgstr ""
+msgstr "Login phpMyAdmin"
 
 #, php-format
 msgid "This database will be permanently deleted. This process cannot be recovered. All users linked to this database will also be deleted if not linked to another database. Are you sure you want to delete %s?"
-msgstr ""
+msgstr "This database will be permanently deleted. This process cannot be recovered. All users linked to this database will also be deleted if not linked to another database. Are you sure you want to delete %s?"
 
 msgid "SQL users limit reached!"
-msgstr ""
+msgstr "SQL users limit reached!"
 
 msgid "Please type user name!"
-msgstr ""
+msgstr "Please type user name!"
 
 msgid "Please type user password!"
-msgstr ""
+msgstr "Please type user password!"
 
 msgid "Too long user password!"
-msgstr ""
+msgstr "Too long user password!"
 
 msgid "SQL-user not found! It might has been deleted by another user."
-msgstr ""
+msgstr "SQL-user not found! It might has been deleted by another user."
 
 msgid "User name too long!"
-msgstr ""
+msgstr "User name too long!"
 
 msgid "Specified SQL username name already exists!"
-msgstr ""
+msgstr "Specified SQL username name already exists!"
 
 msgid "SQL user successfully added!"
-msgstr ""
+msgstr "SQL user successfully added!"
 
 msgid "EasySCP - Client/Add SQL User"
-msgstr ""
+msgstr "EasySCP - Client/Add SQL User"
 
 msgid "SQL user name"
-msgstr ""
+msgstr "SQL user name"
 
 msgid "In front the name"
-msgstr ""
+msgstr "In front the name"
 
 msgid "Behind the name"
-msgstr ""
+msgstr "Behind the name"
 
 msgid "Add existing user"
-msgstr ""
+msgstr "Add existing user"
 
 msgid "Existing SQL users"
-msgstr ""
+msgstr "Existing SQL users"
 
 msgid "Subdomains limit reached!"
-msgstr ""
+msgstr "Subdomains limit reached!"
 
 msgid "Please specify subdomain name!"
-msgstr ""
+msgstr "Please specify subdomain name!"
 
 msgid "No valid alias domain selected!"
-msgstr ""
+msgstr "No valid alias domain selected!"
 
 msgid "Subdomain already exists or is not allowed!"
-msgstr ""
+msgstr "Subdomain already exists or is not allowed!"
 
 msgid "Mount point already in use!"
-msgstr ""
+msgstr "Mount point already in use!"
 
 msgid "Incorrect mount point syntax!"
-msgstr ""
+msgstr "Incorrect mount point syntax!"
 
 msgid "Subdomain scheduled for addition!"
-msgstr ""
+msgstr "Subdomain scheduled for addition!"
 
 msgid "EasySCP - Client/Add Subdomain"
-msgstr ""
+msgstr "EasySCP - Client/Add Subdomain"
 
 msgid "Add subdomain"
-msgstr ""
+msgstr "Add subdomain"
 
 msgid "Subdomain data"
-msgstr ""
+msgstr "Subdomain data"
 
 msgid "Subdomain name"
-msgstr ""
+msgstr "Subdomain name"
 
 msgid "Directory tree mount point"
-msgstr ""
+msgstr "Directory tree mount point"
 
 msgid "The subdomain you are trying to remove has email accounts!<br />Rremove them first!"
-msgstr ""
+msgstr "The subdomain you are trying to remove has email accounts!<br />Rremove them first!"
 
 msgid "Subdomain scheduled for deletion!"
-msgstr ""
+msgstr "Subdomain scheduled for deletion!"
 
 msgid "EasySCP - Manage Subdomain/Edit Subdomain"
-msgstr ""
+msgstr "EasySCP - Manage Subdomain/Edit Subdomain"
 
 msgid "Manage subdomain"
-msgstr ""
+msgstr "Manage subdomain"
 
 msgid "Edit subdomain"
-msgstr ""
+msgstr "Edit subdomain"
 
 msgid "EasySCP - Support System - New ticket"
-msgstr ""
+msgstr "EasySCP - Support System - New ticket"
 
 msgid "Please specify message subject!"
-msgstr ""
+msgstr "Please specify message subject!"
 
 msgid "New ticket"
-msgstr ""
+msgstr "New ticket"
 
 msgid "Low"
-msgstr ""
+msgstr "Low"
 
 msgid "Medium"
-msgstr ""
+msgstr "Medium"
 
 msgid "High"
-msgstr ""
+msgstr "High"
 
 msgid "Very high"
-msgstr ""
+msgstr "Very high"
 
 msgid "EasySCP - Client/Webtools"
-msgstr ""
+msgstr "EasySCP - Client/Webtools"
 
 msgid "Webtools"
-msgstr ""
+msgstr "Webtools"
 
 msgid "Customize error pages for your domain"
-msgstr ""
+msgstr "Customize error pages for your domain"
 
 msgid "Backup and restore settings"
-msgstr ""
+msgstr "Backup and restore settings"
 
 msgid "Access your mail through the web interface"
-msgstr ""
+msgstr "Access your mail through the web interface"
 
 msgid "Access your files through the web interface"
-msgstr ""
+msgstr "Access your files through the web interface"
 
 msgid "Access your Awstats statistics"
-msgstr ""
+msgstr "Access your Awstats statistics"
 
 msgid "Manage protected areas, users and groups"
-msgstr ""
+msgstr "Manage protected areas, users and groups"
 
 msgid "System tools"
-msgstr ""
+msgstr "System tools"
 
 msgid "Statistics"
-msgstr ""
+msgstr "Statistics"
 
 msgid "Reseller statistics"
-msgstr ""
+msgstr "Reseller statistics"
 
 msgid "Admin log"
-msgstr ""
+msgstr "Admin log"
 
 msgid "Logout"
-msgstr ""
+msgstr "Logout"
 
 msgid "Custom menus"
-msgstr ""
+msgstr "Custom menus"
 
 msgid "Overview"
-msgstr ""
+msgstr "Overview"
 
 msgid "User sessions"
-msgstr ""
+msgstr "User sessions"
 
 msgid "Lostpw email setup"
-msgstr ""
+msgstr "Lostpw email setup"
 
 msgid "Rootkit Log"
-msgstr ""
+msgstr "Rootkit Log"
 
 msgid "Admin users"
-msgstr ""
+msgstr "Admin users"
 
 msgid "Normal users"
-msgstr ""
+msgstr "Normal users"
 
 msgid "System messages"
-msgstr ""
+msgstr "System messages"
 
 msgid "No new messages"
-msgstr ""
+msgstr "No new messages"
 
 msgid "Server traffic"
-msgstr ""
+msgstr "Server traffic"
 
 msgid "Administrators list is empty!"
-msgstr ""
+msgstr "Administrators list is empty!"
 
 msgid "Creation date"
-msgstr ""
+msgstr "Creation date"
 
 msgid "Created by"
-msgstr ""
+msgstr "Created by"
 
 msgid "System"
-msgstr ""
+msgstr "System"
 
 msgid "Resellers list is empty!"
-msgstr ""
+msgstr "Resellers list is empty!"
 
 msgid "Switch to user interface"
-msgstr ""
+msgstr "Switch to user interface"
 
 msgid "Switch"
-msgstr ""
+msgstr "Switch"
 
 msgid "Not found user records matching the search criteria!"
-msgstr ""
+msgstr "Not found user records matching the search criteria!"
 
 msgid "view aliases"
-msgstr ""
+msgstr "view aliases"
 
 msgid "Users list is empty!"
-msgstr ""
+msgstr "Users list is empty!"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Edit domain"
-msgstr ""
+msgstr "Edit domain"
 
 msgid "Are you sure you want to change the status of domain account?"
-msgstr ""
+msgstr "Are you sure you want to change the status of domain account?"
 
 msgid "Administrators"
-msgstr ""
+msgstr "Administrators"
 
 msgid "Resellers"
-msgstr ""
+msgstr "Resellers"
 
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 msgid "Expire date"
-msgstr ""
+msgstr "Expire date"
 
 #, php-format
 msgid "%1$s you are now logged as %2$s"
-msgstr ""
+msgstr "%1$s you are now logged as %2$s"
 
 msgid "Go back"
-msgstr ""
+msgstr "Go back"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Suspended"
-msgstr ""
+msgstr "Suspended"
 
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 msgid "EasySCP - Order Panel"
-msgstr ""
+msgstr "EasySCP - Order Panel"
 
 #, php-format
 msgid "%.2f PB"
-msgstr ""
+msgstr "%.2f PB"
 
 #, php-format
 msgid "%.2f TB"
-msgstr ""
+msgstr "%.2f TB"
 
 #, php-format
 msgid "%.2f GB"
-msgstr ""
+msgstr "%.2f GB"
 
 #, php-format
 msgid "%.2f MB"
-msgstr ""
+msgstr "%.2f MB"
 
 #, php-format
 msgid "%.2f KB"
-msgstr ""
+msgstr "%.2f KB"
 
 #, php-format
 msgid "%d B"
-msgstr ""
+msgstr "%d B"
 
 msgid "Email and FTP accounts"
-msgstr ""
+msgstr "Email and FTP accounts"
 
 msgid "Add mail user"
-msgstr ""
+msgstr "Add mail user"
 
 msgid "Filemanager"
-msgstr ""
+msgstr "Filemanager"
 
 msgid "Web statistics"
-msgstr ""
+msgstr "Web statistics"
 
 msgid "Group/User management"
-msgstr ""
+msgstr "Group/User management"
 
 msgid "Email Accounts"
-msgstr ""
+msgstr "Email Accounts"
 
 msgid "FTP Accounts"
-msgstr ""
+msgstr "FTP Accounts"
 
 msgid "Update Hosting Package"
-msgstr ""
-
-msgid "Manage SSL certificate"
-msgstr ""
+msgstr "Update Hosting Package"
 
 msgid "Domain mail"
-msgstr ""
+msgstr "Domain mail"
 
 msgid "Email forward"
-msgstr ""
+msgstr "Email forward"
 
 msgid "Alias mail"
-msgstr ""
+msgstr "Alias mail"
 
 msgid "Alias forward"
-msgstr ""
+msgstr "Alias forward"
 
 msgid "Subdomain mail"
-msgstr ""
+msgstr "Subdomain mail"
 
 msgid "Subdomain forward"
-msgstr ""
+msgstr "Subdomain forward"
 
 msgid "Alias subdomain mail"
-msgstr ""
+msgstr "Alias subdomain mail"
 
 msgid "Alias subdomain forward"
-msgstr ""
+msgstr "Alias subdomain forward"
 
 msgid "Unknown type"
-msgstr ""
+msgstr "Unknown type"
 
 msgid "Welcome {USERNAME} to EasySCP!"
-msgstr ""
+msgstr "Welcome {USERNAME} to EasySCP!"
 
 msgid ""
 "\n"
@@ -3507,6 +3510,28 @@ msgid ""
 "The EasySCP Team.\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Hello {NAME}!\n"
+"\n"
+"A new EasySCP account has been created for you.\n"
+"Your account information:\n"
+"\n"
+"User type: {USERTYPE}\n"
+"User name: {USERNAME}\n"
+"Password: {PASSWORD}\n"
+"\n"
+"Remember to change your password often and the first time you login.\n"
+"\n"
+"You can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
+"\n"
+"Statistics: {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/{USERNAME}/stats/\n"
+"User name: {USERNAME}\n"
+"Password: {PASSWORD}\n"
+"\n"
+"Best wishes with EasySCP!\n"
+"The EasySCP Team.\n"
+"\n"
 
 msgid ""
 "\n"
@@ -3531,9 +3556,30 @@ msgid ""
 "The EasySCP Team.\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Hello {NAME}!\n"
+"\n"
+"A new EasySCP account has been created for you.\n"
+"Your account information:\n"
+"\n"
+"User type: {USERTYPE}\n"
+"User name: {USERNAME}\n"
+"Password: {PASSWORD}\n"
+"\n"
+"Remember to change your password often and the first time you login.\n"
+"\n"
+"You can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
+"\n"
+"User name: {USERNAME}\n"
+"Password: {PASSWORD}\n"
+"\n"
+"Best wishes with EasySCP!\n"
+"The EasySCP Team.\n"
+"\n"
 
 msgid "Please activate your new EasySCP password!"
-msgstr ""
+msgstr "Please activate your new EasySCP password!"
 
 msgid ""
 "\n"
@@ -3547,9 +3593,19 @@ msgid ""
 "The EasySCP Team\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Hello {NAME}!\n"
+"Use this link to activate your new EasySCP password:\n"
+"\n"
+"{LINK}\n"
+"\n"
+"Good Luck with the EasySCP System\n"
+"The EasySCP Team\n"
+"\n"
 
 msgid "Your new EasySCP login!"
-msgstr ""
+msgstr "Your new EasySCP login!"
 
 msgid ""
 "\n"
@@ -3565,9 +3621,21 @@ msgid ""
 "The EasySCP Team\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Hello {NAME}!\n"
+"\n"
+"Your user name is: {USERNAME}\n"
+"Your password is: {PASSWORD}\n"
+"\n"
+"You can login at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
+"\n"
+"Best wishes with EasySCP!\n"
+"The EasySCP Team\n"
+"\n"
 
 msgid "Confirmation for domain order {DOMAIN}!"
-msgstr ""
+msgstr "Confirmation for domain order {DOMAIN}!"
 
 msgid ""
 "\n"
@@ -3585,9 +3653,23 @@ msgid ""
 "The EasySCP Team\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Dear {NAME},\n"
+"This is an automatic confirmation for the order of the domain:\n"
+"\n"
+"{DOMAIN}\n"
+"\n"
+"You have to click the following link to continue the domain creation process.\n"
+"\n"
+"{ACTIVATE_LINK}\n"
+"\n"
+"Thank you for using EasySCP services.\n"
+"The EasySCP Team\n"
+"\n"
 
 msgid "New alias order for {CUSTOMER}!"
-msgstr ""
+msgstr "New alias order for {CUSTOMER}!"
 
 msgid ""
 "\n"
@@ -3603,36 +3685,48 @@ msgid ""
 "The EasySCP Team\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Dear {RESELLER},\n"
+"Your customer {CUSTOMER} is awaiting for the approval of his new alias:\n"
+"\n"
+"{ALIAS}\n"
+"\n"
+"Once logged in, you can activate his new alias at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n"
+"\n"
+"Thank you for using EasySCP services.\n"
+"The EasySCP Team\n"
+"\n"
 
 msgid "Your message has been sent!"
-msgstr ""
+msgstr "Your message has been sent!"
 
 msgid "Ticket was closed!"
-msgstr ""
+msgstr "Ticket was closed!"
 
 msgid "Ticket was reopened!"
-msgstr ""
+msgstr "Ticket was reopened!"
 
 msgid "Never"
-msgstr ""
+msgstr "Never"
 
 msgid "You don't have support tickets."
-msgstr ""
+msgstr "You don't have support tickets."
 
 msgid "[New]"
-msgstr ""
+msgstr "[New]"
 
 msgid "[Re]"
-msgstr ""
+msgstr "[Re]"
 
 msgid "Open ticket"
-msgstr ""
+msgstr "Open ticket"
 
 msgid "Close ticket"
-msgstr ""
+msgstr "Close ticket"
 
 msgid "[Ticket]"
-msgstr ""
+msgstr "[Ticket]"
 
 #, php-format
 msgid ""
@@ -3640,6 +3734,9 @@ msgid ""
 "\n"
 "You have a new ticket:\n"
 msgstr ""
+"Hello %s!\n"
+"\n"
+"You have a new ticket:\n"
 
 #, php-format
 msgid ""
@@ -3647,194 +3744,197 @@ msgid ""
 "\n"
 "You have an answer for this ticket:\n"
 msgstr ""
+"Hello %s!\n"
+"\n"
+"You have an answer for this ticket:\n"
 
 #, php-format
 msgid "Priority: %s\n"
-msgstr ""
+msgstr "Priority: %s\n"
 
 msgid "Log in to answer"
-msgstr ""
+msgstr "Log in to answer"
 
 msgid "Wrong domain name syntax or number of labels"
-msgstr ""
+msgstr "Wrong domain name syntax or number of labels"
 
 msgid "Wrong domain name lenght!"
-msgstr ""
+msgstr "Wrong domain name lenght!"
 
 msgid "Wrong subdomain syntax or number of labels!"
-msgstr ""
+msgstr "Wrong subdomain syntax or number of labels!"
 
 msgid "Wrong subdomain lenght!"
-msgstr ""
+msgstr "Wrong subdomain lenght!"
 
 #, php-format
 msgid "Label not allowed: <strong>%s</strong>"
-msgstr ""
+msgstr "Label not allowed: <strong>%s</strong>"
 
 #, php-format
 msgid "Wrong label syntax: <strong>%s</strong>"
-msgstr ""
+msgstr "Wrong label syntax: <strong>%s</strong>"
 
 #, php-format
 msgid "Wrong label lenght: <strong>%s</strong>"
-msgstr ""
+msgstr "Wrong label lenght: <strong>%s</strong>"
 
 #, php-format
 msgid "Wrong Top Level Domain syntax: <strong>%s</strong>"
-msgstr ""
+msgstr "Wrong Top Level Domain syntax: <strong>%s</strong>"
 
 #, php-format
 msgid "Wrong Top Level Domain lenght: <strong>%s</strong>"
-msgstr ""
+msgstr "Wrong Top Level Domain lenght: <strong>%s</strong>"
 
 #, php-format
 msgid "Wrong Second Level Domain lenght: <strong>%s</strong>"
-msgstr ""
+msgstr "Wrong Second Level Domain lenght: <strong>%s</strong>"
 
 #, php-format
 msgid "Wrong domain name: <strong>%s</strong> is reserved!"
-msgstr ""
+msgstr "Wrong domain name: <strong>%s</strong> is reserved!"
 
 #, php-format
 msgid "Wrong Second Level Domain syntax: <strong>%s</strong>"
-msgstr ""
+msgstr "Wrong Second Level Domain syntax: <strong>%s</strong>"
 
 msgid "ERROR: ACE labels are not allowed. Please use the ToUnicode equivalent.<br /><small>Example: for ACE label <strong>xn--bcher-kva</strong> use <strong>bücher</strong> instead</small>."
-msgstr ""
+msgstr "ERROR: ACE labels are not allowed. Please use the ToUnicode equivalent.<br /><small>Example: for ACE label <strong>xn--bcher-kva</strong> use <strong>bücher</strong> instead</small>."
 
 msgid "ERROR: PHP extension 'mcrypt' not loaded!"
-msgstr ""
+msgstr "ERROR: PHP extension 'mcrypt' not loaded!"
 
 #, php-format
 msgid "You have to wait %d seconds."
-msgstr ""
+msgstr "You have to wait %d seconds."
 
 #, php-format
 msgid "You have been blocked for %d minutes."
-msgstr ""
+msgstr "You have been blocked for %d minutes."
 
 msgid "You entered an incorrect username/password."
-msgstr ""
+msgstr "You entered an incorrect username/password."
 
 msgid "System is currently under maintenance! Only administrators can log in."
-msgstr ""
+msgstr "System is currently under maintenance! Only administrators can log in."
 
 #, php-format
 msgid "%s user already logged or session sharing problem! Aborting..."
-msgstr ""
+msgstr "%s user already logged or session sharing problem! Aborting..."
 
 msgid "User already logged or session sharing problem! Aborting..."
-msgstr ""
+msgstr "User already logged or session sharing problem! Aborting..."
 
 #, php-format
 msgid "%s's account status is not ok!"
-msgstr ""
+msgstr "%s's account status is not ok!"
 
 #, php-format
 msgid "%s's domain expired!"
-msgstr ""
+msgstr "%s's domain expired!"
 
 msgid "Request from foreign host was blocked!"
-msgstr ""
+msgstr "Request from foreign host was blocked!"
 
 msgid "You do not have permission to access this interface!"
-msgstr ""
+msgstr "You do not have permission to access this interface!"
 
 msgid "Domain alias"
-msgstr ""
+msgstr "Domain alias"
 
 msgid "Manage Orders"
-msgstr ""
+msgstr "Manage Orders"
 
 msgid "Order settings"
-msgstr ""
+msgstr "Order settings"
 
 msgid "Order email setup"
-msgstr ""
+msgstr "Order email setup"
 
 msgid "Please fill up both data fields for password!"
-msgstr ""
+msgstr "Please fill up both data fields for password!"
 
 msgid "Addition in progress"
-msgstr ""
+msgstr "Addition in progress"
 
 msgid "Modification in progress"
-msgstr ""
+msgstr "Modification in progress"
 
 msgid "Deletion in progress"
-msgstr ""
+msgstr "Deletion in progress"
 
 msgid "Being enabled"
-msgstr ""
+msgstr "Being enabled"
 
 msgid "Being suspended"
-msgstr ""
+msgstr "Being suspended"
 
 msgid "Awaiting approval"
-msgstr ""
+msgstr "Awaiting approval"
 
 msgid "Unknown error"
-msgstr ""
+msgstr "Unknown error"
 
 msgid "hide aliases"
-msgstr ""
+msgstr "hide aliases"
 
 msgid "You have reached your domains limit.<br />You cannot add more domains!"
-msgstr ""
+msgstr "You have reached your domains limit.<br />You cannot add more domains!"
 
 msgid "You have a subdomains limit!<br />You cannot add an user with unlimited subdomains!"
-msgstr ""
+msgstr "You have a subdomains limit!<br />You cannot add an user with unlimited subdomains!"
 
 msgid "You are exceeding your subdomains limit!"
-msgstr ""
+msgstr "You are exceeding your subdomains limit!"
 
 msgid "You have an aliases limit!<br />You cannot add an user with unlimited aliases!"
-msgstr ""
+msgstr "You have an aliases limit!<br />You cannot add an user with unlimited aliases!"
 
 msgid "You are exceeding your alias limit!"
-msgstr ""
+msgstr "You are exceeding your alias limit!"
 
 msgid "You have a mail accounts limit!<br />You cannot add an user with unlimited mail accounts!"
-msgstr ""
+msgstr "You have a mail accounts limit!<br />You cannot add an user with unlimited mail accounts!"
 
 msgid "You are exceeding your mail accounts limit!"
-msgstr ""
+msgstr "You are exceeding your mail accounts limit!"
 
 msgid "You have a FTP accounts limit!<br />You cannot add an user with unlimited FTP accounts!"
-msgstr ""
+msgstr "You have a FTP accounts limit!<br />You cannot add an user with unlimited FTP accounts!"
 
 msgid "You are exceeding your FTP accounts limit!"
-msgstr ""
+msgstr "You are exceeding your FTP accounts limit!"
 
 msgid "You have a SQL databases limit!<br />You cannot add an user with unlimited SQL databases!"
-msgstr ""
+msgstr "You have a SQL databases limit!<br />You cannot add an user with unlimited SQL databases!"
 
 msgid "You are exceeding your SQL databases limit!"
-msgstr ""
+msgstr "You are exceeding your SQL databases limit!"
 
 msgid "You have an SQL users limit!<br />You cannot add an user with unlimited SQL users!"
-msgstr ""
+msgstr "You have an SQL users limit!<br />You cannot add an user with unlimited SQL users!"
 
 msgid "You have disabled SQL databases for this user!<br />You cannot have SQL users here!"
-msgstr ""
+msgstr "You have disabled SQL databases for this user!<br />You cannot have SQL users here!"
 
 msgid "You are exceeding your SQL database limit!"
-msgstr ""
+msgstr "You are exceeding your SQL database limit!"
 
 msgid "You have a traffic limit!<br />You cannot add an user with unlimited traffic!"
-msgstr ""
+msgstr "You have a traffic limit!<br />You cannot add an user with unlimited traffic!"
 
 msgid "You have a disk limit!<br />You cannot add an user with unlimited disk!"
-msgstr ""
+msgstr "You have a disk limit!<br />You cannot add an user with unlimited disk!"
 
 msgid "EasySCP Error"
-msgstr ""
+msgstr "EasySCP Error"
 
 msgid "Error Message"
-msgstr ""
+msgstr "Error Message"
 
 msgid "You have a new order"
-msgstr ""
+msgstr "You have a new order"
 
 msgid ""
 "\n"
@@ -3845,517 +3945,532 @@ msgid ""
 "Please login into your EasySCP control panel for more details.\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
+"Dear {RESELLER},\n"
+"you have a new order from {NAME} <{MAIL}> for domain {DOMAIN}\n"
+"\n"
+"Please login into your EasySCP control panel for more details.\n"
+"\n"
 
 msgid "Your order has been successfully created."
-msgstr ""
+msgstr "Your order has been successfully created."
 
 msgid "Error creating order! Perhaps already activated?"
-msgstr ""
+msgstr "Error creating order! Perhaps already activated?"
 
 msgid "Order confirmation"
-msgstr ""
+msgstr "Order confirmation"
 
 msgid "Domain already exists on the system!"
-msgstr ""
+msgstr "Domain already exists on the system!"
 
 msgid "This hosting plan is not available for purchase"
-msgstr ""
+msgstr "This hosting plan is not available for purchase"
 
 msgid "Add On A Domain"
-msgstr ""
+msgstr "Add On A Domain"
 
 msgid "Continue"
-msgstr ""
+msgstr "Continue"
 
 msgid "(e.g. domain-of-your-choice.com)"
-msgstr ""
+msgstr "(e.g. domain-of-your-choice.com)"
 
 msgid "Please fill out all needed fields!"
-msgstr ""
+msgstr "Please fill out all needed fields!"
 
 msgid "Enter Address"
-msgstr ""
+msgstr "Enter Address"
 
 msgid "* denotes mandatory field."
-msgstr ""
+msgstr "* denotes mandatory field."
 
 msgid "Term of Service"
-msgstr ""
+msgstr "Term of Service"
 
 msgid "I Accept The Term of Service"
-msgstr ""
+msgstr "I Accept The Term of Service"
 
 msgid "Your Chart"
-msgstr ""
+msgstr "Your Chart"
 
 msgid "Costs"
-msgstr ""
+msgstr "Costs"
 
 msgid "Personal Data"
-msgstr ""
+msgstr "Personal Data"
 
 msgid "Security code was incorrect!"
-msgstr ""
+msgstr "Security code was incorrect!"
 
 msgid "You have to accept the Term of Service!"
-msgstr ""
+msgstr "You have to accept the Term of Service!"
 
 msgid "Check Out"
-msgstr ""
+msgstr "Check Out"
 
 msgid "<strong>Thank you for purchasing.</strong><br />You will receive an e-mail with more details and information."
-msgstr ""
+msgstr "<strong>Thank you for purchasing.</strong><br />You will receive an e-mail with more details and information."
 
 msgid "No available hosting packages"
-msgstr ""
+msgstr "No available hosting packages"
 
 msgid "Webspace"
-msgstr ""
+msgstr "Webspace"
 
 msgid "Domain Features"
-msgstr ""
+msgstr "Domain Features"
 
 msgid "Package Features"
-msgstr ""
+msgstr "Package Features"
 
 msgid "Backup and Restore"
-msgstr ""
+msgstr "Backup and Restore"
 
 msgid "Custom Error Pages"
-msgstr ""
+msgstr "Custom Error Pages"
 
 msgid "Protected Areas"
-msgstr ""
+msgstr "Protected Areas"
 
 msgid "Custom Apache Logs"
-msgstr ""
+msgstr "Custom Apache Logs"
 
 msgid "Web & E-Mail Support"
-msgstr ""
+msgstr "Web & E-Mail Support"
 
 msgid "Your Own Domain"
-msgstr ""
+msgstr "Your Own Domain"
 
 msgid "EasySCP Control Panel"
-msgstr ""
+msgstr "EasySCP Control Panel"
 
 msgid "Automatic Updates"
-msgstr ""
+msgstr "Automatic Updates"
 
 msgid "Package Price"
-msgstr ""
+msgstr "Package Price"
 
 msgid "Setup Fee"
-msgstr ""
+msgstr "Setup Fee"
 
 msgid "Performance"
-msgstr ""
+msgstr "Performance"
 
 msgid "EasySCP - Manage Domain/Alias"
-msgstr ""
+msgstr "EasySCP - Manage Domain/Alias"
 
 msgid "Manage alias"
-msgstr ""
+msgstr "Manage alias"
 
 msgid "Real domain"
-msgstr ""
+msgstr "Real domain"
 
 msgid "You have no alias records."
-msgstr ""
+msgstr "You have no alias records."
 
 msgid "Activate"
-msgstr ""
+msgstr "Activate"
 
 msgid "Domain alias added for termination!"
-msgstr ""
+msgstr "Domain alias added for termination!"
 
 msgid "Domain alias not added for termination!"
-msgstr ""
+msgstr "Domain alias not added for termination!"
 
 msgid "Domain alias added!"
-msgstr ""
+msgstr "Domain alias added!"
 
 msgid "Domain alias not added!"
-msgstr ""
+msgstr "Domain alias not added!"
 
 msgid "Domain alias modified!"
-msgstr ""
+msgstr "Domain alias modified!"
 
 msgid "Domain alias not modified!"
-msgstr ""
+msgstr "Domain alias not modified!"
 
 msgid "Ordered domain alias not deleted!"
-msgstr ""
+msgstr "Ordered domain alias not deleted!"
 
 msgid "Ordered domain alias activated!"
-msgstr ""
+msgstr "Ordered domain alias activated!"
 
 msgid "Ordered domain alias not activated!"
-msgstr ""
+msgstr "Ordered domain alias not activated!"
 
 msgid "EasySCP Reseller: Add Alias"
-msgstr ""
+msgstr "EasySCP Reseller: Add Alias"
 
 msgid "There is no user records for this reseller to add an alias for."
-msgstr ""
+msgstr "There is no user records for this reseller to add an alias for."
 
 msgid "EasySCP - Circular"
-msgstr ""
+msgstr "EasySCP - Circular"
 
 msgid "Circular"
-msgstr ""
+msgstr "Circular"
 
 msgid "EasySCP - Domain/Edit"
-msgstr ""
+msgstr "EasySCP - Domain/Edit"
 
 msgid "or check if domain should <strong>never</strong> expire"
-msgstr ""
+msgstr "or check if domain should <strong>never</strong> expire"
 
 msgid "Su"
-msgstr ""
+msgstr "Su"
 
 msgid "Mo"
-msgstr ""
+msgstr "Mo"
 
 msgid "Tu"
-msgstr ""
+msgstr "Tu"
 
 msgid "We"
-msgstr ""
+msgstr "We"
 
 msgid "Th"
-msgstr ""
+msgstr "Th"
 
 msgid "Fr"
-msgstr ""
+msgstr "Fr"
 
 msgid "Sa"
-msgstr ""
+msgstr "Sa"
 
 msgid "January"
-msgstr ""
+msgstr "January"
 
 msgid "February"
-msgstr ""
+msgstr "February"
 
 msgid "March"
-msgstr ""
+msgstr "March"
 
 msgid "April"
-msgstr ""
+msgstr "April"
 
 msgid "May"
-msgstr ""
+msgstr "May"
 
 msgid "June"
-msgstr ""
+msgstr "June"
 
 msgid "July"
-msgstr ""
+msgstr "July"
 
 msgid "August"
-msgstr ""
+msgstr "August"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "October"
-msgstr ""
+msgstr "October"
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "December"
-msgstr ""
+msgstr "December"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be disabled!"
-msgstr ""
+msgstr "The <em>%s</em> service cannot be disabled!"
 
 #, php-format
 msgid "The <em>%s</em> have to be disabled!"
-msgstr ""
+msgstr "The <em>%s</em> have to be disabled!"
 
 #, php-format
 msgid "The admin has <em>%s</em> disabled on this system!"
-msgstr ""
+msgstr "The admin has <em>%s</em> disabled on this system!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be limited!"
-msgstr ""
+msgstr "The <em>%s</em> service cannot be limited!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be unlimited!"
-msgstr ""
+msgstr "The <em>%s</em> service cannot be unlimited!"
 
 msgid "EasySCP - Reseller/Main Index"
-msgstr ""
+msgstr "EasySCP - Reseller/Main Index"
 
 msgid "View details"
-msgstr ""
+msgstr "View details"
 
 msgid "EasySCP - Reseller/Add hosting plan"
-msgstr ""
+msgstr "EasySCP - Reseller/Add hosting plan"
 
 msgid "Price must be a number!"
-msgstr ""
+msgstr "Price must be a number!"
 
 msgid "Setup fee must be a number!"
-msgstr ""
+msgstr "Setup fee must be a number!"
 
 msgid "SQL databases limit is not <em>disabled</em>!"
-msgstr ""
+msgstr "SQL databases limit is not <em>disabled</em>!"
 
 msgid "Hosting plan values exceed reseller maximum values!"
-msgstr ""
+msgstr "Hosting plan values exceed reseller maximum values!"
 
 msgid "EasySCP - Reseller/Edit hosting plan"
-msgstr ""
+msgstr "EasySCP - Reseller/Edit hosting plan"
 
 msgid "View hosting plan"
-msgstr ""
+msgstr "View hosting plan"
 
 msgid "User accounts"
-msgstr ""
+msgstr "User accounts"
 
 msgid "Mail account"
-msgstr ""
+msgstr "Mail account"
 
 msgid "Extras"
-msgstr ""
+msgstr "Extras"
 
 #, php-format
 msgid "%1$s / %2$s of <strong>%3$s</strong>"
-msgstr ""
+msgstr "%1$s / %2$s of <strong>%3$s</strong>"
 
 #, php-format
 msgid "%1$s / %2$s of <strong>unlimited</strong>"
-msgstr ""
+msgstr "%1$s / %2$s of <strong>unlimited</strong>"
 
 #, php-format
 msgid "%1$d / %2$d of <strong>%3$d</strong>"
-msgstr ""
+msgstr "%1$d / %2$d of <strong>%3$d</strong>"
 
 #, php-format
 msgid "%1$d / %2$d of <strong>unlimited</strong>"
-msgstr ""
+msgstr "%1$d / %2$d of <strong>unlimited</strong>"
 
 msgid "EasySCP - Reseller/IP Usage"
-msgstr ""
+msgstr "EasySCP - Reseller/IP Usage"
 
 msgid "EasySCP - Reseller/Change Language"
-msgstr ""
+msgstr "EasySCP - Reseller/Change Language"
 
 msgid "EasySCP - Reseller/Order email setup"
-msgstr ""
+msgstr "EasySCP - Reseller/Order email setup"
 
 msgid "Manage orders"
-msgstr ""
+msgstr "Manage orders"
 
 msgid "Activation Link"
-msgstr ""
+msgstr "Activation Link"
 
 msgid "EasySCP - Reseller/Order settings"
-msgstr ""
+msgstr "EasySCP - Reseller/Order settings"
 
 msgid "Header"
-msgstr ""
+msgstr "Header"
 
 msgid "Preview"
-msgstr ""
+msgstr "Preview"
 
 msgid "Implementation URL"
-msgstr ""
+msgstr "Implementation URL"
 
 msgid "Footer"
-msgstr ""
+msgstr "Footer"
 
 msgid "EasySCP - Reseller/Order management"
-msgstr ""
+msgstr "EasySCP - Reseller/Order management"
 
 msgid "You do not have new orders!"
-msgstr ""
+msgstr "You do not have new orders!"
 
 msgid "New order"
-msgstr ""
+msgstr "New order"
 
 msgid "Update order"
-msgstr ""
+msgstr "Update order"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Customer data"
-msgstr ""
+msgstr "Customer data"
 
 msgid "Order"
-msgstr ""
+msgstr "Order"
 
 msgid "Hosting plan"
-msgstr ""
+msgstr "Hosting plan"
 
 msgid "Are you sure you want to delete this order?"
-msgstr ""
+msgstr "Are you sure you want to delete this order?"
 
 msgid "Add/Details"
-msgstr ""
+msgstr "Add/Details"
 
 msgid "Wrong order ID!"
-msgstr ""
+msgstr "Wrong order ID!"
 
 msgid "Order Cancelled: resellers maximum exceeded!"
-msgstr ""
+msgstr "Order Cancelled: resellers maximum exceeded!"
 
 msgid "Wrong domain name syntax!"
-msgstr ""
+msgstr "Wrong domain name syntax!"
 
 msgid "User added!"
-msgstr ""
+msgstr "User added!"
 
 msgid "Customer order was removed successful!"
-msgstr ""
+msgstr "Customer order was removed successful!"
 
 msgid "EasySCP - Reseller/Order details"
-msgstr ""
+msgstr "EasySCP - Reseller/Order details"
 
 msgid "Order data updated successfully!"
-msgstr ""
+msgstr "Order data updated successfully!"
 
 msgid "Order date"
-msgstr ""
+msgstr "Order date"
 
 msgid "Hosting details"
-msgstr ""
+msgstr "Hosting details"
 
 msgid "Order details"
-msgstr ""
+msgstr "Order details"
 
 msgid "Add to the system"
-msgstr ""
+msgstr "Add to the system"
 
 msgid "Order Canceled: resellers maximum exceeded!"
-msgstr ""
+msgstr "Order Canceled: resellers maximum exceeded!"
 
 msgid "EasySCP - Reseller/Change Password"
-msgstr ""
+msgstr "EasySCP - Reseller/Change Password"
 
 msgid "EasySCP - Reseller/Change Personal Data"
-msgstr ""
+msgstr "EasySCP - Reseller/Change Personal Data"
 
 msgid "EasySCP - Reseller/Lostpw email setup"
-msgstr ""
+msgstr "EasySCP - Reseller/Lostpw email setup"
 
 msgid "Lostpw email"
-msgstr ""
+msgstr "Lostpw email"
 
 msgid "Lostpw link"
-msgstr ""
+msgstr "Lostpw link"
 
 msgid "EasySCP - Reseller/Manage users/Email setup"
-msgstr ""
+msgstr "EasySCP - Reseller/Manage users/Email setup"
 
 msgid "EasySCP - Support system - New ticket"
-msgstr ""
+msgstr "EasySCP - Support system - New ticket"
 
 msgid "EasySCP - Reseller: Support System: View Ticket"
-msgstr ""
+msgstr "EasySCP - Reseller: Support System: View Ticket"
 
 msgid "EasySCP - Users/Add user"
-msgstr ""
+msgstr "EasySCP - Users/Add user"
 
 msgid "Choose hosting plan"
-msgstr ""
+msgstr "Choose hosting plan"
 
 msgid "Personalise template"
-msgstr ""
+msgstr "Personalise template"
 
 msgid "Next step"
-msgstr ""
+msgstr "Next step"
 
 msgid "You have no hosting plans. Please contact your system administrator."
-msgstr ""
+msgstr "You have no hosting plans. Please contact your system administrator."
 
 msgid "EasySCP - User/Add user(step2)"
-msgstr ""
+msgstr "EasySCP - User/Add user(step2)"
 
 msgid "Max domains<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr ""
+msgstr "Max domains<br /><em>(-1 disabled, 0 unlimited)</em>"
 
 msgid "Apache logs"
-msgstr ""
+msgstr "Apache logs"
 
 msgid "Awstats"
-msgstr ""
+msgstr "Awstats"
 
 msgid "Domain data has been altered. Please enter again."
-msgstr ""
+msgstr "Domain data has been altered. Please enter again."
 
 msgid "EasySCP - User/Add user"
-msgstr ""
+msgstr "EasySCP - User/Add user"
 
 msgid "Add other domains to this account"
-msgstr ""
+msgstr "Add other domains to this account"
 
 #, php-format
 msgid "System error with Domain ID: %d"
-msgstr ""
+msgstr "System error with Domain ID: %d"
 
 msgid "EasySCP - Users/Edit"
-msgstr ""
+msgstr "EasySCP - Users/Edit"
 
 msgid "Users list"
-msgstr ""
+msgstr "Users list"
 
 msgid "This reseller has no domains yet."
-msgstr ""
+msgstr "This reseller has no domains yet."
 
 msgid "EasySCP - Users"
-msgstr ""
+msgstr "EasySCP - Users"
 
 #, php-format
 msgid "Are you sure you want to change the status of %s?"
-msgstr ""
+msgstr "Are you sure you want to change the status of %s?"
 
 msgid "Stats"
-msgstr ""
+msgstr "Stats"
 
 msgid "Edit User"
-msgstr ""
+msgstr "Edit User"
 
 msgid "Bandwidth"
-msgstr ""
+msgstr "Bandwidth"
 
 msgid "View aliases"
-msgstr ""
+msgstr "View aliases"
 
 msgid "You have no users."
-msgstr ""
+msgstr "You have no users."
 
 #, php-format
 msgid "%1$s of %2$s MB"
-msgstr ""
+msgstr "%1$s of %2$s MB"
 
 #, php-format
 msgid "%1$s of <strong>unlimited</strong> MB"
-msgstr ""
+msgstr "%1$s of <strong>unlimited</strong> MB"
 
 msgid "User data updated!"
-msgstr ""
+msgstr "User data updated!"
 
 msgid "User data not updated!"
-msgstr ""
+msgstr "User data not updated!"
 
 msgid "This user has domain records!<br />First remove the domains from the system!"
-msgstr ""
+msgstr "This user has domain records!<br />First remove the domains from the system!"
 
 msgid "User terminated!"
-msgstr ""
+msgstr "User terminated!"
 
 msgid "User not terminated!"
-msgstr ""
+msgstr "User not terminated!"
 
 msgid "Path is relativ to your root directory. The mount point will contain a subfolder named htdocs."
-msgstr ""
+msgstr "Path is relativ to your root directory. The mount point will contain a subfolder named htdocs."
 
 msgid "Can't use an existing folder as mount point!"
-msgstr ""
+msgstr "Can't use an existing folder as mount point!"
+
+# SSL Configuration
+msgid "Manage SSL certificate"
+msgstr "Manage SSL certificate"
+
+msgid "SSL support"
+msgstr "SSL support"
+

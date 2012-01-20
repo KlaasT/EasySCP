@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -303,6 +303,21 @@ function generate_als_list($tpl, $reseller_id, &$als_err) {
 		}
 	}
 
+	if (isset($_SESSION['search_common']) && $_SESSION['search_common'] === 'account_name') {
+		$domain_name_selected = '';
+		$account_name_selected = $cfg->HTML_SELECTED;
+	} else {
+		$domain_name_selected = $cfg->HTML_SELECTED;
+		$account_name_selected = '';
+	}
+
+	$tpl->assign(
+		array(
+			'M_DOMAIN_NAME_SELECTED'	=> $domain_name_selected,
+			'M_ACCOUN_NAME_SELECTED'	=> $account_name_selected
+		)
+	);
+
 	while (!$rs->EOF) {
 		$als_id = $rs->fields['alias_id'];
 		$als_name = $rs->fields['alias_name'];
@@ -330,8 +345,8 @@ function generate_als_list($tpl, $reseller_id, &$als_err) {
 			$action_text = tr("Delete");
 			$edit_text = tr("Edit");
 		} else if ($als_status === $cfg->ITEM_ORDERED_STATUS) {
-			$delete_link = "alias_order.php?action=delete&del_id=".$als_id;
-			$edit_link = "alias_order.php?action=activate&act_id=".$als_id;
+			$delete_link = "alias_order.php?action=delete&amp;del_id=".$als_id;
+			$edit_link = "alias_order.php?action=activate&amp;act_id=".$als_id;
 			$action_text = tr("Delete order");
 			$edit_text = tr("Activate");
 		} else {
@@ -343,15 +358,6 @@ function generate_als_list($tpl, $reseller_id, &$als_err) {
 		$als_status = translate_dmn_status($als_status);
 		$als_name = decode_idna($als_name);
 		$show_als_fwd = decode_idna($show_als_fwd);
-
-		if (isset($_SESSION['search_common'])
-			&& $_SESSION['search_common'] === 'account_name') {
-			$domain_name_selected = '';
-			$account_name_selected = $cfg->HTML_SELECTED;
-		} else {
-			$domain_name_selected = $cfg->HTML_SELECTED;
-			$account_name_selected = '';
-		}
 
 		$tpl->append(
 			array(
@@ -365,9 +371,7 @@ function generate_als_list($tpl, $reseller_id, &$als_err) {
 				'DELETE'					=> $action_text,
 				'DELETE_LINK'				=> $delete_link,
 				'EDIT_LINK'					=> $edit_link,
-				'EDIT'						=> $edit_text,
-				'M_DOMAIN_NAME_SELECTED'	=> $domain_name_selected,
-				'M_ACCOUN_NAME_SELECTED'	=> $account_name_selected,
+				'EDIT'						=> $edit_text
 			)
 		);
 

@@ -1,6 +1,6 @@
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -34,7 +34,7 @@ var firstAvailCol;if(typeof(matrix[rowIndex])=="undefined"){matrix[rowIndex]=[];
  * see jquery.easyscp.Tooltips.js for full JS code & license
  */
 
-(function($){$.fn.ispCPtooltips=function(settings){options={type:'info',msg:'',opacity:0.85,offsetX:10,offsetY:10,fade:200,move:true,icon:true};var options=$.extend(options,settings);return this.each(function(){var $$=$(this);var title=$$.attr('title')||'';var msg=options.msg||$$.attr('title')||'';if(msg!=''){var tooltip,iframe;var tooltip_bg='<div class="tooltip_bg"></div>';var tooltip_icon=(options.icon)?'<span class="tooltip_notice"></span>':'';var tooltip_txt='<span class="tooltip_txt">'+msg+'</span>';var msieFix=function(tooltipObject,e){if($.browser.msie&&parseFloat($.browser.version)==6){if(options.icon){var icon=tooltipObject.find('span');var icon_uri=icon.css('background-image');icon_uri=icon_uri.split('url("')[1].split('")')[0];icon.css('background-image','none').get(0).runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+icon_uri+"',sizingMethod='scale')";}
+(function($){$.fn.EasySCPtooltips=function(settings){options={type:'info',msg:'',opacity:0.85,offsetX:10,offsetY:10,fade:200,move:true,icon:true};var options=$.extend(options,settings);return this.each(function(){var $$=$(this);var title=$$.attr('title')||'';var msg=options.msg||$$.attr('title')||'';if(msg!=''){var tooltip,iframe;var tooltip_bg='<div class="tooltip_bg"></div>';var tooltip_icon=(options.icon)?'<span class="tooltip_notice"></span>':'';var tooltip_txt='<span class="tooltip_txt">'+msg+'</span>';var msieFix=function(tooltipObject,e){if($.browser.msie&&parseFloat($.browser.version)==6){if(options.icon){var icon=tooltipObject.find('span');var icon_uri=icon.css('background-image');icon_uri=icon_uri.split('url("')[1].split('")')[0];icon.css('background-image','none').get(0).runtimeStyle.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+icon_uri+"',sizingMethod='scale')";}
 iframe=$('<iframe/>').attr({src:'javascript:\'<html></html>\';',scrolling:'no'}).css({border:'none',display:'block',position:'absolute',top:(e.pageY+options.offsetY)+'px',left:(e.pageX+options.offsetX)+'px',width:tooltip.width(),height:tooltip.height(),opacity:0,'z-index':'0'}).insertBefore(tooltip);}}
 $$.hover(function(e){$$.attr('title','');tooltip=$('<div class="tooltip">'+tooltip_bg+tooltip_icon+tooltip_txt+'</div>').appendTo('body');msieFix(tooltip,e);$('.tooltip_bg').css({width:tooltip.width(),height:tooltip.height(),opacity:options.opacity});tooltip.css({top:(e.pageY+options.offsetY)+'px',left:(e.pageX+options.offsetX)+'px'});if(options.move){$$.mousemove(function(e){tooltip.css({top:(e.pageY+options.offsetY)+'px',left:(e.pageX+options.offsetX)+'px'});if((iframe))
 iframe.css({top:(e.pageY+options.offsetY)+'px',left:(e.pageX+options.offsetX)+'px'});});}
@@ -45,7 +45,7 @@ iframe.remove();});}});};})(jQuery);
  * jQuery Main
  */
 
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('q g(){$(\'a.c\').8(\'f\',\'c\').8(\'h\',\'j\');$(\'.3\').3({i:\'3\',e:[[1,2]],d:{0:{b:6},4:{b:6}}});t 5=(((p 9.7==\'l\')?r.k.m:9.7)-o);$(\'.n\').s("5",5)}',30,30,'|||tablesorter||height|false|innerHeight|attr|window||sorter|external|headers|sortList|rel|initMain|target|cssHeader|_blank|documentElement|undefined|clientHeight|main|120|typeof|function|document|css|var'.split('|'),0,{}))
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('7 b(){$(\'a.5\').2(\'9\',\'5\').2(\'c\',\'6\');$(\'.0\').0({8:\'0\'});i 1=(((j 3.4==\'l\')?k.h.e:3.4)-d);$(\'.g\').f("1",1)}',22,22,'tablesorter|height|attr|window|innerHeight|external|_blank|function|cssHeader|rel||initMain|target|120|clientHeight|css|main|documentElement|var|typeof|document|undefined'.split('|'),0,{}))
 
 
 /**

@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -52,21 +52,21 @@ generate_page ($tpl);
 // static page messages
 $tpl->assign(
 	array(
-		'TR_PAGE_TITLE' => tr('EasySCP - Admin/Reseller statistics'),
-		'TR_RESELLER_STATISTICS' => tr('Reseller statistics table'),
-		'TR_MONTH' => tr('Month'),
-		'TR_YEAR' => tr('Year'),
-		'TR_SHOW' => tr('Show'),
-		'TR_RESELLER_NAME' => tr('Reseller name'),
-		'TR_TRAFF' => tr('Traffic'),
-		'TR_DISK' => tr('Disk'),
-		'TR_DOMAIN' => tr('Domain'),
-		'TR_SUBDOMAIN' => tr('Subdomain'),
-		'TR_ALIAS' => tr('Alias'),
-		'TR_MAIL' => tr('Mail'),
-		'TR_FTP' => tr('FTP'),
-		'TR_SQL_DB' => tr('SQL Database'),
-		'TR_SQL_USER' => tr('SQL User'),
+		'TR_PAGE_TITLE'			=> tr('EasySCP - Admin/Reseller statistics'),
+		'TR_RESELLER_STATISTICS'=> tr('Reseller statistics table'),
+		'TR_MONTH'				=> tr('Month'),
+		'TR_YEAR'				=> tr('Year'),
+		'TR_SHOW'				=> tr('Show'),
+		'TR_RESELLER_NAME'		=> tr('Reseller name'),
+		'TR_TRAFF'				=> tr('Traffic'),
+		'TR_DISK'				=> tr('Disk'),
+		'TR_DOMAIN'				=> tr('Domain'),
+		'TR_SUBDOMAIN'			=> tr('Subdomain'),
+		'TR_ALIAS'				=> tr('Alias'),
+		'TR_MAIL'				=> tr('Mail'),
+		'TR_FTP'				=> tr('FTP'),
+		'TR_SQL_DB'				=> tr('SQL Database'),
+		'TR_SQL_USER'			=> tr('SQL User')
 	)
 );
 

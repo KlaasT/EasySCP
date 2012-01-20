@@ -24,8 +24,8 @@ msgstr ""
 msgid "_: Localised language"
 msgstr "繁體中文 - Chinese Traditional"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega 虛擬主機管理系統"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP 虛擬主機管理系統"
 
 msgid "Administrator login"
 msgstr "管理員登入"
@@ -3546,9 +3546,6 @@ msgstr "高"
 
 msgid "Very high"
 msgstr "非常高"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - 客戶/Web工具"
 
 msgid "Webtools"
 msgstr "Web工具"

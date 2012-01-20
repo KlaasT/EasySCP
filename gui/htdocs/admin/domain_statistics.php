@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -51,6 +51,10 @@ if (!is_numeric($domain_id) || !is_numeric($month) || !is_numeric($year)) {
 	user_goto('reseller_statistics.php');
 }
 
+gen_select_lists($tpl, $month, $year);
+
+generate_page($tpl, $domain_id);
+
 // static page messages
 $tpl->assign(
 	array(
@@ -73,10 +77,6 @@ $tpl->assign(
 
 gen_admin_mainmenu($tpl, 'admin/main_menu_statistics.tpl');
 gen_admin_menu($tpl, 'admin/menu_statistics.tpl');
-
-gen_select_lists($tpl, $month, $year);
-
-generate_page($tpl, $domain_id);
 
 gen_page_message($tpl);
 
@@ -168,11 +168,8 @@ function generate_page($tpl, $domain_id) {
 
 		$date_formt = $cfg->DATE_FORMAT;
 		if ($web_trf == 0 && $ftp_trf == 0 && $smtp_trf == 0 && $pop_trf == 0) {
-			$tpl->assign(
+			$tpl->append(
 				array(
-					'MONTH' => $month,
-					'YEAR' => $year,
-					'DOMAIN_ID' => $domain_id,
 					'DATE' => date($date_formt, strtotime($year . "-" . $month . "-" . $i)),
 					'WEB_TRAFFIC' => 0,
 					'FTP_TRAFFIC' => 0,
@@ -187,7 +184,7 @@ function generate_page($tpl, $domain_id) {
 			$sum_mail += $smtp_trf;
 			$sum_pop += $pop_trf;
 
-			$tpl->assign(
+			$tpl->append(
 				array(
 					'DATE' => date($date_formt, strtotime($year . "-" . $month . "-" . $i)),
 					'WEB_TRAFFIC' => sizeit($web_trf),
@@ -198,19 +195,19 @@ function generate_page($tpl, $domain_id) {
 				)
 			);
 		}
-
-		$tpl->assign(
-			array(
-				'MONTH' => $month,
-				'YEAR' => $year,
-				'DOMAIN_ID' => $domain_id,
-				'ALL_WEB_TRAFFIC' => sizeit($sum_web),
-				'ALL_FTP_TRAFFIC' => sizeit($sum_ftp),
-				'ALL_SMTP_TRAFFIC' => sizeit($sum_mail),
-				'ALL_POP3_TRAFFIC' => sizeit($sum_pop),
-				'ALL_ALL_TRAFFIC' => sizeit($sum_web + $sum_ftp + $sum_mail + $sum_pop),
-			)
-		);
 	}
+
+	$tpl->assign(
+		array(
+			'MONTH' => $month,
+			'YEAR' => $year,
+			'DOMAIN_ID' => $domain_id,
+			'ALL_WEB_TRAFFIC' => sizeit($sum_web),
+			'ALL_FTP_TRAFFIC' => sizeit($sum_ftp),
+			'ALL_SMTP_TRAFFIC' => sizeit($sum_mail),
+			'ALL_POP3_TRAFFIC' => sizeit($sum_pop),
+			'ALL_ALL_TRAFFIC' => sizeit($sum_web + $sum_ftp + $sum_mail + $sum_pop),
+		)
+	);
 }
 ?>

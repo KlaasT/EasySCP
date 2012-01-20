@@ -2,17 +2,6 @@
 <body>
 	<script type="text/javascript">
 	/* <![CDATA[ */
-		{literal}
-		$(document).ready(function(){
-			// Target - begin
-			$('a.i_goto').attr('rel', 'external').attr('target', '_blank');
-			// Target - end
-
-			// TableSorter - begin
-			$('.tablesorter').tablesorter({cssHeader: 'tablesorter'});
-			// TableSorter - end
-		});
-		{/literal}
 		function change_status(dom_id, dmn_name) {
 			if (!confirm(sprintf("Are you sure you want to change the status of %s?", dmn_name)))
 				return false;
@@ -102,10 +91,10 @@
 						<a href="domain_delete.php?domain_id={$DOMAIN_ID[i]}" title="{$TR_DELETE}" class="icon i_delete"></a>
 					</td>
 				</tr>
-				{if isset($ALIAS_DOMAIN)}
+				{if isset($ALIAS_DOMAIN[i])}
 				<tr>
 					<td style="width:50px">&nbsp;</td>
-					<td colspan="4"><a href="http://www.{$ALIAS_DOMAIN}/" class="icon i_goto">{$ALIAS_DOMAIN}</a></td>
+					<td colspan="4"><a href="http://www.{$ALIAS_DOMAIN[i]}/" title="{$ALIAS_DOMAIN[i]}" class="icon i_goto">{$ALIAS_DOMAIN[i]}</a></td>
 				</tr>
 				{/if}
 				{/section}

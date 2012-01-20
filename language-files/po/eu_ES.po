@@ -28,8 +28,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Euskara - Basque"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega Virtual Hosting Control System-a"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP Virtual Hosting Control System-a"
 
 msgid "Administrator login"
 msgstr "Hasi saioa administrari gisa"
@@ -3570,9 +3570,6 @@ msgstr "Altua"
 
 msgid "Very high"
 msgstr "Oso altua"
-
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Erabiltzailea/Web Tresnak"
 
 msgid "Webtools"
 msgstr "Web tresnak"

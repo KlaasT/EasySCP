@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -144,16 +144,11 @@ if (time() < $dmn_expires) {
 	);
 }
 
-// Prepare alternative customer URL
-// @todo alternative ports and ssl support
-$domainAlsUrl =
-	"http://{$cfg->APACHE_SUEXEC_USER_PREF}$dmn_uid.{$_SERVER['SERVER_NAME']}";
-
 $tpl->assign(
 	array(
 		'ACCOUNT_NAME'		=> tohtml($account_name),
 		'DOMAIN_IP' 		=> get_user_domain_ip($sql, $dmn_ip_id),
-		'DOMAIN_ALS_URL' 	=> $domainAlsUrl,
+		'DOMAIN_ALS_URL' 	=> 'http://' . $cfg->APACHE_SUEXEC_USER_PREF . $dmn_uid . '.' . $cfg->BASE_SERVER_VHOST,
 		'MAIN_DOMAIN'		=> tohtml($dmn_name),
 		'DMN_EXPIRES_DATE'	=> $dmn_expires_date,
 		'MYSQL_SUPPORT'		=> ($dmn_sqld_limit != -1 && $dmn_sqlu_limit != -1) ? tr('Yes') : tr('No'),

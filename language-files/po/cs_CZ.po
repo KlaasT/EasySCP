@@ -1,17 +1,18 @@
-#
+# EasySCP Czech translation.
+# Copyright (C) 2010-2012 EasySCP Team
+# This file is distributed under the same license as the PACKAGE package.
 msgid ""
 msgstr ""
-"Project-Id-Version: EasySCP OMEGA\n"
+"Project-Id-Version: cs_CZ\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-21 20:54+0100\n"
-"PO-Revision-Date: 2010-12-09 13:55+0100\n"
-"Last-Translator: Petr Holeček <petr@dwander.cz>\n"
+"POT-Creation-Date: 2012-01-02 11:00+0100\n"
+"PO-Revision-Date: 2012-01-02 11:00+0100\n"
+"Last-Translator: Markus Szywon <markus.szywon@easyscp.net>\n"
 "Language-Team: Czech <cs_CZ@li.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. Please ignore this entry
 msgid "encoding"
@@ -22,8 +23,8 @@ msgstr "UTF-8"
 msgid "_: Localised language"
 msgstr "Česky - Czech"
 
-msgid "EasySCP Omega a Virtual Hosting Control System"
-msgstr "EasySCP Omega - Ovládací centrum virtuálního hostingu"
+msgid "EasySCP a Virtual Hosting Control System"
+msgstr "EasySCP - Ovládací centrum virtuálního hostingu"
 
 msgid "Administrator login"
 msgstr "Přihlášení administrátora"
@@ -367,6 +368,9 @@ msgstr "Odkaz tlačítka"
 msgid "Button target"
 msgstr "Cíl tlačítka"
 
+msgid "Button icon"
+msgstr ""
+
 msgid "Show in"
 msgstr "Zobrazit v"
 
@@ -533,22 +537,22 @@ msgstr "Maximální počet subdomén<br /><em>(-1 zakázáno, 0 bez omezení)</e
 msgid "Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr "Maximální počet aliasů<br /><em>(-1 zakázáno, 0 bez omezení)</em> "
 
-msgid "Mail accounts limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "Mail accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr "Limit poštovních účtů<br /><em>(-1 zakázáno, 0 bez omezení) "
 
-msgid "FTP accounts limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "FTP accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr "Limit FTP účtů<br /><em>(-1 zakázáno, 0 bez omezení)</em> "
 
-msgid "SQL databases limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr "Limit SQL databází<br /><em>(-1 zakázáno, 0 bez omezení)</em> "
 
-msgid "SQL users limit <br /><em>(-1 disabled, 0 unlimited)</em>"
+msgid "SQL users limit<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr "Limit SQL uživatelů<br /><em>(-1 zakázáno, 0 bez omezení)</em> "
 
-msgid "Traffic limit [MB] <br /><em>(0 unlimited)</em>"
+msgid "Traffic limit [MB]<br /><em>(0 unlimited)</em>"
 msgstr "Limit přenesených dat [MB]<br /><em>(0 bez omezení)</em> "
 
-msgid "Disk limit [MB] <br /><em>(0 unlimited)</em>"
+msgid "Disk limit [MB]<br /><em>(0 unlimited)</em>"
 msgstr "Limit disku [MB]<br /><em>(0 bez omezení)</em> "
 
 msgid "Backup"
@@ -634,8 +638,8 @@ msgid "The <em>%s</em> service cannot be disabled! "
 msgstr "Služba <em>%s</em> nemůže být vypnuta!<br>"
 
 #, php-format
-msgid "There are <em>%s</em> records on system!"
-msgstr "V systému je <em>%s</em> záznamů!"
+msgid "There are <em>%s</em> records on the system!"
+msgstr "S systému je <em>%s</em> záznamů!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be limited! "
@@ -644,10 +648,6 @@ msgstr "Služba <em>%s</em> nemůže být omezena!<br>"
 #, php-format
 msgid "Specified number is smaller than <em>%s</em> records, present on the system!"
 msgstr "Zadané číslo je menší než u <em>%s</em> záznamu nacházejícího se v systému!"
-
-#, php-format
-msgid "There are <em>%s</em> records on the system!"
-msgstr "S systému je <em>%s</em> záznamů!"
 
 #, php-format
 msgid "The <em>%s</em> service cannot be unlimited! "
@@ -748,30 +748,6 @@ msgstr "Vlastnosti plánu hostingu"
 msgid "Template name"
 msgstr "Název šablony"
 
-msgid "Max subdomains<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Maximální počet subdomén<br><em>(-1 zakázáno, 0 bez omezení)</em> "
-
-msgid "Max aliases<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Maximální počet aliasů<br><em>(-1 zakázáno, 0 bez omezení)</em> "
-
-msgid "Mail accounts limit<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit mailových účtů<br><em>(-1 zakázáno, 0 bez omezení) "
-
-msgid "FTP accounts limit<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit FTP účtů<br><em>(-1 zakázáno, 0 bez omezení)</em> "
-
-msgid "SQL databases limit<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit SQL databází<br><em>(-1 zakázáno, 0 bez omezení)</em> "
-
-msgid "SQL users limit<br><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit SQL uživatelů<br><em>(-1 zakázáno, 0 bez omezení)</em> "
-
-msgid "Traffic limit [MB]<br><em>(0 unlimited)</em>"
-msgstr "Limit přenesených dat [MB]<br><em>(0 bez omezení)</em> "
-
-msgid "Disk limit [MB]<br><em>(0 unlimited)</em>"
-msgstr "Limit disku [MB]<br><em>(0 bez omezení)</em> "
-
 msgid "PHP"
 msgstr "PHP"
 
@@ -786,12 +762,6 @@ msgstr "Záznamy Apache"
 
 msgid "AwStats"
 msgstr "AwStats"
-
-msgid "yes"
-msgstr "ano"
-
-msgid "no"
-msgstr "ne"
 
 msgid "Billing Settings"
 msgstr "Nastavení fakturace"
@@ -998,9 +968,6 @@ msgstr "záznam - sirotek"
 msgid "No htaccess related system errors"
 msgstr "Žádné chyby v .htaccess"
 
-msgid "Missing domain"
-msgstr "Chybějící doména"
-
 #, php-format
 msgid "Daemon returned %d as status code"
 msgstr "Démon vrátil %d jako stavový kód"
@@ -1101,9 +1068,6 @@ msgstr "Uživatelé partnera"
 
 msgid "Mark"
 msgstr "Vybrat"
-
-msgid "Reseller name"
-msgstr "Jméno partnera"
 
 msgid "Owner"
 msgstr "Vlastník"
@@ -1374,9 +1338,6 @@ msgstr "Webmail"
 msgid "Directory listing"
 msgstr "Výpis adresáře"
 
-msgid "Logo upload"
-msgstr "Nahrát logo"
-
 msgid "Support system"
 msgstr "Systém podpory"
 
@@ -1457,16 +1418,8 @@ msgid "Type `CTRL+C` to copy the generated password in the clipboard."
 msgstr "Stiskněte CTRL+C pro zkopírování vygenerovaného hesla do schránky."
 
 #, php-format
-msgid ""
-"EasySCP NOTICE:\\n"
-"\\n"
-"The `Enter` key is disabled for performance reasons!\\n"
-"Instead, use the %s button to update the data."
-msgstr ""
-"EasySCP UPOZORNĚNÍ:\\n"
-"\\n"
-"Klávesa `Enter` je zakázána kvůli výkonu!\\n"
-"Raději použijte talčítko %s k uložení dat."
+msgid "EasySCP NOTICE:\n\nThe `Enter` key is disabled for performance reasons!\nInstead, use the %s button to update the data."
+msgstr "EasySCP UPOZORNĚNÍ:\\n\\nKlávesa `Enter` je zakázána kvůli výkonu!\\nRaději použijte talčítko %s k uložení dat."
 
 msgid "EasySCP - Admin/Reseller statistics"
 msgstr "EasySCP - Admin/Statistika partnera "
@@ -1482,25 +1435,11 @@ msgstr "%1$s / %2$s <br/>z<br/> <b>%3$s</b> "
 msgid "%1$s / %2$s <br/>of<br/> <strong>unlimited</strong>"
 msgstr "%1$s / %2$s <br/>z<br/> <b>bez omezení</b> "
 
-#, php-format
-msgid "%1$d / %2$d <br/>of<br/> <strong>%3$d</strong>"
-msgstr "%1$d / %2$d <br/>z<br/> <b>%3$d</b> "
-
-#, php-format
-msgid "%1$d / %2$d <br/>of<br/> <strong>unlimited</strong>"
-msgstr "%1$d / %2$d <br/>z<br/> <b>bez omezení</b> "
-
 msgid "<strong>disabled</strong>"
 msgstr "<b>vypnuto</b> "
 
 msgid "Reseller statistics table"
 msgstr "Tabulka statistik partnera"
-
-msgid "SQL database"
-msgstr "SQL databáze"
-
-msgid "SQL user"
-msgstr "SQL uživatel"
 
 msgid "EasySCP - Admin/Reseller User Statistics"
 msgstr "EasySCP - Admin/Statistika uživatelů partnera"
@@ -1527,28 +1466,28 @@ msgstr "Tabulka uživatelů partnera"
 msgid "This reseller has no domains."
 msgstr "Tento partner nemá žádné domény."
 
-msgid "Traffic<br>usage"
+msgid "Traffic<br />usage"
 msgstr "Přenesená data<br>využití"
 
-msgid "Disk<br>usage"
+msgid "Disk<br />usage"
 msgstr "Diskový prostor<br>využití"
 
-msgid "Web<br>traffic"
+msgid "Web<br />traffic"
 msgstr "Přenesená data webu<br>využití"
 
-msgid "FTP<br>traffic"
+msgid "FTP<br />traffic"
 msgstr "FTP<br>přenesená data"
 
-msgid "SMTP<br>traffic"
+msgid "SMTP<br />traffic"
 msgstr "SMTP<br>přenesená data"
 
-msgid "POP3/IMAP<br>traffic"
+msgid "POP3/IMAP<br />traffic"
 msgstr "POP3/IMAP<br>přenesená data"
 
-msgid "SQL<br>database"
+msgid "SQL<br />database"
 msgstr "SQL<br>databáze"
 
-msgid "SQL<br>user"
+msgid "SQL<br />user"
 msgstr "SQL<br>uživatel"
 
 msgid "EasySCP Admin / System Tools / Anti-Rootkits Tools Log Checker"
@@ -1727,6 +1666,9 @@ msgstr "E-Mailové účty jsou tvrdě pozastaveny"
 msgid "Panel default language"
 msgstr "Výchozí jazyk panelu"
 
+msgid "Panel default theme"
+msgstr ""
+
 msgid "Apply changes"
 msgstr "Provést změny"
 
@@ -1793,44 +1735,14 @@ msgstr "Maximální počet labelů pro doménová jména <br />(<em>Kromě SLD &
 msgid "Maximal number of labels for subdomains"
 msgstr "Maximální počet labelů pro subdomény"
 
-msgid "You can only upload images!"
-msgstr "Můžete nahrávat jen obrázky!"
-
-msgid "Images have to be smaller than 195 x 195 pixels!"
-msgstr "Obrázek musí být menší než 195 x 195 pixelů!"
-
-msgid "Your logo was successful uploaded!"
-msgstr "Vaše logo bylo úspěšně nahráno!"
-
-msgid "Layout settings"
-msgstr "Nastavení vzhledu"
-
-msgid "Installed layouts"
-msgstr "Dostupné motivy vzhledu"
-
-msgid "Layout name"
-msgstr "Jméno motivu vzhledu"
-
 msgid "default"
 msgstr "Výchozí"
-
-msgid "Upload logo"
-msgstr "Nahrát logo"
-
-msgid "Logo file"
-msgstr "Soubor s logem"
 
 msgid "Upload"
 msgstr "Nahrát"
 
 msgid "Remove"
 msgstr "Smazat"
-
-msgid "Choose default layout"
-msgstr "Volba výchozího motivu vzhledu"
-
-msgid "Layout"
-msgstr "Motivy vzhledu"
 
 msgid "Please specify a subject!"
 msgstr "Prosím zadejte předmět!"
@@ -2125,9 +2037,6 @@ msgstr "Špatné ID domény!"
 
 msgid "Invalid user ID!"
 msgstr "Nesprávné id úživatele!"
-
-msgid "Logo could not be deleted:"
-msgstr "Lodo nemůže být smazáno!"
 
 msgid "There are active domains of reseller/admin!"
 msgstr "Partner/Administrátor má aktivní domény!"
@@ -2621,9 +2530,6 @@ msgstr "Rodičovský adresář"
 msgid "Protect it"
 msgstr "Chránit"
 
-msgid "EasySCP - Client/Webtools"
-msgstr "EasySCP - Klient/Webnástroje"
-
 msgid "Directory tree"
 msgstr "Strom adresářů"
 
@@ -2757,14 +2663,8 @@ msgid "[EasySCP OrderPanel] - You have an update order"
 msgstr "[EasySCP Objednávky] - Máte objednávku na update"
 
 #, php-format
-msgid ""
-"You have an update order for the account %s\n"
-"\n"
-"Please login into your EasySCP control panel at %s for more details"
-msgstr ""
-"Máte objednávku na update pro účet %s\n"
-"\n"
-"Pro více podrobností se přihlašte do EasySCP ovládacího panelu na %s"
+msgid "You have an update order for the account %s\n\nPlease login into your EasySCP control panel at %s for more details"
+msgstr "Máte objednávku na update pro účet %s\n\nPro více podrobností se přihlašte do EasySCP ovládacího panelu na %s"
 
 msgid "Your request for hosting pack update was removed successfully"
 msgstr "Váš požadavek na update hostingového balíčku byl uspěšně odebrán."
@@ -3391,9 +3291,6 @@ msgstr "Admin záznam"
 msgid "Logout"
 msgstr "Odhlásit"
 
-msgid "EasySCP database updates"
-msgstr "EasySCP aktualizace databáze"
-
 msgid "Custom menus"
 msgstr "Uživatelská menu"
 
@@ -3524,9 +3421,6 @@ msgstr "E-mailové a FTP účty"
 msgid "Add mail user"
 msgstr "Přidat uživatele pošty"
 
-msgid "PhpMyAdmin"
-msgstr "PhpMyAdmin"
-
 msgid "Filemanager"
 msgstr "Souborový manažer"
 
@@ -3544,9 +3438,6 @@ msgstr "FTP účty"
 
 msgid "Update Hosting Package"
 msgstr "Vylepšit hostingový balíček"
-
-msgid "Manage SSL certificate"
-msgstr "Správa SSL certifikátu"
 
 msgid "Domain mail"
 msgstr "Doménový mail"
@@ -3578,207 +3469,35 @@ msgstr "Neznámý typ"
 msgid "Welcome {USERNAME} to EasySCP!"
 msgstr "Vítáme {USERNAME} do systému EasySCP!"
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"\n"
-"A new EasySCP account has been created for you.\n"
-"Your account information:\n"
-"\n"
-"User type: {USERTYPE}\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Remember to change your password often and the first time you login.\n"
-"\n"
-"You can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Statistics: {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/{USERNAME}/stats/\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Best wishes with EasySCP!\n"
-"The EasySCP Team.\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-" Dobrý den {NAME}!\n"
-"\n"
-"Byl vám vytvořen nový účet.\n"
-"Informace o účtu:\n"
-"\n"
-"Váš uživatelský typ je: {USERTYPE}\n"
-"Váš login je: {USERNAME}\n"
-"Vaše heslo je: {PASSWORD}\n"
-"\n"
-"Doporučujeme změnu hesla při prvním přihlášení do systému.\n"
-"\n"
-"Příhlásit se můžete na adrese {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Přejeme mnoho zdaru se systémem EasySCP!\n"
-"Tým EasySCP.\n"
-"\n"
+msgid "\n\nHello {NAME}!\n\nA new EasySCP account has been created for you.\nYour account information:\n\nUser type: {USERTYPE}\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nRemember to change your password often and the first time you login.\n\nYou can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nStatistics: {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/{USERNAME}/stats/\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nBest wishes with EasySCP!\nThe EasySCP Team.\n\n"
+msgstr "\n\n Dobrý den {NAME}!\n\nByl vám vytvořen nový účet.\nInformace o účtu:\n\nVáš uživatelský typ je: {USERTYPE}\nVáš login je: {USERNAME}\nVaše heslo je: {PASSWORD}\n\nDoporučujeme změnu hesla při prvním přihlášení do systému.\n\nPříhlásit se můžete na adrese {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nPřejeme mnoho zdaru se systémem EasySCP!\nTým EasySCP.\n\n"
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"\n"
-"A new EasySCP account has been created for you.\n"
-"Your account information:\n"
-"\n"
-"User type: {USERTYPE}\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Remember to change your password often and the first time you login.\n"
-"\n"
-"You can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"User name: {USERNAME}\n"
-"Password: {PASSWORD}\n"
-"\n"
-"Best wishes with EasySCP!\n"
-"The EasySCP Team.\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-"Dobrý den {NAME}!\n"
-" \n"
-"Byl vám vytvořen nový účet.\n"
-"Informace o účtu:\n"
-"\n"
-"Váš uživatelský typ je: {USERTYPE}\n"
-"Váš login je: {USERNAME}\n"
-"Vaše heslo je: {PASSWORD}\n"
-"\n"
-"Doporučujeme změnu hesla při prvním přihlášení do systému.\n"
-"\n"
-"Příhlásit se můžete na adrese {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Přejeme mnoho zdaru se systémem EasySCP!\n"
-"Tým EasySCP.\n"
-"\n"
+msgid "\n\nHello {NAME}!\n\nA new EasySCP account has been created for you.\nYour account information:\n\nUser type: {USERTYPE}\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nRemember to change your password often and the first time you login.\n\nYou can login right now at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nUser name: {USERNAME}\nPassword: {PASSWORD}\n\nBest wishes with EasySCP!\nThe EasySCP Team.\n\n"
+msgstr "\n\nDobrý den {NAME}!\n\nByl vám vytvořen nový účet.\nInformace o účtu:\n\nVáš uživatelský typ je: {USERTYPE}\nVáš login je: {USERNAME}\nVaše heslo je: {PASSWORD}\n\nDoporučujeme změnu hesla při prvním přihlášení do systému.\n\nPříhlásit se můžete na adrese {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nPřejeme mnoho zdaru se systémem EasySCP!\nTým EasySCP.\n\n"
 
 msgid "Please activate your new EasySCP password!"
 msgstr "Prosím aktivujte si vaše nové heslo!"
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"Use this link to activate your new EasySCP password:\n"
-"\n"
-"{LINK}\n"
-"\n"
-"Good Luck with the EasySCP System\n"
-"The EasySCP Team\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-"Dobrý den {NAME}!\n"
-"Použijte tento odkaz k aktivaci nového EasySCP hesla:\n"
-"\n"
-"{LINK}\n"
-"\n"
-"Přejeme mnoho zdaru se systémem EasySCP!\n"
-"Tým EasySCP.\n"
-"\n"
+msgid "\n\nHello {NAME}!\nUse this link to activate your new EasySCP password:\n\n{LINK}\n\nGood Luck with the EasySCP System\nThe EasySCP Team\n\n"
+msgstr "\n\nDobrý den {NAME}!\nPoužijte tento odkaz k aktivaci nového EasySCP hesla:\n\n{LINK}\n\nPřejeme mnoho zdaru se systémem EasySCP!\nTým EasySCP.\n\n"
 
 msgid "Your new EasySCP login!"
 msgstr "Vaše nové přihlašovací údaje!"
 
-msgid ""
-"\n"
-"\n"
-"Hello {NAME}!\n"
-"\n"
-"Your user name is: {USERNAME}\n"
-"Your password is: {PASSWORD}\n"
-"\n"
-"You can login at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Best wishes with EasySCP!\n"
-"The EasySCP Team\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-"Dobrý den {NAME}!\n"
-"\n"
-"Vaše EasySCP uživatelské jméno je: {USERNAME}\n"
-"Vaše EasySCP heslo je: {PASSWORD}\n"
-"\n"
-"Můžete se přihlásit do systému na {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-"\n"
-"Přejeme mnoho zdaru se systémem EasySCP!\n"
-"Tým EasySCP.\n"
-"\n"
+msgid "\n\nHello {NAME}!\n\nYour user name is: {USERNAME}\nYour password is: {PASSWORD}\n\nYou can login at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nBest wishes with EasySCP!\nThe EasySCP Team\n\n"
+msgstr "\n\nDobrý den {NAME}!\n\nVaše EasySCP uživatelské jméno je: {USERNAME}\nVaše EasySCP heslo je: {PASSWORD}\n\nMůžete se přihlásit do systému na {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n\nPřejeme mnoho zdaru se systémem EasySCP!\nTým EasySCP.\n\n"
 
 msgid "Confirmation for domain order {DOMAIN}!"
 msgstr "Potvrzení pro objednávku domény {DOMAIN}!"
 
-msgid ""
-"\n"
-"\n"
-"Dear {NAME},\n"
-"This is an automatic confirmation for the order of the domain:\n"
-"\n"
-"{DOMAIN}\n"
-"\n"
-"You have to click the following link to continue the domain creation process.\n"
-"\n"
-"{ACTIVATE_LINK}\n"
-"\n"
-"Thank you for using EasySCP services.\n"
-"The EasySCP Team\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-"Drahý/á {NAME},\n"
-"toto je automatické potvrzení objednávky pro doménu:\n"
-"\n"
-"{DOMAIN}\n"
-"\n"
-"Díky, že používáte služby EasySCP.\n"
-"Tým EasySCP.\n"
-" \n"
+msgid "\n\nDear {NAME},\nThis is an automatic confirmation for the order of the domain:\n\n{DOMAIN}\n\nYou have to click the following link to continue the domain creation process.\n\n{ACTIVATE_LINK}\n\nThank you for using EasySCP services.\nThe EasySCP Team\n\n"
+msgstr "\n\nDrahý/á {NAME},\ntoto je automatické potvrzení objednávky pro doménu:\n\n{DOMAIN}\n\nDíky, že používáte služby EasySCP.\nTým EasySCP.\n\n"
 
 msgid "New alias order for {CUSTOMER}!"
 msgstr "Nová objednávka aliasu pro {CUSTOMER}!"
 
-msgid ""
-"\n"
-"\n"
-"Dear {RESELLER},\n"
-"Your customer {CUSTOMER} is awaiting for the approval of his new alias:\n"
-"\n"
-"{ALIAS}\n"
-"\n"
-"Once logged in, you can activate his new alias at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n"
-"\n"
-"Thank you for using EasySCP services.\n"
-"The EasySCP Team\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-"Drahý/á {RESELLER},\n"
-"váš zákazník {CUSTOMER} čeká na schválení nového aliasu::\n"
-"\n"
-"{ALIAS}\n"
-"\n"
-"Jakmile se příhlásíte, můžete aktivovat zmíněný alias na adrese\n"
-"{BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n"
-"\n"
-" Díky, že používáte služby EasySCP.\n"
-"Tým EasySCP.\n"
-"\n"
+msgid "\n\nDear {RESELLER},\nYour customer {CUSTOMER} is awaiting for the approval of his new alias:\n\n{ALIAS}\n\nOnce logged in, you can activate his new alias at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n\nThank you for using EasySCP services.\nThe EasySCP Team\n\n"
+msgstr "\n\nDrahý/á {RESELLER},\nváš zákazník {CUSTOMER} čeká na schválení nového aliasu::\n\n{ALIAS}\n\nJakmile se příhlásíte, můžete aktivovat zmíněný alias na adrese\n{BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/reseller/alias.php\n\n Díky, že používáte služby EasySCP.\nTým EasySCP.\n\n"
 
 msgid "Your message has been sent!"
 msgstr "Vaše zpráva byla odeslána!"
@@ -3811,24 +3530,12 @@ msgid "[Ticket]"
 msgstr "[Požadavek]"
 
 #, php-format
-msgid ""
-"Hello %s!\n"
-"\n"
-"You have a new ticket:\n"
-msgstr ""
-"Ahoj %s!\n"
-"\n"
-"Máte nový požadavek podpory:\n"
+msgid "Hello %s!\n\nYou have a new ticket:\n"
+msgstr "Ahoj %s!\n\nMáte nový požadavek podpory:\n"
 
 #, php-format
-msgid ""
-"Hello %s!\n"
-"\n"
-"You have an answer for this ticket:\n"
-msgstr ""
-"Ahoj %s!\n"
-"\n"
-"Máte novou odpověď na požadavek podpory:\n"
+msgid "Hello %s!\n\nYou have an answer for this ticket:\n"
+msgstr "Ahoj %s!\n\nMáte novou odpověď na požadavek podpory:\n"
 
 #, php-format
 msgid "Priority: %s\n"
@@ -4018,23 +3725,8 @@ msgstr "Chybová zpráva"
 msgid "You have a new order"
 msgstr "Máte novou objednávku"
 
-msgid ""
-"\n"
-"\n"
-"Dear {RESELLER},\n"
-"you have a new order from {NAME} <{MAIL}> for domain {DOMAIN}\n"
-"\n"
-"Please login into your EasySCP control panel for more details.\n"
-"\n"
-msgstr ""
-"\n"
-"\n"
-"Vážený {RESELLER},\n"
-"máte novou objednávku od {NAME} <{MAIL}> na doménu {DOMAIN}\n"
-"\n"
-"Prosím přihlašte se do EasySCP pro více detailů.\n"
-"\n"
-"\n"
+msgid "\n\nDear {RESELLER},\nyou have a new order from {NAME} <{MAIL}> for domain {DOMAIN}\n\nPlease login into your EasySCP control panel for more details.\n\n"
+msgstr "\n\nVážený {RESELLER},\nmáte novou objednávku od {NAME} <{MAIL}> na doménu {DOMAIN}\n\nProsím přihlašte se do EasySCP pro více detailů.\n\n"
 
 msgid "Your order has been successfully created."
 msgstr "vaše objednávka byla v pořádku uložena."
@@ -4155,12 +3847,6 @@ msgstr "Nemáte žádné záznamy o aliasech."
 
 msgid "Activate"
 msgstr "Aktivovat"
-
-msgid "Domain alias you are trying to remove has email accounts !<br>First remove them!"
-msgstr "Odstraňovaný doménový alias obsahuje poštovní účty!<br>Nejdříve tyto účty smažte!"
-
-msgid "Domain alias you are trying to remove has FTP accounts!<br>First remove them!"
-msgstr "Odstraňovaný doménový alias obsahuje FTP účty!<br>Nejdříve tyto účty smažte!"
 
 msgid "Domain alias added for termination!"
 msgstr "Zrušení doménového aliasu přidáno!"
@@ -4477,24 +4163,6 @@ msgstr "EasySCP - Uživatel/Přidat uživatele (krok 2)"
 msgid "Max domains<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr "Maximální počet domén<br><em>(-1 zakázáno, 0 bez omezení)</em>"
 
-msgid "Mail accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit poštovních účtů<br /><em>(-1 zakázáno, 0 bez omezení)</em>"
-
-msgid "FTP accounts limit<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit FTP účtů<br /><em>(-1 zakázáno, 0 bez omezení)</em>"
-
-msgid "SQL databases limit<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit SQL databází<br /><em>(-1 zakázáno, 0 bez omezení)</em>"
-
-msgid "SQL users limit<br /><em>(-1 disabled, 0 unlimited)</em>"
-msgstr "Limit SQL uživatelů<br /><em>(-1 zakázáno, 0 bez omezení)</em>"
-
-msgid "Traffic limit [MB]<br /><em>(0 unlimited)</em>"
-msgstr "Limit přenesených dat [MB]<br /><em>(0 bez omezení)</em>"
-
-msgid "Disk limit [MB]<br /><em>(0 unlimited)</em>"
-msgstr "Limit disku [MB]<br /><em>(0 bez omezení)</em>"
-
 msgid "Apache logs"
 msgstr "Protokoly Apache"
 
@@ -4568,576 +4236,15 @@ msgstr "Uživatel odstraněn!"
 msgid "User not terminated!"
 msgstr "Uživatel není odstraněn!"
 
-#~ msgid "EasySCP - Reseller statistics"
-#~ msgstr "EasySCP - Statistiky partnera"
-
-#~ msgid "Unchanged"
-#~ msgstr "Nezměněno"
-
-#~ msgid "- 1 Month"
-#~ msgstr "- 1 měsíc"
-
-#~ msgid "+ 1 Month"
-#~ msgstr "+ 1 měsíc"
-
-#~ msgid "+ 2 Months"
-#~ msgstr "+ 2 měsíce"
-
-#~ msgid "+ 3 Months"
-#~ msgstr "+ 3 měsíce"
-
-#~ msgid "+ 6 Months"
-#~ msgstr "+ 6 měsíců"
-
-#~ msgid "+ 1 Year"
-#~ msgstr "+ 1 rok"
-
-#~ msgid "+ 2 Years"
-#~ msgstr "+ 2 rok"
-
-#~ msgid "1 Month"
-#~ msgstr "1 měsíc"
-
-#~ msgid "2 Months"
-#~ msgstr "2 měsíce"
-
-#~ msgid "3 Months"
-#~ msgstr "3 měsíce"
-
-#~ msgid "6 Months"
-#~ msgstr "6 měsíců"
-
-#~ msgid "1 Year"
-#~ msgstr "1 rok"
-
-#~ msgid "2 Years"
-#~ msgstr "2 roky"
-
-#~ msgid "Manual DNS support (EXPERIMENTAL)"
-#~ msgstr "Podpora manuální editace DNS (EXPERIMENTÁLNÍ)"
-
-#~ msgid "Please select some user(s)!"
-#~ msgstr "Prosím vyberte uživatele!"
-
-#~ msgid "uninstall"
-#~ msgstr "odinstalovat"
-
-#~ msgid "Settings saved !"
-#~ msgstr "Nastavení uloženo!"
-
-#, fuzzy
-#~ msgid "ERROR: Wrong Ip number!"
-#~ msgstr "Chybně zadaná IP adresa!"
-
-#~ msgid "To"
-#~ msgstr "Pro"
-
-#~ msgid "Message was sent."
-#~ msgstr "Zpráva byla odeslána."
-
-#~ msgid "Add DNS zone's record (EXPERIMENTAL)"
-#~ msgstr "Přidat DNS záznam (EXPERIMENTÁLNÍ)"
-
-#~ msgid "Edit DNS zone's record (EXPERIMENTAL)"
-#~ msgstr "Upravit DNS záznam (EXPERIMENTÁLNÍ)"
-
-#~ msgid "DNS zone's records (EXPERIMENTAL)"
-#~ msgstr "Záznamy DNS zóny (EXPERIMENTÁLNÍ)"
-
-#~ msgid "Too user long password!"
-#~ msgstr "Příliš dlouhé uživatelské heslo!"
-
-#~ msgid "File %s does not exists or cannot be reached!"
-#~ msgstr "Soubor %s neexistuje nebo nelze přečíst!"
-
-#~ msgid "Error while trying to obtain list of network cards!"
-#~ msgstr "Chyba při pokusu o získání seznamu síťových karet!"
-
-#~ msgid "This IP (%s) is not assigned to any network card!"
-#~ msgstr "Tato IP adresa (%s) není přiřazena k žádné síťové kartě!"
-
-#, fuzzy
-#~ msgid "Days"
-#~ msgstr "Den"
-
-#, fuzzy
-#~ msgid "Hours"
-#~ msgstr "Hodina"
-
-#, fuzzy
-#~ msgid "Minute"
-#~ msgstr "minuty"
-
-#, fuzzy
-#~ msgid "Minutes"
-#~ msgstr "minuty"
-
-#~ msgid "Couldn't check for updates! Website not reachable."
-#~ msgstr "Nemohu zkontrolovat aktualizace! Cílová stránka neodpovídá."
-
-#~ msgid "You Are Exceeding Your Alias Limit!"
-#~ msgstr "Překračujete limit počtu aliasů!"
-
-#~ msgid "Show server load"
-#~ msgstr "Zobrazit vytížení serveru"
-
-#~ msgid "Services"
-#~ msgstr "Služby"
-
-#~ msgid "days"
-#~ msgstr "dny"
-
-#~ msgid "hours"
-#~ msgstr "hodiny"
-
-#~ msgid "Kernel"
-#~ msgstr "Jádro"
-
-#~ msgid "Load"
-#~ msgstr "Vytížení"
-
-#~ msgid ""
-#~ "We are sorry, but the system is currently under maintenance.\n"
-#~ "Please try again later."
-#~ msgstr ""
-#~ "Omlouváme se, ale na serveru právě probíhá údržba.\n"
-#~ "Zkuste to později."
-
-#~ msgid "Could not get config from database"
-#~ msgstr "Nemohu získat konfiguraci z databáze"
-
-#~ msgid ""
-#~ "Inconsistency between current_als_cnt and actual alias count: %1$d != %2$d"
-#~ msgstr ""
-#~ "Nesoulad mezi <em>current_als_cnt</em> a <em>actual alias count</em>: %1$d != "
-#~ "%2$d"
-
-#~ msgid ""
-#~ "Inconsistency between current_ftp_cnt and actual ftp count: %1$d != %2$d"
-#~ msgstr ""
-#~ "Nesoulad mezi <em>current_ftp_cnt</em> a <em>actual ftp count</em>: %1$d != "
-#~ "%2$d"
-
-#~ msgid "Edit reseller aborted!"
-#~ msgstr "Editace partnera přerušena!"
-
-#~ msgid "Domains limit<br><em>(-1 disabled, 0 unlimited)</em>"
-#~ msgstr "Limit domén<br><em>(-1 zakázáno, 0 bez omezení)</em>"
-
-#~ msgid "Incorrect forward syntax"
-#~ msgstr "Nesprávná syntaxe přesměrování"
-
-#~ msgid "A Forward URL has to start with 'http://'"
-#~ msgstr "Adresa pro přesměrování má začínat 'http://'"
-
-#~ msgid "Entered passwords differ from the another!"
-#~ msgstr "Hesla jsou rozdílná!"
-
-#, fuzzy
-#~ msgid "Error:"
-#~ msgstr "Chyba"
-
-#~ msgid "Incorrect domain name syntax"
-#~ msgstr "Chybná syntaxe doménového jména"
-
-#, fuzzy
-#~ msgid "Disk Usage Percent"
-#~ msgstr "Využití disku"
-
-#~ msgid "You have no user records."
-#~ msgstr "Nemáte žádný uživatelský záznam."
-
-#, fuzzy
-#~ msgid "Default panel language changed!"
-#~ msgstr "Výchozí jazyk byl změněn!"
-
-#~ msgid "Default language"
-#~ msgstr "Výchozí jazyk"
-
-#, fuzzy
-#~ msgid "EasySCP - Client/SSL Domains"
-#~ msgstr "EasySCP - Klient/Správa Domén"
-
-#, fuzzy
-#~ msgid "Field Company can not be empty!\n"
-#~ msgstr "Hlavní doména nemůže být použita!"
-
-#, fuzzy
-#~ msgid "Email is not valid!\n"
-#~ msgstr "Doménový alias nebyl přidán!"
-
-#, fuzzy
-#~ msgid "Generate self signed"
-#~ msgstr "Vygenerovat heslo"
-
-#, fuzzy
-#~ msgid "CRT for domain name"
-#~ msgstr "Chybná syntaxe doménového jména!"
-
-#, fuzzy
-#~ msgid "State"
-#~ msgstr "Statistiky"
-
-#, fuzzy
-#~ msgid "Company division"
-#~ msgstr "Společnost"
-
-#, fuzzy
-#~ msgid "Generate"
-#~ msgstr "Pohlaví"
-
-#, fuzzy
-#~ msgid "Key identifier already exists!\n"
-#~ msgstr "Uživatel již existuje!"
-
-#, fuzzy
-#~ msgid ""
-#~ "Password data is shorter than %s signs or includes not permitted signs!\n"
-#~ msgstr "Heslo je kratší než %s znaků nebo obsahuje nepovolené znaky!"
-
-#, fuzzy
-#~ msgid "Key for this domain already exists!\n"
-#~ msgstr "Tato IP adresa existuje!"
-
-#, fuzzy
-#~ msgid "Add new key"
-#~ msgstr "Přidat novou IP adresu"
-
-#, fuzzy
-#~ msgid "Key for domain name"
-#~ msgstr "Chybná syntaxe doménového jména!"
-
-#, fuzzy
-#~ msgid "Paste generated key"
-#~ msgstr "Generátor hesla"
-
-#, fuzzy
-#~ msgid "Generate new"
-#~ msgstr "Vygenerovat heslo"
-
-#, fuzzy
-#~ msgid "List is empty!"
-#~ msgstr "Záznam je prázdný!"
-
-#, fuzzy
-#~ msgid "Certificate sign request"
-#~ msgstr "Spusť dotazy"
-
-#, fuzzy
-#~ msgid "Key host name"
-#~ msgstr "Jméno motivu vzhledu"
-
-#, fuzzy
-#~ msgid "Certificate host name"
-#~ msgstr "Služba"
-
-#~ msgid "Are you sure you want to delete this account?"
-#~ msgstr "Opravdu chcete odstranit tento účet?"
-
-#, fuzzy
-#~ msgid "Domain is not instantiated"
-#~ msgstr "Doménový alias nebyl přidán!"
-
-#, fuzzy
-#~ msgid "Domain do not exists"
-#~ msgstr "%s neexistuje"
-
-#, fuzzy
-#~ msgid "Invalid destination for key!"
-#~ msgstr "Nesprávné jméno skupiny!"
-
-#, fuzzy
-#~ msgid "User do not have domains!"
-#~ msgstr "Uživatel neexistuje!"
-
-#~ msgid "Password sent"
-#~ msgstr "Heslo bylo odesláno"
-
-#~ msgid ""
-#~ "Domain you are trying to remove has email accounts !<br> first remove "
-#~ "them !"
-#~ msgstr ""
-#~ "K odstraňované doméně jsou přiřazeny poštovní účty!<br>Nejdříve tyto účty "
-#~ "smažte!"
-
-#~ msgid ""
-#~ "Domain you are trying to remove has FTP accounts !<br> first remove them !"
-#~ msgstr ""
-#~ "K odstraňované doméně jsou přiřazeny FTP účty!<br>Nejdříve tyto účty "
-#~ "smažte!"
-
-#~ msgid ""
-#~ "Domain you are trying to remove has domain alias!<br> first remove them !"
-#~ msgstr ""
-#~ "K odstraňované doméně jsou přiřazeny aliasy!<br>Nejdříve tyto aliasy "
-#~ "smažte!"
-
-#~ msgid ""
-#~ "Domain you are trying to remove has subdomains accounts !<br> first "
-#~ "remove them !"
-#~ msgstr ""
-#~ "K odstraňované doméně jsou přiřazeny subdoménové účty!<br>Nejdříve tyto "
-#~ "účty smažte!"
-
-#~ msgid "Set status to \"change\""
-#~ msgstr "Nastavit stav na \"změna\""
-
-#~ msgid "%1$s / %2$s of <b>%3$d</b>"
-#~ msgstr "%1$s / %2$s z <b>%3$d</b>"
-
-#~ msgid "Please enter an SQL query!"
-#~ msgstr "Zadejte prosím SQL dotaz!"
-
-#~ msgid "Could not connect to the SQL server as %s!"
-#~ msgstr "Nemohu se připojit k SQL serveru jako %s!"
-
-#~ msgid "Execution of SQL query failed!"
-#~ msgstr "Provedení SQL dotazu selhalo!"
-
-#~ msgid "Execution of SQL query succeeded!"
-#~ msgstr "Provedení SQL dotazu bylo úspěšné!"
-
-#~ msgid "EasySCP - Client/Execute SQL Query"
-#~ msgstr "EasySCP - Klient/Provést SQL dotaz"
-
-#~ msgid "Execute SQL query"
-#~ msgstr "Proveď SQL dotaz"
-
-#~ msgid "SQL query"
-#~ msgstr "SQL dotaz"
-
-#~ msgid "Query status"
-#~ msgstr "Stav dotazu"
-
-#~ msgid "Query result"
-#~ msgstr "Výsledek dotazu"
-
-#~ msgid "Execute"
-#~ msgstr "Proveď"
-
-#~ msgid "Mail in"
-#~ msgstr "Mail příchozí"
-
-#~ msgid "Mail out"
-#~ msgstr "Mail odchozí"
-
-#~ msgid "Subdomain list is empty! You cannot add mail accounts!"
-#~ msgstr "Seznam subdomén je prázdný! Nemůžete přidávat poštovní účty!"
-
-#~ msgid "Catchall account"
-#~ msgstr "Doménový koš"
-
-#~ msgid "Incorrect password length or syntax!"
-#~ msgstr "Nesprávná délka nebo syntaxe hesla!"
-
-#~ msgid "Message was sent!"
-#~ msgstr "Zpráva byla odeslána!"
-
-#~ msgid "Message was send!"
-#~ msgstr "Zpráva byla poslána!"
-
-#~ msgid "Database update %s failed"
-#~ msgstr "Aktualizace databáze %s selhala"
-
-#~ msgid "Missing or wrong data!"
-#~ msgstr "Chybějící nebo špatná data!"
-
-#~ msgid "Password data includes not valid signs!"
-#~ msgstr "Heslo obsahuje nepovolené znaky!"
-
-#~ msgid "Unknown domain status!"
-#~ msgstr "Neznámý stav subdomény!"
-
-#~ msgid "Unknown account type!"
-#~ msgstr "Neznámý typ účtu!"
-
-#~ msgid ""
-#~ "Inconsistency between current_mail_cnt and actual mail count: %1$d != %2$d"
-#~ msgstr ""
-#~ "Nesoulad mezi <em>current_mail_cnt</em> a <em>actual mail count</em>: %1$d != "
-#~ "%2$d"
-
-#~ msgid "Domains limit"
-#~ msgstr "Limit domén"
-
-#~ msgid "Subdomains limit"
-#~ msgstr "Limit subdomén"
-
-#~ msgid "Aliases limit"
-#~ msgstr "Limit aliasů"
-
-#~ msgid "Mail accounts limit"
-#~ msgstr "Limit poštovních účtů"
-
-#~ msgid "FTP accounts limit"
-#~ msgstr "Limit FTP účtů"
-
-#~ msgid "SQL databases limit"
-#~ msgstr "Limit SQL databází"
-
-#~ msgid "SQL users limit"
-#~ msgstr "Limit SQL uživatelů"
-
-#~ msgid "Traffic limit [MB]"
-#~ msgstr "Limit přenesených dat [MB]"
-
-#~ msgid "Disk limit [MB]"
-#~ msgstr "Limit diskového prostoru [MB]"
-
-#~ msgid "Max domain count"
-#~ msgstr "Maximální počet domén"
-
-#~ msgid "Max subdomain count"
-#~ msgstr "Maximální počet subdomén"
-
-#~ msgid "Max aliases count"
-#~ msgstr "Maximální počet aliasů"
-
-#~ msgid "Max mail users count"
-#~ msgstr "Maximální počet poštovních účtů"
-
-#~ msgid "Max FTP users count"
-#~ msgstr "Maximální počet FTP účtů"
-
-#~ msgid "Max SQL databases count"
-#~ msgstr "Maximální počet SQL databází"
-
-#~ msgid "Max SQL users count"
-#~ msgstr "Maximální počet SQL uživatelů"
-
-#~ msgid "Max traffic amount [MB]"
-#~ msgstr "Maximální počet přenesených dat [MB]"
-
-#~ msgid "Max disk amount [MB]"
-#~ msgstr "Maximální diskový prostor [MB]"
-
-#~ msgid "Order in progress"
-#~ msgstr "Objednávka odeslána ke zpracování"
-
-#~ msgid ""
-#~ "\n"
-#~ "\n"
-#~ "Hello {NAME}!\n"
-#~ "\n"
-#~ "Your EasySCP user type is: {USERTYPE}\n"
-#~ "Your EasySCP login is: {USERNAME}\n"
-#~ "Your EasySCP password is: {PASSWORD}\n"
-#~ "\n"
-#~ "You can login at {BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}\n"
-#~ "\n"
-#~ "Good luck with the EasySCP system!\n"
-#~ "The EasySCP Team.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "\n"
-#~ "\n"
-#~ "Dobrý den {NAME}!\n"
-#~ "\n"
-#~ "Váš EasySCP uživatelský typ je: {USERTYPE}\n"
-#~ "Váš EasySCP login je: {USERNAME}\n"
-#~ "Vaše EasySCP heslo je: {PASSWORD}\n"
-#~ "\n"
-#~ "Přejeme mnoho zdaru se systémem EasySCP!\n"
-#~ "Tým EasySCP.\n"
-#~ "\n"
-
-#~ msgid "http://admin.Your-EasySCP-Domain.tld/orderpanel/index.php?user_id=%d"
-#~ msgstr "http://admin.vase-EasySCP-domena.tld/orderpanel/index.php?user_id=%d"
-
-#~ msgid "Incorrect max domain count or syntax!"
-#~ msgstr "Nesprávná hodnota nebo syntaxe maximálního počtu domén!"
-
-#~ msgid "Incorrect max subdomain count or syntax!"
-#~ msgstr "Nesprávná hodnota nebo syntaxe <em>maximálního počtu subdomén</em>!"
-
-#~ msgid "Incorrect max alias count or syntax!"
-#~ msgstr "Nesprávná hodnota nebo syntaxe <em>maximálního počtu subdomén</em>!"
-
-#~ msgid "Incorrect max FTP count or syntax!"
-#~ msgstr "Nesprávná hodnota nebo syntaxe <em>maximálního počtu FTP</em>!"
-
-#~ msgid "Incorrect max mail count or syntax!"
-#~ msgstr "Nesprávná hodnota nebo syntaxe <em>maximálního počtu emailů</em>!"
-
-#~ msgid "Incorrect max SQL databases count or syntax!"
-#~ msgstr ""
-#~ "Nesprávná hodnota nebo syntaxe <em>maximálního počtu SQL databází</em>!"
-
-#~ msgid "Incorrect max SQL users count or syntax!"
-#~ msgstr ""
-#~ "Nesprávná hodnota nebo syntaxe <em>maximálního počtu SQL uživatelů</em>!"
-
-#~ msgid "Incorrect max traffic amount or syntax!"
-#~ msgstr ""
-#~ "Nesprávná hodnota nebo syntaxe <em>maximálního počtu přenesených dat</em>!"
-
-#~ msgid "Incorrect max disk amount or syntax!"
-#~ msgstr ""
-#~ "Nesprávná hodnota nebo syntaxe <em>maximálního počtu diskového prostoru</"
-#~ "i>!"
-
-#~ msgid "Incorrect alias length or syntax!"
-#~ msgstr "Nesprávná délka nebo syntaxe aliasu!"
-
-#~ msgid "Incorrect FTP account length or syntax!"
-#~ msgstr "Nesprávná délka nebo syntaxe FTP účtu!"
-
-#~ msgid "Incorrect SQL database length or syntax!"
-#~ msgstr "Nesprávný délka nebo syntaxe SQL databáze!"
-
-#~ msgid "Incorrect SQL user length or syntax!"
-#~ msgstr "Nesprávná délka nebo syntaxe SQL uživatele!"
-
-#~ msgid "Incorrect disk length or syntax!"
-#~ msgstr "Nesprávná délka nebo syntaxe diskového prostoru!"
-
-#~ msgid "<b>%s</b> Service cannot be limited !<br>"
-#~ msgstr "<b>%s</b> služba nemůže být omezena!<br>"
-
-#~ msgid "Incorrect price!"
-#~ msgstr "Nesprávná cena!"
-
-#~ msgid "Incorrect setup fee!"
-#~ msgstr "Nesprávný zřizovací poplatek!"
-
-#~ msgid "Edit properties"
-#~ msgstr "Upravit vlastnosti"
-
-#~ msgid "Cannot connect as MySQL administrator!"
-#~ msgstr "Nemohu se pripojit jako MySQL administrátor"
-
-#~ msgid "of"
-#~ msgstr "z"
-
-#~ msgid "Multilingual"
-#~ msgstr "Jazyky"
-
-#~ msgid "</b> Address !<br>Edit reseller aborted!"
-#~ msgstr "</b> Chybná adresa!<br>Úprava partnera byla zrušena."
-
-#~ msgid "Cannot open file! Please contact your administrator !"
-#~ msgstr "Nelze otevřít soubor! Kontaktujte administrátora!"
-
-#~ msgid "You have"
-#~ msgstr "Máte"
-
-#~ msgid "New"
-#~ msgstr "Nový"
-
-#~ msgid "Catch all mail account cannot be created!"
-#~ msgstr "Nelze vytvořit všezachytávající účet!"
-
-#~ msgid "new"
-#~ msgstr "nový"
-
-#~ msgid "Alias scheduled for modification!"
-#~ msgstr "Změna aliasu byla naplánována!"
-
-#~ msgid "delete"
-#~ msgstr "odstranit"
-
 msgid "Path is relativ to your root directory. The mount point will contain a subfolder named htdocs."
 msgstr ""
 
 msgid "Can't use an existing folder as mount point!"
+msgstr ""
+
+# SSL Configuration
+msgid "Manage SSL certificate"
+msgstr "Správa SSL certifikátu"
+
+msgid "SSL support"
 msgstr ""

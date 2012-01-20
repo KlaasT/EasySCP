@@ -1,7 +1,7 @@
 <?php
 /**
  * EasySCP a Virtual Hosting Control Panel
- * Copyright (C) 2010-2011 by Easy Server Control Panel - http://www.easyscp.net
+ * Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -53,6 +53,10 @@ if (!is_numeric($rid) || !is_numeric($month) || !is_numeric($year)) {
 	user_goto('reseller_statistics.php');
 }
 
+gen_select_lists($tpl, $month, $year);
+
+generate_page($tpl, $rid, $name);
+
 // static page messages
 $tpl->assign(
 	array(
@@ -83,10 +87,6 @@ $tpl->assign(
 
 gen_admin_mainmenu($tpl, 'admin/main_menu_statistics.tpl');
 gen_admin_menu($tpl, 'admin/menu_statistics.tpl');
-
-gen_select_lists($tpl, $month, $year);
-
-generate_page($tpl, $rid, $name);
 
 gen_page_message($tpl);
 
@@ -262,7 +262,7 @@ function generate_domain_entry($tpl, $user_id, $row) {
 
 	$domain_name = decode_idna($domain_name);
 
-	$tpl->assign(
+	$tpl->append(
 		array(
 			'DOMAIN_NAME' => tohtml($domain_name),
 
