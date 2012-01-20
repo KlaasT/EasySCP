@@ -390,7 +390,11 @@ function array_encode_idna($arr, $asPath = false) {
 	}
 
 	foreach ($arr as $k => $v) {
-		$arr[$k] = encode_idna($v);
+		if (strpos($v, 'xn--') === 0) {
+			$arr[$k] = $v;
+		} else {
+			$arr[$k] = encode_idna($v);
+		}
 	}
 	return $arr;
 }
