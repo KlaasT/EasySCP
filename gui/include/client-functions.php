@@ -64,10 +64,10 @@ function get_domain_default_props($sql, $domain_admin_id, $returnWKeys = false) 
 			`domain_cgi`,
 			`allowbackup`,
 			`domain_dns`,
-                        `domain_ssl`,
-                        `ssl_key`,
-                        `ssl_cert`,
-                        `ssl_status`
+			`domain_ssl`,
+			`ssl_key`,
+			`ssl_cert`,
+			`ssl_status`
 		FROM
 			`domain`
 		WHERE
@@ -102,7 +102,7 @@ function get_domain_default_props($sql, $domain_admin_id, $returnWKeys = false) 
 			$rs->fields['domain_cgi'],
 			$rs->fields['allowbackup'],
 			$rs->fields['domain_dns'],
-                        $rs->fields['domain_ssl']
+			$rs->fields['domain_ssl']
 		);
 	} else {
 		return $rs->fields;
@@ -516,7 +516,7 @@ function gen_client_mainmenu($tpl, $menu_file) {
 		$dmn_als_limit,
 		$dmn_subd_limit,,,,,,,
 		$domain_dns,
-                $domain_ssl
+		$domain_ssl
 	) = get_domain_default_props($sql, $_SESSION['user_id']);
 
 	if ($dmn_mailacc_limit != -1){
@@ -639,7 +639,7 @@ function gen_client_menu($tpl, $menu_file) {
 		$dmn_subd_limit,,,,,,
 		$allowbackup,
 		$dmn_dns,
-                $dmn_ssl
+		$dmn_ssl
 	) = get_domain_default_props($sql, $_SESSION['user_id']);
 
 	if ($dmn_als_limit != -1 || $dmn_subd_limit != -1 || $dmn_dns == 'yes'){

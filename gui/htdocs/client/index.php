@@ -71,7 +71,7 @@ list(
 		$dmn_disk_usage,
 		$dmn_php,
 		$dmn_cgi,
-                $dmn_ssl,
+        $dmn_ssl,
 		$backup,
 		$dns
 	) = get_domain_default_props($sql, $_SESSION['user_id']);
@@ -178,7 +178,7 @@ $tpl->assign(
 		'TR_MAIN_DOMAIN'			=> tr('Main domain'),
 		'TR_PHP_SUPPORT' 			=> tr('PHP support'),
 		'TR_CGI_SUPPORT' 			=> tr('CGI support'),
-                'TR_SSL_SUPPORT'                => tr('SSL support'),
+		'TR_SSL_SUPPORT'			=> tr('SSL support'),
 		'TR_DNS_SUPPORT' 			=> tr('Manual DNS support'),
 		'TR_BACKUP_SUPPORT' 		=> tr('Backup support'),
 		'TR_MYSQL_SUPPORT' 			=> tr('SQL support'),

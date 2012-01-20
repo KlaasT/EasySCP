@@ -217,8 +217,8 @@ function update_user_props($user_id, $props) {
 			`domain_php` = ?
 		AND
 			`domain_cgi` = ?
-                AND
-                        `domain_ssl` = ?
+		AND
+			`domain_ssl` = ?
 		AND
 			`domain_dns` = ?
 		;
@@ -255,7 +255,7 @@ function update_user_props($user_id, $props) {
 				`domain_disk_limit` = ?,
 				`domain_php` = ?,
 				`domain_cgi` = ?,
-                                `domain_ssl` = ?,
+				`domain_ssl` = ?,
 				`domain_dns` = ?
 			WHERE
 				`domain_id` = ?
