@@ -67,6 +67,7 @@ perl
 perl-base
 perl-modules
 php-pear
+php-mdb2
 php5
 php5-adodb
 php5-cgi
@@ -76,6 +77,8 @@ php5-gd
 php5-mcrypt
 php5-mysql
 php5-suhosin
+php5-imap
+php5-snmp
 policyd-weight
 postfix
 postgrey

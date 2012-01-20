@@ -74,8 +74,8 @@
 				</tr>
 				{section name=i loop=$SUB_NAME}
 				<tr>
-					<td style="width: 350px;">{$SUB_NAME}</td>
-					<td>{$SUB_MNT}</td>
+					<td style="width: 350px;">{$SUB_NAME[i]}</td>
+					<td>{$SUB_MNT[i]}</td>
 				</tr>
 				{/section}
 			</table>
@@ -87,8 +87,8 @@
 				</tr>
 				{section name=i loop=$DB_NAME}
 				<tr>
-					<td style="width: 350px;">{$DB_NAME}</td>
-					<td>{$DB_USERS}</td>
+					<td style="width: 350px;">{$DB_NAME[i]}</td>
+					<td>{$DB_USERS[i]}</td>
 				</tr>
 				{/section}
 			</table>
