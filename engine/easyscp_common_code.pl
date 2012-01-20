@@ -23,6 +23,9 @@
 #
 # Portions created by the ispCP Team are Copyright (C) 2006-2010 by
 # isp Control Panel. All Rights Reserved.
+#
+# Portions created by the EasySCP Team are Copyright (C) 2010-2012 by
+# Easy Server Control Panel. All Rights Reserved.
 
 BEGIN {
 

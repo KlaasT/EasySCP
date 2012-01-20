@@ -290,17 +290,17 @@ function gen_user_sub_list($tpl, $sql, $user_id) {
 			list($sub_action, $sub_action_script) = gen_user_sub_action($rs->fields['subdomain_id'], $rs->fields['subdomain_status']);
 			list($sub_forward, $sub_edit_link, $sub_edit) = gen_user_sub_forward($rs->fields['subdomain_id'], $rs->fields['subdomain_status'], $rs->fields['subdomain_url_forward'], 'dmn');
 			$sbd_name = decode_idna($rs->fields['subdomain_name']);
-                        $dmn_name = decode_idna($rs->fields['domain_name']);
+			$dmn_name = decode_idna($rs->fields['domain_name']);
 			$sub_forward = decode_idna($sub_forward);
 			$tpl->append(
 				array(
-					'SUB_NAME'              => tohtml($sbd_name),
+					'SUB_NAME'			=> tohtml($sbd_name),
 					'SUB_ALIAS_NAME'	=> tohtml($dmn_name),
-					'SUB_MOUNT'		=> tohtml($rs->fields['subdomain_mount']),
+					'SUB_MOUNT'			=> tohtml($rs->fields['subdomain_mount']),
 					'SUB_FORWARD'		=> $sub_forward,
 					'SUB_STATUS'		=> translate_dmn_status($rs->fields['subdomain_status']),
 					'SUB_EDIT_LINK'		=> $sub_edit_link,
-					'SUB_EDIT'		=> $sub_edit,
+					'SUB_EDIT'			=> $sub_edit,
 					'SUB_ACTION'		=> $sub_action,
 					'SUB_ACTION_SCRIPT'	=> $sub_action_script
 				)

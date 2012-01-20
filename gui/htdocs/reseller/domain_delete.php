@@ -91,7 +91,7 @@ function validate_domain_deletion($domain_id) {
 			'TR_BUTTON_DELETE'	=> tr('Delete domain'),
 			'TR_YES_DELETE_DOMAIN'	=> tr('Yes, delete the domain.'),
 			'DOMAIN_NAME'		=> decode_idna($data['domain_name']),
-			'DOMAIN_ID'		=> $data['domain_id']
+			'DOMAIN_ID'			=> $data['domain_id']
 		)
 	);
 
