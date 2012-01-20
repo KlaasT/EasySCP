@@ -1,6 +1,12 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-01-18 Markus Szywon
+	- Engine:
+		* Some fixes
+	- GUI:
+		* Some fixes
+
 2012-01-12 Tom Winterhalder
 	- GUI:
 		* Fixed: Double encoding of username

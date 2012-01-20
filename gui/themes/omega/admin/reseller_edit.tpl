@@ -47,10 +47,10 @@
 		});
 
 		// Adds event handler for the password generation button
-		jQuery('input[name=genpass]').click(function(){ jQuery.ajax(); }).attr('disabled',false);
+		jQuery('#genpass').click(function(){ jQuery.ajax(); }).attr('disabled',false);
 
 		// Adds event handler for the reset button
-		jQuery('input[name=pwdreset]').click(
+		jQuery('#pwdreset').click(
 			function(){
 				gpwd=false;
 				jQuery(':password').val('').attr('readonly',false);
@@ -102,8 +102,8 @@
 						<td><label for="pass0">{$TR_PASSWORD}</label></td>
 						<td>
 							<input type="password" name="pass0" id="pass0" value="{$VAL_PASSWORD}" style="float:left;" />
-							<input type="button" name="pwdreset" value="{$TR_RESET}" style="float:right;margin-right:10px;" />
-							<input type="button" name="genpass" value="{$TR_PASSWORD_GENERATE}" style="float:right;" />
+							<input type="button" name="pwdreset" id="pwdreset" value="{$TR_RESET}" style="float:right;margin-right:10px;" />
+							<input type="button" name="genpass" id="genpass" value="{$TR_PASSWORD_GENERATE}" style="float:right;" />
 						</td>
 					</tr>
 					<tr>

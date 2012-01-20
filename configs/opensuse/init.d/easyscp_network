@@ -97,7 +97,7 @@ add_rules() {
 	${IPTABLES} -N EASYSCP_INPUT  2>> "$LOGFILE"
 	${IPTABLES} -N EASYSCP_OUTPUT 2>> "$LOGFILE"
 
-	# All traffic should jump through EasySCP tables before anything else
+	# All traffic should jump through EASYSCP tables before anything else
 	${IPTABLES} -I INPUT  -j EASYSCP_INPUT  2>> "$LOGFILE"
 	${IPTABLES} -I OUTPUT -j EASYSCP_OUTPUT 2>> "$LOGFILE"
 

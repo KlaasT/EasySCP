@@ -4248,3 +4248,16 @@ msgstr ""
 
 msgid "SSL support"
 msgstr ""
+
+# Migration
+msgid "Allow Migration/Import from other Panels"
+msgstr ""
+
+msgid "Data Migration/Import from other Panels"
+msgstr ""
+
+msgid "Available migrations"
+msgstr ""
+
+msgid "Execute migration"
+msgstr ""

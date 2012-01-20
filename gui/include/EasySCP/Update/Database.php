@@ -78,6 +78,71 @@ class EasySCP_Update_Database extends EasySCP_Update {
 	 */
 
 	/**
+	 * Remove unused table 'suexec_props'
+	 *
+	 * @return array
+	 */
+	protected function _databaseUpdate_46() {
+
+		$sqlUpd = array();
+
+		$sqlUpd[] = "
+			DROP TABLE IF EXISTS
+				`suexec_props`
+			;
+		";
+
+		return $sqlUpd;
+	}
+
+	/**
+	 * Updated standard user quota to 100MB
+	 *
+	 * @return array
+	 */
+	protected function _databaseUpdate_47() {
+
+		$sqlUpd = array();
+
+		$sqlUpd[] = "
+			ALTER TABLE
+				`mail_users`
+			CHANGE
+				`quota` `quota` INT( 10 ) NULL DEFAULT '104857600'
+		;";
+		$sqlUpd[] = "
+			UPDATE
+				`mail_users`
+			SET
+				`quota` = '104857600'
+			WHERE
+				`quota` = '10485760';
+		;";
+
+		return $sqlUpd;
+	}
+
+	/**
+	 * Adds needed field to ftp_users table to allow single sign on to net2ftp
+	 *
+	 * @return array
+	 */
+	protected function _databaseUpdate_48() {
+		$sqlUpd = array();
+
+		$sqlUpd[] = "
+			ALTER TABLE
+				`ftp_users`
+			ADD
+				`net2ftppasswd` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
+			AFTER
+				`passwd`;
+		";
+
+		return $sqlUpd;
+	}
+
+	/**
 	 * Remove unused column 'user_gui_props.logo'
 	 *
 	 * @author Markus Szywon <markus.szywon@easyscp.net>
@@ -114,14 +179,34 @@ class EasySCP_Update_Database extends EasySCP_Update {
 
 		return $sqlUpd;
 	}
-	
+
+	/**
+	 * Adds field to enable/disable migration from GUI
+	 *
+	 * @author Markus Szywon <markus.szywon@easyscp.net>
+	 * @return array
+	 */
+	protected function _databaseUpdate_51() {
+		$sqlUpd = array();
+
+		$sqlUpd[] = "
+			INSERT INTO
+				`config` (name, value)
+			VALUES
+				('MIGRATION_ENABLED', 0)
+			;
+		";
+
+		return $sqlUpd;
+	}
+
 	/**
 	 * Adds database fields for SSL configuration
 	 *
 	 * @author Tom Winterhalder <tom.winterhalder@easyscp.net>
 	 * @return array
 	 */
-	protected function _databaseUpdate_51(){
+	protected function _databaseUpdate_52(){
 		$sqlUpd = array();
 
 		$sqlUpd[] = "
@@ -133,7 +218,7 @@ class EasySCP_Update_Database extends EasySCP_Update {
 				('SSL_STATUS','0')
 			;
 		";
-                
+
                 $sqlUpd[] = "
                         ALTER TABLE 
                                 `domain` 
@@ -149,7 +234,7 @@ class EasySCP_Update_Database extends EasySCP_Update {
                                 `SSL_KEY` VARCHAR( 5000 ) NULL DEFAULT NULL 
 			;
 		";
-                
+
                 $sqlUpd[] = "
                         ALTER TABLE 
                                 `domain` 
@@ -157,7 +242,7 @@ class EasySCP_Update_Database extends EasySCP_Update {
                                 `SSL_CERT` VARCHAR( 5000 ) NULL DEFAULT NULL 
 			;
 		";
-                
+
                 $sqlUpd[] = "
                         ALTER TABLE 
                                 `domain` 

@@ -120,7 +120,8 @@ INSERT INTO `config` (`name`, `value`) VALUES
 ('SSL_KEY',''),
 ('SSL_CERT',''),
 ('SSL_STATUS',0),
-('DATABASE_REVISION', '51');
+('MIGRATION_ENABLED',0),
+('DATABASE_REVISION', '52');
 
 -- --------------------------------------------------------
 

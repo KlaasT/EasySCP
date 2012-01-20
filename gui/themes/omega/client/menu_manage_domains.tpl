@@ -12,5 +12,4 @@
 	{if isset($ISACTIVE_SSL_MENU)}
 	<li><a href="domain_manage_ssl.php">{$TR_MENU_MANAGE_SSL}</a></li>
 	{/if}
-        
 </ul>

@@ -1400,7 +1400,7 @@ function calc_bar_value($value, $value_max, $bar_width) {
 		return 0;
 	} else {
 		$ret_value = ($value * $bar_width) / $value_max;
-		return ($ret_value > $bar_width) ? $bar_width : $ret_value;
+		return ($ret_value > $bar_width) ? $bar_width : round($ret_value, 3);
 	}
 }
 

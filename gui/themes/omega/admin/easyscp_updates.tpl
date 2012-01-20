@@ -78,5 +78,34 @@
 			</div>
 		</form>
 		{/if}
+		{if isset($MIGRATION_ENABLED)}
+		<br />
+		<h2 class="update"><span>{$TR_MIGRATION_TITLE}</span></h2>
+		{if isset($MIGRATION_MESSAGE)}
+			<div class="{$MIGRATION_MSG_TYPE}">{$MIGRATION_MESSAGE}</div>
+		{/if}
+		{if isset($MIGRATION_AVAILABLE)}
+		<form action="easyscp_updates.php" method="post" id="database_migration">
+			<table>
+				<thead>
+				<tr>
+					<th colspan="2">{$TR_MIGRATION_AVAILABLE}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><strong>{$TR_MIGRATION_INFOS}</strong></td>
+					<td>{$MIGRATION_INFOS}</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="buttons">
+				<input type="hidden" name="execute_migration" id='execute_migration' value="migrate" />
+				<input type="hidden" name="migration_version" id='migration_version' value="{$MIGRATION_VERSION}" />
+				<input type="submit" name="Submit" value="{$TR_EXECUTE_MIGRATION}" />
+			</div>
+		</form>
+		{/if}
+		{/if}
 	</div>
 {include file='admin/footer.tpl'}

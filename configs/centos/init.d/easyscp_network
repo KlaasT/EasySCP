@@ -76,7 +76,7 @@ add_rules() {
 	${IPTABLES} -N EASYSCP_INPUT 2>> "${LOG_DIR}/${NAME}.err.log"
 	${IPTABLES} -N EASYSCP_OUTPUT 2>> "${LOG_DIR}/${NAME}.err.log"
 
-	# All traffic should jump through EasySCP tables before anything else
+	# All traffic should jump through EASYSCP tables before anything else
 	${IPTABLES} -I INPUT -j EASYSCP_INPUT 2>> "${LOG_DIR}/${NAME}.err.log"
 	${IPTABLES} -I OUTPUT -j EASYSCP_OUTPUT 2>> "${LOG_DIR}/${NAME}.err.log"
 
@@ -93,7 +93,7 @@ add_rules() {
 	done
 
 	# Explicit return once done
-	${IPTABLES} -A EASYSCP_INPUT -j RETURN
+	${IPTABLES} -A EASYSCP_INPUT  -j RETURN
 	${IPTABLES} -A EASYSCP_OUTPUT -j RETURN
 
 	# Touch lock file

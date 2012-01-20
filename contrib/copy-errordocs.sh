@@ -20,6 +20,9 @@
 # Portions created by Initial Developer are Copyright (C) 2006-2010 by
 # isp Control Panel. All Rights Reserved.
 #
+# Portions created by the EasySCP Team are Copyright (C) 2010-2012 by
+# Easy Server Control Panel. All Rights Reserved.
+#
 # The Easy Server Control Panel Home Page is:
 #
 #    http://www.easyscp.net

@@ -8,11 +8,6 @@
 		</div>
 	</div>
 	<div class="location">
-		<!--
-		<div class="location-area">
-			<h1 class="general">{$GENERAL_INFO}</h1>
-		</div>
-		-->
 		<ul class="location-menu">
 			{if isset($YOU_ARE_LOGGED_AS)}
 			<li><a href="change_user_interface.php?action=go_back" class="backadmin">{$YOU_ARE_LOGGED_AS}</a></li>

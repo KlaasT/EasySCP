@@ -145,16 +145,11 @@ if (time() < $dmn_expires) {
 	);
 }
 
-// Prepare alternative customer URL
-// @todo alternative ports and ssl support
-$domainAlsUrl =
-	"http://{$cfg->APACHE_SUEXEC_USER_PREF}$dmn_uid.{$_SERVER['SERVER_NAME']}";
-
 $tpl->assign(
 	array(
 		'ACCOUNT_NAME'		=> tohtml($account_name),
 		'DOMAIN_IP' 		=> get_user_domain_ip($sql, $dmn_ip_id),
-		'DOMAIN_ALS_URL' 	=> $domainAlsUrl,
+		'DOMAIN_ALS_URL' 	=> 'http://' . $cfg->APACHE_SUEXEC_USER_PREF . $dmn_uid . '.' . $cfg->BASE_SERVER_VHOST,
 		'MAIN_DOMAIN'		=> tohtml($dmn_name),
 		'DMN_EXPIRES_DATE'	=> $dmn_expires_date,
 		'MYSQL_SUPPORT'		=> ($dmn_sqld_limit != -1 && $dmn_sqlu_limit != -1) ? tr('Yes') : tr('No'),

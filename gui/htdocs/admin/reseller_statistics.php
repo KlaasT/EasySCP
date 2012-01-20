@@ -52,21 +52,21 @@ generate_page ($tpl);
 // static page messages
 $tpl->assign(
 	array(
-		'TR_PAGE_TITLE' => tr('EasySCP - Admin/Reseller statistics'),
-		'TR_RESELLER_STATISTICS' => tr('Reseller statistics table'),
-		'TR_MONTH' => tr('Month'),
-		'TR_YEAR' => tr('Year'),
-		'TR_SHOW' => tr('Show'),
-		'TR_RESELLER_NAME' => tr('Reseller name'),
-		'TR_TRAFF' => tr('Traffic'),
-		'TR_DISK' => tr('Disk'),
-		'TR_DOMAIN' => tr('Domain'),
-		'TR_SUBDOMAIN' => tr('Subdomain'),
-		'TR_ALIAS' => tr('Alias'),
-		'TR_MAIL' => tr('Mail'),
-		'TR_FTP' => tr('FTP'),
-		'TR_SQL_DB' => tr('SQL Database'),
-		'TR_SQL_USER' => tr('SQL User'),
+		'TR_PAGE_TITLE'			=> tr('EasySCP - Admin/Reseller statistics'),
+		'TR_RESELLER_STATISTICS'=> tr('Reseller statistics table'),
+		'TR_MONTH'				=> tr('Month'),
+		'TR_YEAR'				=> tr('Year'),
+		'TR_SHOW'				=> tr('Show'),
+		'TR_RESELLER_NAME'		=> tr('Reseller name'),
+		'TR_TRAFF'				=> tr('Traffic'),
+		'TR_DISK'				=> tr('Disk'),
+		'TR_DOMAIN'				=> tr('Domain'),
+		'TR_SUBDOMAIN'			=> tr('Subdomain'),
+		'TR_ALIAS'				=> tr('Alias'),
+		'TR_MAIL'				=> tr('Mail'),
+		'TR_FTP'				=> tr('FTP'),
+		'TR_SQL_DB'				=> tr('SQL Database'),
+		'TR_SQL_USER'			=> tr('SQL User')
 	)
 );
 
