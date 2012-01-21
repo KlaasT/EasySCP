@@ -151,7 +151,7 @@ $tpl->assign(
 		'DOMAIN_ALS_URL' 	=> 'http://' . $cfg->APACHE_SUEXEC_USER_PREF . $dmn_uid . '.' . $cfg->BASE_SERVER_VHOST,
 		'MAIN_DOMAIN'		=> tohtml($dmn_name),
 		'DMN_EXPIRES_DATE'	=> $dmn_expires_date,
-		'MYSQL_SUPPORT'		=> ($dmn_sqld_limit != -1 && $dmn_sqlu_limit != -1) ? tr('Yes') : tr('No'),
+		'MYSQL_SUPPORT'		=> ($dmn_sqld_limit != -1 && $dmn_sqlu_limit != -1) ? tr('Yes') . ' / MySQL ' . substr($sql->getAttribute(PDO::ATTR_SERVER_VERSION), 0, strpos($sql->getAttribute(PDO::ATTR_SERVER_VERSION), '-')) : tr('No'),
 		'SUBDOMAINS'		=> gen_num_limit_msg($sub_cnt, $dmn_subd_limit),
 		'DOMAIN_ALIASES'	=> gen_num_limit_msg($als_cnt, $dmn_als_limit),
 		'MAIL_ACCOUNTS'		=> gen_num_limit_msg($mail_acc_cnt, $dmn_mailacc_limit),
@@ -363,7 +363,7 @@ function check_user_permissions($tpl, $dmn_sqld_limit, $dmn_sqlu_limit, $dmn_php
 
 	// check if PHP Support is available for this user
 	if ($dmn_php == 'yes') {
-		$tpl->assign( array('PHP_SUPPORT' => tr('Yes')));
+		$tpl->assign( array('PHP_SUPPORT' => tr('Yes') . ' / PHP ' . substr(phpversion(), 0, strpos(phpversion(), '-'))));
 	}
 
 	// check if CGI Support is available for this user

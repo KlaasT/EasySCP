@@ -180,21 +180,16 @@ function add_user($tpl, $sql) {
 
 			$user_def_lang = $_SESSION['user_def_lang'];
 			$user_theme_color = $_SESSION['user_theme'];
-			$user_logo = 0;
 
 			$query = "
 				INSERT INTO `user_gui_props` (
 					`user_id`,
 					`lang`,
-					`layout`,
-					`logo`
-				) VALUES (?,?,?,?)
+					`layout`
+				) VALUES (?,?,?)
 			";
 
-			exec_query($sql, $query, array($new_admin_id,
-					$user_def_lang,
-					$user_theme_color,
-					$user_logo));
+			exec_query($sql, $query, array($new_admin_id,$user_def_lang,$user_theme_color));
 
 			send_add_user_auto_msg ($user_id,
 				clean_input($_POST['username']),

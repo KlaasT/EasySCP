@@ -1,6 +1,17 @@
 EasySCP 1.1.2 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-01-21 Markus Szywon
+	- GUI:
+		* Added: PHP/MySQL version info for clients
+		* Fixed: Database error when creating an admin
+		* Updated: jQuery UI to version 1.8.17
+		* Some fixes
+
+2012-01-21 Tom Winterhalder
+	- GUI: 
+		* Fixed encoding of domainnames with umlaut
+
 2012-01-18 Markus Szywon
 	- Engine:
 		* Some fixes

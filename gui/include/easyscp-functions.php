@@ -584,7 +584,7 @@ function is_serialized($data) {
 }
 
 /**
- * Decrypte database password
+ * Decrypt database password
  *
  * @throws EasySCP_Exception
  * @param string $db_pass Encrypted database password
@@ -600,7 +600,7 @@ function decrypt_db_password($db_pass) {
 	if (extension_loaded('mcrypt')) {
 
 		$text = @base64_decode($db_pass . "\n");
-		$td = @mcrypt_module_open('blowfish', '', 'cbc', '');
+		$td = @mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
 		$key = EasySCP_Registry::get('MCRYPT_KEY');
 		$iv = EasySCP_Registry::get('MCRYPT_IV');
 
@@ -620,7 +620,7 @@ function decrypt_db_password($db_pass) {
 }
 
 /**
- * Encrypte database password
+ * Encrypt database password
  *
  * @throws EasySCP_Exception
  * @param string $db_pass Database password
@@ -631,7 +631,7 @@ function encrypt_db_password($db_pass) {
 
 	if (extension_loaded('mcrypt')) {
 
-		$td = @mcrypt_module_open(MCRYPT_BLOWFISH, '', 'cbc', '');
+		$td = @mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
 		$key = EasySCP_Registry::get('MCRYPT_KEY');
 		$iv = EasySCP_Registry::get('MCRYPT_IV');
 

@@ -35,6 +35,35 @@ if (isset($cfg->HOSTING_PLANS_LEVEL)
 	user_goto('users.php?psi=last');
 }
 
+if (isset($_POST['uaction']) && ('sub_data' === $_POST['uaction'])) {
+
+	// Process data
+	if (isset($_SESSION['edit_id'])) {
+		$editid = $_SESSION['edit_id'];
+	} else {
+		unset($_SESSION['edit_id']);
+		$_SESSION['edit'] = '_no_';
+
+		user_goto('users.php?psi=last');
+	}
+
+	if (check_user_data($tpl, $sql, $_SESSION['user_id'], $editid)) { // Save data to db
+		$_SESSION['dedit'] = "_yes_";
+		user_goto('users.php?psi=last');
+	}
+	load_additional_data($_SESSION['user_id'], $editid);
+} else {
+	// Get user id that comes for edit
+	if (isset($_GET['edit_id'])) {
+		$editid = $_GET['edit_id'];
+	}
+
+	load_user_data($_SESSION['user_id'], $editid);
+	$_SESSION['edit_id'] = $editid;
+}
+
+gen_editdomain_page($tpl);
+
 // static page messages
 gen_logged_from($tpl);
 
@@ -95,36 +124,6 @@ gen_reseller_mainmenu($tpl, 'reseller/main_menu_users_manage.tpl');
 gen_reseller_menu($tpl, 'reseller/menu_users_manage.tpl');
 
 gen_page_message($tpl);
-
-if (isset($_POST['uaction']) && ('sub_data' === $_POST['uaction'])) {
-
-	// Process data
-	if (isset($_SESSION['edit_id'])) {
-		$editid = $_SESSION['edit_id'];
-	} else {
-		unset($_SESSION['edit_id']);
-		$_SESSION['edit'] = '_no_';
-
-		user_goto('users.php?psi=last');
-	}
-
-	if (check_user_data($tpl, $sql, $_SESSION['user_id'], $editid)) { // Save data to db
-		$_SESSION['dedit'] = "_yes_";
-		user_goto('users.php?psi=last');
-	}
-	load_additional_data($_SESSION['user_id'], $editid);
-} else {
-	// Get user id that comes for edit
-	if (isset($_GET['edit_id'])) {
-		$editid = $_GET['edit_id'];
-	}
-
-	load_user_data($_SESSION['user_id'], $editid);
-	// $_SESSION['edit_ID'] = $editid;
-	$_SESSION['edit_id'] = $editid;
-}
-
-gen_editdomain_page($tpl);
 
 if ($cfg->DUMP_GUI_DEBUG) {
 	dump_gui_debug($tpl);
