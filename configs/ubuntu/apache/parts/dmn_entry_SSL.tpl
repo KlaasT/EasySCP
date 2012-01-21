@@ -10,6 +10,10 @@
     ServerName      {DMN_NAME}
     ServerAlias     www.{DMN_NAME} {DMN_NAME} {SUEXEC_USER}.{BASE_SERVER_VHOST}
 
+	SSLEngine       On
+	SSLCertificateFile /etc/ssl/certs/easyscp_{DMN_NAME}-cert.pem
+    SSLCertificateKeyFile /etc/ssl/private/easyscp_{DMN_NAME}-key.pem
+
     Alias /errors   {WWW_DIR}/{DMN_NAME}/errors/
 
     RedirectMatch permanent ^/ftp[\/]?$		{BASE_SERVER_VHOST_PREFIX}{BASE_SERVER_VHOST}/ftp/
