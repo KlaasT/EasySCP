@@ -1,5 +1,11 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2012-01-18 Markus Szywon
+	- GUI:
+		* Added PHP/MySQL version info for client
+		* Some fixes
+
 2012-01-21 Tom Winterhalder
 	- GUI: 
 		* Fixed encoding of domainnames with umlaut

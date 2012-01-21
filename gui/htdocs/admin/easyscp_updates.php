@@ -396,14 +396,11 @@ function convertOldData() {
 			}
 	}
 
-	$td = @mcrypt_module_open('blowfish', '', 'cbc', '');
+	$td = @mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
 	$key = $ispcp_db_pass_key;
 	$iv = $ispcp_db_pass_iv;
 	$data = array();
 	$temp = '';
-
-	// Initialize encryption
-	@mcrypt_generic_init($td, $key, $iv);
 
 	$query = "
 		use easyscp;
@@ -419,11 +416,16 @@ function convertOldData() {
 
 	while(!$rs->EOF) {
 		if ($rs->fields['mail_pass'] != '_no_'){
+			// Initialize encryption
+			@mcrypt_generic_init($td, $key, $iv);
+
 			$text = @base64_decode($rs->fields['mail_pass'] . "\n");
 
 			// Decrypt encrypted string
 			$temp = $rs->fields['mail_id'];
 			$data[$temp] = trim(@mdecrypt_generic($td, $text));
+
+			@mcrypt_generic_deinit($td);
 		}
 		$rs->moveNext();
 	}
