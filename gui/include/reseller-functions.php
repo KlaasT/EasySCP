@@ -48,7 +48,7 @@ define('MT_ALIAS_CATCHALL', 'alias_catchall');
 define('MT_ALSSUB_CATCHALL', 'alssub_catchall');
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param string $menu_file
  */
 function gen_reseller_mainmenu($tpl, $menu_file) {
@@ -108,17 +108,19 @@ function gen_reseller_mainmenu($tpl, $menu_file) {
 			$menu_name = $rs->fields['menu_name'];
 			$menu_link = get_menu_vars($rs->fields['menu_link']);
 			$menu_target = $rs->fields['menu_target'];
+			$menu_icon = $rs->fields['menu_icon'];
 
-			if ($menu_target !== "") {
+			if ($menu_target !== '') {
 				$menu_target = 'target="' . tohtml($menu_target) . '"';
 			}
 
-			$tpl->assign(
+			$tpl->append(
 				array(
-					'BUTTON_LINK' => tohtml($menu_link),
-					'BUTTON_NAME' => tohtml($menu_name),
-					'BUTTON_TARGET' => $menu_target,
-					'BUTTON_ID' => $i,
+					'BUTTON_LINK'	=> tohtml($menu_link),
+					'BUTTON_NAME'	=> tohtml($menu_name),
+					'BUTTON_TARGET'	=> $menu_target,
+					'BUTTON_ICON'	=> $menu_icon,
+					'BUTTON_ID'		=> $i
 				)
 			);
 
@@ -150,7 +152,7 @@ function gen_reseller_mainmenu($tpl, $menu_file) {
 
 /**
  * Function to generate the menu data for reseller
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param string $menu_file
  */
 function gen_reseller_menu($tpl, $menu_file) {
@@ -626,7 +628,7 @@ function get_user_props($user_id) {
 
 /**
  * Generate IP list
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param int $reseller_id
  */
 function generate_ip_list($tpl, &$reseller_id) {
@@ -1059,7 +1061,7 @@ function gen_manage_domain_query(&$search_query, &$count_query,
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param string $search_for
  * @param string $search_common
  * @param string $search_status
@@ -1197,9 +1199,9 @@ function gen_manage_domain_search_options($tpl, $search_for, $search_common,
 
 /**
  * @todo implement use of more secure dynamic table in SQL query
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
- * @param object $cfg	EasySCP_Registry instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
+ * @param EasySCP_Registry $cfg
  * @param string $userdef_language
  */
 function gen_def_language($tpl, $sql, $cfg) {
@@ -1272,8 +1274,8 @@ function gen_def_language($tpl, $sql, $cfg) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
  * @param int $domain_id
  */
 function gen_domain_details($tpl, $sql, $domain_id) {

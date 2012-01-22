@@ -4,6 +4,8 @@ EasySCP 1.2.0 ChangeLog
 2012-01-22 Markus Szywon
 	- GUI:
 		* Fixed: Error "You can upload only text files!" when trying to upload language files
+		* Fixed: System shows empty strings if there is no translation
+		* Fixed: Custom buttons not show on reseller and client menu
 
 2012-01-21 Markus Szywon
 	- GUI:

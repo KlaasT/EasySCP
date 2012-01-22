@@ -33,7 +33,7 @@
  */
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param string $menu_file
  */
 function gen_admin_mainmenu($tpl, $menu_file) {
@@ -111,13 +111,13 @@ function gen_admin_mainmenu($tpl, $menu_file) {
 		global $i;
 		$i = 100;
 
-		while(!$rs->EOF) {
+		while (!$rs->EOF) {
 			$menu_name = $rs->fields['menu_name'];
 			$menu_link = get_menu_vars($rs->fields['menu_link']);
 			$menu_target = $rs->fields['menu_target'];
 			$menu_icon = $rs->fields['menu_icon'];
 
-			if($menu_target !== '') {
+			if ($menu_target !== '') {
 				$menu_target = 'target="' . tohtml($menu_target) . '"';
 			}
 
@@ -148,7 +148,7 @@ function gen_admin_mainmenu($tpl, $menu_file) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param string $menu_file
  */
 function gen_admin_menu($tpl, $menu_file) {
@@ -230,8 +230,8 @@ function get_sql_user_count($sql) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
  */
 function get_admin_general_info($tpl, $sql) {
 
@@ -302,8 +302,8 @@ function get_admin_general_info($tpl, $sql) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
  * @return void
  */
 function gen_admin_list($tpl, $sql) {
@@ -390,8 +390,8 @@ function gen_admin_list($tpl, $sql) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
  */
 function gen_reseller_list($tpl, $sql) {
 
@@ -473,8 +473,8 @@ function gen_reseller_list($tpl, $sql) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
  */
 function gen_user_list($tpl, $sql) {
 
@@ -727,8 +727,8 @@ function gen_user_list($tpl, $sql) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $sql	EasySCP_Database instance
+ * @param EasySCP_TemplateEngine $tpl
+ * @param EasySCP_Database $sql
  */
 function get_admin_manage_users($tpl, $sql) {
 
@@ -1329,7 +1329,7 @@ function sub_records_rlike_count($field, $table, $where, $value, $subfield,
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param int $user_month
  * @param int $user_year
  */
@@ -1602,7 +1602,7 @@ function update_reseller_props($reseller_id, $props) {
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  */
 function gen_logged_from($tpl) {
 
@@ -1887,7 +1887,7 @@ function gen_admin_domain_query(&$search_query, &$count_query, $start_index,
 }
 
 /**
- * @param object $tpl	EasySCP_TemplateEngine instance
+ * @param EasySCP_TemplateEngine $tpl
  * @param string $search_for
  * @param string $search_common
  * @param string $search_status

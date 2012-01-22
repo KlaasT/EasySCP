@@ -489,7 +489,7 @@ function gen_client_mainmenu($tpl, $menu_file) {
 			$menu_name = $rs->fields['menu_name'];
 			$menu_link = get_menu_vars($rs->fields['menu_link']);
 			$menu_target = $rs->fields['menu_target'];
-			$menu_link = str_replace('{easyscp_uname}', $_SESSION['user_logged'], $menu_link);
+			$menu_icon = $rs->fields['menu_icon'];
 
 			if ($menu_target !== '') {
 				$menu_target = 'target="' . tohtml($menu_target) . '"';
@@ -497,10 +497,11 @@ function gen_client_mainmenu($tpl, $menu_file) {
 
 			$tpl->append(
 				array(
-					'BUTTON_LINK' => tohtml($menu_link),
-					'BUTTON_NAME' => tohtml($menu_name),
+					'BUTTON_LINK'	=> tohtml($menu_link),
+					'BUTTON_NAME'	=> tohtml($menu_name),
 					'BUTTON_TARGET' => $menu_target,
-					'BUTTON_ID' => $i,
+					'BUTTON_ICON'	=> $menu_icon,
+					'BUTTON_ID'		=> $i
 				)
 			);
 
