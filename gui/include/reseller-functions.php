@@ -196,45 +196,6 @@ function gen_reseller_menu($tpl, $menu_file) {
 	);
 
 	$query = "
-		SELECT
-			*
-		FROM
-			`custom_menus`
-		WHERE
-			`menu_level` = 'reseller'
-		OR
-			`menu_level` = 'all'
-	";
-
-	$rs = exec_query($sql, $query);
-	if ($rs->recordCount() != 0) {
-		$tpl->assign('CUSTOM_BUTTONS', true);
-		global $i;
-		$i = 100;
-
-		while (!$rs->EOF) {
-			$menu_name = $rs->fields['menu_name'];
-			$menu_link = get_menu_vars($rs->fields['menu_link']);
-			$menu_target = $rs->fields['menu_target'];
-
-			if ($menu_target !== "") {
-				$menu_target = 'target="' . tohtml($menu_target) . '"';
-			}
-
-			$tpl->assign(
-				array(
-					'BUTTON_LINK' => tohtml($menu_link),
-					'BUTTON_NAME' => tohtml($menu_name),
-					'BUTTON_TARGET' => $menu_target,
-					'BUTTON_ID' => $i,
-				)
-			);
-
-			$rs->moveNext();
-			$i++;
-		} // end while
-	}
-	$query = "
 	SELECT
 		`support_system`
 	FROM
@@ -1311,15 +1272,18 @@ function gen_domain_details($tpl, $sql, $domain_id) {
 		";
 		$alias_rs = exec_query($sql, $alias_query, $domain_id);
 
+		$aliases = array();
 		if ($alias_rs->recordCount() != 0) {
 			while (!$alias_rs->EOF) {
 				$alias_name = $alias_rs->fields['alias_name'];
 
-				$tpl->append('ALIAS_DOMAIN', tohtml(decode_idna($alias_name)));
+				$aliases[] = tohtml(decode_idna($alias_name));
+
 
 				$alias_rs->moveNext();
 			}
 		}
+		$tpl->append('ALIAS_DOMAIN', $aliases);
 	} else {
 		$tpl->assign(
 			array(

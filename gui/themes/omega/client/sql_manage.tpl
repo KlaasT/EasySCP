@@ -2,12 +2,6 @@
 <body>
 	<script type="text/javascript">
 	/* <![CDATA[ */
-		jQuery(document).ready(function(){
-			// Target - begin
-			jQuery('#phpMyAdmin').attr('rel', 'external').attr('target', '_blank');
-			// Target - end
-		});
-
 		function action_delete(url, subject) {
 			if (!confirm(sprintf("{$TR_MESSAGE_DELETE}", subject)))
 				return false;

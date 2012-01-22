@@ -44,6 +44,14 @@ unset($GLOBALS['user_add3_added']);
 unset($GLOBALS['dmn_ip']);
 unset($GLOBALS['dmn_id']);
 
+if (isset($cfg->HOSTING_PLANS_LEVEL)
+		&& $cfg->HOSTING_PLANS_LEVEL === 'admin') {
+	$tpl->assign('EDIT_OPTION', '');
+}
+
+generate_users_list($tpl, $_SESSION['user_id']);
+check_externel_events($tpl);
+
 // static page messages
 gen_logged_from($tpl);
 
@@ -82,13 +90,6 @@ $tpl->assign(
 gen_reseller_mainmenu($tpl, 'reseller/main_menu_users_manage.tpl');
 gen_reseller_menu($tpl, 'reseller/menu_users_manage.tpl');
 
-if (isset($cfg->HOSTING_PLANS_LEVEL)
-	&& $cfg->HOSTING_PLANS_LEVEL === 'admin') {
-	$tpl->assign('EDIT_OPTION', '');
-}
-
-generate_users_list($tpl, $_SESSION['user_id']);
-check_externel_events($tpl);
 gen_page_message($tpl);
 
 if ($cfg->DUMP_GUI_DEBUG) {

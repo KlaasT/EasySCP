@@ -71,6 +71,13 @@ if (isset($_SESSION['user_added'])) {
 	set_page_message(tr('User disabled successfully'), 'success');
 }
 
+get_admin_manage_users($tpl, $sql);
+
+if (!$cfg->exists('HOSTING_PLANS_LEVEL')
+		|| strtolower($cfg->HOSTING_PLANS_LEVEL) === 'admin') {
+	$tpl->assign('EDIT_OPTION', true);
+}
+
 // static page messages
 $tpl->assign(
 	array(
@@ -78,15 +85,8 @@ $tpl->assign(
 	)
 );
 
-if (!$cfg->exists('HOSTING_PLANS_LEVEL')
-	|| strtolower($cfg->HOSTING_PLANS_LEVEL) === 'admin') {
-	$tpl->assign('EDIT_OPTION', true);
-}
-
 gen_admin_mainmenu($tpl, 'admin/main_menu_users_manage.tpl');
 gen_admin_menu($tpl, 'admin/menu_users_manage.tpl');
-
-get_admin_manage_users($tpl, $sql);
 
 gen_page_message($tpl);
 
