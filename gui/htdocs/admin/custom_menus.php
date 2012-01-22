@@ -192,7 +192,7 @@ function add_new_button($sql) {
 			`menu_level`,
 			`menu_name`,
 			`menu_link`,
-			`menu_target`
+			`menu_target`,
 			`menu_icon`
 			)
 		VALUES (?, ?, ?, ?, ?)
