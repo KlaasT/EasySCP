@@ -1,9 +1,16 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2012-01-18 Markus Szywon
+2012-01-22 Markus Szywon
 	- GUI:
-		* Added PHP/MySQL version info for client
+		* Fixed: Error "You can upload only text files!" when trying to upload language files
+
+2012-01-21 Markus Szywon
+	- GUI:
+		* Added: PHP/MySQL version info for clients
+		* Fixed: Database error when creating an admin
+		* Fixed: Error when creating a custom button
+		* Updated: jQuery UI to version 1.8.17
 		* Some fixes
 
 2012-01-21 Tom Winterhalder

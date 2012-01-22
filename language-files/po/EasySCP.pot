@@ -528,9 +528,6 @@ msgstr ""
 msgid "Domain expire"
 msgstr ""
 
-msgid "New expire date"
-msgstr ""
-
 msgid "Max subdomains<br /><em>(-1 disabled, 0 unlimited)</em>"
 msgstr ""
 
@@ -562,9 +559,6 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
-
-msgid "In case 'Domain expire' is 'N/A', the expiration date will be set from today."
 msgstr ""
 
 msgid "User does not exist or you do not have permission to access this interface!"

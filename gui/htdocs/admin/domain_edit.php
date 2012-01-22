@@ -73,10 +73,10 @@ if (isset($_POST['uaction']) && ('sub_data' === $_POST['uaction'])) {
 		user_goto('manage_users.php');
 	}
 	load_user_data($reseller_id, $editid);
-	// $_SESSION['edit_ID'] = $editid;
 	$_SESSION['edit_id'] = $editid;
-	$tpl->assign('MESSAGE', "");
 }
+
+gen_editdomain_page($tpl);
 
 // static page messages
 $tpl->assign(
@@ -85,11 +85,11 @@ $tpl->assign(
 		'TR_EDIT_DOMAIN'		=> tr('Edit Domain'),
 		'TR_DOMAIN_PROPERTIES'	=> tr('Domain properties'),
 		'TR_DOMAIN_NAME'		=> tr('Domain name'),
-		'TR_DOMAIN_IP'			=> tr('Domain IP'),
 		'TR_DOMAIN_EXPIRE'		=> tr('Domain expire'),
-		'TR_DOMAIN_NEW_EXPIRE'	=> tr('New expire date'),
+		'TR_DOMAIN_IP'			=> tr('Domain IP'),
 		'TR_PHP_SUPP'			=> tr('PHP support'),
 		'TR_CGI_SUPP'			=> tr('CGI support'),
+		'TR_SSL_SUPP'			=> tr('SSL support'),
 		'TR_DNS_SUPP'			=> tr('Manual DNS support'),
 		'TR_SUBDOMAINS'			=> tr('Max subdomains<br /><em>(-1 disabled, 0 unlimited)</em>'),
 		'TR_ALIAS'				=> tr('Max aliases<br /><em>(-1 disabled, 0 unlimited)</em>'),
@@ -109,7 +109,27 @@ $tpl->assign(
 		'TR_CANCEL'				=> tr('Cancel'),
 		'TR_YES'				=> tr('Yes'),
 		'TR_NO'					=> tr('No'),
-		'TR_DMN_EXP_HELP' 		=> tr("In case 'Domain expire' is 'N/A', the expiration date will be set from today.")
+		'TR_EXPIRE_CHECKBOX'	=> tr('or check if domain should <strong>never</strong> expire'),
+		'TR_SU'					=> tr('Su'),
+		'TR_MO'					=> tr('Mo'),
+		'TR_TU'					=> tr('Tu'),
+		'TR_WE'					=> tr('We'),
+		'TR_TH'					=> tr('Th'),
+		'TR_FR'					=> tr('Fr'),
+		'TR_SA'					=> tr('Sa'),
+		'TR_JANUARY'			=> tr('January'),
+		'TR_FEBRUARY'			=> tr('February'),
+		'TR_MARCH'				=> tr('March'),
+		'TR_APRIL'				=> tr('April'),
+		'TR_MAY'				=> tr('May'),
+		'TR_JUNE'				=> tr('June'),
+		'TR_JULY'				=> tr('July'),
+		'TR_AUGUST'				=> tr('August'),
+		'TR_SEPTEMBER'			=> tr('September'),
+		'TR_OCTOBER'			=> tr('October'),
+		'TR_NOVEMBER'			=> tr('November'),
+		'TR_DECEMBER'			=> tr('December'),
+		'VL_DATE_FORMAT'		=> jQueryDatepickerDateFormat($cfg->DATE_FORMAT)
 	)
 );
 
@@ -117,8 +137,6 @@ gen_admin_mainmenu($tpl, 'admin/main_menu_users_manage.tpl');
 gen_admin_menu($tpl, 'admin/menu_users_manage.tpl');
 
 gen_page_message($tpl);
-
-gen_editdomain_page($tpl);
 
 if ($cfg->DUMP_GUI_DEBUG) {
 	dump_gui_debug($tpl);
@@ -213,7 +231,7 @@ function load_additional_data($user_id, $domain_id) {
 	$_SESSION['domain_expires'] = $domain_expires;
 
 	if ($domain_expires == 0) {
- 		$domain_expires = tr('N/A');
+ 		$domain_expires = '';
  	} else {
  		$date_formt = $cfg->DATE_FORMAT;
  		$domain_expires = date($date_formt, $domain_expires);
@@ -266,7 +284,7 @@ function load_additional_data($user_id, $domain_id) {
 function gen_editdomain_page($tpl) {
 
 	global $domain_name, $domain_expires, $domain_ip, $php_sup;
-	global $cgi_supp , $sub, $als;
+	global $cgi_supp , $ssl_supp, $sub, $als;
 	global $mail, $ftp, $sql_db;
 	global $sql_user, $traff, $disk;
 	global $username, $allowbackup;
@@ -321,27 +339,30 @@ function gen_editdomain_page($tpl) {
 
 	$tpl->assign(
 		array(
-			'PHP_YES'				=> ($php_sup == 'yes') ? $cfg->HTML_SELECTED : '',
-			'PHP_NO'				=> ($php_sup != 'yes') ? $cfg->HTML_SELECTED : '',
-			'CGI_YES'				=> ($cgi_supp == 'yes') ? $cfg->HTML_SELECTED : '',
-			'CGI_NO'				=> ($cgi_supp != 'yes') ? $cfg->HTML_SELECTED : '',
-			'DNS_YES'				=> ($dns_supp == 'yes') ? $cfg->HTML_SELECTED : '',
-			'DNS_NO'				=> ($dns_supp != 'yes') ? $cfg->HTML_SELECTED : '',
-			'VL_DOMAIN_NAME'		=> tohtml($domain_name),
-			'VL_DOMAIN_IP'			=> $domain_ip,
-			'VL_DOMAIN_EXPIRE'		=> $domain_expires,
-			'VL_DOM_SUB'			=> $sub,
-			'VL_DOM_ALIAS'			=> $als,
-			'VL_DOM_MAIL_ACCOUNT'	=> $mail,
-			'VL_FTP_ACCOUNTS'		=> $ftp,
-			'VL_SQL_DB'				=> $sql_db,
-			'VL_SQL_USERS'			=> $sql_user,
-			'VL_TRAFFIC'			=> $traff,
-			'VL_DOM_DISK'			=> $disk,
-			'VL_USER_NAME'			=> tohtml($username)
+			'PHP_YES'					=> ($php_sup == 'yes') ? $cfg->HTML_SELECTED : '',
+			'PHP_NO'					=> ($php_sup != 'yes') ? $cfg->HTML_SELECTED : '',
+			'CGI_YES'					=> ($cgi_supp == 'yes') ? $cfg->HTML_SELECTED : '',
+			'CGI_NO'					=> ($cgi_supp != 'yes') ? $cfg->HTML_SELECTED : '',
+			'SSL_YES'					=> ($ssl_supp == 'yes') ? $cfg->HTML_SELECTED : '',
+			'SSL_NO'					=> ($ssl_supp != 'yes') ? $cfg->HTML_SELECTED : '',
+			'DNS_YES'					=> ($dns_supp == 'yes') ? $cfg->HTML_SELECTED : '',
+			'DNS_NO'					=> ($dns_supp != 'yes') ? $cfg->HTML_SELECTED : '',
+			'VL_EXPIRE_DATE_DISABLED'	=> ($domain_expires == 0) ? $cfg->HTML_DISABLED : '',
+			'VL_EXPIRE_NEVER_SELECTED'	=> ($domain_expires == 0) ? $cfg->HTML_CHECKED : '',
+			'VL_DOMAIN_NAME'			=> tohtml($domain_name),
+			'VL_DOMAIN_EXPIRE'			=> $domain_expires,
+			'VL_DOMAIN_IP'				=> $domain_ip,
+			'VL_DOM_SUB'				=> $sub,
+			'VL_DOM_ALIAS'				=> $als,
+			'VL_DOM_MAIL_ACCOUNT'		=> $mail,
+			'VL_FTP_ACCOUNTS'			=> $ftp,
+			'VL_SQL_DB'					=> $sql_db,
+			'VL_SQL_USERS'				=> $sql_user,
+			'VL_TRAFFIC'				=> $traff,
+			'VL_DOM_DISK'				=> $disk,
+			'VL_USER_NAME'				=> tohtml($username)
 		)
 	);
-
 } // End of gen_editdomain_page()
 
 /**

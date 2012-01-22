@@ -52,7 +52,7 @@ class EasySCP_Exception_Writer_Mail extends EasySCP_Exception_Writer {
 	 *
 	 * @var string
 	 */
-	const NAME = 'ispCP Exception Mail Writer';
+	const NAME = 'EasySCP Exception Mail Writer';
 
 	/**
 	 * Mail recipient

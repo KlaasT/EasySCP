@@ -208,7 +208,7 @@ function importLanguageFile() {
 	}
 
 	if ($file_type != 'text/plain' && $file_type != 'application/octet-stream'
-		&& $file_type != 'text/x-gettext-translation') {
+		&& $file_type != 'text/x-gettext-translation' && $file_type != 'application/x-po') {
 
 		set_page_message(
 			tr('You can upload only text files!'),
@@ -436,7 +436,12 @@ function _importGettextFile($file, $filename) {
 		# Retrieving language translation team
         if (isset($ameta['Language-Team'])) {
             $s = $ameta['Language-Team'];
-            $n = strpos($s, '<');
+			if ( strpos($s, '<') ){
+				$n = strpos($s, '<');
+			} else {
+				$n = strpos($s, '(http://www.transifex.net');
+			}
+
 
             if ($n !== false) {
                 $ab['easyscp_table'] = str_replace(array(' ', '(', ')'), '', mb_substr($s, 0, $n));
