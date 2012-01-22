@@ -74,8 +74,14 @@ body {
  * Header STYLE
  ***********************************************************************************/
 .header {
-	background:			url(./images/top_bg.jpg) repeat-x top left;
+	background:			url(./images/top_bg.png) repeat-x scroll left top transparent;
 	height:				89px;
+}
+
+.location {
+    background:			url(./images/top_bar_bg.png) repeat-x scroll left top #000000;
+    height: 25px;
+    line-height: 25px;
 }
 
 /***********************************************************************************

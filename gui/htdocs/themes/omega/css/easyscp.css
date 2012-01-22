@@ -469,7 +469,6 @@ form table tbody td textarea{
  ***********************************************************************************/
 
 /* Main menu icons */
-.main_menu .custom_link { background-image: url(../images/menu/custom_link.png); }
 .main_menu .database { background-image: url(../images/menu/database.png); }
 .main_menu .domains { background-image: url(../images/menu/domains.png); }
 .main_menu .email { background-image: url(../images/menu/email.png); }
@@ -482,7 +481,6 @@ form table tbody td textarea{
 .main_menu .statistics { background-image: url(../images/menu/statistics.png); }
 .main_menu .support { background-image: url(../images/menu/support.png); }
 .main_menu .webtools { background-image: url(../images/menu/webtools.png); }
-.main_menu .custom_link:hover { background-image: url(../images/menu/custom_link_a.png); }
 .main_menu .database:hover { background-image: url(../images/menu/database_a.png); }
 .main_menu .domains:hover { background-image: url(../images/menu/domains_a.png); }
 .main_menu .email:hover { background-image: url(../images/menu/email_a.png); }
