@@ -1331,7 +1331,7 @@ sub sub_mngr_engine {
 	}
 
 	# Update subdomain status or remove entry on delete
-	$rs = doSQL($sql);
+	($rs) = doSQL($sql);
 	return -1 if ($rs != 0);
 
 	push_el(\@main::el, 'sub_mngr_engine()', 'Ending...');

@@ -38,30 +38,34 @@
 		<fieldset>
 			<legend>{$TR_AVAILABLE_IPS}</legend>
 			<table>
-				<tr>
-					<td><strong>{$TR_IP}</strong></td>
-					<td><strong>{$TR_DOMAIN}</strong></td>
-					<td><strong>{$TR_ALIAS}</strong></td>
-					<td><strong>{$TR_NETWORK_CARD}</strong></td>
-					<td><strong>{$TR_ACTION}</strong></td>
-				</tr>
-				{section name=i loop=$IP}
-				<tr>                    
-					<td>{$IP[i]}</td>
-					<td>{$DOMAIN[i]}</td>
-					<td>{$ALIAS[i]}</td>
-					<td>{$NETWORK_CARD[i]}</td>
-					<td>
-						{if isset($IP_ACTION[i])}
-							{if $IP_ACTION[i] == false}
-								N/A
-							{else}
-								<a href="#" onclick="action_delete('{$IP_ACTION_SCRIPT[i]}', '{$IP[i]}')"  title="{$IP_ACTION[i]}" class="icon i_delete"></a>
+				<thead>
+					<tr>
+						<th>{$TR_IP}</th>
+						<th>{$TR_DOMAIN}</th>
+						<th>{$TR_ALIAS}</th>
+						<th>{$TR_NETWORK_CARD}</th>
+						<th>{$TR_ACTION}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{section name=i loop=$IP}
+					<tr>
+						<td>{$IP[i]}</td>
+						<td>{$DOMAIN[i]}</td>
+						<td>{$ALIAS[i]}</td>
+						<td>{$NETWORK_CARD[i]}</td>
+						<td>
+							{if isset($IP_ACTION[i])}
+								{if $IP_ACTION[i] == false}
+									N/A
+								{else}
+									<a href="#" onclick="action_delete('{$IP_ACTION_SCRIPT[i]}', '{$IP[i]}')"  title="{$IP_ACTION[i]}" class="icon i_delete"></a>
+								{/if}
 							{/if}
-						{/if}
-					</td>
-                </tr>
-				{/section}
+						</td>
+                	</tr>
+					{/section}
+				</tbody>
 			</table>
 		</fieldset>
 		<form action="ip_manage.php" method="post" id="add_new_ip_frm">

@@ -28,7 +28,7 @@
 
 ################################################################################
 ## Script description:                                                        ##
-##  easyscp-apache-logger - EasySCP apache logfiles handling                      ##
+##  easyscp-apache-logger - EasySCP apache logfiles handling                  ##
 ##                                                                            ##
 ## I. CustomLog handler:                                                      ##
 ##                                                                            ##

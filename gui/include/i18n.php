@@ -22,6 +22,25 @@
  */
 
 /**
+ * Configure base settings for gettetxt
+ */
+
+$cfg = EasySCP_Registry::get('Config');
+
+// get current Language
+$setLocale = $cfg->USER_INITIAL_LANG . '.UTF8';
+
+// Set language to current Language
+setlocale(LC_MESSAGES, $setLocale);
+
+// Specify location of translation tables
+bindtextdomain("EasySCP", $cfg->GUI_ROOT_DIR."/locale");
+bind_textdomain_codeset("EasySCP", 'UTF-8');
+
+// Choose domain
+textdomain("EasySCP");
+
+/**
  * false: don't set (not even auto),
  * null: set if missing,
  * true: force update from session/default, anything else: set it as a language
@@ -74,6 +93,81 @@ function curlang($newlang = null, $force = false) {
  */
 function tr($msgid, $substitution = false) {
 
+	$msgstr = gettext($msgid);
+
+	return $msgstr;
+
+	// Print a test message
+	// echo gettext("Update checking is disabled!");
+	// echo '<br />';
+
+	// Or use the alias _() for gettext()
+	// echo _("Have a nice day");
+
+	/*
+	// Detect whether $substitution is really $substitution or just a value to
+	// be replaced in $msgstr
+	if (!is_bool($substitution)) {
+		$substitution = false;
+	}
+
+	$setLocale = 'de_DE';
+	$encoding = 'UTF-8';
+
+	// $setLocale = curlang();
+	// Set language to German
+	putenv('LC_ALL='.$setLocale);
+	setlocale(LC_ALL, $setLocale);
+
+	// Specify location of translation tables
+	// bindtextdomain("myPHPApp", "./locale");
+	//bindtextdomain("EasySCP", "./locale");
+	// bindtextdomain($setLocale, "./locale");
+	// bindtextdomain($setLocale, $cfg->GUI_ROOT_DIR.'/locale');
+	bindtextdomain("EasySCP", $cfg->GUI_ROOT_DIR.'/locale');
+
+	echo $cfg->GUI_ROOT_DIR.'/locale';
+
+	// Choose domain
+	// textdomain("myPHPApp");
+	textdomain("EasySCP");
+	// textdomain($setLocale);
+
+	$msgstr = gettext($msgid);
+
+	if ($msgid == 'encoding' && $msgstr == 'encoding') {
+		$msgstr = $encoding;
+	}
+
+	// Detect comments and strip them if $msgid == $msgstr
+	// e.g. tr('_: This is just a comment\nReal message to translate here')
+	if ( substr($msgid, 0, 3) == '_: ' &&  $msgid == $msgstr &&
+			count($l = explode("\n", $msgid)) > 1) {
+		unset($l[0]);
+		$msgstr = implode("\n", $l);
+	}
+
+	// Replace values
+	if (func_num_args() > 1) {
+		$argv = func_get_args();
+		unset($argv[0]); //msgid
+
+		if (is_bool($argv[1])) {
+			unset($argv[1]);
+		}
+
+		$msgstr = vsprintf($msgstr, $argv);
+	}
+
+	if (!$substitution) {
+		$msgstr = replace_html(htmlentities($msgstr, ENT_COMPAT, $encoding));
+	}
+
+	return $msgstr;
+
+	*/
+
+	/*
 	static $cache = array();
 	static $stmt = null;
 
@@ -119,8 +213,15 @@ function tr($msgid, $substitution = false) {
 
 		$rs = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		if($rs)
-			$msgstr = $rs['msgstr'];
+		if($rs){
+			if ($rs['msgstr'] != ''){
+				$msgstr = $rs['msgstr'];
+			} else {
+				$msgstr = $msgid;
+			}
+
+		}
+
 	}
 
 	if ($msgid == 'encoding' && $msgstr == 'encoding') {
@@ -154,6 +255,7 @@ function tr($msgid, $substitution = false) {
 	}
 
 	return $msgstr;
+	*/
 }
 
 /**

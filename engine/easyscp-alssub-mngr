@@ -628,7 +628,7 @@ sub alssub_add_httpd_file_data {
 		return -1 if ($rs != 0);
 
 		$rs = setfmode(
-			"$subAlsDir/htdocs/easyscp.css", $sys_user, $sys_group, 0644
+			"$subAlsDir/htdocs/easyscp.css", $sysUser, $sysGroup, 0644
 		);
 		return -1 if ($rs != 0);
 

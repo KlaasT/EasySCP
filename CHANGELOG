@@ -1,6 +1,12 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-01-28 Markus Szywon
+	- GUI:
+		* Fixed: Problem when create/update/delete subdomains
+		* Fixed: Problem when add alias subdomain
+		* Some improvements
+
 2012-01-22 Markus Szywon
 	- GUI:
 		* Fixed: Aliases not shown on admin and reseller user page
