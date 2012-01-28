@@ -173,7 +173,7 @@ $tpl->assign(
 );
 
 gen_def_language($tpl, $sql, $cfg);
-gen_def_theme($tpl, $cfg);
+gen_def_theme();
 
 // Grab the value only once to improve performances
 $html_selected = $cfg->HTML_SELECTED;

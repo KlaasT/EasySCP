@@ -127,6 +127,13 @@ class EasySCP_TemplateEngine {
 	 */
 	private function set_globals() {
 		$cfg = EasySCP_Registry::get('Config');
+
+		// get current Language
+		$setLocale = $cfg->USER_INITIAL_LANG . '.UTF8';
+
+		// Set language for translation
+		setlocale(LC_MESSAGES, $setLocale);
+
 		$gui_root = $cfg->GUI_ROOT_DIR.'/';
 		if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != ''){
 			$TemplateDir = $gui_root . 'themes/' . $cfg->USER_INITIAL_THEME;

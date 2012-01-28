@@ -780,7 +780,7 @@ function check_user_login() {
 
 	if ((EasySCP_Update_Database::getInstance()->checkUpdateExists() ||
 		($cfg->MAINTENANCEMODE)) && $user_type != 'admin') {
-		unset_user_login_data(true);
+		unset_user_login_data();
 		write_log(
 			"System is currently in maintenance mode. Logging out <strong><em>" .
 			$user_logged . "</em></strong>"
@@ -965,7 +965,6 @@ function change_user_interface($from_id, $to_id) {
 			if (isset($_SESSION['logged_from_id'])
 				&& $_SESSION['logged_from_id'] == $to_id) {
 				$index = $allowed_changes[$to_admin_type]['BACK'];
-                $restore = true;
 			} else {
 				set_page_message(
 					tr('You do not have permission to access this interface!'),
@@ -977,7 +976,7 @@ function change_user_interface($from_id, $to_id) {
 
 		$index = $index ? $index : $allowed_changes[$from_admin_type][$to_admin_type];
 
-		unset_user_login_data(false, $restore);
+		unset_user_login_data();
 
 		if (($to_admin_type != 'admin' && ((isset($_SESSION['logged_from_id']) &&
 			$_SESSION['logged_from_id'] != $to_id) ||
@@ -1043,11 +1042,9 @@ function change_user_interface($from_id, $to_id) {
 /**
  * Unset user login data
  *
- * @param bool $ignorePreserve
- * @param bool $restore restore rembered user data
  * @return void
  */
-function unset_user_login_data($ignorePreserve = false, $restore = false) {
+function unset_user_login_data() {
 
 	$sql = EasySCP_Registry::get('Db');
 
@@ -1067,34 +1064,7 @@ function unset_user_login_data($ignorePreserve = false, $restore = false) {
 		;";
 
 		exec_query($sql, $query, array($sess_id, $admin_name));
-
 	}
-
-	$preserve_list = array('user_def_lang', 'user_theme', 'uistack');
-	$preserve_vals = array();
-
-	if (!$ignorePreserve) {
-		foreach ($preserve_list as $p) {
-			if (isset($_SESSION[$p])) {
-				$preserve_vals[$p] = $_SESSION[$p];
-			}
-		}
-	}
-
-	$_SESSION = array();
-
-	foreach ($preserve_list as $p) {
-		if (isset($preserve_vals[$p])) {
-			$_SESSION[$p] = $preserve_vals[$p];
-		}
-	}
-
-    if ($restore && isset($_SESSION['uistack'])) {
-        foreach ($_SESSION['uistack'] as $key => $value) {
-            $_SESSION[$key] = $value;
-        }
-        unset($_SESSION['uistack']);
-    }
 }
 
 /**

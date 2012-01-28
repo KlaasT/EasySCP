@@ -21,20 +21,61 @@
  * @author 		EasySCP Team
  */
 
-if (isset($_SESSION['user_id'])
-	&& !isset($_SESSION['logged_from'])
-	&& !isset($_SESSION['logged_from_id'])) {
-	list($user_def_lang, $user_def_layout) = get_user_gui_props($sql, $_SESSION['user_id']);
+if (isset($_SESSION['user_id'])){
+	$cfg = EasySCP_Registry::get('Config');
 
-	$_SESSION['user_theme'] = $user_def_layout;
-	$_SESSION['user_def_lang'] = $user_def_lang;
+	if( !isset($_SESSION['logged_from']) && !isset($_SESSION['logged_from_id']) ){
+		list($user_def_lang, $user_def_layout) = get_user_gui_props($_SESSION['user_id']);
+
+
+		if ($user_def_lang != '') {
+			$cfg->USER_INITIAL_LANG = $user_def_lang;
+			$_SESSION['user_def_lang'] = $user_def_lang;
+		} else {
+			$_SESSION['user_def_lang'] = $cfg->USER_INITIAL_LANG;
+		}
+
+		if ($user_def_layout != '') {
+			$cfg->USER_INITIAL_THEME = $user_def_layout;
+			$_SESSION['user_theme'] = $user_def_layout;
+		} else {
+			$_SESSION['user_theme'] = $cfg->USER_INITIAL_THEME;
+		}
+	} else {
+		if (isset($_SESSION['logged_from_id']) && $_SESSION['logged_from_id'] =! '') {
+			list($user_def_lang, $user_def_layout) = get_user_gui_props($_SESSION['logged_from_id']);
+
+			if ($user_def_lang != '') {
+				$cfg->USER_INITIAL_LANG = $user_def_lang;
+				$_SESSION['user_def_lang'] = $user_def_lang;
+			} else {
+				$_SESSION['user_def_lang'] = $cfg->USER_INITIAL_LANG;
+			}
+
+			if ($user_def_layout != '') {
+				$cfg->USER_INITIAL_THEME = $user_def_layout;
+				$_SESSION['user_theme'] = $user_def_layout;
+			} else {
+				$_SESSION['user_theme'] = $cfg->USER_INITIAL_THEME;
+			}
+		} else {
+			if (isset($_SESSION['user_def_lang']) && $_SESSION['user_def_lang'] =! '') {
+				$cfg->USER_INITIAL_LANG = $_SESSION['user_def_lang'];
+			}
+
+			if (isset($_SESSION['user_theme']) && $_SESSION['user_theme'] =! '') {
+				$cfg->USER_INITIAL_THEME = $_SESSION['user_theme'];
+			}
+		}
+	}
 }
 
 // THEME_COLOR management stuff.
 
-function get_user_gui_props($sql, $user_id) {
+function get_user_gui_props($user_id) {
 
 	$cfg = EasySCP_Registry::get('Config');
+	$sql = EasySCP_Registry::get('Db');
 
 	$query = "
 		SELECT
@@ -193,10 +234,12 @@ function get_menu_vars($menu_link) {
 
 /**
  * Creates a list of all current installed themes
- * @param object $tpl	EasySCP_TemplateEngine instance
- * @param object $cfg	EasySCP_Registry instance
+ *
  */
-function gen_def_theme($tpl, $cfg) {
+function gen_def_theme() {
+
+	$cfg = EasySCP_Registry::get('Config');
+	$tpl = EasySCP_TemplateEngine::getInstance();
 
 	$dir = '../themes/';
 	$excludes = array('scripts');
@@ -218,9 +261,9 @@ function gen_def_theme($tpl, $cfg) {
 	foreach ($themes as $theme) {
 		$tpl->append(
 			array(
-				'THEME_VALUE' => $theme[0],
-				'THEME_SELECTED' => $theme[1],
-				'THEME_NAME' => tohtml($theme[0])
+				'THEME_VALUE'	=> $theme[0],
+				'THEME_SELECTED'=> $theme[1],
+				'THEME_NAME'	=> tohtml($theme[0])
 			)
 		);
 	}

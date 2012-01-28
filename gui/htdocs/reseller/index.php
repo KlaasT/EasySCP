@@ -31,16 +31,7 @@ $tpl = EasySCP_TemplateEngine::getInstance();
 $template = 'reseller/index.tpl';
 
 // dynamic page data
-
 generate_page_data($tpl, $_SESSION['user_id'], $_SESSION['user_logged']);
-
-// Makes sure that the language selected is the reseller's language
-if (!isset($_SESSION['logged_from']) && !isset($_SESSION['logged_from_id'])) {
-	list($user_def_lang, $user_def_layout) = get_user_gui_props($sql, $_SESSION['user_id']);
-} else {
-	$user_def_layout = $_SESSION['user_theme'];
-	$user_def_lang = $_SESSION['user_def_lang'];
-}
 
 gen_messages_table($tpl, $_SESSION['user_id']);
 

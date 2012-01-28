@@ -3,6 +3,7 @@ EasySCP 1.2.0 ChangeLog
 
 2012-01-28 Markus Szywon
 	- GUI:
+		* Added: New multilingual support 
 		* Fixed: Problem when create/update/delete subdomains
 		* Fixed: Problem when add alias subdomain
 		* Some improvements

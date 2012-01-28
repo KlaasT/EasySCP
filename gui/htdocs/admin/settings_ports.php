@@ -38,59 +38,60 @@ if (isset($_POST['uaction']) && $_POST['uaction'] != 'reset') {
 
 	add_update_services(($_POST['uaction']) == 'add' ? true : false);
 	user_goto('settings_ports.php');
+}
 
 // Deletes a service port
-} elseif(isset($_GET['delete'])) {
+if(isset($_GET['delete'])) {
 
 	delete_service(clean_input($_GET['delete']));
 	user_goto('settings_ports.php');
 
-// Show and Error pages
-} else {
-	$cfg = EasySCP_Registry::get('Config');
-
-	$tpl = EasySCP_TemplateEngine::getInstance();
-	$template = 'admin/settings_ports.tpl';
-
-	show_services($tpl);
-
-	$tpl->assign(
-		array(
-			'TR_PAGE_TITLE' => tr('EasySCP - Admin/Settings'),
-			'TR_ACTION' => tr('Action'),
-			'TR_UDP' => tr('udp'),
-			'TR_TCP' => tr('tcp'),
-			'TR_ENABLED' => tr('Yes'),
-			'TR_DISABLED' => tr('No'),
-			'TR_APPLY_CHANGES' => tr('Apply changes'),
-			'TR_SERVERPORTS' => tr('Server ports'),
-			'TR_SERVICE' => tr('Service'),
-			'TR_IP' => tr('IP'),
-			'TR_PORT' => tr('Port'),
-			'TR_PROTOCOL' => tr('Protocol'),
-			'TR_SHOW' => tr('Show'),
-			'TR_ACTION' => tr('Action'),
-			'TR_DELETE' => tr('Delete'),
-			'TR_MESSAGE_DELETE' => tr('Are you sure you want to delete %s service port ?', true, '%s'),
-			'TR_SHOW_UPDATE_SERVICE_PORT' => tr('View / Update service(s) port'),
-			'TR_ADD_NEW_SERVICE_PORT' => tr('Add new service port'),
-			'VAL_FOR_SUBMIT_ON_UPDATE' => tr('Update'),
-			'VAL_FOR_SUBMIT_ON_ADD' => tr('Add'),
-			'VAL_FOR_SUBMIT_ON_RESET' => tr('Reset')
-		)
-	);
-
-	gen_admin_mainmenu($tpl, 'admin/main_menu_settings.tpl');
-	gen_admin_menu($tpl, 'admin/menu_settings.tpl');
-
-	gen_page_message($tpl);
-
-	if ($cfg->DUMP_GUI_DEBUG) {
-		dump_gui_debug($tpl);
-	}
-
-	$tpl->display($template);
 }
+
+$cfg = EasySCP_Registry::get('Config');
+
+$tpl = EasySCP_TemplateEngine::getInstance();
+$template = 'admin/settings_ports.tpl';
+
+show_services($tpl);
+
+// static page messages
+$tpl->assign(
+	array(
+		'TR_PAGE_TITLE'					=> tr('EasySCP - Admin/Settings'),
+		'TR_ACTION'						=> tr('Action'),
+		'TR_UDP'						=> tr('udp'),
+		'TR_TCP'						=> tr('tcp'),
+		'TR_ENABLED'					=> tr('Yes'),
+		'TR_DISABLED'					=> tr('No'),
+		'TR_APPLY_CHANGES'				=> tr('Apply changes'),
+		'TR_SERVERPORTS'				=> tr('Server ports'),
+		'TR_SERVICE'					=> tr('Service'),
+		'TR_IP'							=> tr('IP'),
+		'TR_PORT'						=> tr('Port'),
+		'TR_PROTOCOL'					=> tr('Protocol'),
+		'TR_SHOW'						=> tr('Show'),
+		'TR_ACTION'						=> tr('Action'),
+		'TR_DELETE'						=> tr('Delete'),
+		'TR_MESSAGE_DELETE'				=> tr('Are you sure you want to delete %s service port ?', true, '%s'),
+		'TR_SHOW_UPDATE_SERVICE_PORT'	=> tr('View / Update service(s) port'),
+		'TR_ADD_NEW_SERVICE_PORT'		=> tr('Add new service port'),
+		'VAL_FOR_SUBMIT_ON_UPDATE'		=> tr('Update'),
+		'VAL_FOR_SUBMIT_ON_ADD'			=> tr('Add'),
+		'VAL_FOR_SUBMIT_ON_RESET'		=> tr('Reset')
+	)
+);
+
+gen_admin_mainmenu($tpl, 'admin/main_menu_settings.tpl');
+gen_admin_menu($tpl, 'admin/menu_settings.tpl');
+
+gen_page_message($tpl);
+
+if ($cfg->DUMP_GUI_DEBUG) {
+	dump_gui_debug($tpl);
+}
+
+$tpl->display($template);
 
 unset_messages();
 
