@@ -5,13 +5,13 @@
  | localization/de_DE/labels.inc                                         |
  |                                                                       |
  | Language file of the Roundcube Webmail client                         |
- | Copyright (C) 2011, The Roundcube Dev Team                            |
+ | Copyright (C) 2012, The Roundcube Dev Team                            |
  | Licensed under the GNU General Public License                         |
  |                                                                       |
  +-----------------------------------------------------------------------+
  | Author: Christoph Wickert <Unknown>                                   |
  +-----------------------------------------------------------------------+
- @version : importgettext.sh 5558 2011-12-07 08:51:01Z thomasb $
+ @version $Id$
 */
 
 $labels = array();
@@ -116,4 +116,35 @@ $labels['default'] = 'Vorgabewert';
 $labels['octet'] = 'strikt (Oktett)';
 $labels['asciicasemap'] = 'Groß-/Kleinschreibung ignorieren';
 $labels['asciinumeric'] = 'numerisch (ascii-numeric)';
+$labels['filterunknownerror'] = 'Unbekannter Serverfehler';
+$labels['filterconnerror'] = 'Kann keine Verbindung mit Managesieve-Server herstellen';
+$labels['filterdeleteerror'] = 'Fehler beim Löschen des Filters. Serverfehler';
+$labels['filterdeleted'] = 'Filter erfolgreich gelöscht';
+$labels['filtersaved'] = 'Filter erfolgreich gespeichert';
+$labels['filtersaveerror'] = 'Fehler beim Speichern des Filters. Serverfehler';
+$labels['filterdeleteconfirm'] = 'Möchten Sie den ausgewählten Filter wirklich löschen?';
+$labels['ruledeleteconfirm'] = 'Sind Sie sicher, dass Sie die ausgewählte Regel löschen möchten?';
+$labels['actiondeleteconfirm'] = 'Sind Sie sicher, dass Sie die ausgewählte Aktion löschen möchten?';
+$labels['forbiddenchars'] = 'Unzulässige Zeichen im Eingabefeld';
+$labels['cannotbeempty'] = 'Eingabefeld darf nicht leer sein';
+$labels['ruleexist'] = 'Ein Filter mit dem angegebenen Namen existiert bereits.';
+$labels['setactivateerror'] = 'Kann ausgewählten Filtersatz nicht aktivieren. Serverfehler';
+$labels['setdeactivateerror'] = 'Kann ausgewählten Filtersatz nicht deaktivieren. Serverfehler';
+$labels['setdeleteerror'] = 'Kann ausgewählten Filtersatz nicht löschen. Serverfehler';
+$labels['setactivated'] = 'Filtersatz wurde erfolgreich aktiviert';
+$labels['setdeactivated'] = 'Filtersatz wurde erfolgreich deaktiviert';
+$labels['setdeleted'] = 'Filtersatz wurde erfolgreich gelöscht';
+$labels['setdeleteconfirm'] = 'Sind Sie sicher, dass Sie den ausgewählten Filtersatz löschen möchten?';
+$labels['setcreateerror'] = 'Kann Filtersatz nicht erstellen. Serverfehler';
+$labels['setcreated'] = 'Filtersatz wurde erfolgreich erstellt';
+$labels['activateerror'] = 'Filter kann nicht aktiviert werden. Serverfehler.';
+$labels['deactivateerror'] = 'Filter kann nicht deaktiviert werden. Serverfehler.';
+$labels['activated'] = 'Filter erfolgreich deaktiviert.';
+$labels['deactivated'] = 'Filter erfolgreich aktiviert.';
+$labels['moved'] = 'Filter erfolgreich verschoben.';
+$labels['moveerror'] = 'Filter kann nicht verschoben werden. Serverfehler.';
+$labels['nametoolong'] = 'Kann Filtersatz nicht erstellen. Name zu lang';
+$labels['namereserved'] = 'Reservierter Name.';
+$labels['setexist'] = 'Filtersatz existiert bereits.';
+$labels['nodata'] = 'Mindestens eine Position muss ausgewählt werden!';
 

@@ -18,7 +18,7 @@
 |         Aleksander Machniak <alec@alec.pl>                            |
 +-----------------------------------------------------------------------+
 
-@version $Id: labels.inc 5569 2011-12-07 14:47:32Z thomasb $
+@version $Id: labels.inc 5681 2012-01-01 13:36:22Z alec $
 
 */
 
@@ -353,7 +353,7 @@ $labels['addfollowupto'] = 'Dodaj Followup-To';
 $labels['dsn'] = 'Status dostarczenia (DSN)';
 $labels['reqdsn'] = 'Zawsze żądaj statusu dostarczenia (DSN)';
 $labels['replysamefolder'] = 'Umieszczaj odpowiedzi w folderze wiadomości, na którą odpowiadam';
-$labels['contactproperties'] = 'Właściwości';
+$labels['contactproperties'] = 'Właściwości kontaktu';
 $labels['properties'] = 'Właściwości';
 $labels['folderproperties'] = 'Właściwości folderu';
 $labels['parentfolder'] = 'Folder nadrzędny';

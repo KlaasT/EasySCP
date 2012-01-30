@@ -17,7 +17,7 @@
  | Author: Aleksander Machniak <alec@alec.pl>                            |
  +-----------------------------------------------------------------------+
 
- $Id: rcube_imap.php 5601 2011-12-14 09:08:54Z alec $
+ $Id: rcube_imap.php 5638 2011-12-21 18:57:01Z alec $
 
 */
 
@@ -1722,7 +1722,7 @@ class rcube_imap
             // Error, try with US-ASCII (some servers may support only US-ASCII)
             if ($a_messages === false && $charset && $charset != 'US-ASCII')
                 $a_messages = $this->conn->search($mailbox,
-                    'CHARSET US-ASCII ' . $this->convert_criteria($criteria, $charset));
+                    $this->convert_criteria($criteria, $charset));
 
             // I didn't found that SEARCH should return sorted IDs
             if (is_array($a_messages) && !$this->sort_field)

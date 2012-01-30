@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-01-30 Markus Szywon
+	- TOOLS:
+		* Updated Roundcube to version 0.7.1
+
 2012-01-28 Markus Szywon
 	- GUI:
 		* Added: New multilingual support 

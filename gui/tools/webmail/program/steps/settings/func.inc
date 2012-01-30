@@ -15,7 +15,7 @@
  | Author: Thomas Bruederli <roundcube@gmail.com>                        |
  +-----------------------------------------------------------------------+
 
- $Id: func.inc 5481 2011-11-24 07:53:00Z alec $
+ $Id: func.inc 5660 2011-12-28 09:37:17Z alec $
 
 */
 
@@ -686,8 +686,15 @@ function rcmail_user_prefs($current=null)
 
       // load folders list only when needed
       if ($current) {
-        $select = rcmail_mailbox_select(array('noselection' => '---', 'realnames' => true,
-          'maxlength' => 30, 'exceptions' => array('INBOX'), 'folder_filter' => 'mail', 'folder_rights' => 'w'));
+        $select = rcmail_mailbox_select(array(
+          'noselection'   => '---',
+          'realnames'     => true,
+          'maxlength'     => 30,
+          'folder_filter' => 'mail',
+          'folder_rights' => 'w',
+          // #1486114, #1488279
+          'onchange'      => "if ($(this).val() == 'INBOX') $(this).val('')",
+        ));
       }
       else // dummy select
         $select = new html_select();

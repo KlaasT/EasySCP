@@ -16,7 +16,7 @@
  | Author: Aleksander Machniak <alec@alec.pl>                            |
  +-----------------------------------------------------------------------+
 
- $Id: folders.inc 5402 2011-11-09 10:03:54Z alec $
+ $Id: folders.inc 5635 2011-12-21 10:07:42Z alec $
 
 */
 
@@ -293,10 +293,12 @@ function rcube_subscription_form($attrib)
         if (!$disabled && $folder['virtual'] && $folder['level'] == 0 && !empty($namespace)) {
             $fname = $folder['id'] . $delimiter;
             foreach ($namespace as $ns) {
-                foreach ($ns as $item) {
-                    if ($item[0] === $fname) {
-                        $disabled = true;
-                        break 2;
+                if (is_array($ns)) {
+                    foreach ($ns as $item) {
+                        if ($item[0] === $fname) {
+                            $disabled = true;
+                            break 2;
+                        }
                     }
                 }
             }

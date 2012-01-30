@@ -1,6 +1,20 @@
 CHANGELOG Roundcube Webmail
 ===========================
 
+- Fix bug in handling of base href and inline content (#1488290)
+- Fix SQL Error when saving a contact with many email addresses (#1488286)
+- Fix strict email address searching if contact has more than one address
+- Remove duplicated 'organization' label (#1488287)
+- Fix so editor selector is hidden when 'htmleditor' is listed in 'dont_override'
+- Fix wrong (long) label usage (#1488283)
+- Fix handling of INBOX's subfolders in special folders config (#1488279)
+- Add ifModule statement for setting Options -Indexes in .htaccess file (#1488274)
+- Fix searching on IMAP servers without CHARSET specifier support (#1488271)
+- Fix crash with eAccelerator (#1488256)
+- Fix expanding folders during drag&drop (#1488260)
+- Fix wrong postgres sequence name in upgrade from 0.6
+- Fix broken CREATE INDEX queries in SQLite DDL files (#1488255)
+
 RELEASE 0.7
 -----------
 - Make Roundcube render the Email Standards Project Acid Test correctly

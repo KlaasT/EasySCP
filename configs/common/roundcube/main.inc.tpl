@@ -399,13 +399,6 @@ $rcmail_config['date_short'] = 'D H:i';
 // use this format for detailed date/time formatting (derived from date_format and time_format)
 $rcmail_config['date_long'] = 'Y-m-d H:i';
 
-// use this format for today's date display (date or strftime format)
-// Note: $ character will be replaced with 'Today' label
-$rcmail_config['date_today'] = 'H:i';
-
-// use this format for date display without time (date or strftime format)
-$rcmail_config['date_format'] = 'Y-m-d';
-
 // store draft message is this mailbox
 // leave blank if draft messages should not be stored
 // NOTE: Use folder names with namespace prefix (INBOX. on Courier-IMAP)

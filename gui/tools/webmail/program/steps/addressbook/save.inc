@@ -15,7 +15,7 @@
  | Author: Thomas Bruederli <roundcube@gmail.com>                        |
  +-----------------------------------------------------------------------+
 
- $Id: save.inc 5541 2011-12-04 17:05:42Z thomasb $
+ $Id: save.inc 5712 2012-01-05 08:50:07Z alec $
 
 */
 
@@ -81,8 +81,8 @@ if (empty($a_record['name'])) {
 
 // do input checks (delegated to $CONTACTS instance)
 if (!$CONTACTS->validate($a_record)) {
-    $err = (array)$CONTACTS->get_error() + array('message' => 'formincomplete', 'type' => 'warning');
-    $OUTPUT->show_message($err['message'], $err['type']);
+    $err = (array)$CONTACTS->get_error();
+    $OUTPUT->show_message($err['message'] ? $err['message'] : 'formincomplete', 'warning');
     $GLOBALS['EDIT_RECORD'] = $a_record;  // store submitted data to be used in edit form
     rcmail_overwrite_action($return_action);
     return;

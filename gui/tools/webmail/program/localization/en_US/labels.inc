@@ -13,7 +13,7 @@
  | Author: Thomas Bruederli <roundcube@gmail.com>                        |
  +-----------------------------------------------------------------------+
 
- @version $Id: labels.inc 5569 2011-12-07 14:47:32Z thomasb $
+ @version $Id: labels.inc 5706 2012-01-04 12:37:51Z alec $
 
 */
 
@@ -252,7 +252,6 @@ $labels['nameprefix']   = 'Prefix';
 $labels['namesuffix']   = 'Suffix';
 $labels['nickname']     = 'Nickname';
 $labels['jobtitle']     = 'Job Title';
-$labels['organization'] = 'Company';
 $labels['department']   = 'Department';
 $labels['gender']       = 'Gender';
 $labels['maidenname']   = 'Maiden Name';

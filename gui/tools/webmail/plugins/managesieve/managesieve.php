@@ -28,7 +28,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * $Id: managesieve.php 5452 2011-11-18 14:44:48Z alec $
+ * $Id: managesieve.php 5712 2012-01-05 08:50:07Z alec $
  */
 
 class managesieve extends rcube_plugin
@@ -1542,7 +1542,7 @@ class managesieve extends rcube_plugin
 
     private function genid()
     {
-        $result = intval(rcube_timer());
+        $result = preg_replace('/[^0-9]/', '', microtime(true));
         return $result;
     }
 

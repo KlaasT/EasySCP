@@ -16,7 +16,7 @@
  |         Thomas Bruederli <roundcube@gmail.com>                        |
  +-----------------------------------------------------------------------+
 
- $Id: iniset.php 5582 2011-12-09 08:55:40Z thomasb $
+ $Id: iniset.php 5738 2012-01-06 16:01:53Z thomasb $
 
 */
 
@@ -37,7 +37,7 @@ foreach ($crit_opts as $optname => $optval) {
 }
 
 // application constants
-define('RCMAIL_VERSION', '0.7');
+define('RCMAIL_VERSION', '0.7.1');
 define('RCMAIL_CHARSET', 'UTF-8');
 define('JS_OBJECT_NAME', 'rcmail');
 define('RCMAIL_START', microtime(true));

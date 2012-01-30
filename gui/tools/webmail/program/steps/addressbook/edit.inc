@@ -15,7 +15,7 @@
  | Author: Thomas Bruederli <roundcube@gmail.com>                        |
  +-----------------------------------------------------------------------+
 
- $Id: edit.inc 5041 2011-08-10 11:53:41Z thomasb $
+ $Id: edit.inc 5681 2012-01-01 13:36:22Z alec $
 
 */
 
@@ -130,7 +130,7 @@ function rcmail_contact_editform($attrib)
 
     $form = array(
         'contact' => array(
-            'name'    => rcube_label('contactproperties'),
+            'name'    => rcube_label('properties'),
             'content' => array(
                 'email' => array('size' => $i_size, 'visible' => true),
                 'phone' => array('size' => $i_size, 'visible' => true),

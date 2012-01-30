@@ -16,7 +16,7 @@
  | Author: Thomas Bruederli <roundcube@gmail.com>                        |
  +-----------------------------------------------------------------------+
 
- $Id: autocomplete.inc 5426 2011-11-15 10:50:30Z alec $
+ $Id: autocomplete.inc 5635 2011-12-21 10:07:42Z alec $
 
 */
 
@@ -28,8 +28,10 @@ if ($RCMAIL->action == 'group-expand') {
     $abook->set_pagesize(1000);  // TODO: limit number of group members by config
     $result = $abook->list_records(array('email','name'));
     while ($result && ($sql_arr = $result->iterate())) {
-      foreach ((array)$sql_arr['email'] as $email)
+      foreach ((array)$sql_arr['email'] as $email) {
         $members[] = format_email_recipient($email, $sql_arr['name']);
+        break;  // only expand one email per contact
+      }
     }
 
     $separator = trim($RCMAIL->config->get('recipients_separator', ',')) . ' ';

@@ -15,7 +15,7 @@
  | Requires: jquery.js, common.js, list.js                               |
  +-----------------------------------------------------------------------+
 
-  $Id: app.js 5554 2011-12-07 07:50:00Z alec $
+  $Id: app.js 5635 2011-12-21 10:07:42Z alec $
 */
 
 function rcube_webmail()
@@ -1360,7 +1360,7 @@ function rcube_webmail()
               if (this.folder_auto_timer)
                 window.clearTimeout(this.folder_auto_timer);
 
-              this.folder_auto_expand = k;
+              this.folder_auto_expand = this.env.mailboxes[k].id;
               this.folder_auto_timer = window.setTimeout(function() {
                 rcmail.command('collapse-folder', rcmail.folder_auto_expand);
                 rcmail.drag_start(null);
@@ -3082,7 +3082,7 @@ function rcube_webmail()
       if (!vis)
         this.stop_spellchecking();
 
-      $(this.env.spellcheck.spell_container).css('visibility', vis ? 'visible' : 'hidden');
+      $(this.env.spellcheck.spell_container)[vis ? 'show' : 'hide']();
     }
   };
 
