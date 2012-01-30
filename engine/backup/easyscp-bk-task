@@ -191,11 +191,11 @@ use warnings;
 #
 #     my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
 #
-#     my $sys_user = "$suexec_user_pref$sys_uid";
+#     my $sysUser = "$suexec_user_pref$sys_uid";
 #
-#     my $sys_group = "$suexec_user_pref$sys_gid";
+#     my $sysGroup = "$suexec_user_pref$sys_gid";
 #
-#     $rs = setfmode("$dmn_backup_dir/$backup_filename", $sys_user, $sys_group, 0660);
+#     $rs = setfmode("$dmn_backup_dir/$backup_filename", $sysUser, $sysGroup, 0660);
 #
 #     return $rs if ($rs != 0);
 #

@@ -53,6 +53,7 @@ libhtml-parser-perl
 libtimedate-perl
 libmysqlclient15off
 locales
+locales-all
 lsb-base
 lsb-release
 lynx
@@ -72,6 +73,7 @@ php5-adodb
 php5-cgi
 php5-cli
 php5-gd
+php5-gettext
 php5-mcrypt
 php5-mhash
 php5-mysql

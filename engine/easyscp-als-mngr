@@ -1622,8 +1622,8 @@ sub als_add_httpd_file_data {
 	my $httpd_gid = $main::cfg{'APACHE_GROUP'};
 	my ($sys_uid, $sys_gid) = get_dmn_suexec_user($dmn_id);
 	my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
-	my $sys_user = "$suexec_user_pref$sys_uid";
-	my $sys_group = "$suexec_user_pref$sys_gid";
+	my $sysUser = "$suexec_user_pref$sys_uid";
+	my $sysGroup = "$suexec_user_pref$sys_gid";
 
 	#
 	# Skip data creation if the mount point already exists
@@ -1699,7 +1699,7 @@ sub als_add_httpd_file_data {
 
 	$rs = makepath(
 		"$www_dir/$als_name",
-		$sys_user,
+		$sysUser,
 		$httpd_gid,
 		0770
 	);
@@ -1707,15 +1707,15 @@ sub als_add_httpd_file_data {
 
 	$rs = makepath(
 		"$www_dir/$als_name/cgi-bin",
-		$sys_user,
-		$sys_group,
+		$sysUser,
+		$sysGroup,
 		0755
 	);
 	return $rs if ($rs != 0);
 
 	$rs = makepath(
 		"$www_dir/$als_name/logs",
-		$sys_user,
+		$sysUser,
 		$httpd_gid,
 		0770
 	);
@@ -1723,7 +1723,7 @@ sub als_add_httpd_file_data {
 
 	$rs = makepath(
 		"$www_dir/$als_name/phptmp",
-		$sys_user,
+		$sysUser,
 		$httpd_gid,
 		0770
 	);
@@ -1731,16 +1731,16 @@ sub als_add_httpd_file_data {
 
 	$rs = makepath(
 		"$www_dir/$als_name/errors",
-		$sys_user,
-		$sys_group,
+		$sysUser,
+		$sysGroup,
 		0775
 	);
 	return $rs if ($rs != 0);
 
 	$rs = makepath(
 		"$www_dir/$als_name/errors/inc",
-		$sys_user,
-		$sys_group,
+		$sysUser,
+		$sysGroup,
 		0775
 	);
 	return $rs if ($rs != 0);
@@ -1754,8 +1754,8 @@ sub als_add_httpd_file_data {
 
 			$rs = makepath(
 				"$www_dir/$als_name/statistics",
-				$sys_user,
-				$sys_group,
+				$sysUser,
+				$sysGroup,
 				0755
 			);
 			return $rs if ($rs != 0);
@@ -1768,7 +1768,7 @@ sub als_add_httpd_file_data {
 	($rs, $rdata) = store_file(
 		"$www_dir/$als_name/.htpasswd",
 		"\n",
-		$sys_user,
+		$sysUser,
 		$httpd_gid,
 		0640
 	);
@@ -1777,7 +1777,7 @@ sub als_add_httpd_file_data {
 	($rs, $rdata) = store_file(
 		"$www_dir/$als_name/.htgroup",
 		"\n",
-		$sys_user,
+		$sysUser,
 		$httpd_gid,
 		0640
 	);
@@ -1801,8 +1801,8 @@ sub als_add_httpd_file_data {
 
 			$rs = setfmode(
 				"$www_dir/$als_name/errors/$key.html",
-				$sys_user,
-				$sys_group,
+				$sysUser,
+				$sysGroup,
 				0644
 			);
 			return $rs if ($rs != 0);
@@ -1819,16 +1819,16 @@ sub als_add_httpd_file_data {
 
 	$rs = setfmode(
 		"$www_dir/$als_name/errors/inc/errordocs.js",
-		$sys_user,
-		$sys_group,
+		$sysUser,
+		$sysGroup,
 		0644
 	);
 	return $rs if ($rs != 0);
 
 	$rs = setfmode(
 		"$www_dir/$als_name/errors/inc/errordocs.css",
-		$sys_user,
-		$sys_group,
+		$sysUser,
+		$sysGroup,
 		0644
 	);
 	return $rs if ($rs != 0);
@@ -1841,8 +1841,8 @@ sub als_add_httpd_file_data {
 
 		$rs = makepath(
 			"$www_dir/$als_name/htdocs",
-			$sys_user,
-			$sys_group,
+			$sysUser,
+			$sysGroup,
 			0775
 		);
 		return $rs if ($rs != 0);
@@ -1861,8 +1861,8 @@ sub als_add_httpd_file_data {
 		($rs, $rdata) = store_file(
 			"$www_dir/$als_name/htdocs/index.html",
 			$index_tpl,
-			$sys_user,
-			$sys_group,
+			$sysUser,
+			$sysGroup,
 			0664
 		);
 		return $rs if ($rs != 0);
@@ -1874,7 +1874,7 @@ sub als_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		$rs = setfmode(
-			"$www_dir/$als_name/htdocs/easyscp.css", $sys_user, $sys_group, 0644
+			"$www_dir/$als_name/htdocs/easyscp.css", $sysUser, $sysGroup, 0644
 		);
 		return $rs if ($rs != 0);
 
@@ -1886,8 +1886,8 @@ sub als_add_httpd_file_data {
 
 		$rs = setfmode(
 			"$www_dir/$als_name/htdocs/images/",
-			$sys_user,
-			$sys_group,
+			$sysUser,
+			$sysGroup,
 			0755
 		);
 		return $rs if ($rs != 0);
@@ -1901,8 +1901,8 @@ sub als_add_httpd_file_data {
             next if ($_ eq "." || $_ eq "..");
 			$rs = setfmode(
 				"$www_dir/$als_name/htdocs/images/$_",
-				$sys_user,
-				$sys_group,
+				$sysUser,
+				$sysGroup,
 				0644
 			);
 			return $rs if ($rs != 0);
@@ -1943,8 +1943,8 @@ sub als_change_httpd_file_data {
 	my $www_dir = $main::cfg{'APACHE_WWW_DIR'};
 	my ($sys_uid, $sys_gid) = get_dmn_suexec_user($dmn_id);
 	my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
-	my $sys_user = "$suexec_user_pref$sys_uid";
-	my $sys_group = "$suexec_user_pref$sys_gid";
+	my $sysUser = "$suexec_user_pref$sys_uid";
+	my $sysGroup = "$suexec_user_pref$sys_gid";
 
 	#
 	# AWStats Directory (if static AWStats is enabled)
@@ -1955,8 +1955,8 @@ sub als_change_httpd_file_data {
 		if (! -d "$www_dir/$als_name/statistics") {
 			$rs = makepath(
 				"$www_dir/$als_name/statistics",
-				$sys_user,
-				$sys_group,
+				$sysUser,
+				$sysGroup,
 				0755
 			);
 			return $rs if ($rs != 0);
@@ -1971,8 +1971,8 @@ sub als_change_httpd_file_data {
 
 		$rs = makepath(
 			"$www_dir/$als_name/phptmp",
-			$sys_user,
-			$sys_group,
+			$sysUser,
+			$sysGroup,
 			0770
 		);
 		return $rs if ($rs != 0);

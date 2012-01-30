@@ -21,16 +21,16 @@
 # @author 		EasySCP Team
 
 ifndef INST_PREF
-        INST_PREF=/tmp/ispcp
+        INST_PREF=/tmp/easyscp
 endif
 
 HOST_OS=opensuse
 
 ROOT_CONF=$(INST_PREF)/etc
 
-SYSTEM_ROOT=$(INST_PREF)/srv/www/ispcp
-SYSTEM_CONF=$(INST_PREF)/etc/ispcp
-SYSTEM_LOG=$(INST_PREF)/var/log/ispcp
+SYSTEM_ROOT=$(INST_PREF)/srv/www/easyscp
+SYSTEM_CONF=$(INST_PREF)/etc/easyscp
+SYSTEM_LOG=$(INST_PREF)/var/log/easyscp
 SYSTEM_APACHE_BACK_LOG=$(INST_PREF)/var/log/apache2/backup
 SYSTEM_VIRTUAL=$(INST_PREF)/srv/www/virtual
 SYSTEM_AWSTATS=$(INST_PREF)/srv/www/awstats

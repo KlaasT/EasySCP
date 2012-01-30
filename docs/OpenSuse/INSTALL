@@ -17,7 +17,7 @@ Table of Content
 ================================================================================
 1) Version Info
 ---------------
-EasySCP Version:    1.1.0
+EasySCP Version:    1.2.0
 INSTALL file:       1.0
 postinst script:    1.0.6
 preinst script:     1.0.1
@@ -75,39 +75,33 @@ First, make sure you are logged in as root.
 1. Untar or unzip the distribution files to a secure directory:
 
 	# cd /usr/local/src
-	# tar xjvf easyscp-1.1.0.tar.bz2
+	# tar xjvf easyscp-1.2.0.tar.bz2
 
 2. Change to the newly created directory:
 
-	# cd ./easyscp-1.1.0
+	# cd ./easyscp-1.2.0
 
-3. Install the required repositories:
-
-	# sh ./docs/OpenSuse/repositories.sh add
-
-Note: For all questions, answer "a" (trust always).
-
-4. install the required packages:
+3. install the required packages:
 
 	First, update your distribution:
 	# zypper dup
 
 	# zypper in $(cat ./docs/OpenSuse/bin-packages)
 
-5. Install the required Perl packages:
+4. Install the required Perl packages:
 
 	First, update CPAN:
 	# cpan CPAN
 
 	# cpan $(cat ./docs/OpenSuse/perl-packages)
 
-6. (optional) Check the easyscp.conf and adapt it to your requirements.
+5. (optional) Check the easyscp.conf and adapt it to your requirements.
 
-7. Build the System by using make:
+6. Build the System by using make:
 
 	# make -f Makefile.opensuse install
 
-8. Copy all the directories into your system (you may make backups before):
+7. Copy all the directories into your system (you may make backups before):
 
 	# cp -RLv /tmp/easyscp/* /
 

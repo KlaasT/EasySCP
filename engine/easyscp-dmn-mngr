@@ -1560,19 +1560,19 @@ sub dmn_add_httpd_file_data {
 	my $httpd_gid = $main::cfg{'APACHE_GROUP'};
 	my ($sys_uid, $sys_gid) = get_dmn_suexec_user($dmn_id);
 	my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
-	my $sys_user = "$suexec_user_pref$sys_uid";
-	my $sys_group = "$suexec_user_pref$sys_gid";
+	my $sysUser = "$suexec_user_pref$sys_uid";
+	my $sysGroup = "$suexec_user_pref$sys_gid";
 
 	# Starter directory for usual user
 
 	if(!(-d "$starter_dir/$dmn_name")) {
-		$rs = makepath("$starter_dir/$dmn_name", $sys_user, $sys_group, 0555);
+		$rs = makepath("$starter_dir/$dmn_name", $sysUser, $sysGroup, 0555);
 		return $rs if ($rs != 0);
 	}
 
 	if (! -d "$starter_dir/$dmn_name/php5") {
 		$rs = makepath(
-			"$starter_dir/$dmn_name/php5", $sys_user, $sys_group, 0550
+			"$starter_dir/$dmn_name/php5", $sysUser, $sysGroup, 0550
 		);
 		return $rs if ($rs != 0);
 	}
@@ -1584,7 +1584,7 @@ sub dmn_add_httpd_file_data {
 
 		if (! -d "$www_dir/$dmn_name/statistics") {
 			$rs = makepath(
-				"$www_dir/$dmn_name/statistics", $sys_user, $sys_group, 0755
+				"$www_dir/$dmn_name/statistics", $sysUser, $sysGroup, 0755
 			);
 			return $rs if ($rs != 0);
 		}
@@ -1592,37 +1592,37 @@ sub dmn_add_httpd_file_data {
 
 	# Domain WWW directories
 
-	$rs = makepath("$www_dir/$dmn_name", $sys_user, $httpd_gid, 0770);
+	$rs = makepath("$www_dir/$dmn_name", $sysUser, $httpd_gid, 0770);
 	return $rs if ($rs != 0);
 
-	$rs = makepath("$www_dir/$dmn_name/cgi-bin", $sys_user, $sys_group, 0755);
+	$rs = makepath("$www_dir/$dmn_name/cgi-bin", $sysUser, $sysGroup, 0755);
 	return $rs if ($rs != 0);
 
-	$rs = makepath("$www_dir/$dmn_name/logs",$sys_user, $httpd_gid, 0770);
+	$rs = makepath("$www_dir/$dmn_name/logs",$sysUser, $httpd_gid, 0770);
 	return $rs if ($rs != 0);
 
-	$rs = makepath("$www_dir/$dmn_name/phptmp", $sys_user, $httpd_gid, 0770);
+	$rs = makepath("$www_dir/$dmn_name/phptmp", $sysUser, $httpd_gid, 0770);
 	return $rs if ($rs != 0);
 
 	$rs = makepath("$www_dir/$dmn_name/backups", $main::cfg{'ROOT_USER'}, $main::cfg{'ROOT_GROUP'}, 0755);
 	return $rs if ($rs != 0);
 
-	$rs = makepath("$www_dir/$dmn_name/errors", $sys_user, $sys_group, 0775);
+	$rs = makepath("$www_dir/$dmn_name/errors", $sysUser, $sysGroup, 0775);
 	return $rs if ($rs != 0);
 
-	$rs = makepath("$www_dir/$dmn_name/errors/inc", $sys_user, $sys_group, 0775);
+	$rs = makepath("$www_dir/$dmn_name/errors/inc", $sysUser, $sysGroup, 0775);
 	return $rs if ($rs != 0);
 
 
 	# Domain WWW files
 
 	($rs, $rdata) = store_file(
-		"$www_dir/$dmn_name/.htpasswd", "\n", $sys_user, $httpd_gid, 0640
+		"$www_dir/$dmn_name/.htpasswd", "\n", $sysUser, $httpd_gid, 0640
 	);
 	return $rs if ($rs != 0);
 
 	($rs, $rdata) = store_file(
-		"$www_dir/$dmn_name/.htgroup", "\n", $sys_user, $httpd_gid, 0640
+		"$www_dir/$dmn_name/.htgroup", "\n", $sysUser, $httpd_gid, 0640
 	);
 	return $rs if ($rs != 0);
 
@@ -1643,7 +1643,7 @@ sub dmn_add_httpd_file_data {
 			return $rs if ($rs != 0);
 
 			$rs = setfmode(
-				"$www_dir/$dmn_name/errors/$key.html", $sys_user, $sys_group,
+				"$www_dir/$dmn_name/errors/$key.html", $sysUser, $sysGroup,
 				0644
 			);
 			return $rs if ($rs != 0);
@@ -1664,7 +1664,7 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		$rs = setfmode(
-			"$www_dir/$dmn_name/errors/inc/$_", $sys_user, $sys_group, 0644
+			"$www_dir/$dmn_name/errors/inc/$_", $sysUser, $sysGroup, 0644
 		);
 		return $rs if ($rs != 0);
 	}
@@ -1674,7 +1674,7 @@ sub dmn_add_httpd_file_data {
 	# check if htdocs folder does not exist
 	if (!(-e "$www_dir/$dmn_name/htdocs/")) {
 		$rs = makepath(
-			"$www_dir/$dmn_name/htdocs", $sys_user, $sys_group, 0775
+			"$www_dir/$dmn_name/htdocs", $sysUser, $sysGroup, 0775
 		);
 		return $rs if ($rs != 0);
 
@@ -1698,7 +1698,7 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		($rs, $rdata) = store_file(
-			"$www_dir/$dmn_name/htdocs/index.html", $cfg, $sys_user, $sys_group,
+			"$www_dir/$dmn_name/htdocs/index.html", $cfg, $sysUser, $sysGroup,
 			0644
 		);
 		return $rs if ($rs != 0);
@@ -1710,7 +1710,7 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		$rs = setfmode(
-			"$www_dir/$dmn_name/htdocs/easyscp.css", $sys_user, $sys_group, 0644
+			"$www_dir/$dmn_name/htdocs/easyscp.css", $sysUser, $sysGroup, 0644
 		);
 		return $rs if ($rs != 0);
 
@@ -1721,7 +1721,7 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		$rs = setfmode(
-			"$www_dir/$dmn_name/htdocs/images", $sys_user, $sys_group, 0755
+			"$www_dir/$dmn_name/htdocs/images", $sysUser, $sysGroup, 0755
 		);
 		return $rs if ($rs != 0);
 
@@ -1734,8 +1734,8 @@ sub dmn_add_httpd_file_data {
 
 			$rs = setfmode(
 				"$www_dir/$dmn_name/htdocs/images/$_",
-				$sys_user,
-				$sys_group,
+				$sysUser,
+				$sysGroup,
 				0644
 			);
 			return $rs if ($rs != 0);
@@ -1819,7 +1819,7 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		($rs, $rdata) = store_file(
-			"$starter_dir/$dmn_name/php5/browscap.ini", $ini_tpl, $sys_user, $sys_group,
+			"$starter_dir/$dmn_name/php5/browscap.ini", $ini_tpl, $sysUser, $sysGroup,
 			0440
 		);
 		return $rs if ($rs != 0);
@@ -1843,7 +1843,7 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		($rs, $rdata) = store_file(
-			"$starter_dir/$dmn_name/php5/php.ini", $cfg, $sys_user, $sys_group,
+			"$starter_dir/$dmn_name/php5/php.ini", $cfg, $sysUser, $sysGroup,
 			0440
 		);
 		return $rs if ($rs != 0);
@@ -1869,8 +1869,8 @@ sub dmn_add_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		($rs, $rdata) = store_file(
-			"$starter_dir/$dmn_name/php5-fcgi-starter", $cfg, $sys_user,
-			$sys_group, 0550
+			"$starter_dir/$dmn_name/php5-fcgi-starter", $cfg, $sysUser,
+			$sysGroup, 0550
 		);
 		return $rs if ($rs != 0);
 	}
@@ -1912,19 +1912,19 @@ sub dmn_change_httpd_file_data {
 	my $httpd_gid = $main::cfg{'APACHE_GROUP'};
 	my ($sys_uid, $sys_gid) = get_dmn_suexec_user($dmn_id);
 	my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
-	my $sys_user = "$suexec_user_pref$sys_uid";
-	my $sys_group = "$suexec_user_pref$sys_gid";
+	my $sysUser = "$suexec_user_pref$sys_uid";
+	my $sysGroup = "$suexec_user_pref$sys_gid";
 
 	# Starter-Scripts for FastCGI
 
 	if(! -d "$starter_dir/$dmn_name") {
-		$rs = makepath("$starter_dir/$dmn_name", $sys_user, $sys_group, 0755);
+		$rs = makepath("$starter_dir/$dmn_name", $sysUser, $sysGroup, 0755);
 		return $rs if ($rs != 0);
 	}
 
 	if (! -d "$starter_dir/$dmn_name/php5") {
 		$rs = makepath(
-			"$starter_dir/$dmn_name/php5", $sys_user, $sys_group, 0550
+			"$starter_dir/$dmn_name/php5", $sysUser, $sysGroup, 0550
 		);
 		return $rs if ($rs != 0);
 	}
@@ -1936,7 +1936,7 @@ sub dmn_change_httpd_file_data {
 
 		if (! -d "$www_dir/$dmn_name/statistics") {
 			$rs = makepath(
-				"$www_dir/$dmn_name/statistics", $sys_user, $sys_group, 0555
+				"$www_dir/$dmn_name/statistics", $sysUser, $sysGroup, 0555
 			);
 			return $rs if ($rs != 0);
 		}
@@ -1945,7 +1945,7 @@ sub dmn_change_httpd_file_data {
 	# Domain WWW directories
 
 	if(! -d "$www_dir/$dmn_name/phptmp") {
-		$rs = makepath("$www_dir/$dmn_name/phptmp", $sys_user, $sys_group, 0770);
+		$rs = makepath("$www_dir/$dmn_name/phptmp", $sysUser, $sysGroup, 0770);
 		return $rs if ($rs != 0);
 	}
 
@@ -1957,13 +1957,13 @@ sub dmn_change_httpd_file_data {
 	# Default error pages
 
 	if(! -d "$www_dir/$dmn_name/errors") {
-		$rs = makepath("$www_dir/$dmn_name/errors", $sys_user, $sys_group, 0775);
+		$rs = makepath("$www_dir/$dmn_name/errors", $sysUser, $sysGroup, 0775);
 		return $rs if ($rs != 0);
 	}
 
 	if(! -d "$www_dir/$dmn_name/errors/inc") {
 		$rs = makepath(
-			"$www_dir/$dmn_name/errors/inc", $sys_user, $sys_group, 0775
+			"$www_dir/$dmn_name/errors/inc", $sysUser, $sysGroup, 0775
 		);
 		return $rs if ($rs != 0);
 	}
@@ -1983,7 +1983,7 @@ sub dmn_change_httpd_file_data {
 			return $rs if ($rs != 0);
 
 			$rs = setfmode(
-				"$www_dir/$dmn_name/errors/$key.html", $sys_user, $sys_group,
+				"$www_dir/$dmn_name/errors/$key.html", $sysUser, $sysGroup,
 				0644
 			);
 			return $rs if ($rs != 0);
@@ -2004,7 +2004,7 @@ sub dmn_change_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		$rs = setfmode(
-			"$www_dir/$dmn_name/errors/inc/$_", $sys_user, $sys_group, 0644
+			"$www_dir/$dmn_name/errors/inc/$_", $sysUser, $sysGroup, 0644
 		);
 		return $rs if ($rs != 0);
 	}
@@ -2116,7 +2116,7 @@ sub dmn_change_httpd_file_data {
 	return $rs if ($rs != 0);
 
 	($rs, $rdata) = store_file(
-		"$starter_dir/$dmn_name/php5/php.ini", $cfg, $sys_user, $sys_group,
+		"$starter_dir/$dmn_name/php5/php.ini", $cfg, $sysUser, $sysGroup,
 		0440
 	);
 	return $rs if ($rs != 0);
@@ -2141,8 +2141,8 @@ sub dmn_change_httpd_file_data {
 		return $rs if ($rs != 0);
 
 		($rs, $rdata) = store_file(
-			"$starter_dir/$dmn_name/php5-fcgi-starter", $cfg, $sys_user,
-			$sys_group, 0550
+			"$starter_dir/$dmn_name/php5-fcgi-starter", $cfg, $sysUser,
+			$sysGroup, 0550
 		);
 		return $rs if ($rs != 0);
 	}

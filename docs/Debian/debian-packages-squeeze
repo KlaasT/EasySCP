@@ -50,6 +50,7 @@ libterm-readpassword-perl
 libhtml-parser-perl
 libtimedate-perl
 locales
+locales-all
 lsb-release
 lynx
 lzma
@@ -65,6 +66,7 @@ php5-adodb
 php5-cgi
 php5-cli
 php5-gd
+php5-gettext
 php5-mcrypt
 php5-mysql
 policyd-weight

@@ -2140,16 +2140,16 @@ sub add_dmn_suexec_user {
 		return $rs if ($rs != 0);
 
 		my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
-		my $sys_user = "$suexec_user_pref$sys_uid";
-		my $sys_group = "$suexec_user_pref$sys_gid";
+		my $sysUser = "$suexec_user_pref$sys_uid";
+		my $sysGroup = "$suexec_user_pref$sys_gid";
 		my $cmd = undef;
 
 		# group data - BSD has another format:
 		# BSD/NUX Command
 		if ($main::cfg{'ROOT_GROUP'} eq 'wheel') {
-			$cmd = "$main::cfg{'CMD_GROUPADD'} $sys_group -g $sys_gid";
+			$cmd = "$main::cfg{'CMD_GROUPADD'} $sysGroup -g $sys_gid";
 		} else {
-			$cmd = "$main::cfg{'CMD_GROUPADD'} -g $sys_gid $sys_group";
+			$cmd = "$main::cfg{'CMD_GROUPADD'} -g $sys_gid $sysGroup";
 		}
 
 		$rs = sys_command($cmd);
@@ -2163,11 +2163,11 @@ sub add_dmn_suexec_user {
 		# BSD has another format:
 		# BSD/NUX Command
 		if ($main::cfg{'ROOT_GROUP'} eq 'wheel') {
-			$cmd = "$main::cfg{'CMD_USERADD'} $sys_user -c virtual-user -d " .
-				"$homedir -g $sys_group -s /bin/false -u $sys_uid";
+			$cmd = "$main::cfg{'CMD_USERADD'} $sysUser -c virtual-user -d " .
+				"$homedir -g $sysGroup -s /bin/false -u $sys_uid";
 		} else {
 			$cmd = "$main::cfg{'CMD_USERADD'} -c virtual-user -d $homedir -g " .
-				"$sys_group -s /bin/false -u $sys_uid $sys_user";
+				"$sysGroup -s /bin/false -u $sys_uid $sysUser";
 		}
 
 		$rs = sys_command($cmd);
@@ -2226,29 +2226,29 @@ sub del_dmn_suexec_user {
 	my $dmn_id = @$dmn_data[0];
 	my ($sys_uid, $sys_gid) = get_dmn_suexec_user($dmn_id);
 	my $suexec_user_pref = $main::cfg{'APACHE_SUEXEC_USER_PREF'};
-	my $sys_user = "$suexec_user_pref$sys_uid";
-	my $sys_group = "$suexec_user_pref$sys_gid";
+	my $sysUser = "$suexec_user_pref$sys_uid";
+	my $sysGroup = "$suexec_user_pref$sys_gid";
 	my ($dmn_uid, $dmn_gid) = (@$dmn_data[3], @$dmn_data[2]);
 	my ($rs, $rdata, $sql, $cmd) = (undef, undef, undef, undef);
 
 	if ($dmn_uid != 0 && $dmn_gid != 0) {
 		my @udata = ();
 		my @gdata = ();
-		@udata = getpwnam($sys_user);
+		@udata = getpwnam($sysUser);
 
 		# we must remove it from the system
 		if (scalar(@udata) != 0) {
-			$cmd = "$main::cfg{'CMD_USERDEL'} $sys_user";
+			$cmd = "$main::cfg{'CMD_USERDEL'} $sysUser";
 
 			$rs = sys_command($cmd);
 			return $rs if ($rs != 0);
 		}
 
-		@gdata = getgrnam($sys_group);
+		@gdata = getgrnam($sysGroup);
 
 		# we have not this one group data;
 		if (scalar(@gdata) != 0) {
-			$cmd = "$main::cfg{'CMD_GROUPDEL'} $sys_group";
+			$cmd = "$main::cfg{'CMD_GROUPDEL'} $sysGroup";
 
 			$rs = sys_command($cmd);
 			return $rs if ($rs != 0);
