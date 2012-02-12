@@ -34,15 +34,15 @@
 # Note: do not modify any of these vars here, use /etc/default/$NAME instead
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-DESC="easySCP Network Traffic Logger"
+DESC="EasySCP Network Traffic Logger"
 NAME=easyscp_network
 LFILE=/var/run/$NAME
 IPTABLES=/sbin/iptables
-LOGDIR=/var/log/easyscp
-LOGFILE=${LOGDIR}/${NAME}.log
 ENGINEPATH="/var/www/easyscp/engine"
 ENGINETOOLSPATH=${ENGINEPATH}"/tools"
 NETWORKCARDMANAGER="easyscp-net-interfaces-mngr"
+LOGDIR=/var/log/easyscp
+LOGFILE=${LOGDIR}/${NAME}.log
 
 START=1
 
@@ -82,14 +82,14 @@ add_rules() {
 
 	# Services from matrix basically receiving data
 	for PORT in $SERVICES; do
-		${IPTABLES} -I EASYSCP_INPUT  -p tcp --dport "$PORT" -j ACCEPT 2>> "$LOGFILE"
-		${IPTABLES} -I EASYSCP_OUTPUT -p tcp --sport "$PORT" -j ACCEPT 2>> "$LOGFILE"
+		${IPTABLES} -I EASYSCP_INPUT  -p tcp --dport "$PORT" 2>> "$LOGFILE"
+		${IPTABLES} -I EASYSCP_OUTPUT -p tcp --sport "$PORT" 2>> "$LOGFILE"
 	done
 
 	# Services from matrix basically sending data
 	for PORT in $SERVICES_OUT; do
-		${IPTABLES} -I EASYSCP_INPUT  -p tcp --sport "$PORT" -j ACCEPT 2>> "$LOGFILE"
-		${IPTABLES} -I EASYSCP_OUTPUT -p tcp --dport "$PORT" -j ACCEPT 2>> "$LOGFILE"
+		${IPTABLES} -I EASYSCP_INPUT  -p tcp --sport "$PORT" 2>> "$LOGFILE"
+		${IPTABLES} -I EASYSCP_OUTPUT -p tcp --dport "$PORT" 2>> "$LOGFILE"
 	done
 
 	# Explicit return once done

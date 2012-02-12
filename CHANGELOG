@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-02-12 Markus Szywon
+	- Engine:
+		* Fixed: In some cases the traffic was not calculated correctly
+
 2012-01-30 Markus Szywon
 	- TOOLS:
 		* Updated Roundcube to version 0.7.1
