@@ -43,26 +43,29 @@ if (isset($_GET['month']) && isset($_GET['year'])) {
 	$year = date('Y');
 }
 
+gen_select_lists($tpl, $month, $year);
+generate_page($month, $year);
+
 // static page messages
 $tpl->assign(
 	array(
-		'TR_PAGE_TITLE' => tr('EasySCP - Admin/Server statistics'),
-		'TR_SERVER_STATISTICS' => tr('Server statistics'),
-		'TR_MONTH' => tr('Month'),
-		'TR_YEAR' => tr('Year'),
-		'TR_SHOW' => tr('Show'),
-		'TR_DAY' => tr('Day'),
-		'TR_WEB_IN' => tr('Web in'),
-		'TR_WEB_OUT' => tr('Web out'),
-		'TR_SMTP_IN' => tr('SMTP in'),
-		'TR_SMTP_OUT' => tr('SMTP out'),
-		'TR_POP_IN' => tr('POP3/IMAP in'),
-		'TR_POP_OUT' => tr('POP3/IMAP out'),
-		'TR_OTHER_IN' => tr('Other in'),
-		'TR_OTHER_OUT' => tr('Other out'),
-		'TR_ALL_IN' => tr('All in'),
-		'TR_ALL_OUT' => tr('All out'),
-		'TR_ALL' => tr('All')
+		'TR_PAGE_TITLE'			=> tr('EasySCP - Admin/Server statistics'),
+		'TR_SERVER_STATISTICS'	=> tr('Server statistics'),
+		'TR_MONTH'				=> tr('Month'),
+		'TR_YEAR'				=> tr('Year'),
+		'TR_SHOW'				=> tr('Show'),
+		'TR_DAY'				=> tr('Day'),
+		'TR_WEB_IN'				=> tr('Web in'),
+		'TR_WEB_OUT'			=> tr('Web out'),
+		'TR_SMTP_IN'			=> tr('SMTP in'),
+		'TR_SMTP_OUT'			=> tr('SMTP out'),
+		'TR_POP_IN'				=> tr('POP3/IMAP in'),
+		'TR_POP_OUT'			=> tr('POP3/IMAP out'),
+		'TR_OTHER_IN'			=> tr('Other in'),
+		'TR_OTHER_OUT'			=> tr('Other out'),
+		'TR_ALL_IN'				=> tr('All in'),
+		'TR_ALL_OUT'			=> tr('All out'),
+		'TR_ALL'				=> tr('All')
 	)
 );
 
@@ -70,8 +73,6 @@ gen_admin_mainmenu($tpl, 'admin/main_menu_statistics.tpl');
 gen_admin_menu($tpl, 'admin/menu_statistics.tpl');
 
 gen_page_message($tpl);
-gen_select_lists($tpl, $month, $year);
-generate_page($tpl);
 
 if ($cfg->DUMP_GUI_DEBUG) {
 	dump_gui_debug($tpl);
@@ -80,6 +81,7 @@ if ($cfg->DUMP_GUI_DEBUG) {
 $tpl->display($template);
 
 unset_messages();
+
 
 function get_server_trafic($from, $to) {
 	$sql = EasySCP_Registry::get('Db');
@@ -105,21 +107,28 @@ function get_server_trafic($from, $to) {
 	if ($rs->recordCount() == 0) {
 		return array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 	} else {
-		return array($rs->fields['swbin'], $rs->fields['swbout'],
-			$rs->fields['smbin'], $rs->fields['smbout'],
-			$rs->fields['spbin'], $rs->fields['spbout'],
+		return array(
+			$rs->fields['swbin'],
+			$rs->fields['swbout'],
+			$rs->fields['smbin'],
+			$rs->fields['smbout'],
+			$rs->fields['spbin'],
+			$rs->fields['spbout'],
 			$rs->fields['sbin'] - ($rs->fields['swbin'] + $rs->fields['smbin'] + $rs->fields['spbin']),
 			$rs->fields['sbout'] - ($rs->fields['swbout'] + $rs->fields['smbout'] + $rs->fields['spbout']),
-			$rs->fields['sbin'], $rs->fields['sbout']);
+			$rs->fields['sbin'],
+			$rs->fields['sbout']
+		);
 	}
 }
 
 /**
- * @param EasySCP_TemplateEngine $tpl
+ * @param int $month
+ * @param int $year
  */
-function generate_page($tpl) {
+function generate_page($month, $year) {
 
-	global $month, $year;
+	$tpl = EasySCP_TemplateEngine::getInstance();
 	$sql = EasySCP_Registry::get('Db');
 
 
@@ -156,7 +165,8 @@ function generate_page($tpl) {
 		$has_data = false;
 		// if ($rs->fields['cnt'] > 0) {
 		if ($rs->recordCount() > 0) {
-			list($web_in,
+			list(
+				$web_in,
 				$web_out,
 				$smtp_in,
 				$smtp_out,
@@ -165,28 +175,27 @@ function generate_page($tpl) {
 				$other_in,
 				$other_out,
 				$all_in,
-				$all_out) = get_server_trafic($ftm, $ltm);
+				$all_out
+			) = get_server_trafic($ftm, $ltm);
 
 			$has_data = true;
 
-			$tpl->append('ITEM_CLASS', ($i % 2 == 0) ? 'content' : 'content2');
-
 			$tpl->append(
 				array(
-					'DAY' => $i,
-					'YEAR' => $year,
-					'MONTH' => $month,
-					'WEB_IN' => sizeit($web_in),
-					'WEB_OUT' => sizeit($web_out),
-					'SMTP_IN' => sizeit($smtp_in),
-					'SMTP_OUT' => sizeit($smtp_out),
-					'POP_IN' => sizeit($pop_in),
-					'POP_OUT' => sizeit($pop_out),
-					'OTHER_IN' => sizeit($other_in),
-					'OTHER_OUT' => sizeit($other_out),
-					'ALL_IN' => sizeit($all_in),
-					'ALL_OUT' => sizeit($all_out),
-					'ALL' => sizeit($all_in + $all_out)
+					'DAY'		=> $i,
+					'YEAR'		=> $year,
+					'MONTH'		=> $month,
+					'WEB_IN'	=> sizeit($web_in),
+					'WEB_OUT'	=> sizeit($web_out),
+					'SMTP_IN'	=> sizeit($smtp_in),
+					'SMTP_OUT'	=> sizeit($smtp_out),
+					'POP_IN'	=> sizeit($pop_in),
+					'POP_OUT'	=> sizeit($pop_out),
+					'OTHER_IN'	=> sizeit($other_in),
+					'OTHER_OUT'	=> sizeit($other_out),
+					'ALL_IN'	=> sizeit($all_in),
+					'ALL_OUT'	=> sizeit($all_out),
+					'ALL'		=> sizeit($all_in + $all_out)
 				)
 			);
 			$all[0] = $all[0] + $web_in;
@@ -209,17 +218,17 @@ function generate_page($tpl) {
 
 	$tpl->assign(
 		array(
-			'WEB_IN_ALL' => sizeit($all[0]),
-			'WEB_OUT_ALL' => sizeit($all[1]),
-			'SMTP_IN_ALL' => sizeit($all[2]),
-			'SMTP_OUT_ALL' => sizeit($all[3]),
-			'POP_IN_ALL' => sizeit($all[4]),
-			'POP_OUT_ALL' => sizeit($all[5]),
-			'OTHER_IN_ALL' => sizeit($all_other_in),
-			'OTHER_OUT_ALL' => sizeit($all_other_out),
-			'ALL_IN_ALL' => sizeit($all[6]),
-			'ALL_OUT_ALL' => sizeit($all[7]),
-			'ALL_ALL' => sizeit($all[6] + $all[7])
+			'WEB_IN_ALL'	=> sizeit($all[0]),
+			'WEB_OUT_ALL'	=> sizeit($all[1]),
+			'SMTP_IN_ALL'	=> sizeit($all[2]),
+			'SMTP_OUT_ALL'	=> sizeit($all[3]),
+			'POP_IN_ALL'	=> sizeit($all[4]),
+			'POP_OUT_ALL'	=> sizeit($all[5]),
+			'OTHER_IN_ALL'	=> sizeit($all_other_in),
+			'OTHER_OUT_ALL'	=> sizeit($all_other_out),
+			'ALL_IN_ALL'	=> sizeit($all[6]),
+			'ALL_OUT_ALL'	=> sizeit($all[7]),
+			'ALL_ALL'		=> sizeit($all[6] + $all[7])
 		)
 	);
 }

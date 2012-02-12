@@ -36,11 +36,8 @@ $html_selected = $cfg->HTML_SELECTED;
 if (isset($_POST['uaction']) && $_POST['uaction'] == 'apply') {
     $values = update_ssl_data();
 }
-else {
-    $values = EasySCP_Registry::get('Db_Config');
-}
 
-switch ($values['SSL_STATUS']) {
+switch ($cfg->SSL_STATUS) {
     case 0:
         $tpl->assign('SSL_SELECTED_DISABLED', $html_selected);
         $tpl->assign('SSL_SELECTED_SSLONLY', '');
@@ -56,11 +53,12 @@ switch ($values['SSL_STATUS']) {
         $tpl->assign('SSL_SELECTED_SSLONLY', '');
         $tpl->assign('SSL_SELECTED_BOTH', $html_selected);
 } // end switch
+
 // static page messages
 $tpl->assign(
         array(
             'TR_PAGE_TITLE'             => tr('EasySCP - Virtual Hosting Control System'),
-            'TR_SSL_CONFIG_TITLE'       => tr('EasySCP SSL config'),
+            'TR_SSL_TITLE'				=> tr('Manage SSL certificate'),
             'TR_SSL_CERTIFICATE'        => tr('SSL certificate'),
             'TR_SSL_KEY'                => tr('SSL key'),
             'TR_SSL_ENABLED'            => tr('SSL enabled'),
@@ -69,9 +67,9 @@ $tpl->assign(
             'TR_SSL_STATUS_SSLONLY'     => tr('SSL enabled'),
             'TR_SSL_STATUS_BOTH'        => tr('both'),
             'TR_MESSAGE'                => tr('Message'),
-            'SSL_KEY'                   => $values['SSL_KEY'],
-            'SSL_CERTIFICATE'           => $values['SSL_CERT'],
-            'SSL_STATUS'                => $values['SSL_STATUS']
+            'SSL_KEY'                   => $cfg->SSL_KEY,
+            'SSL_CERTIFICATE'           => $cfg->SSL_CERT,
+            'SSL_STATUS'                => $cfg->SSL_STATUS
         )
 );
 
@@ -89,6 +87,10 @@ $tpl->display($template);
 unset_messages();
 
 function update_ssl_data() {
+
+	// Get a reference to the Config object
+	$cfg = EasySCP_Registry::get('Config');
+
     // Gets a reference to the EasySCP_ConfigHandler_Db instance
     $db_cfg = EasySCP_Registry::get('Db_Config');
     $db_cfg->resetQueriesCounter('update');
@@ -97,9 +99,11 @@ function update_ssl_data() {
     $sslcert=clean_input($_POST['ssl_cert']);
     $sslstatus=clean_input($_POST['ssl_status']);
     // update the ssl related values
-    $db_cfg->set('SSL_KEY', $sslkey);
-    $db_cfg->set('SSL_CERT', $sslcert);
-    $db_cfg->set('SSL_STATUS', $sslstatus);
+	$db_cfg->SSL_KEY = $sslkey;
+	$db_cfg->SSL_CERT = $sslcert;
+	$db_cfg->SSL_STATUS = $sslstatus;
+
+	$cfg->replaceWith($db_cfg);
 
     write_log(
             get_session('user_logged') . ": Updated SSL configuration!"

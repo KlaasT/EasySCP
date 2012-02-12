@@ -368,7 +368,6 @@ function check_user_permissions($tpl, $dmn_sqld_limit, $dmn_sqlu_limit, $dmn_php
 		$tpl->assign( array('PHP_SUPPORT' => tr('Yes') . ' / PHP ' . substr(PHP_VERSION, 0, strpos(PHP_VERSION, '-'))));
 	}
 
-
 	// check if CGI Support is available for this user
 	if ($dmn_cgi == 'yes') {
 		$tpl->assign( array('CGI_SUPPORT' => tr('Yes')));

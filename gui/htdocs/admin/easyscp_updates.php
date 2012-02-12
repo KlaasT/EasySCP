@@ -204,7 +204,7 @@ function get_migration_infos($tpl) {
 		if (!$oldDatabase) {
 			$tpl->assign(
 				array(
-					'MIGRATION_MESSAGE'	=> "Error: Unable to found the ispCP Database!",
+					'MIGRATION_MESSAGE'	=> tr('Error: Unable to found the ispCP Database!'),
 					'MIGRATION_MSG_TYPE'=> 'error'
 				)
 			);
@@ -217,7 +217,7 @@ function get_migration_infos($tpl) {
 		if (!file_exists($oldConfigFile)) {
 			$tpl->assign(
 				array(
-					'MIGRATION_MESSAGE'	=> "Error: Unable to open the configuration file `{$oldConfigFile}`!",
+					'MIGRATION_MESSAGE'	=> tr('Error: Unable to open the configuration file `%1$s`!', $oldConfigFile),
 					'MIGRATION_MSG_TYPE'=> 'error'
 				)
 			);
@@ -257,8 +257,8 @@ function get_migration_infos($tpl) {
 		$tpl->assign(
 			array(
 				'MIGRATION_AVAILABLE'	=> true,
-				'TR_MIGRATION_AVAILABLE'=> 'Available migrations',
-				'TR_EXECUTE_MIGRATION'	=> 'Execute migration',
+				'TR_MIGRATION_AVAILABLE'=> tr('Available migrations'),
+				'TR_EXECUTE_MIGRATION'	=> tr('Execute migration'),
 				'TR_MIGRATION_INFOS'	=> 'Migration from ispCP '.$oldConfig['Version'].' is available',
 				'MIGRATION_VERSION'		=> $oldConfig['Version'],
 				'MIGRATION_INFOS'		=> 'All existing data will be removed!'

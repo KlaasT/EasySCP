@@ -505,7 +505,6 @@ form table tbody td textarea {
 .main_menu .webtools:hover { background-image: url(../images/menu/webtools_a.png); }
 
 /* Left menu heading icons */
-.location .custom_link { background-image: url(../images/menu/custom_link.png); }
 .location .database { background-image: url(../images/menu/database.png); }
 .location .domains { background-image: url(../images/menu/domains.png); }
 .location .email { background-image: url(../images/menu/email.png); }
@@ -542,6 +541,7 @@ form table tbody td textarea {
 .main .purchasing { background-image: url(../images/content/table_icon_purchasing.png); }
 .main .serverstatus { background-image: url(../images/content/table_icon_serverstatus.png); }
 .main .settings { background-image: url(../images/content/table_icon_settings.png); }
+.main .ssl { background-image: url(../images/content/table_icon_ssl.png); }
 .main .sql { background-image: url(../images/content/table_icon_sql.png); }
 .main .stats { background-image: url(../images/content/table_icon_stats.png); }
 .main .support { background-image: url(../images/content/table_icon_support.png); }

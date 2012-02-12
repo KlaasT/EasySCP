@@ -45,7 +45,7 @@ textdomain("EasySCP");
  *
  * @param string $msgid string to translate
  * @param mixed $substitution Prevent the returned string from being replaced with html entities
- * @return Translated or original string
+ * @return string Translated or original string
  */
 function tr($msgid, $substitution = false) {
 
@@ -157,5 +157,32 @@ function replace_html($string) {
 	$string = preg_replace($pattern, $replacement, $string);
 
 	return $string;
+}
+
+/**
+ * Update the Users languages
+ */
+function update_user_language(){
+
+	$cfg = EasySCP_Registry::get('Config');
+	$sql = EasySCP_Registry::get('Db');
+
+	$user_id = $_SESSION['user_id'];
+	$user_lang = clean_input($_POST['def_language']);
+
+	$query = "
+		UPDATE
+			`user_gui_props`
+		SET
+			`lang` = ?
+		WHERE
+			`user_id` = ?
+	;";
+
+	exec_query($sql, $query, array($user_lang, $user_id));
+
+	unset($_SESSION['user_def_lang']);
+	$_SESSION['user_def_lang'] = $user_lang;
+	$cfg->USER_INITIAL_LANG = $user_lang;
 }
 ?>

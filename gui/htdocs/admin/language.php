@@ -26,7 +26,7 @@ require '../../include/easyscp-lib.php';
 check_login(__FILE__);
 
 if (isset($_POST['uaction']) && $_POST['uaction'] === 'save_lang') {
-	saveAdminLanguage();
+	update_user_language();
 }
 
 $cfg = EasySCP_Registry::get('Config');
@@ -69,28 +69,4 @@ if ($cfg->DUMP_GUI_DEBUG) {
 $tpl->display($template);
 
 unset_messages();
-
-function saveAdminLanguage(){
-
-	$cfg = EasySCP_Registry::get('Config');
-	$sql = EasySCP_Registry::get('Db');
-
-	$user_id = $_SESSION['user_id'];
-	$user_lang = $_POST['def_language'];
-
-	$query = "
-		UPDATE
-			`user_gui_props`
-		SET
-			`lang` = ?
-		WHERE
-			`user_id` = ?
-	;";
-
-	exec_query($sql, $query, array($user_lang, $user_id));
-
-	unset($_SESSION['user_def_lang']);
-	$_SESSION['user_def_lang'] = $user_lang;
-	$cfg->USER_INITIAL_LANG = $user_lang;
-}
 ?>

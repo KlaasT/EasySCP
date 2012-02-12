@@ -364,7 +364,6 @@ ul.menuLeft, ul.menuLeft ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	/* width: 297px; */
 }
 
 ul.menuLeft a {
@@ -377,14 +376,13 @@ ul.menuLeft li {
 }
 
 ul.menuLeft li a {
-	/* background: #333; */
 	color: #fff;
 	padding: 0.5em;
-	text-indent: 50px;
+	text-indent: 40px;
+	white-space: nowrap;
 }
 
 ul.menuLeft li a:hover {
-	/* background: #000; */
 	color: #5cbada;
 }
 
@@ -396,23 +394,17 @@ ul.menuLeft li a.icon_link {
 }
 
 ul.menuLeft li ul li a {
-	/* background: #ccc; */
-	/* background: transparent url(../images/background/bullet.png) no-repeat 20px center; */
 	background-image: url(../images/background/bullet.png);
 	background-position: 20px center;
 	background-repeat: no-repeat;
-	/* color: #000; */
 	padding-left: 10px;
 }
 
 ul.menuLeft li ul li a:hover {
-	/* background: #aaa; */
 	background-image: url(../images/background/bullet_hover.png);
 	background-position: 20px center;
 	background-repeat: no-repeat;
 	color: #5cbada;
-	/* border-left: 5px #000 solid; */
-	/* padding-left: 10px; */
 }
 
 /***********************************************************************************
@@ -599,6 +591,7 @@ ul.menuLeft li ul li a:hover {
 .main .purchasing { background-image: url(../images/content/table_icon_purchasing.png); }
 .main .serverstatus { background-image: url(../images/content/table_icon_serverstatus.png); }
 .main .settings { background-image: url(../images/content/table_icon_settings.png); }
+.main .ssl { background-image: url(../images/content/table_icon_ssl.png); }
 .main .sql { background-image: url(../images/content/table_icon_sql.png); }
 .main .stats { background-image: url(../images/content/table_icon_stats.png); }
 .main .support { background-image: url(../images/content/table_icon_support.png); }

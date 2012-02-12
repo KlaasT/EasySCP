@@ -37,24 +37,28 @@
 		<h2 class="general"><span>{$TR_TITLE_CUSTOM_MENUS}</span></h2>
 		{if isset($CONTENT)}
 		<table>
-			<tr>
-				<td><b>{$TR_MENU_NAME}</b></td>
-				<td><b>{$TR_LEVEL}</b></td>
-				<td><b>{$TR_ACTON}</b></td>
-			</tr>
-			{section name=i loop=$CONTENT}
-			<tr>
-				<td>
-					<a href="{$LINK[i]}" class="link"><strong>{$MENU_NAME[i]}</strong></a><br />
-					{$LINK[i]}
-				</td>
-				<td>{$LEVEL[i]}</td>
-				<td>
-					<a href="custom_menus.php?edit_id={$BUTTON_ID[i]}" title="{$TR_EDIT}" class="icon i_edit"></a>
-					<a href="custom_menus.php?delete_id={$BUTTON_ID[i]}" onclick="return action_delete('custom_menus.php?delete_id={$BUTTON_ID[i]}', '{$MENU_NAME2[i]}')" title="{$TR_DELETE}" class="icon i_delete"></a>
-				</td>
-			</tr>
-			{/section}
+			<thead>
+				<tr>
+					<th>{$TR_MENU_NAME}</th>
+					<th>{$TR_LEVEL}</th>
+					<th>{$TR_ACTON}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{section name=i loop=$CONTENT}
+				<tr>
+					<td>
+						<a href="{$LINK[i]}" class="link"><strong>{$MENU_NAME[i]}</strong></a><br />
+						{$LINK[i]}
+					</td>
+					<td>{$LEVEL[i]}</td>
+					<td>
+						<a href="custom_menus.php?edit_id={$BUTTON_ID[i]}" title="{$TR_EDIT}" class="icon i_edit"></a>
+						<a href="custom_menus.php?delete_id={$BUTTON_ID[i]}" onclick="return action_delete('custom_menus.php?delete_id={$BUTTON_ID[i]}', '{$MENU_NAME2[i]}')" title="{$TR_DELETE}" class="icon i_delete"></a>
+					</td>
+				</tr>
+				{/section}
+			</tbody>
 		</table>
 		{/if}
 		<br />

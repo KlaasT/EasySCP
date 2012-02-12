@@ -105,38 +105,38 @@ First, make sure you are logged in as root.
 
 	# cp -RLv /tmp/easyscp/* /
 
-9. Start MySQL, if it not already running:
+8. Start MySQL, if it not already running:
 
 	# rcmysql restart
 
-10. Change or create MySQL root password, remove anonymous users, disallow root
+9. Change or create MySQL root password, remove anonymous users, disallow root
 	login remotely, remove test database (and access to it), reload privilege
 	tables:
 
 	# mysql_secure_installation
 
-11. Maybe empty the folder /etc/skel - otherwise you'll have all the
+10. Maybe empty the folder /etc/skel - otherwise you'll have all the
 	files/folders in the home folders:
 
 	# cp -a /etc/skel /etc/skel.bkp
 	# rm -r /etc/skel && mkdir /etc/skel
 
-12. Now it's time to set up EasySCP. Change into the engine directory and start
+11. Now it's time to set up EasySCP. Change into the engine directory and start
 	the engine setup:
 
 	# cd /srv/www/easyscp/engine/setup
 	# perl easyscp-setup
 
-13. Restore /etc/skel:
+12. Restore /etc/skel:
 
 	# rm -r /etc/skel && mv /etc/skel.bkp /etc/skel
 
-14. Install EasySCP step-by-step
+13. Install EasySCP step-by-step
 
 	If you get no error, all went good ; if you get one, look at
 	http://www.easyscp.net to solve the problem.
 
-15. Clean the temporary folders:
+14. Clean the temporary folders:
 	# rm -Rf /tmp/easyscp
 
 ================================================================================
