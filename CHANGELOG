@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-02-15 Markus Szywon
+	- TOOLS:
+		* Updated phpMyAdmin to version 3.4.10
+
 2012-02-12 Markus Szywon
 	- Engine:
 		* Fixed: In some cases the traffic was not calculated correctly
