@@ -55,7 +55,7 @@ check_permissions($tpl);
 $tpl->assign(
 	array(
 		'TR_PAGE_TITLE'					=> tr('EasySCP - Client/Enable Mail Auto Responder'),
-		'TR_ENABLE_MAIL_AUTORESPONDER'	=> tr('Edit mail auto responder'),
+		'TR_EDIT_MAIL_AUTORESPONDER'	=> tr('Edit mail auto responder'),
 		'TR_ARSP_MESSAGE'				=> tr('Your message'),
 		'TR_ENABLE'						=> tr('Save'),
 		'TR_CANCEL'						=> tr('Cancel'),
