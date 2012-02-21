@@ -5,6 +5,7 @@ EasySCP 1.2.0 ChangeLog
 	- GUI:
 		* Updated Smarty to version 3.1.8
 		* Updated phpMyAdmin to version 3.4.10.1
+		* Updated: Multilingual support
 
 2012-02-15 Markus Szywon
 	- TOOLS:

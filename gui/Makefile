@@ -33,6 +33,7 @@ install:
 	cp -dR ./errordocs $(SYSTEM_GUI_ROOT)
 	cp -dR ./htdocs $(SYSTEM_GUI_ROOT)
 	cp -dR ./include $(SYSTEM_GUI_ROOT)
+	cp -dR ./locale $(SYSTEM_GUI_ROOT)
 	cp -dR ./phptmp $(SYSTEM_GUI_ROOT)
 	cp -dR ./themes $(SYSTEM_GUI_ROOT)
 	cp -dR ./tools $(SYSTEM_GUI_ROOT)

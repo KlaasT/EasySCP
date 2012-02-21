@@ -91,9 +91,11 @@ function tr($msgid, $substitution = false) {
  */
 function getLanguages() {
 	$languages = array(
-		'de_DE' => 'Deutsch (Deutschland) - German (Germany)',
+		'ca_ES' => 'Català - Catalan (Spain)',
+		'de_DE' => 'Deutsch - German (Germany)',
 		'en_GB' => 'English - English',
-		'fr_FR'	=> 'Français (France) - French (France)'
+		'fr_FR'	=> 'Français - French (France)',
+		'sv_SE'	=> 'Svenska - Swedish (Sweden)'
 	);
 	return $languages;
 }
