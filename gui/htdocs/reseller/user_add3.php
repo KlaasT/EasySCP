@@ -419,8 +419,8 @@ function add_user_data($reseller_id) {
 	);
 
 	// add user into user_gui_props => domain looser needs language and skin too :-)
-	$user_def_lang = $_SESSION['user_def_lang'];
-	$user_theme_color = $_SESSION['user_theme'];
+	$user_def_lang = $cfg->USER_INITIAL_LANG;
+	$user_theme_color = $cfg->USER_INITIAL_THEME;
 
 	$query = "
 		INSERT INTO `user_gui_props`

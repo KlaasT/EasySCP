@@ -698,28 +698,6 @@ sub setup_roundcube_database {
 }
 
 ################################################################################
-# Creating default language table
-#
-# @return int 0 on success, other on failure
-#
-sub setup_default_language_table {
-
-	push_el(\@main::el, 'setup_default_language_table()', 'Starting...');
-
-	# Converting to ASCII (Punycode)
-	my $dbHost = idn_to_ascii($main::db_host, 'utf-8');
-
-	my $rs = sys_command(
-		"$main::cfg{'CMD_MYSQL'} --host='$dbHost' --user='$main::db_user' " .
-		"--pass='$main::db_pwd' $main::db_name " .
-		"< $main::cfg{'CONF_DIR'}/database/languages.sql"
-	);
-	return $rs if ($rs != 0);
-
-	push_el(\@main::el, 'setup_default_language_table()', 'Ending...');
-}
-
-################################################################################
 # Setup EasySCP database default data
 #
 # Default data are:

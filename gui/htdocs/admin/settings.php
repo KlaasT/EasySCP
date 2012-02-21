@@ -172,7 +172,7 @@ $tpl->assign(
 	)
 );
 
-gen_def_language($tpl, $sql, $cfg);
+gen_def_language($cfg->USER_INITIAL_LANG);
 gen_def_theme();
 
 // Grab the value only once to improve performances

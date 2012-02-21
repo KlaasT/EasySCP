@@ -102,8 +102,10 @@ function getLanguages() {
 
 /**
  * Creates a list of all current installed languages
+ *
+ * @param string $lang_selected Defines the selected language
  */
-function gen_def_language() {
+function gen_def_language($lang_selected) {
 
 	$cfg = EasySCP_Registry::get('Config');
 	$tpl = EasySCP_TemplateEngine::getInstance();
@@ -114,7 +116,7 @@ function gen_def_language() {
 		$tpl->append(
 			array(
 				'LANG_VALUE'	=> $lang,
-				'LANG_SELECTED'	=> ($lang === $cfg->USER_INITIAL_LANG) ? $cfg->HTML_SELECTED : '',
+				'LANG_SELECTED'	=> ($lang === $lang_selected) ? $cfg->HTML_SELECTED : '',
 				'LANG_NAME'		=> tohtml($language_name)
 			)
 		);
@@ -185,6 +187,6 @@ function update_user_language(){
 
 	unset($_SESSION['user_def_lang']);
 	$_SESSION['user_def_lang'] = $user_lang;
-	$cfg->USER_INITIAL_LANG = $user_lang;
+	$cfg->USER_SELECTED_LANG = $user_lang;
 }
 ?>

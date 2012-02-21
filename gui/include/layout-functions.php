@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id'])){
 
 
 		if ($user_def_lang != '') {
-			$cfg->USER_INITIAL_LANG = $user_def_lang;
+			$cfg->USER_SELECTED_LANG = $user_def_lang;
 			$_SESSION['user_def_lang'] = $user_def_lang;
 		} else {
 			$_SESSION['user_def_lang'] = $cfg->USER_INITIAL_LANG;
@@ -46,7 +46,7 @@ if (isset($_SESSION['user_id'])){
 			list($user_def_lang, $user_def_layout) = get_user_gui_props($_SESSION['logged_from_id']);
 
 			if ($user_def_lang != '') {
-				$cfg->USER_INITIAL_LANG = $user_def_lang;
+				$cfg->USER_SELECTED_LANG = $user_def_lang;
 				$_SESSION['user_def_lang'] = $user_def_lang;
 			} else {
 				$_SESSION['user_def_lang'] = $cfg->USER_INITIAL_LANG;
@@ -60,7 +60,7 @@ if (isset($_SESSION['user_id'])){
 			}
 		} else {
 			if (isset($_SESSION['user_def_lang']) && $_SESSION['user_def_lang'] =! '') {
-				$cfg->USER_INITIAL_LANG = $_SESSION['user_def_lang'];
+				$cfg->USER_SELECTED_LANG = $_SESSION['user_def_lang'];
 			}
 
 			if (isset($_SESSION['user_theme']) && $_SESSION['user_theme'] =! '') {

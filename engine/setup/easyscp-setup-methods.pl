@@ -3530,7 +3530,6 @@ sub setup_services_cfg {
 			[\&setup_system_dirs, 'EasySCP directories:'],
 			[\&setup_config, 'EasySCP main configuration file:'],
 			[\&setup_easyscp_database, 'EasySCP database:'],
-			[\&setup_default_language_table, 'EasySCP default language table:'],
 			[\&setup_default_sql_data, 'EasySCP default SQL data:'],
 			[\&setup_hosts, 'EasySCP system hosts file:'],
 			[\&setup_pma_database, 'EasySCP create phpMyAdmin database:'],

@@ -277,8 +277,8 @@ function add_reseller($tpl, $sql) {
 
 			write_log("$user_logged: add reseller: $username");
 
-			$user_def_lang = $_SESSION['user_def_lang'];
-			$user_theme_color = $_SESSION['user_theme'];
+			$user_def_lang = $cfg->USER_INITIAL_LANG;
+			$user_theme_color = $cfg->USER_INITIAL_THEME;
 
 			$query = "
 				INSERT INTO `user_gui_props`

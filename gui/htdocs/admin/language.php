@@ -41,7 +41,7 @@ if (isset($_POST['uaction']) && $_POST['uaction'] === 'save_lang') {
 	);
 }
 
-gen_def_language();
+gen_def_language($cfg->USER_SELECTED_LANG);
 
 // static page messages.
 $tpl->assign(

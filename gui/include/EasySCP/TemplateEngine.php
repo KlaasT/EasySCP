@@ -129,7 +129,13 @@ class EasySCP_TemplateEngine {
 		$cfg = EasySCP_Registry::get('Config');
 
 		// get current Language
-		$setLocale = $cfg->USER_INITIAL_LANG . '.UTF8';
+		if (isset($cfg->USER_SELECTED_LANG) && $cfg->USER_SELECTED_LANG != ''){
+			$setLocale = $cfg->USER_SELECTED_LANG . '.UTF8';
+		} elseif (isset($cfg->USER_INITIAL_LANG) && $cfg->USER_INITIAL_LANG != ''){
+			$setLocale = $cfg->USER_INITIAL_LANG . '.UTF8';
+		} else {
+			$setLocale = 'en_GB.UTF8';
+		}
 
 		// Set language for translation
 		setlocale(LC_MESSAGES, $setLocale);
