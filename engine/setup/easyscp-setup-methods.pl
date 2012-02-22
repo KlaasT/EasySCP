@@ -2160,7 +2160,7 @@ sub setup_mta {
 
 	# Installing the new file in the production dir
 	$rs = sys_command(
-		"$main::cfg{'CMD_CP'} -pf $cfgDir/master.cf " .
+		"$main::cfg{'CMD_CP'} -pf $wrkDir/master.cf " .
 		"$main::cfg{'POSTFIX_MASTER_CONF_FILE'}"
 	);
 	return $rs if ($rs != 0);

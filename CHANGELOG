@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-02-22 Markus Szywon
+	- Setup:
+		* Fixed: Wrong postfix config files was installed after setup
+
 2012-02-21 Markus Szywon
 	- GUI:
 		* Updated Smarty to version 3.1.8
