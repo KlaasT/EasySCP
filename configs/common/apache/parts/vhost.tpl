@@ -5,7 +5,7 @@
     </IfModule>
 
     ServerAdmin     webmaster@{$DOMAIN_NAME}
-    DocumentRoot    {WWW_DIR}/{$DOMAIN_NAME}/htdocs
+    DocumentRoot    {$WWW_DIR}/{$DOMAIN_NAME}/htdocs
 
     ServerName      {$DOMAIN_NAME}
     ServerAlias     www.{$DOMAIN_NAME} {$DOMAIN_NAME} {$DOMAIN_UID}.{$BASE_SERVER_VHOST}

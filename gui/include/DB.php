@@ -59,11 +59,7 @@ class DB extends DB_Config {
 				);
 			}
 			catch(PDOException $e){
-				echo $e->getMessage();
-				echo '<br />';
-				echo var_dump($e);
-				// echo PDO::errorCode();
-				// echo PDO::errorInfo();
+				throw new Exception($e->getMessage());
 			}
 		}
 		return self::$connectid;
@@ -83,15 +79,20 @@ class DB extends DB_Config {
 	/**
 	 * Ausführen des vorbereiteten SQL Query mit optionalen Parametern/Daten.
 	 *
+	 * @param object|string $stmt Ein Prepared Statement für den Query. Wird keines übergeben wird das gespeicherte verwendet.
 	 * @param array $sql_param Eine Array von Parametern/Daten für den Query.
 	 * @param bool $single Gibt an ob bei erfolg nur der erste Datensatz zurückgeliefert werden soll.
 	 * @return Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welches dann per fetch()/fetch_all() abgerufen werden kann.
 	 *
 	 * Die Anzahl der zurückgegebenen Zeilen kann mittels "Object->rowCount()" ermittelt werden.
 	 */
-	static public function execute($sql_param, $single = false){
+	static public function execute($stmt = '', $sql_param, $single = false){
 		try {
-			self::$stmt->execute($sql_param);
+			if ($stmt == ''){
+				self::$stmt->execute($sql_param);
+			} else {
+				$stmt->execute($sql_param);
+			}
 			if ($single){
 				return(self::$stmt->fetch());
 			} else {
@@ -100,9 +101,7 @@ class DB extends DB_Config {
 		}
 			
 		catch(PDOException $e) {
-			echo $e->getMessage();
-			// echo PDO::errorCode();
-			// echo PDO::errorInfo();
+			throw new Exception($e->getMessage());
 		}
 		return false;
 	}
@@ -130,7 +129,7 @@ class DB extends DB_Config {
 		}
 			
 		catch(PDOException $e) {
-			echo $e->getMessage();
+			throw new Exception($e->getMessage());
 		}
 		return false;
 	}
@@ -159,7 +158,7 @@ class DB extends DB_Config {
 		}
 
 		catch(PDOException $e) {
-			echo $e->getMessage();
+			throw new Exception($e->getMessage());
 		}
 		return false;
 	}
@@ -209,7 +208,7 @@ class DB extends DB_Config {
 			// Show string
 			return trim($decrypted);
 		} else {
-			echo 'Error: PHP extension "mcrypt" not loaded!';
+			throw new Exception('Error: PHP extension "mcrypt" not loaded!');
 		}
 	}
 
@@ -237,7 +236,7 @@ class DB extends DB_Config {
 			return trim($text);
 			// return trim($encrypted);
 		} else {
-			echo 'ERROR: PHP extension "mcrypt" not loaded!';
+			throw new Exception('Error: PHP extension "mcrypt" not loaded!');
 		}
 	}
 }

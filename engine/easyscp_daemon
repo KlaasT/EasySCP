@@ -1,0 +1,162 @@
+#!/usr/bin/php -q
+
+<?php
+
+// Set the ip and port we will listen on. '0' = all IPs/Interfaces
+$MyAddress = '127.0.0.1';
+$MyPort = 9876;
+
+// Allowed arguments & their defaults
+$runmode = array(
+    'help' => false,
+);
+ 
+// Scan command line attributes for allowed arguments
+foreach ($argv as $k=>$arg) {
+    if (substr($arg, 0, 2) == '--' && isset($runmode[substr($arg, 2)])) {
+        $runmode[substr($arg, 2)] = true;
+    }
+}
+ 
+// Help mode. Shows allowed argumentents and quit directly
+if ($runmode['help'] == true) {
+    echo 'Usage: '.$argv[0].' [runmode]' . "\n";
+    echo 'Available runmodes:' . "\n";
+    foreach ($runmode as $runmod=>$val) {
+        echo ' --'.$runmod . "\n";
+    }
+    die();
+}
+ 
+error_reporting(E_ALL);
+require_once(dirname(__FILE__).'/../gui/include/easyscp-lib.php');
+require_once(dirname(__FILE__).'/daemon/extlibs/Daemon.php');
+require_once(dirname(__FILE__).'/daemon/SocketHandler.php');
+require_once(dirname(__FILE__).'/daemon/Maps.php');
+
+// $cfg = EasySCP_Registry::get('Config');
+// $sql = EasySCP_Registry::get('Db');
+$Socket = new SocketHandler();
+ 
+// Setup
+$options = array(
+    'appName' => 'easyscp_daemon',
+    'appDir' => dirname(__FILE__),
+    'appDescription' => 'Daemon for EasySCP',
+    'authorName' => 'EasySCP Team',
+    'authorEmail' => 'team@easyscp.net',
+    'sysMaxExecutionTime' => '0',
+    'sysMaxInputTime' => '0',
+    'sysMemoryLimit' => '1024M',
+    'appRunAsGID' => 0, // Maybe this should be changed later
+    'appRunAsUID' => 0, // Maybe this should be changed later
+    'logLocation' => '/var/log/easyscp/easyscp_daemon.log',
+);
+ 
+System_Daemon::setOptions($options);
+System_Daemon::start();
+
+try {
+	$Socket->Create(AF_INET, SOCK_STREAM, 0);
+	if(!$Socket->Bind($MyAddress, $MyPort)){
+		throw new Exception('Could not bind to socket with Port ' . $MyPort . ' listening on Address '.$MyAddress, 42);
+	}
+	if(!$Socket->Listen()){
+		throw new Exception('Could not listen on Port '.$MyPort.' with Address '.$MyAddress);
+	}
+	$Socket->Block(false);
+	$runningOkay = true;
+}
+catch(ErrorException $e){
+	echo $e->getMessage() . "\n";
+	$runningOkay = false;
+}
+catch(Exception $e){
+	echo $e->getMessage() . "\n";
+	$runningOkay = false;
+}
+
+// $tpl->caching = 0;
+// $tpl->setTemplateDir($cfg->CONF_DIR."/tpl/");
+// $tpl->setCompileDir("/tmp/");
+// $tpl->setCacheDir("/tmp/");
+
+while (!System_Daemon::isDying() && $runningOkay) {
+		
+	$runningOkay = true;
+	
+	if ($Client = $Socket->Accept())
+	{
+		System_Daemon::info('Client connected on Port '.$MyPort.'.');
+		// $Socket->Write("End with .\n".$StatusMap['100']."\n");
+		$Socket->Write("End with .\n");
+		
+		while ($Input = $Socket->Read())
+		{
+			$Input = trim($Input);
+			if ($Input != ''){
+				System_Daemon::info('Input = ' . $Input);
+			
+				switch ($Input) {
+					case 'legacy':
+						System_Daemon::info('Running classic Request Manager subprocess.');
+
+						try {
+							exec('perl ' . dirname(__FILE__) . '/easyscp-rqst-mngr', $output, $error);
+						}
+						catch(Exception $e){
+							System_Daemon::info($e->getMessage());
+						}
+
+						System_Daemon::info('Closing connection.');
+						$Socket->CloseClient(900);
+
+						break;
+					
+					case '.':
+
+						System_Daemon::info('Closing connection.');
+						$Socket->CloseClient(900);
+
+						break;
+					
+					default:
+						$Input = explode(" ", $Input, 3);
+
+						if ( $StatusMap[$Input[0]] == $Input[1] && file_exists(dirname(__FILE__). '/daemon/' . $ProcedureMap[$Input[0]] . '.php'))
+						{
+							try {
+								require_once(dirname(__FILE__) . '/daemon/' . $ProcedureMap[$Input[0]] . '.php');
+								// System_Daemon::info('Running '.$Input[0].' '.$Input[1].' subprocess.');
+								System_Daemon::info('Running ' . $ProcedureMap[$Input[0]] . ' subprocess.');
+								// $Subprocess = new $ProcedureMap[$Input[0]]();
+								// if ($Subprocess->execute($Input[2]))
+								if ($ProcedureMap[$Input[0]]($Input[2]))
+								{
+									// System_Daemon::info('Finished '.$Input[0].' '.$Input[1].' subprocess.');
+									System_Daemon::info('Finished ' . $ProcedureMap[$Input[0]] . ' subprocess.');
+								}
+							}
+							catch(Exception $e){
+								System_Daemon::info($e->getMessage());
+							}
+						}
+						else {
+							System_Daemon::info('Could not find '.$Input[0].' '.$Input[1].' subprocess. Exiting.');
+							// $Socket->CloseClient(500);
+						}
+
+						System_Daemon::info('Closing connection.');
+						$Socket->CloseClient(900);
+				}
+			}
+		}
+	}
+	
+	System_Daemon::iterate(2);
+}
+$Socket->Close(900);
+System_Daemon::info('Shutting down.');
+// Shut down the daemon nicely
+System_Daemon::stop();
+?>
