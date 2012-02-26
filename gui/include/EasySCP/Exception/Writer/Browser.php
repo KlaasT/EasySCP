@@ -145,7 +145,7 @@ class EasySCP_Exception_Writer_Browser extends EasySCP_Exception_Writer {
 		if (function_exists('tr')) {
 			$this->EasySCP_TemplateEngine->assign(
 				array(
-					'TR_PAGE_TITLE'		=> tr('ispCP Error'),
+					'TR_PAGE_TITLE'		=> tr('EasySCP Error'),
 					'THEME_CHARSET'		=> tr('encoding'),
 					'TR_BACK'			=> tr('Back'),
 					'TR_ERROR_MESSAGE'	=> tr('Error Message'),
@@ -155,7 +155,7 @@ class EasySCP_Exception_Writer_Browser extends EasySCP_Exception_Writer {
 		} else {
 			$this->EasySCP_TemplateEngine->assign(
 				array(
-					'TR_PAGE_TITLE'		=> 'ispCP Error',
+					'TR_PAGE_TITLE'		=> 'EasySCP Error',
 					'THEME_CHARSET'		=> 'UTF-8',
 					'TR_BACK'			=> 'Back',
 					'TR_ERROR_MESSAGE'	=> 'Error Message',

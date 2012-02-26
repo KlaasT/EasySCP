@@ -32,15 +32,9 @@ install:
 	$(SYSTEM_MAKE_DIRS) $(ROOT_APACHE_CONF)/mods-available
 	$(SYSTEM_MAKE_DIRS) $(ROOT_APACHE_CONF)/easyscp
 
-	cp ./httpd.conf $(SYSTEM_CONF)/apache
 	cp ./00_master.conf $(SYSTEM_CONF)/apache
 	cp ./01_awstats.conf $(SYSTEM_CONF)/apache
 
-	cp -R ./backup $(SYSTEM_CONF)/apache
-	cp -R ./parts $(SYSTEM_CONF)/apache
-	cp -R ./working $(SYSTEM_CONF)/apache
-
-	cp ./httpd.conf $(SYSTEM_CONF)/apache/parts/easyscp_base.tpl
 	cp ./fcgid.conf $(SYSTEM_CONF)/apache/fcgid_easyscp.conf
 
 uninstall:

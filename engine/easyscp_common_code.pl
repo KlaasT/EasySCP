@@ -127,8 +127,10 @@ if ($main::db_pass_key eq '{KEY}' || $main::db_pass_iv eq '{IV}') {
 	 "http://www.easyscp,net\n";
 
 	map {s/'/\\'/g, chop}
-		my $db_pass_key = generateRandomChars(32, ''),
-		my $db_pass_iv = generateRandomChars(8, '');
+		#my $db_pass_key = generateRandomChars(32, ''),
+		my $db_pass_key = generateRandomPass(32),
+		#my $db_pass_iv = generateRandomChars(8, '');
+		my $db_pass_iv = generateRandomPass(8);
 
 	$main::db_pass_key = $db_pass_key;
 	$main::db_pass_iv = $db_pass_iv;

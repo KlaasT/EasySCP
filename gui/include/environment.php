@@ -62,7 +62,7 @@ $config->HTML_READONLY = ' readonly="readonly"';
 $config->HTML_SELECTED = ' selected="selected"';
 
 // Standard Language (if not set)
-$config->USER_INITIAL_LANG = 'en_EN';
+$config->USER_INITIAL_LANG = 'en_GB';
 
 // variable for development edition: show all php variables beyond page content
 $config->DUMP_GUI_DEBUG = false;

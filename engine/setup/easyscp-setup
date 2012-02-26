@@ -108,8 +108,7 @@ sub welcome_note {
 # In order:
 #  Host Questions, SQL Questions, EasySCP ftp SQL user questions,
 #  PMA control user questions, Admin questions, Configuration questions,
-#  FastCGI-Version questions, PHP Timzeone question, Awstats question,
-#  Awstats mode question
+#  PHP Timzeone question, Awstats question, Awstats mode question
 #
 # @return void
 #
@@ -389,6 +388,32 @@ sub setup_config {
 	my $rs = store_conf();
 	return $rs if ($rs != 0);
 
+	## Building the new database_config file
+	my $cfgFile;
+
+	# Getting the template file for database_config
+	($rs, $cfgFile) = get_file("$main::cfg{'CONF_DIR'}/easyscp_config_db.tpl");
+	return $rs if($rs != 0);
+
+	my $encrypted_DB_PASSWORD = encrypt_db_password($main::ua{'db_password'});
+	
+	($rs, $cfgFile) = prep_tpl(
+		{
+			'{DB_PASSWORD}' => $encrypted_DB_PASSWORD,
+			'{DB_KEY}'		=> $main::db_pass_key,
+			'{DB_IV}'		=> $main::db_pass_iv
+		},
+		$cfgFile
+	);
+	return $rs if($rs != 0);
+
+	# Storing the file in the config directory
+	$rs = store_file(
+		"$main::cfg{'CONF_DIR'}/easyscp_config_db.php", $cfgFile, "$main::cfg{'ROOT_USER'}",
+		"$main::cfg{'ROOT_GROUP'}", 0644
+	);
+	return $rs if($rs != 0);
+
 	push_el(\@main::el, 'setup_config()', 'Ending...');
 
 	0;
@@ -518,7 +543,7 @@ sub setup_pma_database {
 
 	push_el(\@main::el, 'setup_pma_database()', 'Starting...');
 
-	# Setting name of RoundCube database
+	# Setting name of phpMyAdmin database
 	my $PMADB = "phpmyadmin";
 
 	# Converting to ASCII (Punycode)
@@ -561,7 +586,7 @@ sub setup_pma_database {
 
 		if($rs) {
 			push_el(
-				\@main::el, 'setup_roundcube_database()',
+				\@main::el, 'setup_phpmyadmin_database()',
 				"Removing database $PMADB"
 			);
 

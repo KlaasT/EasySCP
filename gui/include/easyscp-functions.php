@@ -87,8 +87,30 @@ function read_line(&$socket) {
  * @return string Daemon answer
  * @todo Remove error operator
  */
-function send_request() {
+function send_request($execute = 'legacy') {
 
+	@$socket = socket_create (AF_INET, SOCK_STREAM, 0);
+	if ($socket < 0) {
+		$errno = "socket_create() failed.\n";
+		return $errno;
+	}
+
+	@$result = socket_connect ($socket, '127.0.0.1', 9876);
+	if ($result == false) {
+		$errno = "socket_connect() failed.\n";
+		return $errno;
+	}
+
+	// read one line with welcome string
+	$out = read_line($socket);
+
+	// send reg check query
+	$query = $execute . "\r\n";
+	socket_write ($socket, $query, strlen ($query));
+
+	socket_close ($socket);
+
+	/*
 	$cfg = EasySCP_Registry::get('Config');
 
 	@$socket = socket_create (AF_INET, SOCK_STREAM, 0);
@@ -150,6 +172,7 @@ function send_request() {
 	socket_close ($socket);
 
 	return $answer;
+	*/
 }
 
 /**

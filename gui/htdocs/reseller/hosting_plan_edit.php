@@ -50,7 +50,6 @@ if (isset($_POST['uaction']) && ('edit_plan' === $_POST['uaction'])) {
 	}
 
 	gen_load_ehp_page($tpl, $sql, $hpid, $_SESSION['user_id']);
-	$tpl->assign('MESSAGE', "");
 }
 
 // static page messages
@@ -413,7 +412,6 @@ function check_data_iscorrect($tpl) {
 	}
 
 	if (empty($ahp_error)) {
-		$tpl->assign('MESSAGE', '');
 		return true;
 	} else {
 		set_page_message(format_message($ahp_error), 'error');

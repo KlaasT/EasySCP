@@ -27,11 +27,8 @@ install:
 	if test $(HOST_OS) = centos ; then \
 		cp ./easyscp.conf $(SYSTEM_CONF) ; \
 		(cd ./apache && $(MAKE) install &); \
-		(cd ./awstats && $(MAKE) install &); \
-		(cd ./bind && $(MAKE) install &); \
 		(cd ./courier && $(MAKE) install &); \
 		(cd ./cron.d && $(MAKE) install &); \
-		(cd ./fcgi && $(MAKE) install &); \
 		(cd ./init.d && $(MAKE) install &); \
 		(cd ./logrotate && $(MAKE) install); \
 		(cd ./postfix && $(MAKE) install &); \
@@ -42,11 +39,8 @@ uninstall:
 	if test $(HOST_OS) = centos ; then \
 		rm -rf $(SYSTEM_CONF)/easyscp.conf ;  \
 		(cd ./apache && $(MAKE) uninstall &); \
-		(cd ./awstats && $(MAKE) uninstall &); \
-		(cd ./bind && $(MAKE) uninstall &); \
 		(cd ./courier && $(MAKE) uninstall &); \
 		(cd ./cron.d && $(MAKE) uninstall &); \
-		(cd ./fcgi && $(MAKE) uninstall &); \
 		(cd ./init.d && $(MAKE) uninstall &); \
 		(cd ./logrotate && $(MAKE) uninstall &); \
 		(cd ./postfix && $(MAKE) uninstall &); \

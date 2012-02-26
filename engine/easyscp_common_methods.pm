@@ -30,7 +30,7 @@ sub generateRandomPass {
 	$length = shift;
 	$password = '';
 	$possible = 'abcdefghijkmnpqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-	while (length($password) < $length) {
+	while (length($password) <= $length) {
 		$password .= substr($possible, (int(rand(length($possible)))), 1);
 	}
 	return $password

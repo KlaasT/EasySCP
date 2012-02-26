@@ -1835,6 +1835,7 @@ sub dmn_add_httpd_file_data {
 		my %tag_hash = (
 			'{PEAR_DIR}' => $pear_dir,
 			'{WWW_DIR}'  => $www_dir,
+			'{PHP_STARTER_DIR}' => $starter_dir,
 			'{DMN_NAME}' => $dmn_name,
 			'{PHP_TIMEZONE}' => $timezone
 		);

@@ -28,124 +28,147 @@
 # Should-Stop:          $named $time sendmail
 # Default-Start:        2 3 4 5
 # Default-Stop:         0 1 6
-# Short-Description:    EasySCP GUI-Backend communication Daemon
+# Short-Description:    EasySCP Daemon
+# Description:          This is the start/stop script for the EasySCP GUI-Backend communication Daemon.
 ### END INIT INFO
-# Note: do not modify any of these vars here, use /etc/default/$NAME instead
 
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
+# Do NOT "set -e"
+
+# PATH should only include /usr/* if it runs after the mountnfs.sh script
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="EasySCP-Daemon"
 NAME=easyscp_daemon
-DAEMON=/var/www/easyscp/daemon/$NAME
-PID=/var/run/$NAME.pid
-DESC="EasySCP GUI-Backend communication Daemon"
-LOGDIR=/var/log/easyscp
-LOGFILE=${LOGDIR}/${NAME}.log
-DIETIME=3
+DAEMON=/var/www/easyscp/engine/$NAME
+DAEMON_ARGS=""
+PIDFILE=/var/run/easyscp_daemon/easyscp_daemon.pid
+SCRIPTNAME=/etc/init.d/easyscp_daemon
 
-START=1
+# Exit if the package is not installed
+[ -x "$DAEMON" ] || exit 0
 
-umask 027
+# Read configuration variable file if it is present
+[ -r /etc/default/${NAME} ] && . /etc/default/${NAME}
 
-# Debian LSB extensions (will be used if init-functions doesn't override them):
-log_daemon_msg() {
-	if [ ! -z "${2:-}" ]; then
-		log_success_msg "${1:-}: ${2:-}"
-	else
-		log_success_msg "${1:-}"
-	fi
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+# Depend on lsb-base (>= 3.0-6) to ensure that this file is present.
+. /lib/lsb/init-functions
+
+#
+# Function that starts the daemon/service
+#
+do_start()
+{
+	# Return
+	#   0 if daemon has been started
+	#   1 if daemon was already running
+	#   2 if daemon could not be started
+	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON --test > /dev/null \
+		|| return 1
+	start-stop-daemon --start --quiet --pidfile $PIDFILE --exec $DAEMON -- \
+		$DAEMON_ARGS \
+		|| return 2
+	# Add code here, if necessary, that waits for the process to be ready
+	# to handle requests from services started subsequently which depend
+	# on this one.  As a last resort, sleep for some time.
 }
-log_end_msg() {
-	local status="$1"
+
+#
+# Function that stops the daemon/service
+#
+do_stop()
+{
+	# Return
+	#   0 if daemon has been stopped
+	#   1 if daemon was already stopped
+	#   2 if daemon could not be stopped
+	#   other if a failure occurred
+	# start-stop-daemon --stop --quiet --retry=TERM/30/KILL/5 --pidfile $PIDFILE --name $NAME
+	start-stop-daemon --stop --quiet --retry=TERM/1/KILL/5 --pidfile $PIDFILE --name $NAME
+	RETVAL="$?"
+	[ "$RETVAL" = 2 ] && return 2
+	# Wait for children to finish too if this is a daemon that forks
+	# and if the daemon is only ever run from this initscript.
+	# If the above conditions are not satisfied then add some other code
+	# that waits for the process to drop all resources that could be
+	# needed by services started subsequently.  A last resort is to
+	# sleep for some time.
+	# start-stop-daemon --stop --quiet --oknodo --retry=0/30/KILL/5 --exec $DAEMON
+	start-stop-daemon --stop --quiet --oknodo --retry=0/1/KILL/5 --exec $DAEMON
+	[ "$?" = 2 ] && return 2
+	# Many daemons don't delete their pidfiles when they exit.
+	rm -f $PIDFILE
+	return "$RETVAL"
 }
 
-# if not present (e.g. *BSD) make sure to provide compatible methods via /etc/default/$NAME
-if [ -f /lib/lsb/init-functions ]; then
-	. /lib/lsb/init-functions
-fi
-
-test -x $DAEMON || {
-	if [ "$1" = "stop" ]; then
-		log_warning_msg "$DAEMON not installed, but stopping anyway."
-	else
-		exit 5
-	fi }
-
-# Read config file if present.
-if [ -r /etc/default/$NAME ]; then
-	. /etc/default/$NAME
-fi
-
-if [ $START -eq 0 ]; then
-	log_warning_msg "Not starting $DESC: edit /etc/default/$NAME."
-	exit 1
-fi
+#
+# Function that sends a SIGHUP to the daemon/service
+#
+do_reload() {
+	#
+	# If the daemon can reload its configuration without
+	# restarting (for example, when it is sent a SIGHUP),
+	# then implement that here.
+	#
+	start-stop-daemon --stop --signal 1 --quiet --pidfile $PIDFILE --name $NAME
+	return 0
+}
 
 case "$1" in
   start)
-	log_daemon_msg "Starting $DESC" "$NAME"
-
-	start_daemon -p $PID $DAEMON -p $PID
-
-	log_end_msg $?
+	[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
+	do_start
+	case "$?" in
+		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
+		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+	esac
 	;;
   stop)
-	log_daemon_msg "Stopping $DESC" "$NAME"
-
-	killproc -p $PID $DAEMON
-
-	log_end_msg $?
-
-	[ ! -f "$PID" ] || rm -f $PID
+	[ "$VERBOSE" != no ] && log_daemon_msg "Stopping $DESC" "$NAME"
+	do_stop
+	case "$?" in
+		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
+		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
+	esac
 	;;
+  #reload|force-reload)
+	#
+	# If do_reload() is not implemented then leave this commented out
+	# and leave 'force-reload' as an alias for 'restart'.
+	#
+	#log_daemon_msg "Reloading $DESC" "$NAME"
+	#do_reload
+	#log_end_msg $?
+	#;;
   restart|force-reload)
-	log_daemon_msg "Stopping $DESC" "$NAME"
-
-	killproc -p $PID $DAEMON
-
-	log_end_msg $?
-
-	[ ! -f "$PID" ] || rm -f $PID
-
-	[ -n "$DIETIME" ] && sleep "$DIETIME"
-
-	log_daemon_msg "Starting $DESC" "$NAME"
-
-	start_daemon -p $PID $DAEMON -- -p $PID
-
-	log_end_msg $?
+	#
+	# If the "reload" option is implemented then remove the
+	# 'force-reload' alias
+	#
+	log_daemon_msg "Restarting $DESC" "$NAME"
+	do_stop
+	case "$?" in
+	  0|1)
+		do_start
+		case "$?" in
+			0) log_end_msg 0 ;;
+			1) log_end_msg 1 ;; # Old process is still running
+			*) log_end_msg 1 ;; # Failed to start
+		esac
+		;;
+	  *)
+	  	# Failed to stop
+		log_end_msg 1
+		;;
+	esac
 	;;
-  status)
-	log_daemon_msg "Checking status of $DESC"
-
-	pidofproc $DAEMON
-
-	status="$?"
-	log_end_msg "$status"
-
-	case "$status" in
-		0)
-			log_success_msg "$NAME running"
-		;;
-		1)
-			log_warning_msg "$NAME not running (but pid file found)"
-		;;
-		2)
-			log_warning_msg "$NAME not running (but lock file found)"
-		;;
-		3)
-			log_warning_msg "$NAME not running"
-		;;
-		4|*)
-			log_failure_msg "Service status is unknown"
-			exit 1
-		;;
-        esac
-	;;
-
   *)
-	N=/etc/init.d/$NAME
-	echo "Usage: $N {start|stop|restart|force-reload|status}" >&2
-	exit 1
+	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
+	echo "Usage: $SCRIPTNAME {start|stop|restart|force-reload}" >&2
+	exit 3
 	;;
 esac
 
-exit 0
+:

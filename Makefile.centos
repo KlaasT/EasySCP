@@ -42,13 +42,7 @@ SYSTEM_MAKE_FILE=/bin/touch
 
 export
 
-build:
-
-	cd ./tools && $(MAKE)
-
 install:
-
-	cd ./tools && $(MAKE) install
 
 	$(SYSTEM_MAKE_DIRS) $(SYSTEM_CONF)
 	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ROOT)
@@ -67,11 +61,9 @@ install:
 
 uninstall:
 
-	cd ./tools && $(MAKE) uninstall
 	cd ./configs && $(MAKE) uninstall
 	cd ./engine && $(MAKE) uninstall
 	cd ./gui && $(MAKE) uninstall
-	cd ./keys && $(MAKE) uninstall
 
 	rm -rf $(SYSTEM_CONF)
 	rm -rf $(SYSTEM_ROOT)
@@ -84,7 +76,6 @@ uninstall:
 
 clean:
 
-	cd ./tools/daemon && $(MAKE) clean
 	rm -rf $(INST_PREF)
 
 .PHONY: install uninstall clean

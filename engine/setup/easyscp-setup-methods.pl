@@ -1616,7 +1616,7 @@ sub setup_named {
 }
 
 ################################################################################
-# EasySCP Apache fastCGI modules configuration - (Setup / Update)
+# EasySCP Apache fcgi modules configuration - (Setup / Update)
 #
 # This subroutine do the following tasks:
 #  - Built, store and install all system php related configuration files
@@ -1624,7 +1624,7 @@ sub setup_named {
 #
 # @return int 0 on success, other on failure
 #
-sub setup_fastcgi_modules {
+sub setup_fcgi_modules {
 
 	push_el(\@main::el, 'setup_php()', 'Starting...');
 
@@ -1713,11 +1713,11 @@ sub setup_fastcgi_modules {
 		$rs = sys_command("/usr/sbin/a2enmod actions");
 		return $rs if($rs != 0);
 
-		# Enable EasySCP fastcgi loader
+		# Enable EasySCP fcgi loader
 		$rs = sys_command("/usr/sbin/a2enmod fcgid_easyscp");
 		return $rs if($rs != 0);
 
-		# Disable default  fastcgi/fcgid modules loaders to avoid conflicts
+		# Disable default fcgid modules loaders to avoid conflicts
 		# with EasySCP loaders
 		$rs = sys_command("/usr/sbin/a2dismod fcgid");
 		return $rs if($rs != 0);
@@ -3545,7 +3545,7 @@ sub setup_services_cfg {
 		[\&setup_resolver, 'EasySCP system resolver:'],
 		[\&setup_crontab, 'EasySCP crontab file:'],
 		[\&setup_named, 'EasySCP Bind9 main configuration file:'],
-		[\&setup_fastcgi_modules, 'EasySCP Apache fastCGI modules configuration:'],
+		[\&setup_fcgi_modules, 'EasySCP Apache fcgi modules configuration:'],
 		[\&setup_httpd_main_vhost, 'EasySCP Apache main vhost file:'],
 		[\&setup_awstats_vhost, 'EasySCP Apache AWStats vhost file:'],
 		[\&setup_mta, 'EasySCP Postfix configuration files:'],
@@ -3571,7 +3571,7 @@ sub setup_gui_cfg {
 
 	for (
 		[\&setup_gui_named, 'EasySCP GUI Bind9 configuration:'],
-		[\&setup_gui_php, 'EasySCP GUI fastCGI/PHP configuration:'],
+		[\&setup_gui_php, 'EasySCP GUI fcgi/PHP configuration:'],
 		[\&setup_gui_httpd, 'EasySCP GUI vhost file:'],
 		[\&setup_gui_pma, 'EasySCP PMA configuration file:'],
 		[\&setup_gui_roundcube, 'EasySCP RoundCube configuration file:']

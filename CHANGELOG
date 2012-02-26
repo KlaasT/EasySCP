@@ -1,6 +1,14 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-02-26 Markus Szywon
+	- Engine:
+		* New: EasySCP Daemon
+
+2012-02-25 Markus Szywon
+	- GUI:
+		* Updated: jQuery UI to version 1.8.18
+
 2012-02-22 Markus Szywon
 	- Setup:
 		* Fixed: Wrong postfix config files was installed after setup

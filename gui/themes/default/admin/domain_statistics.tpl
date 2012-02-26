@@ -15,7 +15,6 @@
 		<ul class="path">
 			<li><a href="server_statistic.php">{$TR_MENU_OVERVIEW}</a></li>
 			<li><a href="reseller_statistics.php">{$TR_RESELLER_STATISTICS}</a></li>
-			<!-- <li><a href="reseller_user_statistics.php?rid={$RID}&amp;name={$NAME}&amp;month={$MONTH}&amp;year={$YEAR}">{$TR_RESELLER_USER_STATISTICS}</a></li> -->
 			<li><a>{$TR_DOMAIN_STATISTICS}</a></li>
 		</ul>
 	</div>
