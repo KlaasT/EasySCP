@@ -30,22 +30,21 @@ $cfg = EasySCP_Registry::get('Config');
 $tpl = EasySCP_TemplateEngine::getInstance();
 $template = 'admin/server_status.tpl';
 
+get_server_status($tpl, $sql);
+
 // static page messages
-
-gen_admin_mainmenu($tpl, 'admin/main_menu_general_information.tpl');
-gen_admin_menu($tpl, 'admin/menu_general_information.tpl');
-
 $tpl->assign(
 	array(
-		'TR_PAGE_TITLE' => tr('EasySCP Admin / System Tools / Server Status'),
-		'TR_HOST' => tr('Host'),
-		'TR_SERVICE' => tr('Service'),
-		'TR_STATUS' => tr('Status'),
-		'TR_SERVER_STATUS' => tr('Server status'),
+		'TR_PAGE_TITLE'		=> tr('EasySCP Admin / System Tools / Server Status'),
+		'TR_HOST'			=> tr('Host'),
+		'TR_SERVICE'		=> tr('Service'),
+		'TR_STATUS'			=> tr('Status'),
+		'TR_SERVER_STATUS'	=> tr('Server status'),
 	)
 );
 
-get_server_status($tpl, $sql);
+gen_admin_mainmenu($tpl, 'admin/main_menu_general_information.tpl');
+gen_admin_menu($tpl, 'admin/menu_general_information.tpl');
 
 gen_page_message($tpl);
 

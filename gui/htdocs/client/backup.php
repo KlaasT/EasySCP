@@ -48,18 +48,18 @@ if ($cfg->ZIP == "gzip") {
 
 $tpl->assign(
 	array(
-		'TR_PAGE_TITLE' => tr('EasySCP - Client/Daily Backup'),
-		'TR_BACKUP' => tr('Backup'),
-		'TR_DAILY_BACKUP' => tr('Daily backup'),
-		'TR_DOWNLOAD_DIRECTION' => tr("Instructions to download today's backup"),
-		'TR_FTP_LOG_ON' => tr('Login with your FTP account'),
-		'TR_SWITCH_TO_BACKUP' => tr('Switch to backups/ directory'),
-		'TR_DOWNLOAD_FILE' => tr('Download the files stored in this directory'),
-		'TR_USUALY_NAMED' => tr('(usually named') . ' ' . $name . ')',
-		'TR_RESTORE_BACKUP' => tr('Restore backup'),
-		'TR_RESTORE_DIRECTIONS' => tr('Click the Restore button and the system will restore the last daily backup'),
-		'TR_RESTORE' => tr('Restore'),
-		'TR_CONFIRM_MESSAGE' => tr('Are you sure you want to restore the backup?')
+		'TR_PAGE_TITLE'			=> tr('EasySCP - Client/Daily Backup'),
+		'TR_BACKUP'				=> tr('Backup'),
+		'TR_DAILY_BACKUP'		=> tr('Daily backup'),
+		'TR_DOWNLOAD_DIRECTION'	=> tr("Instructions to download today's backup"),
+		'TR_FTP_LOG_ON'			=> tr('Login with your FTP account'),
+		'TR_SWITCH_TO_BACKUP'	=> tr('Switch to backups/ directory'),
+		'TR_DOWNLOAD_FILE'		=> tr('Download the files stored in this directory'),
+		'TR_USUALY_NAMED'		=> tr('(usually named') . ' ' . $name . ')',
+		'TR_RESTORE_BACKUP'		=> tr('Restore backup'),
+		'TR_RESTORE_DIRECTIONS'	=> tr('Click the Restore button and the system will restore the last daily backup'),
+		'TR_RESTORE'			=> tr('Restore'),
+		'TR_CONFIRM_MESSAGE'	=> tr('Are you sure you want to restore the backup?')
 	)
 );
 

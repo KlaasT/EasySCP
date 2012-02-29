@@ -43,7 +43,10 @@
 					<td><input type="radio" name="dmn_type" id="als_type" value="als" {$ALS_TYPE_CHECKED} />{$TR_TO_DOMAIN_ALIAS}</td>
 					<td>
 						<select name="als_id" id="als_id">
-							<option value="{$ALS_ID}" {$ALS_SELECTED}>{$FTP_SEPARATOR}{$ALS_NAME}</option>
+							{section name=i loop=$ALS_NAME}
+							<option value="{$ALS_ID[i]}" {$ALS_SELECTED[i]}>{$FTP_SEPARATOR}{$ALS_NAME[i]}</option>
+							{/section}
+
 						</select>
 					</td>
 				</tr>

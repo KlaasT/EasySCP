@@ -72,27 +72,27 @@ class DB extends DB_Config {
 	 * @return Liefert das Objekt eines vorbereiteten (prepared) SQL Query zurück. Das Objekt wird für spezielle PDO Funktionen benötigt (z.b. "bindValue").
 	 */
 	static public function prepare($sql_query){
+		$timer_start = microtime();
 		self::$stmt = self::getInstance()->prepare($sql_query);
+		self::$zeit += self::microtime_diff($timer_start,microtime());
 		return self::$stmt;
 	}
 
 	/**
 	 * Ausführen des vorbereiteten SQL Query mit optionalen Parametern/Daten.
 	 *
-	 * @param object|string $stmt Ein Prepared Statement für den Query. Wird keines übergeben wird das gespeicherte verwendet.
 	 * @param array $sql_param Eine Array von Parametern/Daten für den Query.
 	 * @param bool $single Gibt an ob bei erfolg nur der erste Datensatz zurückgeliefert werden soll.
 	 * @return Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welches dann per fetch()/fetch_all() abgerufen werden kann.
 	 *
 	 * Die Anzahl der zurückgegebenen Zeilen kann mittels "Object->rowCount()" ermittelt werden.
 	 */
-	static public function execute($stmt = '', $sql_param, $single = false){
+	static public function execute($sql_param, $single = false){
 		try {
-			if ($stmt == ''){
-				self::$stmt->execute($sql_param);
-			} else {
-				$stmt->execute($sql_param);
-			}
+			$timer_start = microtime();
+			self::$stmt->execute($sql_param);
+			self::$abfragen ++;
+			self::$zeit += self::microtime_diff($timer_start,microtime());
 			if ($single){
 				return(self::$stmt->fetch());
 			} else {
@@ -120,7 +120,7 @@ class DB extends DB_Config {
 			$timer_start = microtime();
 			self::$stmt = self::getInstance()->query($sql_query);
 			self::$abfragen ++;
-			self::$zeit += microtime_diff($timer_start,microtime());
+			self::$zeit += self::microtime_diff($timer_start,microtime());
 			if ($single){
 				return(self::$stmt->fetch());
 			} else {
@@ -148,7 +148,7 @@ class DB extends DB_Config {
 			self::$stmt = self::getInstance()->prepare($sql_query);
 			self::$stmt->execute($sql_param);
 			self::$abfragen ++;
-			self::$zeit += microtime_diff($timer_start,microtime());
+			self::$zeit += self::microtime_diff($timer_start,microtime());
 			if ($single){
 				//return(self::$stmt->fetch(PDO::FETCH_ASSOC));
 				return(self::$stmt->fetch());
@@ -205,7 +205,7 @@ class DB extends DB_Config {
 			$decrypted = @mdecrypt_generic($td, $text);
 			@mcrypt_module_close($td);
 
-			// Show string
+			// Return decrypted string
 			return trim($decrypted);
 		} else {
 			throw new Exception('Error: PHP extension "mcrypt" not loaded!');
@@ -232,12 +232,25 @@ class DB extends DB_Config {
 
 			$text = @base64_encode($encrypted);
 
-			// Show encrypted string
+			// Return encrypted string
 			return trim($text);
 			// return trim($encrypted);
 		} else {
 			throw new Exception('Error: PHP extension "mcrypt" not loaded!');
 		}
+	}
+
+	/**
+	 * Microtime Diff
+	 *
+	 * @param int $startzeit The start time
+	 * @param int $endzeit The end time
+	 * @return int Returns the time difference between startzeit and endzeit
+	 */
+	static private function microtime_diff($startzeit,$endzeit){
+		$startzeit=explode(' ',$startzeit);
+		$endzeit=explode(' ',$endzeit);
+		return round($endzeit[0]-$startzeit[0]+$endzeit[1]-$startzeit[1],6);
 	}
 }
 ?>

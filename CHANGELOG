@@ -4,6 +4,8 @@ EasySCP 1.2.0 ChangeLog
 2012-02-29 Markus Szywon
 	- Engine:
 		* Fixed: Restore write some files with wrong rights
+	- GUI:
+		* Some improvements
 
 2012-02-26 Markus Szywon
 	- Engine:

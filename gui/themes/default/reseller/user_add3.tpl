@@ -46,7 +46,8 @@
 						<td>
 							{$TR_DMN_IP}
 						</td>
-						<td><select name="domain_ip" id="domain_ip">
+						<td>
+							<select name="domain_ip" id="domain_ip">
 								{section name=i loop=$IP_NAME}
 								<option value="{$IP_VALUE[i]}" {$IP_SELECTED[i]}>{$IP_NUM[i]}&nbsp;({$IP_NAME[i]})</option>
 								{/section}

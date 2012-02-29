@@ -161,7 +161,7 @@ function gen_dmn_als_list($tpl, $sql, $dmn_id, $post_check) {
 
 			$als_menu_name = decode_idna($rs->fields['alias_name']);
 
-			$tpl->assign(
+			$tpl->append(
 				array(
 					'ALS_ID' => tohtml($rs->fields['alias_name']),
 					'ALS_SELECTED' => $als_selected,
