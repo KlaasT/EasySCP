@@ -3891,7 +3891,7 @@ sub dmn_del_data {
 ##
 ## Note: For each database restoration, the restored database and a least one
 ## login credentials linked to it must exists. Otherwise, the database will not
-## restored.
+## restored.
 ##
 sub dmn_restore_data {
 
@@ -4002,16 +4002,7 @@ sub dmn_restore_data {
 			$rs = sys_command($cmd);
 			return $rs if ($rs != 0);
 
-			$cmd = "$main::cfg{'CMD_CHOWN'} -R " .
-				"$dmn_uid:$main::cfg{'APACHE_GROUP'} $dmn_dir";
-			$rs = sys_command($cmd);
-			return $rs if ($rs != 0);
-
-			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$dmn_uid $dmn_dir/htdocs";
-			$rs = sys_command($cmd);
-			return $rs if ($rs != 0);
-
-			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$dmn_uid $dmn_dir/cgi-bin";
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$main::cfg{'APACHE_GROUP'} $dmn_dir";
 			$rs = sys_command($cmd);
 			return $rs if ($rs != 0);
 
@@ -4019,11 +4010,43 @@ sub dmn_restore_data {
 			$rs = sys_command($cmd);
 			#return $rs if ($rs != 0);
 
-			$cmd = 'find '."$dmn_dir/backups".' -type d -print0 | xargs -r -0 '.$main::cfg{'CMD_CHMOD'}.' 0750';
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$dmn_uid $dmn_dir/cgi-bin";
+			$rs = sys_command($cmd);
+			return $rs if ($rs != 0);
+
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $main::cfg{'APACHE_GROUP'}:$main::cfg{'APACHE_GROUP'} $dmn_dir/disabled";
+			$rs = sys_command($cmd);
+			return $rs if ($rs != 0);
+
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$dmn_uid $dmn_dir/errors";
+            $rs = sys_command($cmd);
+			return $rs if ($rs != 0);
+
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$dmn_uid $dmn_dir/htdocs";
+			$rs = sys_command($cmd);
+			return $rs if ($rs != 0);
+
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$main::cfg{'APACHE_GROUP'} $dmn_dir/logs";
+            $rs = sys_command($cmd);
+			return $rs if ($rs != 0);
+
+			$cmd = "$main::cfg{'CMD_CHOWN'} -R $dmn_uid:$main::cfg{'APACHE_GROUP'} $dmn_dir/phptmp";
+			$rs = sys_command($cmd);
+			return $rs if ($rs != 0);
+
+			$cmd = 'find '."$dmn_dir/backups".' -type d -print0 | xargs -r -0 '.$main::cfg{'CMD_CHMOD'}.' 0755';
 			$rs = sys_command($cmd);
 			#return $rs if ($rs != 0);
 
-			$cmd = 'find '."$dmn_dir/backups".' -type f -print0 | xargs -r -0 '.$main::cfg{'CMD_CHMOD'}.' 0640';
+			$cmd = 'find '."$dmn_dir/backups".' -type f -print0 | xargs -r -0 '.$main::cfg{'CMD_CHMOD'}.' 0444';
+			$rs = sys_command($cmd);
+			#return $rs if ($rs != 0);
+
+			$cmd = 'find '."$dmn_dir".' -type f -print0 | xargs -r -0 '.$main::cfg{'CMD_CHOWN'}.' '.$main::cfg{'ROOT_USER'}.':'.$main::cfg{'ROOT_GROUP'};
+			$rs = sys_command($cmd);
+			#return $rs if ($rs != 0);
+
+			$cmd = 'find '."$dmn_dir".' -type f -print0 | xargs -r -0 '.$main::cfg{'CMD_CHMOD'}.' 0644';
 			$rs = sys_command($cmd);
 			#return $rs if ($rs != 0);
 		}
