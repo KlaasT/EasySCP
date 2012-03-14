@@ -1,6 +1,26 @@
 CHANGELOG Roundcube Webmail
 ===========================
 
+- Fix encoding of attachment with comma in name (#1488389)
+- Fix handling of % character in IMAP protocol (#1488382)
+- Fix duplicate names handling in addressbook searches (#1488375)
+- Fix displaying of HTML messages from Disqus (#1488372)
+- Disable E_STRICT warnings on PHP 5.4
+- Prevent from folder selection on virtual folder collapsing (#1488346)
+- Fix automatic unsubscribe of non-existent folders
+- Fix double-quotes handling in recipient names
+- User configurable setting how to display contact names in list
+- Make contacts list sorting configurable for the admin/user
+- Fix parse errors in DDL files for MS SQL Server
+- Revert SORT=DISPLAY support, removed by mistake (#1488327)
+- Add lost translation label in de_DE (#1488315)
+- Fix drafts update issues when edited from preview pane (#1488314)
+- Fix wrong variable name in rcube_ldap.php (#1488302)
+- Make mime type detection based on filename extension to be case-insensitive
+- Fix failure on MySQL database upgrade from 0.7 - text column can't have default value (#1488300)
+
+RELEASE 0.7.1
+-------------
 - Fix bug in handling of base href and inline content (#1488290)
 - Fix SQL Error when saving a contact with many email addresses (#1488286)
 - Fix strict email address searching if contact has more than one address

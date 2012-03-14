@@ -2,9 +2,9 @@
 /*
  +-------------------------------------------------------------------------+
  | Roundcube Webmail IMAP Client                                           |
- | Version 0.7.1                                                           |
+ | Version 0.7.2                                                           |
  |                                                                         |
- | Copyright (C) 2005-2011, The Roundcube Dev Team                         |
+ | Copyright (C) 2005-2012, The Roundcube Dev Team                         |
  |                                                                         |
  | This program is free software; you can redistribute it and/or modify    |
  | it under the terms of the GNU General Public License version 2          |
@@ -23,7 +23,7 @@
  | Author: Thomas Bruederli <roundcube@gmail.com>                          |
  +-------------------------------------------------------------------------+
 
- $Id: index.php 5738 2012-01-06 16:01:53Z thomasb $
+ $Id: index.php 5995 2012-03-11 16:22:50Z thomasb $
 
 */
 

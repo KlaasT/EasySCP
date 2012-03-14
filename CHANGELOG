@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-03-14 Markus Szywon
+	- TOOLS:
+		* Updated Roundcube to version 0.7.2
+
 2012-02-29 Markus Szywon
 	- Engine:
 		* Fixed: Restore write some files with wrong rights
