@@ -38,11 +38,12 @@ check_permissions($tpl);
 
 $sql = EasySCP_Registry::get('Db');
 
-if (isset($_POST['uaction']) && ($_POST['uaction'] === 'apply')) {
-    update_ssl_data($sql);
-}
-
 $values = get_domain_default_props($sql, $_SESSION['user_id'], true);
+$dmn_user_name = $values['domain_name'];
+
+if (isset($_POST['uaction']) && ($_POST['uaction'] === 'apply')) {
+    update_ssl_data($sql, $dmn_user_name);
+}
 
 switch ($values['ssl_status']) {
     case 0:
@@ -64,7 +65,7 @@ switch ($values['ssl_status']) {
 // static page messages
 $tpl->assign(
         array(
-            'TR_PAGE_TITLE'		=> tr('EasySCP - Manage SSL configuration'),
+            'TR_PAGE_TITLE'				=> tr('EasySCP - Manage SSL configuration'),
             'TR_SSL_CONFIG_TITLE'       => tr('EasySCP SSL config'),
             'TR_SSL_CERTIFICATE'        => tr('SSL certificate'),
             'TR_SSL_KEY'                => tr('SSL key'),
@@ -93,32 +94,33 @@ $tpl->display($template);
 
 unset_messages();
 
-function update_ssl_data($sql){
-    if ((isset($_POST['ssl_key'])) && 
-            isset($_POST['ssl_cert']) && 
-            isset($_POST['ssl_status']))
+function update_ssl_data($sql, $domain_name){
+	if ((isset($_POST['ssl_key'])) &&
+		 isset($_POST['ssl_cert']) &&
+		 isset($_POST['ssl_status'])) {
 
-        $cert = clean_input($_POST['ssl_cert']);
-        $key = clean_input($_POST['ssl_key']);
-        $domainid = get_user_domain_id($sql, $_SESSION['user_id']);
-	$query = "
+		$cert = clean_input($_POST['ssl_cert']);
+		$key = clean_input($_POST['ssl_key']);
+		$domainid = get_user_domain_id($sql, $_SESSION['user_id']);
+		$query = "
 		UPDATE `domain` set 
                        `ssl_cert`   = '$cert',
                        `ssl_key`    = '$key',
                        `ssl_status` = ${_POST['ssl_status']}
-                WHERE `domain_id` = $domainid
+                WHERE  `domain_id`	= $domainid
 		;";
-        
-        $rs = exec_query($sql, $query);
-        
-        // get number of updates 
-        $update_count = $rs->recordCount();
 
-        if ($update_count==0){
-            set_page_message(tr("SSL configuration unchanged"), 'info');
-        }elseif ($update_count > 0) {
-            set_page_message(tr('SSL configuration updated!'), 'success');
-        }
+		$rs = exec_query($sql, $query);
+	}
+	// get number of updates 
+	$update_count = $rs->recordCount();
+
+	if ($update_count==0){
+		set_page_message(tr("SSL configuration unchanged"), 'info');
+	}elseif ($update_count > 0) {
+		set_page_message(tr('SSL configuration updated!'), 'success');
+		send_request("110 DOMAIN $domain_name");
+	}
 
     user_goto('domain_manage_ssl.php');
 }

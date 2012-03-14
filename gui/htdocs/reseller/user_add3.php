@@ -455,8 +455,7 @@ function add_user_data($reseller_id) {
 			$user_def_lang,
 			$user_theme_color));
 	// send request to daemon
-//	send_request();
-	send_request("111 DOMAIN_SSL $dmn_user_name");
+	send_request("110 DOMAIN $dmn_user_name");
 
 	$admin_login = $_SESSION['user_logged'];
 	write_log("$admin_login: add user: $dmn_user_name (for domain $dmn_name)");
