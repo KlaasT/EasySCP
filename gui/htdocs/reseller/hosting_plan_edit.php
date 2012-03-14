@@ -70,6 +70,7 @@ $tpl->assign(
 		'TR_DISK_LIMIT'			=> tr('Disk limit [MB]<br /><em>(0 unlimited)</em>'),
 		'TR_PHP'				=> tr('PHP'),
 		'TR_CGI'				=> tr('CGI / Perl'),
+		'TR_SSL'				=> tr('SSL support'),
 		'TR_DNS'				=> tr('Allow adding records to DNS zone'),
 		'TR_BACKUP'				=> tr('Backup'),
 		'TR_BACKUP_DOMAIN'		=> tr('Domain'),
@@ -141,6 +142,8 @@ function restore_form($tpl, $sql) {
 			'TR_PHP_NO' => ($_POST['php'] == '_no_') ? $cfg->HTML_CHECKED : '',
 			'TR_CGI_YES' => ($_POST['cgi'] == '_yes_') ? $cfg->HTML_CHECKED : '',
 			'TR_CGI_NO' => ($_POST['cgi'] == '_no_') ? $cfg->HTML_CHECKED : '',
+			'TR_SSL_YES'	=> ($_POST['ssl'] == '_yes_') ? $cfg->HTML_CHECKED : '',
+			'TR_SSL_NO'		=> ($_POST['ssl'] == '_no_') ? $cfg->HTML_CHECKED : '',
 			'TR_DNS_YES' => ($_POST['dns'] == '_yes_') ? $cfg->HTML_CHECKED : '',
 			'TR_DNS_NO' => ($_POST['dns'] == '_no_') ? $cfg->HTML_CHECKED : '',
 			'VL_BACKUPD' => ($_POST['backup'] == '_dmn_') ? $cfg->HTML_CHECKED : '',
@@ -221,7 +224,7 @@ function gen_load_ehp_page($tpl, $sql, $hpid, $admin_id) {
 
 	list(
 		$hp_php, $hp_cgi, $hp_sub, $hp_als, $hp_mail, $hp_ftp, $hp_sql_db,
-		$hp_sql_user, $hp_traff, $hp_disk, $hp_backup, $hp_dns
+		$hp_sql_user, $hp_traff, $hp_disk, $hp_backup, $hp_dns, $hp_ssl
 	) = explode(';', $props);
 
 	$hp_name = $data['name'];
@@ -282,6 +285,8 @@ function gen_load_ehp_page($tpl, $sql, $hpid, $admin_id) {
 			'TR_PHP_NO' => ($hp_php == '_no_')	? $cfg->HTML_CHECKED : '',
 			'TR_CGI_YES' => ($hp_cgi == '_yes_') ? $cfg->HTML_CHECKED : '',
 			'TR_CGI_NO' => ($hp_cgi == '_no_') ? $cfg->HTML_CHECKED : '',
+			'TR_SSL_YES'	=> ($hp_ssl == '_yes_') ? $cfg->HTML_CHECKED : '',
+			'TR_SSL_NO'		=> ($hp_ssl == '_no_') ? $cfg->HTML_CHECKED : '',
 			'TR_DNS_YES' => ($hp_dns == '_yes_') ? $cfg->HTML_CHECKED : '',
 			'TR_DNS_NO' => ($hp_dns == '_no_') ? $cfg->HTML_CHECKED : '',
 			'VL_BACKUPD' => ($hp_backup == '_dmn_') ? $cfg->HTML_CHECKED : '',
@@ -299,7 +304,7 @@ function gen_load_ehp_page($tpl, $sql, $hpid, $admin_id) {
  * @param EasySCP_TemplateEngine $tpl
  */
 function check_data_iscorrect($tpl) {
-	global $hp_name, $hp_php, $hp_cgi;
+	global $hp_name, $hp_php, $hp_cgi, $hp_ssl;
 	global $hp_sub, $hp_als, $hp_mail;
 	global $hp_ftp, $hp_sql_db, $hp_sql_user;
 	global $hp_traff, $hp_disk;
@@ -336,6 +341,10 @@ function check_data_iscorrect($tpl) {
 
 	if (isset($_POST['cgi'])) {
 		$hp_cgi = $_POST['cgi'];
+	}
+
+	if (isset($_POST['ssl'])) {
+		$hp_ssl = $_POST['ssl'];
 	}
 
 	if (isset($_POST['dns'])) {
@@ -424,7 +433,7 @@ function check_data_iscorrect($tpl) {
  */
 function save_data_to_db() {
 	global $tpl;
-	global $hp_name, $hp_php, $hp_cgi;
+	global $hp_name, $hp_php, $hp_cgi, $hp_ssl;
 	global $hp_sub, $hp_als, $hp_mail;
 	global $hp_ftp, $hp_sql_db, $hp_sql_user;
 	global $hp_traff, $hp_disk;
@@ -444,7 +453,7 @@ function save_data_to_db() {
 	$tos = clean_input($_POST['hp_tos']);
 
 	$hp_props = "$hp_php;$hp_cgi;$hp_sub;$hp_als;$hp_mail;$hp_ftp;$hp_sql_db;" .
-		"$hp_sql_user;$hp_traff;$hp_disk;$hp_backup;$hp_dns";
+		"$hp_sql_user;$hp_traff;$hp_disk;$hp_backup;$hp_dns;$hp_ssl";
 
 	$admin_id = $_SESSION['user_id'];
 

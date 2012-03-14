@@ -56,6 +56,7 @@ $tpl->assign(
 			'TR_MAX_DISK_USAGE'				=> tr('Disk limit [MB]<br /><em>(0 unlimited)</em>'),
 			'TR_PHP'						=> tr('PHP'),
 			'TR_CGI'						=> tr('CGI / Perl'),
+			'TR_SSL'						=> tr('SSL support'),
 			'TR_BACKUP'						=> tr('Backup'),
 			'TR_BACKUP_DOMAIN'				=> tr('Domain'),
 			'TR_BACKUP_SQL'					=> tr('SQL'),
@@ -87,7 +88,7 @@ if (isset($_POST['uaction'])
 	&& (!isset($_SESSION['step_one']))) {
 	if (check_user_data($tpl)) {
 		$_SESSION["step_two_data"] = "$dmn_name;0;";
-		$_SESSION["ch_hpprops"] = "$hp_php;$hp_cgi;$hp_sub;$hp_als;$hp_mail;$hp_ftp;$hp_sql_db;$hp_sql_user;$hp_traff;$hp_disk;$hp_backup;$hp_dns";
+		$_SESSION["ch_hpprops"] = "$hp_php;$hp_cgi;$hp_sub;$hp_als;$hp_mail;$hp_ftp;$hp_sql_db;$hp_sql_user;$hp_traff;$hp_disk;$hp_backup;$hp_dns;$hp_ssl";
 
 		if (reseller_limits_check($sql, $ehp_error, $_SESSION['user_id'], 0, $_SESSION["ch_hpprops"])) {
 			user_goto('user_add3.php');
@@ -153,7 +154,7 @@ function get_pageone_param() {
  * @param EasySCP_TemplateEngine $tpl
  */
 function get_init_au2_page($tpl) {
-	global $hp_name, $hp_php, $hp_cgi;
+	global $hp_name, $hp_php, $hp_cgi, $hp_ssl;
 	global $hp_sub, $hp_als, $hp_mail;
 	global $hp_ftp, $hp_sql_db, $hp_sql_user;
 	global $hp_traff, $hp_disk, $hp_backup, $hp_dns;
@@ -176,6 +177,8 @@ function get_init_au2_page($tpl) {
 				'VL_PHPN'			=> ($hp_php === '_no_') ? $cfg->HTML_CHECKED : '',
 				'VL_CGIY'			=> ($hp_cgi === '_yes_') ? $cfg->HTML_CHECKED : '',
 				'VL_CGIN'			=> ($hp_cgi === '_no_') ? $cfg->HTML_CHECKED : '',
+				'VL_SSLY'			=> ($hp_ssl === '_yes_') ? $cfg->HTML_CHECKED : '',
+				'VL_SSLN'			=> ($hp_ssl === '_no_') ? $cfg->HTML_CHECKED : '',
 				'VL_BACKUPD'		=> ($hp_backup === '_dmn_') ? $cfg->HTML_CHECKED : '',
 				'VL_BACKUPS'		=> ($hp_backup === '_sql_') ? $cfg->HTML_CHECKED : '',
 				'VL_BACKUPF'		=> ($hp_backup === '_full_') ? $cfg->HTML_CHECKED : '',
@@ -191,7 +194,7 @@ function get_init_au2_page($tpl) {
  * Get data for hosting plan
  */
 function get_hp_data($hpid, $admin_id) {
-	global $hp_name, $hp_php, $hp_cgi;
+	global $hp_name, $hp_php, $hp_cgi, $hp_ssl;
 	global $hp_sub, $hp_als, $hp_mail;
 	global $hp_ftp, $hp_sql_db, $hp_sql_user;
 	global $hp_traff, $hp_disk, $hp_backup, $hp_dns;
@@ -208,13 +211,14 @@ function get_hp_data($hpid, $admin_id) {
 		$props = $data['props'];
 
 		list($hp_php, $hp_cgi, $hp_sub, $hp_als, $hp_mail, $hp_ftp, $hp_sql_db,
-			$hp_sql_user, $hp_traff, $hp_disk, $hp_backup, $hp_dns) = explode(";", $props);
+			$hp_sql_user, $hp_traff, $hp_disk, $hp_backup, $hp_dns, $hp_ssl) = explode(";", $props);
 
 		$hp_name = $data['name'];
 	} else {
 			$hp_name = 'Custom';
 			$hp_php = '_no_';
 			$hp_cgi = '_no_';
+			$hp_ssl = '_no_';
 			$hp_sub = '';
 			$hp_als = '';
 			$hp_mail = '';
@@ -233,7 +237,7 @@ function get_hp_data($hpid, $admin_id) {
  * @param EasySCP_TemplateEngine $tpl
  */
 function check_user_data($tpl) {
-	global $hp_name, $hp_php, $hp_cgi;
+	global $hp_name, $hp_php, $hp_cgi, $hp_ssl;
 	global $hp_sub, $hp_als, $hp_mail;
 	global $hp_ftp, $hp_sql_db, $hp_sql_user;
 	global $hp_traff, $hp_disk, $hp_dmn, $hp_backup, $hp_dns;
@@ -292,6 +296,10 @@ function check_user_data($tpl) {
 		$hp_cgi = $_POST['cgi'];
 	}
 
+	if (isset($_POST['ssl'])) {
+		$hp_ssl = $_POST['ssl'];
+	}
+	
 	if (isset($_POST['backup'])) {
 		$hp_backup = $_POST['backup'];
 	}

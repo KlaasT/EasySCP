@@ -267,11 +267,13 @@ function add_user_data($reseller_id) {
 		$traff,
 		$disk,
 		$backup,
-		$dns
+		$dns,
+		$ssl
 	) = explode(";", $props);
 
 	$php			= preg_replace("/\_/", "", $php);
 	$cgi			= preg_replace("/\_/", "", $cgi);
+	$ssl			= preg_replace("/\_/", "", $ssl);
 	$backup			= preg_replace("/\_/", "", $backup);
 	$dns			= preg_replace("/\_/", "", $dns);
 	$pure_user_pass = $inpass;
@@ -341,7 +343,7 @@ function add_user_data($reseller_id) {
 			`domain_subd_limit`, `domain_alias_limit`,
 			`domain_ip_id`, `domain_disk_limit`,
 			`domain_disk_usage`, `domain_php`, `domain_cgi`,
-			`allowbackup`, `domain_dns`
+			`allowbackup`, `domain_dns`, `domain_ssl`
 		)
 		VALUES (
 			?, ?,
@@ -352,7 +354,7 @@ function add_user_data($reseller_id) {
 			?, ?,
 			?, ?, '0',
 			?, ?,
-			?, ?
+			?, ?, ?
 		)
 	";
 
@@ -363,14 +365,34 @@ function add_user_data($reseller_id) {
 			$dmn_name, $record_id,
 			$reseller_id, $mail, $ftp, $traff, $sql_db,
 			$sql_user, $cfg->ITEM_ADD_STATUS, $sub, $als, $domain_ip,
-			$disk, $php, $cgi, $backup, $dns
+			$disk, $php, $cgi, $backup, $dns, $ssl
 		)
 	);
 
 	$dmn_id = $sql->insertId();
 
+	// TODO: Check if max user and group id is reached
+	// update domain and gid
+	$domain_gid=$cfg->APACHE_SUEXEC_MIN_GID+$dmn_id;
+	$domain_uid=$cfg->APACHE_SUEXEC_MIN_UID+$dmn_id;
+	
+	$query="
+		UPDATE `domain`
+		SET `domain_gid`=?,
+			`domain_uid`=?
+		WHERE `domain_id`=?
+	";
+	
+	exec_query(
+			$sql, 
+			$query,
+			array(
+				$domain_gid,
+				$domain_uid, 
+				$dmn_id)
+	);
+	
 	// Add statistics group
-
 	$query = "
 		INSERT INTO `htaccess_users`
 			(`dmn_id`, `uname`, `upass`, `status`)
@@ -433,7 +455,8 @@ function add_user_data($reseller_id) {
 			$user_def_lang,
 			$user_theme_color));
 	// send request to daemon
-	send_request();
+//	send_request();
+	send_request("111 DOMAIN_SSL $dmn_user_name");
 
 	$admin_login = $_SESSION['user_logged'];
 	write_log("$admin_login: add user: $dmn_user_name (for domain $dmn_name)");

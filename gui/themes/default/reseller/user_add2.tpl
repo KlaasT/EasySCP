@@ -83,6 +83,13 @@
 						</td>
 					</tr>
 					<tr>
+						<td>{$TR_SSL}</td>
+						<td>
+							<input type="radio" name="ssl" id="ssl_yes" value="_yes_" {$VL_SSLY} />&nbsp;{$TR_YES}
+							<input type="radio" name="ssl" id="ssl_no" value="_no_" {$VL_SSLN} />&nbsp;{$TR_NO}
+						</td>
+					</tr>
+					<tr>
 						<td>{$TR_DNS}</td>
 						<td>
 							<input type="radio" name="dns" id="dns_yes" value="_yes_" {$VL_DNSY} />&nbsp;{$TR_YES}
