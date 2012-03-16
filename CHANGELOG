@@ -1,6 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+2012-03-16 Markus Szywon
+	- GUI:
+		* Fixed: Password error when edit normal mail account with forward
+
 2012-03-14 Markus Szywon
 	- TOOLS:
 		* Updated Roundcube to version 0.7.2
