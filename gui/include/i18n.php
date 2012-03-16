@@ -95,7 +95,9 @@ function getLanguages() {
 		'de_DE' => 'Deutsch - German (Germany)',
 		'en_GB' => 'English - English',
 		'fr_FR'	=> 'Français - French (France)',
-		'sv_SE'	=> 'Svenska - Swedish (Sweden)'
+		'ru_RU'	=> 'Русский язык - Russian (Russia)',
+		'sv_SE'	=> 'Svenska - Swedish (Sweden)',
+		'uk_UA'	=> 'Українська - Ukrainian (Ukraine)'
 	);
 	return $languages;
 }

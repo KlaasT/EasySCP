@@ -4,10 +4,11 @@ EasySCP 1.2.0 ChangeLog
 2012-03-16 Markus Szywon
 	- GUI:
 		* Fixed: Password error when edit normal mail account with forward
+		* Updated: Language files
 
 2012-03-14 Markus Szywon
 	- TOOLS:
-		* Updated Roundcube to version 0.7.2
+		* Updated: Roundcube to version 0.7.2
 
 2012-02-29 Markus Szywon
 	- Engine:
@@ -29,13 +30,13 @@ EasySCP 1.2.0 ChangeLog
 
 2012-02-21 Markus Szywon
 	- GUI:
-		* Updated Smarty to version 3.1.8
-		* Updated phpMyAdmin to version 3.4.10.1
+		* Updated: Smarty to version 3.1.8
+		* Updated: phpMyAdmin to version 3.4.10.1
 		* Updated: Multilingual support
 
 2012-02-15 Markus Szywon
 	- TOOLS:
-		* Updated phpMyAdmin to version 3.4.10
+		* Updated: phpMyAdmin to version 3.4.10
 
 2012-02-12 Markus Szywon
 	- Engine:
@@ -46,7 +47,7 @@ EasySCP 1.2.0 ChangeLog
 
 2012-01-30 Markus Szywon
 	- TOOLS:
-		* Updated Roundcube to version 0.7.1
+		* Updated: Roundcube to version 0.7.1
 
 2012-01-28 Markus Szywon
 	- GUI:
@@ -72,7 +73,7 @@ EasySCP 1.2.0 ChangeLog
 
 2012-01-21 Tom Winterhalder
 	- GUI: 
-		* Fixed encoding of domainnames with umlaut
+		* Fixed: Encoding of domainnames with umlaut
 		* Included SSL config in all themes
 
 2012-01-18 Markus Szywon
@@ -89,7 +90,7 @@ EasySCP 1.2.0 ChangeLog
 	- Engine:
    		* Some fixes
 	- GUI:
-		* Update language files
+		* Updated: Language files
 
 2012-01-04 Markus Szywon
 	- GUI:
@@ -103,7 +104,7 @@ EasySCP 1.2.0 ChangeLog
 	- Engine:
     		* Some fixes
 	- GUI:
-		* Update language files
+		* Updated: Language files
 		* Fixed: Expiration date cannot be set when create new domain
 		* Fixed: Sort order of users doesn't work
 		* Some small fixes
@@ -120,6 +121,6 @@ EasySCP 1.2.0 ChangeLog
 
 2011-12-27 Tom Winterhalder
 	- GUI:
-		* Added SSL support
+		* Added: SSL support
 	- Config:
-        * Added fields for SSL support
+        * Added: Fields for SSL support
