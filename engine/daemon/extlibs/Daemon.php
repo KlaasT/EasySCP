@@ -189,6 +189,13 @@ class System_Daemon
             'detail' => 'This will replace System_Daemon\'s own logging facility',
             'required' => true,
         ),
+        'useCustomLogHandler' => array(
+            'type' => 'boolean|object',
+            'default' => false,
+            'punch' => 'Accepts any callable method to handle all logging',
+            'detail' => 'This will replace System_Daemon\'s own logging facility',
+            'required' => true,
+        ),
 
         'authorName' => array(
             'type' => 'string/0-50',
@@ -457,10 +464,22 @@ class System_Daemon
             include(dirname(__FILE__).'/'.$path);
         } else {
             // Everything else.
-            @include($path);
+            // Check for $path within each include_path
+            foreach (explode(PATH_SEPARATOR,ini_get('include_path')) as $prefix) {
+                $prefixed_path = $prefix.'/'.$path;
+                if (file_exists($prefixed_path)) {
+                    include $prefixed_path;
+                    return true;
+                }
+            }
+
+            // Since include_path might not contain current
+            // directory, we'll check that ourselves.
+            if (file_exists($path)) {
+                include $path;
+            }
         }
     }
-
 
     /**
      * Spawn daemon process.
@@ -575,6 +594,16 @@ class System_Daemon
                 trigger_error($msg, E_USER_ERROR);
             }
         }
+
+        // Option validation, more advanced than can be handled by
+        // declaration processing
+        if (self::opt('appName') !== strtolower(self::opt('appName'))) {
+            return self::crit('Option: appName should be lowercase');
+        }
+        if (strlen(self::opt('appName')) > 16) {
+            return self::crit('Option: appName should be no longer than 16 characters');
+        }
+
         // Become daemon
         self::_summon();
 
@@ -595,8 +624,10 @@ class System_Daemon
     static public function iterate($sleepSeconds = 0)
     {
         self::_optionObjSetup();
-        if ($sleepSeconds !== 0) {
-            usleep($sleepSeconds*1000000);
+        if ($sleepSeconds >= 1) {
+            sleep($sleepSeconds);
+        } else if (is_numeric($sleepSeconds)) {
+            usleep($sleepSeconds * 1000000);
         }
 
         clearstatcache();
@@ -848,6 +879,18 @@ class System_Daemon
      *
      * @return boolean
      */
+    public static function alert()
+    {
+        $arguments = func_get_args(); array_unshift($arguments, __FUNCTION__);
+        call_user_func_array(array('System_Daemon', '_ilog'), $arguments);
+        return false;
+    }
+
+    /**
+     * Logging shortcut
+     *
+     * @return boolean
+     */
     public static function crit()
     {
         $arguments = func_get_args(); array_unshift($arguments, __FUNCTION__);
@@ -1026,6 +1069,14 @@ class System_Daemon
         // Make use of a PEAR_Log() instance
         if (self::opt('usePEARLogInstance') !== false) {
             self::opt('usePEARLogInstance')->log($str . $log_tail, $level);
+            return true;
+        }
+        if (false !== ($cb = self::opt('useCustomLogHandler'))) {
+            if (!is_callable($cb)) {
+                throw new System_Daemon_Exception('Your "useCustomLogHandler" ' .
+                    ' is not callable');
+            }
+            call_user_func($cb, $str . $log_tail, $level);
             return true;
         }
 
@@ -1251,6 +1302,8 @@ class System_Daemon
     {
         if (self::opt('usePEARLogInstance')) {
             $logLoc = '(PEAR Log)';
+        } else if (self::opt('useCustomLogHandler')) {
+            $logLoc = '(Custom log handler)';
         } else {
             $logLoc = self::opt('logLocation');
         }
@@ -1446,6 +1499,10 @@ class System_Daemon
         // We have to change owner in case of identity change.
         // This way we can modify the files even after we're not root anymore
         foreach ($chownFiles as $filePath) {
+            if (!file_exists($filePath)) {
+                continue;
+            }
+            
             // Change File GID
             $doGid = (filegroup($filePath) != $gid ? $gid : false);
             if (false !== $doGid && !@chgrp($filePath, intval($gid))) {
