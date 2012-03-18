@@ -113,9 +113,10 @@ class System_Daemon_Options
     {
         $success = true;
         // Not validated?
+        $reason = '';
         if (!$this->_validate($name, $value, $reason)) {
             // Default not used or failed as well!
-            $this->errors[] = "Option ".$name." invalid: ".$reason;
+            $this->errors[] = "Option ".$name." invalid. " . $reason;
             $success        = false;
         }
         
@@ -168,7 +169,7 @@ class System_Daemon_Options
         
         $options_met = 0;
         
-        foreach ($this->_definitions as $name=>$definition) {
+        foreach ($this->_definitions as $name => $definition) {
             // Required options remain
             if (!isset($this->_options[$name])) {
                 if (!$this->_setDefault($name)
@@ -203,7 +204,7 @@ class System_Daemon_Options
      *
      * @return boolean
      */
-    protected function _validate($name, $value, &$reason="")
+    protected function _validate($name, $value, &$reason = "")
     {
         $reason = false;
         
@@ -427,7 +428,7 @@ class System_Daemon_Options
         if (!in_array($var_key, $allowedVars) 
             && !in_array($source.".*", $allowedVars)
         ) {
-            return "FORBIDDEN_VAR_".$var_key;
+            return $fullmatch; // "FORBIDDEN_VAR_".$var_key;
         }
         
         // Mapping of textual sources to real sources
@@ -441,10 +442,10 @@ class System_Daemon_Options
         
         // Exists?
         if ($source_use === false) {
-            return "UNUSABLE_VARSOURCE_".$source;
+            return $fullmatch; // "UNUSABLE_VARSOURCE_".$source;
         }
-        if (!isset($source_use[$var])) { 
-            return "NONEXISTING_VAR_".$var_key;     
+        if (!isset($source_use[$var])) {
+            return $fullmatch;
         }
         
         $var_use = $source_use[$var];
@@ -453,7 +454,7 @@ class System_Daemon_Options
         if (isset($filterVars[$var_key]) && is_array($filterVars[$var_key])) {
             foreach ($filterVars[$var_key] as $filter_function) {
                 if (!function_exists($filter_function)) {
-                    return "NONEXISTING_FILTER_".$filter_function;
+                    return $fullmatch; //"NONEXISTING_FILTER_".$filter_function;
                 }
                 $var_use = call_user_func($filter_function, $var_use);
             }
