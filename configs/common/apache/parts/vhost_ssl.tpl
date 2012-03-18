@@ -1,4 +1,4 @@
-<VirtualHost {$DOMAIN_IP}:80>
+<VirtualHost {$DOMAIN_IP}:443>
 
 	<IfModule suexec_module>
 		SuexecUserGroup {$DOMAIN_UID} {$DOMAIN_GID}
@@ -7,8 +7,12 @@
 	ServerAdmin		webmaster@{$DOMAIN_NAME}
 	DocumentRoot	{$WWW_DIR}/{$DOMAIN_NAME}/htdocs
 
-	ServerName		{$DOMAIN_NAME}
-	ServerAlias		www.{$DOMAIN_NAME} {$DOMAIN_NAME} {$DOMAIN_UID}.{$BASE_SERVER_VHOST}
+	ServerName      {$DOMAIN_NAME}
+	ServerAlias     www.{$DOMAIN_NAME} {$DOMAIN_NAME} {$DOMAIN_UID}.{$BASE_SERVER_VHOST}
+
+	SSLEngine       On
+	SSLCertificateFile {$SSL_CERT_DIR}/easyscp_{$DOMAIN_NAME}-cert.pem
+	SSLCertificateKeyFile {$SSL_KEY_DIR}/easyscp_{$DOMAIN_NAME}-key.pem
 
 	Alias /errors	{$WWW_DIR}/{$DOMAIN_NAME}/errors/
 

@@ -1,6 +1,5 @@
-
 #
-# Custom apache configuration for {SELF}
+# Custom apache configuration for {$SELF}
 #
 # Any changes made to this file will be preserved.
 # EasySCP doesn't and won't verify the contents of this file.
