@@ -31,7 +31,7 @@ $cfg = EasySCP_Registry::get('Config');
 $tpl = EasySCP_TemplateEngine::getInstance();
 $template = 'client/dns_edit.tpl';
 
-$DNS_allowed_types = array('A', 'AAAA', 'CNAME', 'MX', 'SRV');
+$DNS_allowed_types = array('A', 'AAAA', 'CNAME', 'MX', 'SRV', 'NS');
 
 $add_mode = preg_match('~dns_add.php~', $_SERVER['REQUEST_URI']);
 
@@ -63,7 +63,8 @@ $tpl->assign(
 		'TR_DNS_TXT'			=> tr('Text'),
 		'TR_DNS_CNAME'			=> tr('Canonical name'),
 		'TR_DNS_PLAIN'			=> tr('Plain record data'),
-		'TR_MANAGE_DOMAIN_DNS'	=> tr("DNS zone's records")
+		'TR_MANAGE_DOMAIN_DNS'	=> tr("DNS zone's records"),
+		'TR_DNS_NS'				=> tr('Hostname of Nameserver'),
 	)
 );
 
@@ -157,7 +158,7 @@ function not_allowed() {
 function decode_zone_data($data) {
 
 	$address = $addressv6 = $srv_name = $srv_proto = $cname = $txt = $name = '';
-	$srv_TTL = $srv_prio = $srv_weight = $srv_host = $srv_port = '';
+	$srv_TTL = $srv_prio = $srv_weight = $srv_host = $srv_port = $ns = '';
 
 	if (is_array($data)) {
 		$name = $data['domain_dns'];
@@ -170,6 +171,9 @@ function decode_zone_data($data) {
 				break;
 			case 'CNAME':
 				$cname = $data['domain_text'];
+				break;
+			case 'NS':
+				$ns = $data['domain_text'];
 				break;
 			case 'SRV':
 				$name = '';
@@ -202,7 +206,7 @@ function decode_zone_data($data) {
 	}
 	return array(
 		$name, $address, $addressv6, $srv_name, $srv_proto, $srv_TTL, $srv_prio,
-		$srv_weight, $srv_host, $srv_port, $cname, $txt, $data['protected']
+		$srv_weight, $srv_host, $srv_port, $cname, $txt, $ns, $data['protected']
 	);
 }
 
@@ -273,7 +277,7 @@ function gen_editdns_page($tpl, $edit_id) {
 
 	list(
 		$name, $address, $addressv6, $srv_name, $srv_proto, $srv_ttl, $srv_prio,
-		$srv_weight, $srv_host, $srv_port, $cname, $plain, $protected
+		$srv_weight, $srv_host, $srv_port, $cname, $plain, $protected, $ns
 	) = decode_zone_data($data);
 
 	// Protection against edition (eg. for external mail MX record)
@@ -304,6 +308,7 @@ function gen_editdns_page($tpl, $edit_id) {
 			'DNS_SRV_PORT'				=> tohtml(tryPost('dns_srv_port', $srv_port)),
 			'DNS_CNAME'					=> tohtml(tryPost('dns_cname', $cname)),
 			'DNS_PLAIN'					=> tohtml(tryPost('dns_plain_data', $plain)),
+			'DNS_NS_HOSTNAME'					=> tohtml(tryPost('dns_ns', $ns)),
 			'ID'						=> $edit_id
 		)
 	);
@@ -316,6 +321,18 @@ function tryPost($id, $data) {
 		return $_POST[$id];
 	}
 	return $data;
+}
+
+function validate_NS($record, &$err = null) {
+	if (!preg_match('~([^a-z,A-Z,0-9\.])~u', $record['dns_ns'], $e)) {
+		$err .= sprintf(tr('Use of disallowed char("%s") in NS'), $e[1]);
+		return false;
+	}
+	if (empty($record['dns_ns'])) {
+		$err .= tr('Name must be filled.');
+		return false;
+	}
+	return true;
 }
 
 function validate_CNAME($record, &$err = null) {
@@ -561,6 +578,13 @@ function check_fwd_data($tpl, $edit_id) {
 			} else {
 				$_dns = $record_domain . '.';
 			}
+			break;
+		case 'NS':
+			$_text = '';
+			if (!validate_NS($_POST, $err)) {
+				$ed_error = sprintf(tr('Cannot validate %s record. Reason \'%s\'.'), $_POST['type'], $err);
+			}
+			$_text = $_POST['dns_ns'];
 			break;
 		default :
 			$ed_error = sprintf(tr('Unknown zone type %s!'), $_POST['type']);

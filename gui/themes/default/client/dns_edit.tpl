@@ -79,8 +79,6 @@
 			var re = new RegExp(allowed);
 			return re.test(keychar);
 		}
-
-		dns_type_changed(document.getElementById('dns_type').value);
 		{/literal}
 	/* ]]> */
 	</script>
@@ -182,4 +180,11 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		{literal}
+		dns_type_changed(document.getElementById('dns_type').value);
+		{/literal}
+	/* ]]> */
+	</script>
 {include file='client/footer.tpl'}

@@ -20,7 +20,7 @@
 		function dns_show_rows(arr_show) {
 			var arr_possible = new Array('name', 'ip_address', 'ip_address_v6',
 				'srv_name', 'srv_protocol', 'srv_ttl', 'srv_prio',
-				'srv_weight', 'srv_host', 'srv_port', 'cname');
+				'srv_weight', 'srv_host', 'srv_port', 'cname', 'ns');
 			var n = arr_possible.length;
 			var trname;
 			for (var i = 0; i < n; i++) {
@@ -50,6 +50,8 @@
 				dns_show_rows(new Array('name', 'cname'));
 			} else if (value == 'MX') {
 				dns_show_rows(new Array('srv_prio', 'srv_host'));
+			} else if (value == 'NS') {
+				dns_show_rows(new Array('ns'));
 			}
 		}
 
@@ -79,8 +81,6 @@
 			var re = new RegExp(allowed);
 			return re.test(keychar);
 		}
-
-		dns_type_changed(document.getElementById('dns_type').value);
 		{/literal}
 	/* ]]> */
 	</script>
@@ -172,6 +172,10 @@
 					<td>{$TR_DNS_CNAME}</td>
 					<td><input type="text" name="dns_cname" value="{$DNS_CNAME}" />.</td>
 				</tr>
+				<tr id="tr_dns_ns">
+					<td>{$TR_DNS_NS}</td>
+					<td><input type="text" name="dns_ns" value="{$DNS_NS_HOSTNAME}" />.</td>
+				</tr>
 			</table>
 			<div class="buttons">
 				{if isset($FORM_EDIT_MODE)}
@@ -185,4 +189,11 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		{literal}
+		dns_type_changed(document.getElementById('dns_type').value);
+		{/literal}
+	/* ]]> */
+	</script>
 {include file='client/footer.tpl'}
