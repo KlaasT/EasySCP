@@ -1,7 +1,7 @@
 $TTL 12H
 $ORIGIN {$DOMAIN_NAME}.
 @               IN              SOA             {$PRIMARY_NS}. {$ZONE_MASTER}. (
-                {$DOMAIN_SERIAL}     ; Serial
+                {$DNS_SERIAL}     ; Serial
                 8H              ; Refresh
                 15M             ; Retry
                 4W              ; Expire

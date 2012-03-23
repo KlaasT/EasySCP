@@ -609,6 +609,10 @@ function check_fwd_data($tpl, $edit_id) {
 				array($dmn_id, $alias_id, $_dns, $_class, $_type, $_text),
 				false
 			);
+			
+			if ($rs) {
+				set_domain_dns_serial($dmn_id);
+			}
 
 			# Error because duplicate entry ? (SQLSTATE 23000)
 			if($rs === false) {

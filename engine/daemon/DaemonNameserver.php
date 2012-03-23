@@ -93,6 +93,7 @@ function DaemonDomain($Input) {
 	$template->assign(
 		array(
 			"ZONE_MASTER"	=>	$row['email'],
+			"DNS_SERIAL"	=>	str_replace("-", "",$row['domain_dns_serial']),
 		)
 	);
 	
