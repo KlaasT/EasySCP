@@ -1,5 +1,11 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+2012-03-23 Klaas Tammling
+	- Engine:
+		* Added: DNS zonefile generation for domains
+	- GUI:
+		* Fixed: When editing a DNS record all options are shown
+		* Fixed: There was no DNS serialnumber.
 
 2012-03-22 Markus Szywon
 	- GUI:
