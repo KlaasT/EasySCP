@@ -12,7 +12,7 @@ $ORIGIN {$DOMAIN_NAME}.
 				IN				NS				{$ns.dns_hostname}.
 {/foreach}
 {foreach item=mx from=$MX}
-                IN              MX      {$mx.PRIORITY}      {$MX.dns_hostname}.
+                IN              MX      {$MX.dns_hostname}.
 {/foreach}
 
 {foreach item=a from=$A}
