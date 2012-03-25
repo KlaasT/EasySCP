@@ -1,4 +1,10 @@
 {include file='header.tpl'}
+<script type="text/javascript">
+   function AutoFocus() {
+      document.getElementById('uname').focus();
+   }
+   window.onload = AutoFocus;
+</script>
 <body>
 	<div class="main">
 		<div class="mainbox" id="mainbox">
