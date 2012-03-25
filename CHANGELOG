@@ -1,5 +1,9 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+2012-03-25 Klaas Tammling
+	- GUI:
+		* Fixed: Request #5 - Autofocus on Username field on login
+		
 2012-03-23 Klaas Tammling
 	- Engine:
 		* Added: DNS zonefile generation for domains
