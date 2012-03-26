@@ -252,6 +252,27 @@ class EasySCP_Update_Database extends EasySCP_Update {
 		";
                 return $sqlUpd;
 	}
+	
+	/**
+	 * Adds a field for DNS Serial numbers (very important for DNS)
+	 * 
+	 * @author Klaas Tammling <klaas.tamlming@easyscp.net>
+	 * @return array
+	 */
+	
+	protected function _databaseUpdate_53(){
+		$sqlUpd = array();
+
+        $sqlUpd[] = "
+                    ALTER TABLE 
+        	            `domain` 
+                    ADD 
+            	       `domain_dns_serial` VARCHAR( 13 ) NOT NULL 
+		";
+        
+        return $sqlUpd;
+	}
+	
 	/*
 	 * DO NOT CHANGE ANYTHING BELOW THIS LINE!
 	 */

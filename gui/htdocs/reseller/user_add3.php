@@ -368,8 +368,61 @@ function add_user_data($reseller_id) {
 			$disk, $php, $cgi, $backup, $dns, $ssl
 		)
 	);
+	
 
 	$dmn_id = $sql->insertId();
+	
+	// Add some default DNS entries
+	
+	$sql_param = array();
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_id,
+		'domain_dns' => '',
+		'domain_class' => 'IN',
+		'domain_type' => 'NS',
+		'domain_text' => 'ns1.'.$dmn_name,
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_id,
+		'domain_dns' => '',
+		'domain_class' => 'IN',
+		'domain_type' => 'MX',
+		'domain_text' => 'mail.'.$dmn_name,
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_id,
+		'domain_dns' => '',
+		'domain_class' => 'IN',
+		'domain_type' => 'A',
+		'domain_text' => '*.'.$dmn_name,
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_id,
+		'domain_dns' => '',
+		'domain_class' => 'IN',
+		'domain_type' => 'A',
+		'domain_text' => 'www.'.$dmn_name,
+	);
+	
+	$sql_query = "
+			INSERT INTO `domain_dns` (
+				`domain_id`, `domain_class`,
+				`domain_type`, `domain_text`,
+				`domain_dns`)
+			VALUES (
+				:domain_id, :domain_class,
+				:domain_type, :domain_text,
+				:domain_dns
+			)
+	";
+
+	foreach ($sql_param as $data) {
+		DB::prepare($sql_query);
+		DB::execute($data);
+	}	
 
 	// TODO: Check if max user and group id is reached
 	// update domain and gid
