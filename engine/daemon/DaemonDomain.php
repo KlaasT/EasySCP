@@ -498,7 +498,7 @@ function domainDelete($cfg, $domainData) {
 	//delete directories
 	$homeDir = $cfg->APACHE_WWW_DIR . "/" . $domainData['domain_name'];
 	$cmd = $cfg->CMD_RM . " -rf $homeDir";
-	// exec($cmd);
+	exec($cmd);
 	System_Daemon::warning("Deleted $homeDir");
 
 	//delete domain from db
@@ -538,7 +538,7 @@ function domainEnable($cfg, $domainData) {
 			}
 			break;
 		// SSL und non-SSL gemeinsam
-		case 1:
+		case 2:
 			if (!apacheEnableSite($domainData['domain_name'] . '.conf')||
 				!apacheEnableSite($domainData['domain_name'] . '-ssl.conf')||
 				!apacheDisableSite($domainData['domain_name'] . '-redirect-ssl.conf')||
@@ -549,7 +549,7 @@ function domainEnable($cfg, $domainData) {
 			}
 			break;
 		// Nur SSL mit redirect auf SSL
-		case 2:
+		case 1:
 			if (!apacheEnableSite($domainData['domain_name'] . '-ssl.conf')||
 				!apacheEnableSite($domainData['domain_name'] . '-redirect-ssl.conf')||
 				!apacheDisableSite($domainData['domain_name'] . '.conf')||
