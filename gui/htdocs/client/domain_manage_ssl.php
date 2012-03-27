@@ -106,7 +106,8 @@ function update_ssl_data($sql, $domain_name){
 		UPDATE `domain` set 
                        `ssl_cert`   = '$cert',
                        `ssl_key`    = '$key',
-                       `ssl_status` = ${_POST['ssl_status']}
+                       `ssl_status` = ${_POST['ssl_status']},
+					   `domain_status` = 'change'
                 WHERE  `domain_id`	= $domainid
 		;";
 
