@@ -4,7 +4,6 @@ apache2-suexec
 apache2-utils
 awstats
 bash
-bind9
 bzip2
 chkrootkit
 courier-base
@@ -60,6 +59,8 @@ mysql-server
 original-awk
 patch
 perl
+pdns-server
+pdns-backend-mysql
 php-pear
 php5
 php5-adodb

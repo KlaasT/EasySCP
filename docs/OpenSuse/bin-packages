@@ -2,9 +2,6 @@ amavisd-new
 apache2-worker
 apache2-mod_fcgid
 awstats
-bind
-bind-chrootenv
-bind-libs
 bind-utils
 bzip2
 chkrootkit
@@ -30,6 +27,8 @@ mhash
 mysql-community-server
 mysql-community-server-client
 p7zip
+pdns-server
+pdns-backend-mysql
 php5
 php5-ftp
 php5-gd

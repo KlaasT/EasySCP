@@ -1525,97 +1525,6 @@ sub setup_crontab {
 }
 
 ################################################################################
-# EasySCP named main configuration - (Setup / Update)
-#
-# This subroutine built, store and install the main named configuration file
-#
-# @return int 0 on success, other on failure
-#
-sub setup_named {
-
-	push_el(\@main::el, 'setup_named()', 'Starting...');
-
-	# Do not generate configuration files if the service is disabled
-	return 0 if($main::cfg{'CMD_NAMED'} =~ /^no$/i);
-
-	my ($rs, $rdata, $cfgTpl, $cfg);
-
-	my $cfgDir = "$main::cfg{'CONF_DIR'}/bind";
-	my $bkpDir = "$cfgDir/backup";
-	my $wrkDir = "$cfgDir/working";
-
-	# Setup:
-	if(defined &setup_engine) {
-		# Saving the system main configuration file
-		if(-e $main::cfg{'BIND_CONF_FILE'} && !-e "$bkpDir/named.conf.system") {
-			$rs = sys_command(
-				"$main::cfg{'CMD_CP'} -p $main::cfg{'BIND_CONF_FILE'} " .
-				"$bkpDir/named.conf.system"
-			);
-			return $rs if ($rs != 0);
-		}
-	# Update:
-	} else {
-		# Saving the current main production file if it exists
-		if(-e $main::cfg{'BIND_CONF_FILE'}) {
-			$rs = sys_command(
-				"$main::cfg{'CMD_CP'} -p $main::cfg{'BIND_CONF_FILE'} " .
-				"$bkpDir/named.conf." . time
-			);
-			return $rs if ($rs != 0);
-		}
-	}
-
-	## Building new configuration file
-
-	# Loading the system main configuration file from
-	# /etc/easyscp/bind/backup/named.conf.system if it exists
-	if(-e "$bkpDir/named.conf.system") {
-		($rs, $cfg) = get_file("$bkpDir/named.conf.system");
-		return $rs if($rs != 0);
-
-		# Adjusting the configuration if needed
-		$cfg =~ s/listen-on ((.*) )?{ 127.0.0.1; };/listen-on $1 { any; };/;
-		$cfg .= "\n";
-	# eg. Centos, Fedora did not file by default
-	} else {
-		push_el(
-			\@main::el, 'setup_named()',
-			"[NOTICE] Can't find the parent file for named..."
-		);
-
-		$cfg = '';
-	}
-
-	# Loading the template from /etc/easyscp/bind/named.conf
-	($rs, $cfgTpl) = get_file("$cfgDir/named.conf");
-	return $rs if($rs != 0);
-
-	# Building new file
-	$cfg .= $cfgTpl;
-
-	## Storage and installation of new file
-
-	# Storing new file in the working directory
-	$rs = store_file(
-		"$wrkDir/named.conf", $cfg, $main::cfg{'ROOT_USER'},
-		$main::cfg{'ROOT_GROUP'}, 0644
-	);
-	return $rs if ($rs != 0);
-
-	# Install the new file in the production directory
-	$rs = sys_command(
-		"$main::cfg{'CMD_CP'} -pf $wrkDir/named.conf " .
-		"$main::cfg{'BIND_CONF_FILE'}"
-	);
-	return $rs if ($rs != 0);
-
-	push_el(\@main::el, 'setup_named()', 'Ending...');
-
-	0;
-}
-
-################################################################################
 # EasySCP Apache fcgi modules configuration - (Setup / Update)
 #
 # This subroutine do the following tasks:
@@ -3168,13 +3077,140 @@ sub setup_gui_roundcube {
 	);
 	return -1 if ($rs != 0);
 
+
 	# Install pear mdb2
-	$rs = sys_command(
-		"pear install mdb2"
+	#$rs = sys_command(
+#		"pear install mdb2"
+	#);
+	#return $rs if ($rs != 0);
+
+	push_el(\@main::el, 'setup_gui_roundcube()', 'Ending...');
+
+	0;
+}
+
+################################################################################
+# EasySCP PowerDNS configuration file (Setup / Update)
+#
+# This subroutine built, store and install the PowerDNS configuration file
+#
+# @return int 0 on success, -1 otherwise
+#
+sub setup_pdns {
+
+	push_el(\@main::el, 'setup_pdns()', 'Starting...');
+
+	my $cfgDir = "$main::cfg{'CONF_DIR'}/pdns";
+	my $prodDir = "$main::cfg{'PDNS_DB_DIR'}";
+
+	# Converting to ASCII (Punycode)
+	my $dbHost = idn_to_ascii($main::cfg{'DATABASE_HOST'}, 'utf-8');
+
+	my ($rs, $pdnsUser, $pdnsUserPwd, $cfgFile);
+	
+	my $rs = makepath(
+		$main::cfg{'PDNS_DB_DIR'}, $main::cfg{'ROOT_USER'},
+		$main::cfg{'ROOT_GROUP'}, 0640
 	);
 	return $rs if ($rs != 0);
 
-	push_el(\@main::el, 'setup_gui_roundcube()', 'Ending...');
+	# Setup:
+	$pdnsUser = "powerdns";
+	$pdnsUserPwd = generateRandomPass(18);
+
+	## Building the new file
+
+	# Getting the template file for DB
+	($rs, $cfgFile) = get_file("$cfgDir/pdns.mysql.tpl");
+	return -1 if ($rs != 0);
+
+	($rs, $cfgFile) = prep_tpl(
+		{
+			'{PDNS_USER}' => $pdnsUser,
+			'{PDNS_PASS}' => $pdnsUserPwd,
+			'{HOSTNAME}' => $dbHost
+		},
+		$cfgFile
+	);
+	return -1 if ($rs != 0);
+
+	# Storing the file in the working directory
+	# Note: permission are set by the set-gui-permissions.sh script
+	$rs = store_file(
+		"$prodDir/pdns.mysql", $cfgFile, "$main::cfg{'ROOT_USER'}",
+		"$main::cfg{'ROOT_GROUP'}", 0640
+	);
+	return -1 if ($rs != 0);
+	
+	# Getting the template file for DB
+	($rs, $cfgFile) = get_file("$cfgDir/pdns.conf");
+	return -1 if ($rs != 0);
+
+	# Storing the file in the working directory
+	# Note: permission are set by the set-gui-permissions.sh script
+	$rs = store_file(
+		"$main::cfg{'PDNS_CONF_FILE'}", $cfgFile, "$main::cfg{'ROOT_USER'}",
+		"$main::cfg{'ROOT_GROUP'}", 0640
+	);
+	return -1 if ($rs != 0);
+
+	## Creating Powerdns control user account if needed
+
+	# Setting DSN
+	@main::db_connect = (
+		"DBI:mysql:mysql:$dbHost", $main::db_user, $main::db_pwd
+	);
+
+	# Forcing reconnection
+	$main::db = undef;
+
+	# Flushing privileges
+	($rs) = doSQL('FLUSH PRIVILEGES');
+	return -1 if ($rs != 0);
+
+	# Sets the rights for the powerdns user
+	($rs) = doSQL(
+		qq/
+			GRANT ALL PRIVILEGES ON `powerdns`.*
+			TO '$pdnsUser'\@'$dbHost'
+			IDENTIFIED BY '$pdnsUserPwd' ;
+		/
+	);
+	return -1 if ($rs != 0);
+	
+	# Sets the rights for the powerdns user
+	($rs) = doSQL(
+		qq/
+			GRANT ALL PRIVILEGES ON `powerdns`.*
+			TO '$main::db_user'\@'$dbHost';
+		/
+	);
+	return -1 if ($rs != 0);
+	
+	# Getting the template file for database_config
+	my $encrypted_DB_PASSWORD = encrypt_db_password($pdnsUserPwd);
+	
+	($rs, $cfgFile) = get_file("$main::cfg{'CONF_DIR'}/easyscp_pdns_db.tpl");
+	return $rs if($rs != 0);
+	
+	($rs, $cfgFile) = prep_tpl(
+		{
+			'{PDNS_DB_PASSWORD}' => $pdnsUserPwd,
+			'{DB_KEY}'		=> $main::db_pass_key,
+			'{DB_IV}'		=> $main::db_pass_iv
+		},
+		$cfgFile
+	);
+	return $rs if($rs != 0);
+	
+	# Storing the file in the config directory
+	$rs = store_file(
+		"$main::cfg{'CONF_DIR'}/easyscp_pdns_db.php", $cfgFile, "$main::cfg{'ROOT_USER'}",
+		"$main::cfg{'ROOT_GROUP'}", 0644
+	);
+	return $rs if($rs != 0);
+
+	push_el(\@main::el, 'setup_pdns()', 'Ending...');
 
 	0;
 }
@@ -3533,7 +3569,8 @@ sub setup_services_cfg {
 			[\&setup_default_sql_data, 'EasySCP default SQL data:'],
 			[\&setup_hosts, 'EasySCP system hosts file:'],
 			[\&setup_pma_database, 'EasySCP create phpMyAdmin database:'],
-			[\&setup_roundcube_database, 'EasySCP create RoundCube database:']
+			[\&setup_roundcube_database, 'EasySCP create RoundCube database:'],
+			[\&setup_powerdns_database, 'EasySCP create Powerdns database:']
 		) {
 			subtitle($_->[1]);
 			print_status(&{$_->[0]}, 'exit_on_error');
@@ -3544,7 +3581,7 @@ sub setup_services_cfg {
 	for (
 		[\&setup_resolver, 'EasySCP system resolver:'],
 		[\&setup_crontab, 'EasySCP crontab file:'],
-		[\&setup_named, 'EasySCP Bind9 main configuration file:'],
+		[\&setup_pdns, 'EasySCP Powerdns main configuration file:'],
 		[\&setup_fcgi_modules, 'EasySCP Apache fcgi modules configuration:'],
 		[\&setup_httpd_main_vhost, 'EasySCP Apache main vhost file:'],
 		[\&setup_awstats_vhost, 'EasySCP Apache AWStats vhost file:'],
@@ -3570,7 +3607,6 @@ sub setup_gui_cfg {
 	push_el(\@main::el, 'setup_gui_cfg()', 'Starting...');
 
 	for (
-		[\&setup_gui_named, 'EasySCP GUI Bind9 configuration:'],
 		[\&setup_gui_php, 'EasySCP GUI fcgi/PHP configuration:'],
 		[\&setup_gui_httpd, 'EasySCP GUI vhost file:'],
 		[\&setup_gui_pma, 'EasySCP PMA configuration file:'],

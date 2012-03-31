@@ -22,6 +22,7 @@
 
 install:
 	cp ./easyscp_config_db.tpl $(SYSTEM_CONF)
+	cp ./easyscp_pdns_db.tpl $(SYSTEM_CONF)
 	cp -R ./apache $(SYSTEM_CONF)
 	cp -R ./awstats $(SYSTEM_CONF)
 	cp -R ./bind $(SYSTEM_CONF)
@@ -29,10 +30,13 @@ install:
 	cp -R ./fcgi $(SYSTEM_CONF)
 	cp -R ./pma $(SYSTEM_CONF)
 	cp -R ./roundcube $(SYSTEM_CONF)
+	cp -R ./pdns $(SYSTEM_CONF)
 
 uninstall:
 	rm -rf $(SYSTEM_CONF)/easyscp_config_db.php
 	rm -rf $(SYSTEM_CONF)/easyscp_config_db.tpl
+	rm -rf $(SYSTEM_CONF)/easyscp_pdns_db.php
+	rm -rf $(SYSTEM_CONF)/easyscp_pdns_db.tpl
 	rm -rf $(SYSTEM_CONF)/apache
 	rm -rf $(SYSTEM_CONF)/awstats
 	rm -rf $(SYSTEM_CONF)/bind
@@ -40,5 +44,6 @@ uninstall:
 	rm -rf $(SYSTEM_CONF)/fcgi
 	rm -rf $(SYSTEM_CONF)/pma
 	rm -rf $(SYSTEM_CONF)/roundcube
+	rm -rf $(SYSTEM_CONF)/pdns
 
 .PHONY: install uninstall

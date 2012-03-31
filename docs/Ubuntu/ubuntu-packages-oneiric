@@ -5,7 +5,6 @@ apache2-suexec
 apache2-utils
 awstats
 bash
-bind9
 bzip2
 chkrootkit
 courier-authdaemon
@@ -66,6 +65,8 @@ patch
 perl
 perl-base
 perl-modules
+pdns-server
+pdns-backend-mysql
 php-pear
 php-mdb2
 php5

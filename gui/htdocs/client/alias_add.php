@@ -379,7 +379,9 @@ function add_domain_alias(&$err_al) {
 	;";
 	exec_query($sql, $query, array($cr_user_id, $alias_name, $mount_point, $status, $domain_ip, $forward));
 
-	$sql->insertId();
+	$dmn_id = $sql->insertId();
+	
+	AddDefaultDNSEntries(0, $dmn_id, $alias_name, $domain_ip);
 
 	update_reseller_c_props(get_reseller_id($cr_user_id));
 

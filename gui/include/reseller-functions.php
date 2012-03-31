@@ -1821,4 +1821,123 @@ function check_reseller_permissions($reseller_id, $permission) {
 
 	return true;
 }
+
+/**
+ * Adds default DNS entries when adding a domain
+ *
+ * @param int $dmn_id Domain ID
+ * @param int $dmn_alias_id Domain Alias ID
+ * @param string Domain Name
+ * @param int Domain IP ID
+ * @return boolean
+ */
+function AddDefaultDNSEntries($dmn_id, $dmn_alias_id=0, $dmn_name, $domain_ip) {
+// Add some default DNS entries
+
+	$easyscp_domain_id_string = "easyscp_domain_id";
+	
+	if ($dmn_alias_id != 0) {
+		$dmn_id = $dmn_alias_id;
+		$easyscp_domain_id_string = "easyscp_domain_alias_id";
+	}
+		
+	$sql_param = array(
+		':domain_name' => $dmn_name,
+		':easyscp_domain_id' => $dmn_id, 
+	);
+	
+	$sql_query = "
+		INSERT INTO powerdns.domains (
+			`".$easyscp_domain_id_string."`, `name`,
+			`type`
+		)
+		VALUES (
+			:easyscp_domain_id, :domain_name,
+			'NATIVE'
+		)
+	";
+	
+	DB::prepare($sql_query);
+	DB::execute($sql_param);
+	
+	$dmn_dns_id = DB::getInstance()->lastInsertId();
+	
+	$sql_param = array(
+		"ip_id" => $domain_ip,
+	);
+	
+	$sql_query = "SELECT `ip_number` FROM `server_ips` WHERE `ip_id` = :ip_id";
+	DB::prepare($sql_query);
+	$row = DB::execute($sql_param, true);
+	$domain_ip = $row['ip_number'];
+	
+	$sql_param = array();
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_dns_id,
+		'domain_name' => $dmn_name,
+		'domain_type' => 'NS',
+		'domain_content' => 'ns1.'.$dmn_name,
+		'domain_ttl'	=> '38400',
+		'domain_prio' => '',
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_dns_id,
+		'domain_name' => '*.'.$dmn_name,
+		'domain_type' => 'A',
+		'domain_content' => $domain_ip,
+		'domain_ttl'	=> '38400',
+		'domain_prio' => '',
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_dns_id,
+		'domain_name' => $dmn_name,
+		'domain_type' => 'A',
+		'domain_content' => $domain_ip,
+		'domain_ttl'	=> '38400',
+		'domain_prio' => '',
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_dns_id,
+		'domain_name' => 'mail.'.$dmn_name,
+		'domain_type' => 'A',
+		'domain_content' => $domain_ip,
+		'domain_ttl'	=> '38400',
+		'domain_prio' => '',
+	);
+	
+	$sql_param[] = array(
+		'domain_id'	=>	$dmn_dns_id,
+		'domain_name' => $dmn_name,
+		'domain_type' => 'MX',
+		'domain_content' => 'mail.'.$dmn_name,
+		'domain_ttl'	=> '38400',
+		'domain_prio' => '10',
+	);	
+	
+	$sql_query = "
+			INSERT INTO powerdns.records (
+				`domain_id`, `name`,
+				`type`, `content`,
+				`ttl`, `prio`)
+			VALUES (
+				:domain_id, :domain_name,
+				:domain_type, :domain_content,
+				:domain_ttl, :domain_prio
+			)
+	";
+	
+	echo "<pre>";
+	print_r($sql_param);
+	echo "</pre>";
+
+	foreach ($sql_param as $data) {
+		print_r($data);
+		DB::prepare($sql_query);
+		DB::execute($data);
+	}		
+}
+	
 ?>

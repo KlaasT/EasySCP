@@ -1,8 +1,5 @@
 amavisd-new
 awstats
-bind
-bind-chroot
-bind-libs
 bind-utils
 bzip2
 chkrootkit
@@ -70,6 +67,8 @@ perl-TermReadKey
 perl-TimeDate
 perl-URI
 perl-Unix-Syslog
+pdns
+pdns-backend-mysql
 php
 php-bcmath
 php-cli

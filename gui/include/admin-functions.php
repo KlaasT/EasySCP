@@ -2184,15 +2184,42 @@ function delete_domain($domain_id, $goto, $breseller = false) {
 	exec_query($sql, $query, $domain_id);
 
 	// Delete domain DNS entries
-	$query = "
-		DELETE FROM
-			`domain_dns`
-		WHERE
-			`domain_id` = ?
-		;
+	
+	$sql_param = array(
+		"domain_id"	=>	$domain_id,
+	);
+	
+	$sql_query = "
+					SELECT
+						`id`
+					FROM
+						`powerdns`.`domains`
+					WHERE
+						`easyscp_domain_id` = :domain_id";
+	DB::prepare($sql_query);
+	$row = DB::execute($sql_param, true);
+	
+	$sql_param = array(
+		"domain_id"	=>	$row['id'],
+	);
+	
+	$sql_query = "
+			DELETE FROM
+				`powerdns`.`records`
+			WHERE
+				`domain_id` = :domain_id
 	";
-
-	exec_query($sql, $query, $domain_id);
+	
+	DB::prepare($sql_query);
+	DB::execute($sql_param);
+	
+	$sql_query = "
+			DELETE FROM
+				`powerdns`.`domains`
+			WHERE
+				`id` = :domain_id";
+	DB::prepare($sql_query);
+	DB::execute($sql_param);
 
 	// Set domain deletion status
 	$query = "
