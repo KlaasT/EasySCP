@@ -91,7 +91,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>{$TR_CGI}</td>
+					<td>{$TR_SSL}</td>
 					<td>
 						<input type="radio" name="ssl" id="ssl_yes" value="_yes_" {$TR_SSL_YES} />&nbsp;{$TR_YES}
 						<input type="radio" name="ssl" id="ssl_no" value="_no_" {$TR_SSL_NO} />&nbsp;{$TR_NO}
