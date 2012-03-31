@@ -3,6 +3,7 @@ EasySCP 1.2.0 ChangeLog
 
 2012-03-31 Markus Szywon
 	- GUI:
+		* Fixed: Wrong calculation for the graphical bar on traffic usage
 		* Updated: SSL config
 		* Some fixes
 	- TOOLS:

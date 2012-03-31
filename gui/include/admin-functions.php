@@ -1399,8 +1399,8 @@ function calc_bar_value($value, $value_max, $bar_width) {
 	if($value_max == 0) {
 		return 0;
 	} else {
-		$ret_value = ($value * $bar_width) / $value_max;
-		return ($ret_value > $bar_width) ? $bar_width : round($ret_value, 3);
+		$ret_value = ($value * 100) / $value_max;
+		return ($ret_value > 100) ? $bar_width : round($ret_value, 3);
 	}
 }
 
