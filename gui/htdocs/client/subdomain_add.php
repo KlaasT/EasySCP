@@ -23,51 +23,21 @@
 
 require '../../include/easyscp-lib.php';
 
-check_login(__FILE__);
-
 $cfg = EasySCP_Registry::get('Config');
 
-// common page data.
+check_login(__FILE__);
 
-// Avoid unneeded generation during Ajax request
-if (!is_xhr()) {
-	$tpl = EasySCP_TemplateEngine::getInstance();
-	$template = 'client/subdomain_add.tpl';
+$tpl = EasySCP_TemplateEngine::getInstance();
+$template = 'client/subdomain_add.tpl';
 
-	// check user sql permission
-	if (isset($_SESSION['subdomain_support']) &&
-		$_SESSION['subdomain_support'] == "no") {
-		header('Location: index.php');
-	}
+// common page data
 
-	// static page messages.
-	gen_logged_from($tpl);
-
-	check_permissions($tpl);
-
-	$tpl->assign(
-		array(
-			'TR_PAGE_TITLE'						=> tr('EasySCP - Client/Add Subdomain'),
-			'TR_ADD_SUBDOMAIN'					=> tr('Add subdomain'),
-			'TR_SUBDOMAIN_DATA'					=> tr('Subdomain data'),
-			'TR_SUBDOMAIN_NAME'					=> tr('Subdomain name'),
-			'TR_DIR_TREE_SUBDOMAIN_MOUNT_POINT'	=> tr('Directory tree mount point'),
-			'TR_FORWARD'						=> tr('Forward to URL'),
-			'TR_ADD'							=> tr('Add'),
-			'TR_DMN_HELP'						=> tr('You do not need \'www.\' ispCP will add it on its own.'),
-			'TR_ENABLE_FWD'						=> tr('Enable Forward'),
-			'TR_ENABLE'							=> tr('Enable'),
-			'TR_DISABLE'						=> tr('Disable'),
-			'TR_PREFIX_HTTP'					=> 'http://',
-			'TR_PREFIX_HTTPS'					=> 'https://',
-			'TR_PREFIX_FTP'						=> 'ftp://',
-			'TR_MNT_POINT_HELP'					=>	tr('Path is relativ to your root directory. The mount point will contain a subfolder named htdocs.'),
-		)
-	);
-
-	gen_client_mainmenu($tpl, 'client/main_menu_manage_domains.tpl');
-	gen_client_menu($tpl, 'client/menu_manage_domains.tpl');
+/*
+// check user subdomain permission
+if (isset($_SESSION['subdomain_support']) && $_SESSION['subdomain_support'] == "no") {
+	header('Location: index.php');
 }
+*/
 
 $err_txt = '_off_';
 
@@ -94,6 +64,34 @@ if(isset($_POST['uaction'])) {
 	gen_user_add_subdomain_data($tpl, $_SESSION['user_id']);
 }
 
+// static page messages.
+gen_logged_from($tpl);
+
+check_permissions($tpl);
+
+$tpl->assign(
+	array(
+		'TR_PAGE_TITLE'						=> tr('EasySCP - Client/Add Subdomain'),
+		'TR_ADD_SUBDOMAIN'					=> tr('Add subdomain'),
+		'TR_SUBDOMAIN_DATA'					=> tr('Subdomain data'),
+		'TR_SUBDOMAIN_NAME'					=> tr('Subdomain name'),
+		'TR_DIR_TREE_SUBDOMAIN_MOUNT_POINT'	=> tr('Directory tree mount point'),
+		'TR_FORWARD'						=> tr('Forward to URL'),
+		'TR_ADD'							=> tr('Add'),
+		'TR_DMN_HELP'						=> tr('You do not need \'www.\' ispCP will add it on its own.'),
+		'TR_ENABLE_FWD'						=> tr('Enable Forward'),
+		'TR_ENABLE'							=> tr('Enable'),
+		'TR_DISABLE'						=> tr('Disable'),
+		'TR_PREFIX_HTTP'					=> 'http://',
+		'TR_PREFIX_HTTPS'					=> 'https://',
+		'TR_PREFIX_FTP'						=> 'ftp://',
+		'TR_MNT_POINT_HELP'					=>	tr('Path is relativ to your root directory. The mount point will contain a subfolder named htdocs.'),
+	)
+);
+
+gen_client_mainmenu($tpl, 'client/main_menu_manage_domains.tpl');
+gen_client_menu($tpl, 'client/menu_manage_domains.tpl');
+
 gen_page_msg($tpl, $err_txt);
 
 if ($cfg->DUMP_GUI_DEBUG) {
@@ -102,8 +100,8 @@ if ($cfg->DUMP_GUI_DEBUG) {
 
 $tpl->display($template);
 
-// page functions.
 
+// page functions.
 /**
  *
  * @param EasySCP_TemplateEngine $tpl
@@ -114,10 +112,7 @@ function gen_page_msg($tpl, $error_txt) {
 	if ($error_txt != '_off_') {
 		$tpl->assign('MESSAGE', $error_txt);
 		$tpl->assign('MSG_TYPE', 'error');
-	} else {
-		$tpl->assign('PAGE_MESSAGE', '');
 	}
-
 }
 
 /**

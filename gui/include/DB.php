@@ -33,8 +33,8 @@ require_once('/etc/easyscp/easyscp_config_db.php');
  *
  */
 class DB extends DB_Config {
-	private static $connectid;
-	private static $stmt;
+	private static $connectid = false;
+	private static $stmt = false;
 
 	private static $abfragen = 0;
 	private static $zeit = 0;
@@ -44,6 +44,8 @@ class DB extends DB_Config {
 	 * Falls noch keine Datenbank verbindung besteht wird diese aufgebaut und dann die Instanz zurückgegeben.
 	 * Zusätzlich werden einige Optionen für die Datenbank verbindung gesetzt:
 	 * ATTR_PERSISTENT = Die Datenbank verbindung bleibt solange bestehen bis das Script sich beendet hat.
+	 *
+	 * @return object DB::$connectid Gibt das Objekt für die Datenbankverbindung zurück oder erstellt dieses falls es noch nicht vohanden ist.
 	 */
 	static public function getInstance(){
 		if(!self::$connectid){
@@ -69,7 +71,7 @@ class DB extends DB_Config {
 	 * Vorbereiten eines SQL Query.
 	 * 
 	 * @param string $sql_query Der Query den man vorbereiten möchte (Prepared Statement).
-	 * @return Liefert das Objekt eines vorbereiteten (prepared) SQL Query zurück. Das Objekt wird für spezielle PDO Funktionen benötigt (z.b. "bindValue").
+	 * @return object DB::$stmt Liefert das Objekt eines vorbereiteten (prepared) SQL Query zurück. Das Objekt wird für spezielle PDO Funktionen benötigt (z.b. "bindValue").
 	 */
 	static public function prepare($sql_query){
 		$timer_start = microtime();
@@ -83,7 +85,7 @@ class DB extends DB_Config {
 	 *
 	 * @param array $sql_param Eine Array von Parametern/Daten für den Query.
 	 * @param bool $single Gibt an ob bei erfolg nur der erste Datensatz zurückgeliefert werden soll.
-	 * @return Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welches dann per fetch()/fetch_all() abgerufen werden kann.
+	 * @return mixed Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welches dann per fetch()/fetch_all() abgerufen werden kann.
 	 *
 	 * Die Anzahl der zurückgegebenen Zeilen kann mittels "Object->rowCount()" ermittelt werden.
 	 */
@@ -99,11 +101,10 @@ class DB extends DB_Config {
 				return(self::$stmt);
 			}
 		}
-			
+
 		catch(PDOException $e) {
 			throw new Exception($e->getMessage());
 		}
-		return false;
 	}
 
 	/**
@@ -111,7 +112,7 @@ class DB extends DB_Config {
 	 * 
 	 * @param string $sql_query Der Query den man ausführen möchte.
 	 * @param bool $single Gibt an ob bei erfolg nur der erste Datensatz zurückgeliefert werden soll.
-	 * @return Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welche dann per fetch()/fetch_all()/foreach abgerufen werden kann.
+	 * @return mixed Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welche dann per fetch()/fetch_all()/foreach abgerufen werden kann.
 	 *
 	 * Die Anzahl der zurückgegebenen Zeilen kann mittels "Object->rowCount()" ermittelt werden.
 	 */
@@ -127,11 +128,10 @@ class DB extends DB_Config {
 				return(self::$stmt);
 			}
 		}
-			
+
 		catch(PDOException $e) {
 			throw new Exception($e->getMessage());
 		}
-		return false;
 	}
 
 	/**
@@ -140,7 +140,7 @@ class DB extends DB_Config {
 	 * @param string $sql_query Der Query den man vorbereiten möchte (Prepared Statement).
 	 * @param array $sql_param Eine Array von Parametern/Daten für den Query.
 	 * @param bool $single Gibt an ob bei erfolg nur der erste Datensatz zurückgeliefert werden soll.
-	 * @return Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welches dann per fetch()/fetch_all() abgerufen werden kann.
+	 * @return mixed Wenn single = true wird der erste Datensatz zurückgegeben, ansonsten das Objekt für die Datenbank abfrage welches dann per fetch()/fetch_all() abgerufen werden kann.
 	 */
 	static public function query_new($sql_query, $sql_param, $single = false){
 		try {
@@ -160,13 +160,12 @@ class DB extends DB_Config {
 		catch(PDOException $e) {
 			throw new Exception($e->getMessage());
 		}
-		return false;
 	}
 
 	/**
  	 * Anzahl der DB zugriffe
  	 *
- 	 * @return Gibt die Summe der bisher stattgefundenen Datenbank zugriffe zurück
+ 	 * @return string Gibt die Summe der bisher stattgefundenen Datenbank zugriffe zurück
  	 */
 	static public function Abfragen(){
 		return self::$abfragen;
@@ -175,7 +174,7 @@ class DB extends DB_Config {
 	/**
  	 * Zeit der DB Abfragen
  	 *
- 	 * @return Gibt die Zeit in ms zurück, welche für die bisher stattgefundenen Datenbank zugriffe benötigt wurde
+ 	 * @return string Gibt die Zeit in ms zurück, welche für die bisher stattgefundenen Datenbank zugriffe benötigt wurde
  	 */
 	static public function Zeit(){
 		return self::$zeit;
