@@ -4,6 +4,7 @@ EasySCP 1.2.0 ChangeLog
 2012-03-31 Markus Szywon
 	- GUI:
 		* Updated: SSL config
+		* Some fixes
 	- TOOLS:
 		* Updated: phpMyAdmin to version 3.4.10.2
 
