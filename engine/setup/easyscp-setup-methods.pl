@@ -3079,10 +3079,10 @@ sub setup_gui_roundcube {
 
 
 	# Install pear mdb2
-	#$rs = sys_command(
-#		"pear install mdb2"
-	#);
-	#return $rs if ($rs != 0);
+	$rs = sys_command(
+		"pear install mdb2"
+	);
+	return $rs if ($rs != 0);
 
 	push_el(\@main::el, 'setup_gui_roundcube()', 'Ending...');
 
