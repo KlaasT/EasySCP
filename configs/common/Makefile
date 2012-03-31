@@ -25,7 +25,6 @@ install:
 	cp ./easyscp_pdns_db.tpl $(SYSTEM_CONF)
 	cp -R ./apache $(SYSTEM_CONF)
 	cp -R ./awstats $(SYSTEM_CONF)
-	cp -R ./bind $(SYSTEM_CONF)
 	cp -R ./database $(SYSTEM_CONF)
 	cp -R ./fcgi $(SYSTEM_CONF)
 	cp -R ./pma $(SYSTEM_CONF)
@@ -39,7 +38,6 @@ uninstall:
 	rm -rf $(SYSTEM_CONF)/easyscp_pdns_db.tpl
 	rm -rf $(SYSTEM_CONF)/apache
 	rm -rf $(SYSTEM_CONF)/awstats
-	rm -rf $(SYSTEM_CONF)/bind
 	rm -rf $(SYSTEM_CONF)/database
 	rm -rf $(SYSTEM_CONF)/fcgi
 	rm -rf $(SYSTEM_CONF)/pma
