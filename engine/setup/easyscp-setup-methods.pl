@@ -3237,37 +3237,6 @@ sub update_gui_theme {
 }
 
 ################################################################################
-# EasySCP Gui named configuration - (Setup / Update)
-#
-# This subroutine do the following tasks:
-#  - Add Gui named cfg data in main Bind9 configuration file
-#  - Built GUI named DNS record's file
-#
-# @return int 0 on success, other on failure
-#
-sub setup_gui_named {
-
-	push_el(\@main::el, 'setup_gui_named()', 'Starting...');
-
-	# Converting to ASCII (Punycode)
-	my $baseServerVhost = idn_to_ascii($main::cfg{'BASE_SERVER_VHOST'}, 'utf-8');
-
-	# Add GUI Bind9 cfg data
-	my $rs = setup_gui_named_cfg_data($baseServerVhost);
-	return $rs if($rs != 0);
-
-	# Building GUI Bind9 DNS records file
-	$rs = setup_gui_named_db_data(
-		$main::cfg{'BASE_SERVER_IP'}, $baseServerVhost
-	);
-	return $rs if($rs != 0);
-
-	push_el(\@main::el, 'setup_gui_named()', 'Ending...');
-
-	0;
-}
-
-################################################################################
 # EasySCP Gui named cfg file - (Setup / Update)
 #
 # This subroutine do the following tasks:
