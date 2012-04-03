@@ -170,7 +170,6 @@ CREATE TABLE IF NOT EXISTS `domain` (
   `domain_cgi` varchar(15) collate utf8_unicode_ci default NULL,
   `allowbackup` varchar(8) collate utf8_unicode_ci NOT NULL default 'full',
   `domain_dns` varchar(15) collate utf8_unicode_ci NOT NULL default 'no',
-  `domain_dns_serial` varchar(13) collate utf8_unicode_ci NOT NULL,
   `domain_ssl` varchar(15) collate utf8_unicode_ci NOT NULL default 'no',
   `ssl_key` varchar(5000) collate utf8_unicode_ci NULL default NULL,
   `ssl_cert` varchar(5000) collate utf8_unicode_ci NULL default NULL,

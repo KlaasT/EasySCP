@@ -28,8 +28,8 @@ install:
 	cp -R ./database $(SYSTEM_CONF)
 	cp -R ./fcgi $(SYSTEM_CONF)
 	cp -R ./pma $(SYSTEM_CONF)
-	cp -R ./roundcube $(SYSTEM_CONF)
 	cp -R ./pdns $(SYSTEM_CONF)
+	cp -R ./roundcube $(SYSTEM_CONF)
 
 uninstall:
 	rm -rf $(SYSTEM_CONF)/easyscp_config_db.php
@@ -41,7 +41,7 @@ uninstall:
 	rm -rf $(SYSTEM_CONF)/database
 	rm -rf $(SYSTEM_CONF)/fcgi
 	rm -rf $(SYSTEM_CONF)/pma
-	rm -rf $(SYSTEM_CONF)/roundcube
 	rm -rf $(SYSTEM_CONF)/pdns
+	rm -rf $(SYSTEM_CONF)/roundcube
 
 .PHONY: install uninstall
