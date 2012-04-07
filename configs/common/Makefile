@@ -22,7 +22,6 @@
 
 install:
 	cp ./easyscp_config_db.tpl $(SYSTEM_CONF)
-	cp ./easyscp_pdns_db.tpl $(SYSTEM_CONF)
 	cp -R ./apache $(SYSTEM_CONF)
 	cp -R ./awstats $(SYSTEM_CONF)
 	cp -R ./database $(SYSTEM_CONF)
@@ -34,8 +33,6 @@ install:
 uninstall:
 	rm -rf $(SYSTEM_CONF)/easyscp_config_db.php
 	rm -rf $(SYSTEM_CONF)/easyscp_config_db.tpl
-	rm -rf $(SYSTEM_CONF)/easyscp_pdns_db.php
-	rm -rf $(SYSTEM_CONF)/easyscp_pdns_db.tpl
 	rm -rf $(SYSTEM_CONF)/apache
 	rm -rf $(SYSTEM_CONF)/awstats
 	rm -rf $(SYSTEM_CONF)/database

@@ -3187,29 +3187,6 @@ sub setup_pdns {
 	);
 	return -1 if ($rs != 0);
 	
-	# Getting the template file for database_config
-	my $encrypted_DB_PASSWORD = encrypt_db_password($pdnsUserPwd);
-	
-	($rs, $cfgFile) = get_file("$main::cfg{'CONF_DIR'}/easyscp_pdns_db.tpl");
-	return $rs if($rs != 0);
-	
-	($rs, $cfgFile) = prep_tpl(
-		{
-			'{PDNS_DB_PASSWORD}' => $pdnsUserPwd,
-			'{DB_KEY}'		=> $main::db_pass_key,
-			'{DB_IV}'		=> $main::db_pass_iv
-		},
-		$cfgFile
-	);
-	return $rs if($rs != 0);
-	
-	# Storing the file in the config directory
-	$rs = store_file(
-		"$main::cfg{'CONF_DIR'}/easyscp_pdns_db.php", $cfgFile, "$main::cfg{'ROOT_USER'}",
-		"$main::cfg{'ROOT_GROUP'}", 0644
-	);
-	return $rs if($rs != 0);
-
 	push_el(\@main::el, 'setup_pdns()', 'Ending...');
 
 	0;
