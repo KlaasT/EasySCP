@@ -93,80 +93,89 @@ unset_messages();
 function gen_user_dns_list($tpl, $sql, $user_id) {
 	$domain_id = get_user_domain_id($sql, $user_id);
 	$cfg = EasySCP_Registry::get('Config');
-
-	$query = "
+	
+	$sql_param = array(
+		"domain_id"	=>	$domain_id,
+	);
+	$sql_query = "
 		SELECT
-			`domain_dns`.`domain_dns_id`,
-			`domain_dns`.`domain_id`,
-			`domain_dns`.`domain_dns`,
-			`domain_dns`.`domain_class`,
-			`domain_dns`.`domain_type`,
-			`domain_dns`.`domain_text`,
-			IFNULL(`domain_aliasses`.`alias_name`, `domain`.`domain_name`) AS 'domain_name',
-			IFNULL(`domain_aliasses`.`alias_status`, `domain`.`domain_status`) AS 'domain_status',
-			`domain_dns`.`protected`
+			`ns`.`name` AS `domain_name`,
+			`ns`.`id`,
+			`r`.`id` AS `domain_dns_id`,
+			`r`.`protected`,
+			`r`.`name` AS `domain_dns`,
+			`r`.`content` AS `domain_text`,
+			`r`.`type` AS `domain_type`,
+			`r`.`prio`,
+			IFNULL(`da`.`alias_status`, `d`.`domain_status`) AS 'domain_status',
+			`ns`.`easyscp_domain_alias_id`,
+			`ns`.`easyscp_domain_id`
 		FROM
-			`domain_dns`
-			LEFT JOIN `domain_aliasses` USING (`alias_id`, `domain_id`),
-			`domain`
+			`powerdns`.`domains` `ns`
+		INNER JOIN
+			`powerdns`.`records` `r`
+		ON
+			(`r`.`domain_id`=`ns`.`id`)
+		LEFT JOIN
+			`domain_aliasses` `da`
+		ON
+			(`da`.`alias_id`=`ns`.`easyscp_domain_alias_id`)
+				AND `ns`.`easyscp_domain_alias_id` > 0
+		LEFT JOIN
+			`domain` `d`
+		ON
+			(`d`.`domain_id`=`ns`.`easyscp_domain_id`)
+				AND `ns`.`easyscp_domain_id` > 0
 		WHERE
-			`domain_dns`.`domain_id` = ?
-		AND
-			`domain`.`domain_id` = `domain_dns`.`domain_id`
+			`ns`.`easyscp_domain_id` = :domain_id
+		OR
+			`ns`.`easyscp_domain_alias_id` = :domain_id
 		ORDER BY
-			`domain_id`,
-			`alias_id`,
-			`domain_dns`,
-			`domain_type`
-	;";
+			`ns`.`easyscp_domain_id`,
+			`ns`.`easyscp_domain_alias_id`,
+			`r`.`name`,
+			`r`.`type`
+	";
+	
+	$statement = DB::prepare($sql_query);
+	
 
-	$rs = exec_query($sql, $query, $domain_id);
-	if ($rs->recordCount() == 0) {
-		$tpl->assign(
-			array(
-				'DNS_MSG'		=> tr("Manual zone's records list is empty!"),
-				'DNS_MSG_TYPE'	=> 'info',
-				'DNS_LIST'		=> ''
-			)
+	$dns_records = array();
+	$stmt = DB::execute($sql_param, false);
+		
+	while ($row = $stmt->fetch()) {
+		list($dns_action_delete, $dns_action_script_delete) = gen_user_dns_action(
+			'Delete', $row['domain_dns_id'],
+			($row['protected'] == 0) ? $row['domain_status'] : $cfg->ITEM_PROTECTED_STATUS
 		);
-	} else {
-
-		while (!$rs->EOF) {
-			list($dns_action_delete, $dns_action_script_delete) = gen_user_dns_action(
-				'Delete', $rs->fields['domain_dns_id'],
-				($rs->fields['protected'] == 'no') ? $rs->fields['domain_status'] : $cfg->ITEM_PROTECTED_STATUS
-			);
-
 			list($dns_action_edit, $dns_action_script_edit) = gen_user_dns_action(
-				'Edit', $rs->fields['domain_dns_id'],
-				($rs->fields['protected'] == 'no') ? $rs->fields['domain_status'] :$cfg->ITEM_PROTECTED_STATUS
-			);
-
-			$domain_name = decode_idna($rs->fields['domain_name']);
-			$sbd_name = $rs->fields['domain_dns'];
-			$sbd_data = $rs->fields['domain_text'];
-			$sbd_status = $rs->fields['domain_status'];
-			$tpl->append(
-				array(
-					'DNS_DOMAIN'				=> tohtml($domain_name),
-					'DNS_NAME'					=> tohtml($sbd_name),
-					'DNS_CLASS'					=> tohtml($rs->fields['domain_class']),
-					'DNS_TYPE'					=> tohtml($rs->fields['domain_type']),
-					'DNS_DATA'					=> tohtml($sbd_data),
-					'DNS_STATUS'				=> translate_dmn_status($sbd_status),
-//					'DNS_ACTION_SCRIPT_EDIT'	=> $sub_action,
-					'DNS_ACTION_SCRIPT_DELETE'	=> tohtml($dns_action_script_delete),
-					'DNS_ACTION_DELETE'			=> tohtml($dns_action_delete),
-					'DNS_ACTION_SCRIPT_EDIT'	=> tohtml($dns_action_script_edit),
-					'DNS_ACTION_EDIT'			=> tohtml($dns_action_edit),
-					'DNS_TYPE_RECORD'			=> tr("%s record", $rs->fields['domain_type'])
-				)
-			);
-			$rs->moveNext();
+			'Edit', $row['domain_dns_id'],
+			($row['protected'] == 0) ? $row['domain_status'] :$cfg->ITEM_PROTECTED_STATUS
+		);
+	
+		$domain_name = decode_idna($row['domain_name']);
+		$sbd_name = $row['domain_dns'];
+		if ($row['domain_type']=="MX") {
+			$sbd_data = $row['prio']." ".$row['domain_text'];
 		}
-
-		$tpl->assign('DNS_MESSAGE', '');
+		else {
+			$sbd_data = $row['domain_text'];	
+		}
+		
+		$dns_records[] =
+			array(
+				'DNS_DOMAIN'				=> tohtml($domain_name),
+				'DNS_NAME'					=> tohtml($sbd_name),
+				'DNS_TYPE'					=> tohtml($row['domain_type']),
+				'DNS_DATA'					=> tohtml($sbd_data),
+				'DNS_ACTION_SCRIPT_DELETE'	=> tohtml($dns_action_script_delete),
+				'DNS_ACTION_DELETE'			=> tohtml($dns_action_delete),
+				'DNS_ACTION_SCRIPT_EDIT'	=> tohtml($dns_action_script_edit),
+				'DNS_ACTION_EDIT'			=> tohtml($dns_action_edit),
+				'DNS_TYPE_RECORD'			=> tr("%s record", $row['domain_type'])
+			);
 	}
+	$tpl->assign('DNS_RECORDS', $dns_records);
 }
 
 function gen_user_dns_action($action, $dns_id, $status) {

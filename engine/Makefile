@@ -96,7 +96,6 @@ install:
 	$(CMD_INSTALL) ./backup/easyscp-backup-easyscp $(SYSTEM_ENGINE_ROOT)/backup
 
 	$(CMD_INSTALL) ./daemon/DaemonDomain.php $(SYSTEM_ENGINE_ROOT)/daemon
-	$(CMD_INSTALL) ./daemon/DaemonNameserver.php $(SYSTEM_ENGINE_ROOT)/daemon
 	$(CMD_INSTALL) ./daemon/Maps.php $(SYSTEM_ENGINE_ROOT)/daemon
 	$(CMD_INSTALL) ./daemon/SocketHandler.php $(SYSTEM_ENGINE_ROOT)/daemon
 

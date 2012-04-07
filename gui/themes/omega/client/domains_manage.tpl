@@ -108,28 +108,24 @@
 				<tr>
 					<th>{$TR_DOMAIN_NAME}</th>
 					<th>{$TR_DNS_NAME}</th>
-					<th>{$TR_DNS_CLASS}</th>
 					<th>{$TR_DNS_TYPE}</th>
 					<th>{$TR_DNS_DATA}</th>
-					<th>{$TR_DNS_STATUS}</th>
 					<th style="width:200px">{$TR_DNS_ACTION}</th>
 				</tr>
 			</thead>
 			<tbody>
-				{section name=i loop=$DNS_DOMAIN}
+				{foreach from=$DNS_RECORDS item=r}
 				<tr>
-					<td><span class="icon i_domain_icon">{$DNS_DOMAIN[i]}</span></td>
-					<td>{$DNS_NAME[i]}</td>
-					<td>{$DNS_CLASS[i]}</td>
-					<td>{$DNS_TYPE[i]}</td>
-					<td>{$DNS_DATA[i]}</td>
-					<td>{$DNS_STATUS[i]}</td>
+					<td><span class="icon i_domain_icon">{$r.DNS_DOMAIN}</span></td>
+					<td>{$r.DNS_NAME}</td>
+					<td>{$r.DNS_TYPE}</td>
+					<td>{$r.DNS_DATA}</td>
 					<td>
-						<a href="{$DNS_ACTION_SCRIPT_EDIT[i]}" title="{$DNS_ACTION_EDIT[i]}" class="icon i_edit"></a>
-						<a href="#" onclick="action_delete('{$DNS_ACTION_SCRIPT_DELETE[i]}', '{$DNS_TYPE_RECORD[i]}')" title="{$DNS_ACTION_DELETE[i]}" class="icon i_delete"></a>
+						<a href="{$r.DNS_ACTION_SCRIPT_EDIT}" title="{$r.DNS_ACTION_EDIT}" class="icon i_edit"></a>
+						<a href="#" onclick="action_delete('{$r.DNS_ACTION_SCRIPT_DELETE}', '{$r.DNS_TYPE_RECORD}')" title="{$r.DNS_ACTION_DELETE}" class="icon i_delete"></a>
 					</td>
 				</tr>
-				{/section}
+				{/foreach}
 			</tbody>
 		</table>
 		{/if}
