@@ -96,6 +96,7 @@ install:
 	$(CMD_INSTALL) ./backup/easyscp-backup-easyscp $(SYSTEM_ENGINE_ROOT)/backup
 
 	$(CMD_INSTALL) ./daemon/DaemonDomain.php $(SYSTEM_ENGINE_ROOT)/daemon
+	$(CMD_INSTALL) ./daemon/DaemonNameserver.php $(SYSTEM_ENGINE_ROOT)/daemon
 	$(CMD_INSTALL) ./daemon/Maps.php $(SYSTEM_ENGINE_ROOT)/daemon
 	$(CMD_INSTALL) ./daemon/SocketHandler.php $(SYSTEM_ENGINE_ROOT)/daemon
 
@@ -105,6 +106,7 @@ install:
 	$(CMD_INSTALL) ./daemon/extlibs/Daemon/Options.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
 	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
 
+	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Arch.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
 	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/BSD.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
 	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Debian.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
 	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Exception.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
