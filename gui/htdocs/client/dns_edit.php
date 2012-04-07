@@ -229,8 +229,7 @@ function gen_editdns_page($tpl, $edit_id) {
 	}
 	if ($GLOBALS['add_mode']) {
 		$data = null;
-		
-		
+
 		$query = "
 			SELECT
 				'0' AS `alias_id`,
