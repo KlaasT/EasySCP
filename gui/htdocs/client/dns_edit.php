@@ -521,10 +521,11 @@ function check_fwd_data($tpl, $edit_id) {
 	} else {
 		$res = exec_query($sql, "
 		SELECT
-			 domain_dns.*,
+			 powerdns.domains.*,
 			IFNULL(`domain_aliasses`.`alias_name`,`domain`.`domain_name`) AS `domain_name`
 		FROM
-			`domain_dns`
+			`powerdns`.`domains`
+			RIGHT JOIN `powerdns`.`records` ON (powerdns.records.domain_id = powerdns.domains.id)
 			LEFT JOIN `domain_aliasses` USING (`domain_id`, `alias_id`)
 			LEFT JOIN `domain` USING (`domain_id`)
 		WHERE
