@@ -204,7 +204,7 @@ function decode_zone_data($data) {
  */
 function gen_editdns_page($tpl, $edit_id) {
 
-	global $sql, $DNS_allowed_types;
+	global $sql, $DNS_allowed_types, $add_mode;
 	$cfg = EasySCP_Registry::get('Config');
 
 	list(
@@ -292,7 +292,7 @@ function gen_editdns_page($tpl, $edit_id) {
 		not_allowed();
 	}
 
-	$dns_type = create_options($DNS_allowed_types, tryPost('type', $data['domain_type']));
+	$dns_type = create_options($DNS_allowed_types, tryPost('type', $data['type']));
 
 	$tpl->assign(
 		array(
@@ -310,7 +310,8 @@ function gen_editdns_page($tpl, $edit_id) {
 			'DNS_CNAME'					=> tohtml(tryPost('dns_cname', $cname)),
 			'DNS_PLAIN'					=> tohtml(tryPost('dns_plain_data', $plain)),
 			'DNS_NS_HOSTNAME'					=> tohtml(tryPost('dns_ns', $ns)),
-			'ID'						=> $edit_id
+			'ID'						=> $edit_id,
+			'ACTION_MODE'			=> ($add_mode) ? 'dns_add.php' : 'dns_edit.php?edit_id='.$edit_id,
 		)
 	);
 }
@@ -409,19 +410,13 @@ function validate_SRV($record, &$err, &$dns, &$text) {
 		return false;
 	}
 
-	$dns = sprintf("_%s._%s\t%d", $record['dns_srv_name'], $record['srv_proto'], $record['dns_srv_ttl']);
-	$text = sprintf("%d\t%d\t%d\t%s", $record['dns_srv_prio'], $record['dns_srv_weight'], $record['dns_srv_port'], $record['dns_srv_host']);
+	$dns = sprintf("_%s._%s %d", $record['dns_srv_name'], $record['srv_proto'], $record['dns_srv_ttl']);
+	$text = sprintf("%d %d %d %s", $record['dns_srv_prio'], $record['dns_srv_weight'], $record['dns_srv_port'], $record['dns_srv_host']);
 
 	return true;
 }
 
-function validate_MX($record, &$err, &$text) {
-
-	// Add a dot in the end if not
-	if (substr($record['dns_srv_host'], -1) != '.') {
-		$record['dns_srv_host'] .= '.';
-	}
-
+function validate_MX($record, &$err, &$dns_srv_prio, &$dns_srv_host) {
 
 	if (!preg_match('~^([\d]+)$~', $record['dns_srv_prio'])) {
 		$err .= tr('Priority must be a number!');
@@ -433,7 +428,8 @@ function validate_MX($record, &$err, &$text) {
 		return false;
 	}
 
-	$text = sprintf("%d\t%s", $record['dns_srv_prio'], $record['dns_srv_host']);
+	$dns_srv_prio = $record['dns_srv_prio'];
+	$dns_srv_host = $record['dns_srv_host'];
 	return true;
 }
 
@@ -483,7 +479,6 @@ function check_fwd_data($tpl, $edit_id) {
 	$err = '';
 
 	$_text = '';
-	$_class = $_POST['class'];
 	$_type = $_POST['type'];
 
 	list($dmn_id) = get_domain_default_props($sql, $_SESSION['user_id']);
@@ -520,27 +515,35 @@ function check_fwd_data($tpl, $edit_id) {
 		// if no alias is selected, ID is 0 else the real alias_id
 		$alias_id = $alias_id['alias_id'];
 	} else {
-		$res = exec_query($sql, "
-		SELECT
-			 powerdns.domains.*,
-			IFNULL(`domain_aliasses`.`alias_name`,`domain`.`domain_name`) AS `domain_name`
-		FROM
-			`powerdns`.`domains`
-			RIGHT JOIN `powerdns`.`records` ON (powerdns.records.domain_id = powerdns.domains.id)
-			LEFT JOIN `domain_aliasses` USING (`domain_id`, `alias_id`)
-			LEFT JOIN `domain` USING (`domain_id`)
-		WHERE
-			`domain_dns_id` = ?
-		AND
-		`domain_id` = ?
-		", array($edit_id, $dmn_id));
-		if ($res->recordCount() <= 0) {
+		
+		$sql_query = "
+				SELECT
+					`d`.`easyscp_domain_id`,
+					`d`.`easyscp_domain_alias_id`,
+					`d`.`name`
+				FROM
+					`powerdns`.`domains` `d`
+				INNER JOIN
+					`powerdns`.`records` `r`
+				ON
+					(`r`.`domain_id`=`d`.`id`)
+				WHERE
+					`r`.`id` = :record_id
+		";
+		
+		$sql_param = array(
+			'record_id' => $edit_id,
+		);
+		
+		DB::prepare($sql_query);
+		$stmt = DB::execute($sql_param, false);
+		if ($stmt->rowCount() <= 0) {
 			not_allowed();
 		}
-		$data = $res->fetchRow();
-		$record_domain = $data['domain_name'];
-		$alias_id = $data['alias_id'];
-		$_dns = $data['domain_dns'];
+		$data = $stmt->fetch();
+		$record_domain = $data['name'];
+		$alias_id = $data['easyscp_domain_alias_id'];
+		$_dns = $data['name'];
 	}
 
 	if (!validate_NAME(array('name' => $_POST['dns_name'], 'domain' => $record_domain), $err)) {
@@ -575,7 +578,7 @@ function check_fwd_data($tpl, $edit_id) {
 			break;
 		case 'MX':
 			$_dns = '';
-			if (!validate_MX($_POST, $err, $_text)) {
+			if (!validate_MX($_POST, $err, $_dns_srv_prio, $_text)) {
 				$ed_error = sprintf(tr('Cannot validate %s record. Reason \'%s\'.'), $_POST['type'], $err);
 			} else {
 				$_dns = $record_domain . '.';
@@ -631,59 +634,34 @@ function check_fwd_data($tpl, $edit_id) {
 			}
 
 		} else {
-
-			$query = "
-				UPDATE
-					`domain_dns`
-				SET
-					`domain_dns` = ?, `domain_class` = ?, `domain_type` = ?,
-					`domain_text` = ?
-				WHERE
-					`domain_dns_id` = ?
-				;
+			
+			$sql_query = "
+					UPDATE
+						`powerdns`.`records`
+					SET
+						`domain_id` = :domain_id,
+						`name`	= :name,
+						`type` = :type,
+						`content` = :content,
+						`ttl` = :ttl,
+						`prio` = :prio
+					WHERE
+						`id` = :record_id
 			";
-
-			exec_query(
-				$sql, $query, array($_dns, $_class, $_type, $_text, $edit_id)
+			
+			$sql_param = array(
+				'domain_id' => $dmn_id,
+				'name'	=> $_dns,
+				'type' => $_type,
+				'content' => $_text,
+				'ttl' => 38400,
+				'prio' => $_dns_srv_prio,
+				'record_id' => $edit_id,
 			);
+			
+			DB::prepare($sql_query);
+			DB::execute($sql_param);
 		}
-
-		if ($alias_id == 0) {
-
-			$query = "
-				UPDATE
-					`domain`
- 				SET
-					`domain`.`domain_status` = ?
- 				WHERE
-    				`domain`.`domain_id` = ?
-    			;
-   			";
-
-			exec_query(
-				$sql, $query, array($cfg->ITEM_DNSCHANGE_STATUS, $dmn_id)
-			);
-
-		} else {
-
-			$query = "
- 				UPDATE
- 					`domain_aliasses`
-				SET
-					`domain_aliasses`.`alias_status` = ?
- 				WHERE
-					`domain_aliasses`.`domain_id` = ?
-				AND	`domain_aliasses`.`alias_id` = ?
-			";
-
-			exec_query(
-				$sql, $query,
-				array($cfg->ITEM_DNSCHANGE_STATUS, $dmn_id, $alias_id)
-			);
-		}
-
-		// Send request to ispCP daemon
-		send_request();
 
 		$admin_login = $_SESSION['user_logged'];
 		write_log("$admin_login: " . (($add_mode) ? 'add new' : ' modify') . " dns zone record.");
