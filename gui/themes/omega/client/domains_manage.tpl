@@ -101,33 +101,5 @@
 		{if isset($DNS_MSG)}
 		<div class="{$DNS_MSG_TYPE}">{$DNS_MSG}</div>
 		{/if}
-		{if isset($DNS_DOMAIN)}
-		<h2 class="domains"><span>{$TR_DNS}</span></h2>
-		<table class="tablesorter">
-			<thead>
-				<tr>
-					<th>{$TR_DOMAIN_NAME}</th>
-					<th>{$TR_DNS_NAME}</th>
-					<th>{$TR_DNS_TYPE}</th>
-					<th>{$TR_DNS_DATA}</th>
-					<th style="width:200px">{$TR_DNS_ACTION}</th>
-				</tr>
-			</thead>
-			<tbody>
-				{foreach from=$DNS_RECORDS item=r}
-				<tr>
-					<td><span class="icon i_domain_icon">{$r.DNS_DOMAIN}</span></td>
-					<td>{$r.DNS_NAME}</td>
-					<td>{$r.DNS_TYPE}</td>
-					<td>{$r.DNS_DATA}</td>
-					<td>
-						<a href="{$r.DNS_ACTION_SCRIPT_EDIT}" title="{$r.DNS_ACTION_EDIT}" class="icon i_edit"></a>
-						<a href="#" onclick="action_delete('{$r.DNS_ACTION_SCRIPT_DELETE}', '{$r.DNS_TYPE_RECORD}')" title="{$r.DNS_ACTION_DELETE}" class="icon i_delete"></a>
-					</td>
-				</tr>
-				{/foreach}
-			</tbody>
-		</table>
-		{/if}
 	</div>
 {include file='client/footer.tpl'}

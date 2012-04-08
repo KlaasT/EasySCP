@@ -26,7 +26,7 @@ content VARCHAR(255) DEFAULT NULL,
 ttl INT DEFAULT NULL,
 prio INT DEFAULT NULL,
 change_date INT DEFAULT NULL,
-protected TINYINT(1) DEFAULT NULL,
+protected TINYINT(1) DEFAULT,
 primary key(id)
 );
 

@@ -34,7 +34,6 @@ $template = 'client/domains_manage.tpl';
 
 gen_user_sub_list($tpl, $sql, $_SESSION['user_id']);
 gen_user_als_list($tpl, $sql, $_SESSION['user_id']);
-gen_user_dns_list($tpl, $sql, $_SESSION['user_id']);
 
 // static page messages.
 gen_logged_from($tpl);
@@ -83,113 +82,6 @@ $tpl->display($template);
 unset_messages();
 
 // page functions.
-
-/**
- * @param EasySCP_TemplateEngine $tpl
- * @param EasySCP_Database $sql
- * @param int $user_id
- * @return void
- */
-function gen_user_dns_list($tpl, $sql, $user_id) {
-	$domain_id = get_user_domain_id($sql, $user_id);
-	$cfg = EasySCP_Registry::get('Config');
-	
-	$sql_param = array(
-		"domain_id"	=>	$domain_id,
-	);
-	$sql_query = "
-		SELECT
-			`ns`.`name` AS `domain_name`,
-			`ns`.`id`,
-			`r`.`id` AS `domain_dns_id`,
-			`r`.`protected`,
-			`r`.`name` AS `domain_dns`,
-			`r`.`content` AS `domain_text`,
-			`r`.`type` AS `domain_type`,
-			`r`.`prio`,
-			IFNULL(`da`.`alias_status`, `d`.`domain_status`) AS 'domain_status',
-			`ns`.`easyscp_domain_alias_id`,
-			`ns`.`easyscp_domain_id`
-		FROM
-			`powerdns`.`domains` `ns`
-		INNER JOIN
-			`powerdns`.`records` `r`
-		ON
-			(`r`.`domain_id`=`ns`.`id`)
-		LEFT JOIN
-			`domain_aliasses` `da`
-		ON
-			(`da`.`alias_id`=`ns`.`easyscp_domain_alias_id`)
-				AND `ns`.`easyscp_domain_alias_id` > 0
-		LEFT JOIN
-			`domain` `d`
-		ON
-			(`d`.`domain_id`=`ns`.`easyscp_domain_id`)
-				AND `ns`.`easyscp_domain_id` > 0
-		WHERE
-			`ns`.`easyscp_domain_id` = :domain_id
-		OR
-			`ns`.`easyscp_domain_alias_id` = :domain_id
-		ORDER BY
-			`ns`.`easyscp_domain_id`,
-			`ns`.`easyscp_domain_alias_id`,
-			`r`.`name`,
-			`r`.`type`
-	";
-	
-	$statement = DB::prepare($sql_query);
-	
-
-	$dns_records = array();
-	$stmt = DB::execute($sql_param, false);
-		
-	while ($row = $stmt->fetch()) {
-		list($dns_action_delete, $dns_action_script_delete) = gen_user_dns_action(
-			'Delete', $row['domain_dns_id'],
-			($row['protected'] == 0) ? $row['domain_status'] : $cfg->ITEM_PROTECTED_STATUS
-		);
-			list($dns_action_edit, $dns_action_script_edit) = gen_user_dns_action(
-			'Edit', $row['domain_dns_id'],
-			($row['protected'] == 0) ? $row['domain_status'] :$cfg->ITEM_PROTECTED_STATUS
-		);
-	
-		$domain_name = decode_idna($row['domain_name']);
-		$sbd_name = $row['domain_dns'];
-		if ($row['domain_type']=="MX") {
-			$sbd_data = $row['prio']." ".$row['domain_text'];
-		}
-		else {
-			$sbd_data = $row['domain_text'];	
-		}
-		
-		$dns_records[] =
-			array(
-				'DNS_DOMAIN'				=> tohtml($domain_name),
-				'DNS_NAME'					=> tohtml($sbd_name),
-				'DNS_TYPE'					=> tohtml($row['domain_type']),
-				'DNS_DATA'					=> tohtml($sbd_data),
-				'DNS_ACTION_SCRIPT_DELETE'	=> tohtml($dns_action_script_delete),
-				'DNS_ACTION_DELETE'			=> tohtml($dns_action_delete),
-				'DNS_ACTION_SCRIPT_EDIT'	=> tohtml($dns_action_script_edit),
-				'DNS_ACTION_EDIT'			=> tohtml($dns_action_edit),
-				'DNS_TYPE_RECORD'			=> tr("%s record", $row['domain_type'])
-			);
-	}
-	$tpl->assign('DNS_RECORDS', $dns_records);
-}
-
-function gen_user_dns_action($action, $dns_id, $status) {
-
-	$cfg = EasySCP_Registry::get('Config');
-
-	if ($status == $cfg->ITEM_OK_STATUS) {
-		return array(tr($action), 'dns_'.strtolower($action).'.php?edit_id='.$dns_id);
-	} elseif($action != 'Edit' && $status == $cfg->ITEM_PROTECTED_STATUS) {
-		return array(tr('N/A'), 'protected');
-	}
-
-	return array(tr('N/A'), '#');
-}
 
 function gen_user_sub_action($sub_id, $sub_status) {
 

@@ -462,7 +462,8 @@ function gen_client_mainmenu($tpl, $menu_file) {
 			'TR_MENU_ADD_ALIAS'				=> tr('Add alias'),
 			'TR_MENU_UPDATE_HP'				=> tr('Update Hosting Package'),
 			'TR_MENU_ADD_DNS'				=> tr("Add DNS zone's record"),
-			'TR_MENU_MANAGE_SSL'			=> tr('Manage SSL certificate')
+			'TR_MENU_MANAGE_SSL'			=> tr('Manage SSL certificate'),
+			'TR_MENU_MANAGE_DNS'			=> tr('Manage DNS'),
 		)
 	);
 
@@ -1068,5 +1069,198 @@ function get_user_domain_ip($sql, $dmn_ip_id) {
 	$rs = exec_query($sql, $query, $dmn_ip_id);
 
 	return $rs->fields['ip_number'];
+}
+
+function get_user_domains($user_id) {
+		
+	$sql_query = "
+				SELECT
+					`domain_id`,
+					`domain_name`
+				FROM
+					`domain`
+				WHERE
+					`domain_admin_id` = :user_id
+	";
+	
+	$sql_param = array(
+		'user_id' => $user_id,
+	);
+	$statement = DB::prepare($sql_query);
+	$stmt = DB::execute($sql_param, false);
+	
+	$domains = array();
+		
+	while ($row = $stmt->fetch()) {
+		$domains[] = array(
+			'alias' => 0,
+			'domain_id' => $row['domain_id'],
+			'domain_name' => $row['domain_name'],
+		);
+	}
+	
+	$sql_query = "
+			SELECT
+				`alias_id`,
+				`alias_name`
+			FROM
+				`domain_aliasses` `da`
+			INNER JOIN
+				`domain` `d`
+			ON
+				(`d`.`domain_id`=`da`.`domain_id`)
+			WHERE
+				`domain_admin_id` = :user_id
+	";
+	
+	$statement = DB::prepare($sql_query);
+	$stmt = DB::execute($sql_param, false);
+		
+	while ($row = $stmt->fetch()) {
+		$domains[] = array(
+			'alias' => 1,
+			'domain_id' => $row['alias_id'],
+			'domain_name' => $row['alias_name'],
+		);
+	}
+	
+	return $domains;
+}
+
+/**
+ * @param int $alias
+ * @param int $domain_id
+ * @return array $dns_records
+ */
+function get_dns_zone($alias=0, $domain_id) {
+			
+	$sql_param = array(
+		"domain_id"	=>	$domain_id,
+	);
+	if ($alias==0) {
+		$sql_query = "
+			SELECT
+				`ns`.`name` AS `domain_name`,
+				`ns`.`id`,
+				`r`.`id` AS `domain_dns_id`,
+				`r`.`protected`,
+				`r`.`name` AS `domain_dns`,
+				`r`.`content` AS `domain_text`,
+				`r`.`type` AS `domain_type`,
+				`r`.`prio`,
+				`d`.`domain_status` AS 'domain_status',
+				`ns`.`easyscp_domain_id`
+			FROM
+				`powerdns`.`domains` `ns`
+			INNER JOIN
+				`powerdns`.`records` `r`
+			ON
+				(`r`.`domain_id`=`ns`.`id`)
+			INNER JOIN
+				`domain` `d`
+			ON
+				(`d`.`domain_id`=`ns`.`easyscp_domain_id`)
+			WHERE
+				`ns`.`easyscp_domain_id` = :domain_id
+			ORDER BY
+				`ns`.`easyscp_domain_id`,
+				`r`.`name`,
+				`r`.`type`
+		";	
+	}
+	else if ($alias==1)
+	{
+		$sql_query = "
+			SELECT
+				`ns`.`name` AS `domain_name`,
+				`ns`.`id`,
+				`r`.`id` AS `domain_dns_id`,
+				`r`.`protected`,
+				`r`.`name` AS `domain_dns`,
+				`r`.`content` AS `domain_text`,
+				`r`.`type` AS `domain_type`,
+				`r`.`prio`,
+				`da`.`alias_status` AS 'domain_status',
+				`ns`.`easyscp_domain_alias_id`
+			FROM
+				`powerdns`.`domains` `ns`
+			INNER JOIN
+				`powerdns`.`records` `r`
+			ON
+				(`r`.`domain_id`=`ns`.`id`)
+			INNERJOIN
+				`domain_aliasses` `da`
+			ON
+				(`da`.`alias_id`=`ns`.`easyscp_domain_alias_id`)
+			WHERE
+				`ns`.`easyscp_domain_alias_id` = :domain_id
+			ORDER BY
+				`ns`.`easyscp_domain_alias_id`,
+				`r`.`name`,
+				`r`.`type`
+		";		
+	}
+
+	
+	$statement = DB::prepare($sql_query);
+	
+
+	$dns_records = array();
+	$stmt = DB::execute($sql_param, false);
+		
+	while ($row = $stmt->fetch()) {
+			
+		list($dns_action_delete, $dns_action_script_delete) = gen_user_dns_action(
+			'Delete', $row['domain_dns_id'],
+			($row['protected'] == 0) ? $row['domain_status'] : $cfg->ITEM_PROTECTED_STATUS
+		);
+			list($dns_action_edit, $dns_action_script_edit) = gen_user_dns_action(
+			'Edit', $row['domain_dns_id'],
+			($row['protected'] == 0) ? $row['domain_status'] :$cfg->ITEM_PROTECTED_STATUS
+		);
+	
+		$domain_name = decode_idna($row['domain_name']);
+		$sbd_name = $row['domain_dns'];
+		if ($row['domain_type']=="MX") {
+			$sbd_data = $row['prio']." ".$row['domain_text'];
+		}
+		else {
+			$sbd_data = $row['domain_text'];	
+		}
+		
+		$dns_records[] =
+			array(
+				'DNS_DOMAIN'				=> tohtml($domain_name),
+				'DNS_NAME'					=> tohtml($sbd_name),
+				'DNS_TYPE'					=> tohtml($row['domain_type']),
+				'DNS_DATA'					=> tohtml($sbd_data),
+				'DNS_ACTION_SCRIPT_DELETE'	=> tohtml($dns_action_script_delete),
+				'DNS_ACTION_DELETE'			=> tohtml($dns_action_delete),
+				'DNS_ACTION_SCRIPT_EDIT'	=> tohtml($dns_action_script_edit),
+				'DNS_ACTION_EDIT'			=> tohtml($dns_action_edit),
+				'DNS_TYPE_RECORD'			=> tr("%s record", $row['domain_type'])
+			);
+	}
+	
+	return $dns_records;
+}
+
+/**
+ * @param String $action
+ * @param int $dns_id
+ * @param String $statis
+ * @return array
+ */
+function gen_user_dns_action($action, $dns_id, $status) {
+
+	$cfg = EasySCP_Registry::get('Config');
+
+	if ($status == $cfg->ITEM_OK_STATUS) {
+		return array(tr($action), 'dns_'.strtolower($action).'.php?edit_id='.$dns_id);
+	} elseif($action != 'Edit' && $status == $cfg->ITEM_PROTECTED_STATUS) {
+		return array(tr('N/A'), 'protected');
+	}
+
+	return array(tr('N/A'), '#');
 }
 ?>
