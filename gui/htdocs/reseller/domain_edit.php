@@ -511,7 +511,9 @@ function check_user_data($tpl, $sql, $reseller_id, $user_id) {
 			exec_query($sql, $query, $user_id);
 			$query = "UPDATE `subdomain` SET `subdomain_status` = 'change' WHERE `domain_id` = ?";
 			exec_query($sql, $query, $user_id);
-			send_request();
+
+			$row = DB::query("SELECT domain_name FROM domain WHERE domain_id = '".$user_id."'", true);
+			send_request('110 DOMAIN '.$row['domain_name']);
 		}
 
 		$user_props  = "$usub_current;$usub_max;";

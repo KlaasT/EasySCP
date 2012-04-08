@@ -45,7 +45,7 @@ $exec_count = $exec_count + count_requests($sql, 'status', 'htaccess_users');
 
 if (isset($_GET['action'])) {
 	if ($_GET['action'] == 'run_engine' && $exec_count > 0) {
-		$code = send_request();
+		$code = send_request('100 CORE checkAll');
 		set_page_message(
 			tr('Daemon returned %d as status code', $code),
 			'info'
