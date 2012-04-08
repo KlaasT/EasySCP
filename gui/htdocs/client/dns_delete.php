@@ -25,106 +25,55 @@ require '../../include/easyscp-lib.php';
 
 check_login(__FILE__);
 
-if (isset($_GET['edit_id']) && $_GET['edit_id'] !== '') {
+if (isset($_GET['edit_id']) && !empty($_GET['edit_id'])) {
 
 	$cfg = EasySCP_Registry::get('Config');
 
 	$dns_id = (int) $_GET['edit_id'];
 	$dmn_id = get_user_domain_id($sql, $_SESSION['user_id']);
-
-	$query = "
+	
+	if (!check_dns_record_owned($_SESSION['user_id'], $_GET['edit_id'])) {
+		user_goto('dns_overview.php');
+	}
+	
+	$sql_param = array(
+		'record_id' => $_GET['edit_id'],
+	);
+	
+	
+	$sql_query = "
 		SELECT
-			`domain_dns`.`domain_dns_id`, `domain_dns`.`domain_dns`,
-			`domain_dns`.`alias_id`,
-			IFNULL(`domain_aliasses`.`alias_name`, `domain`.`domain_name`) AS domain_name,
-			IFNULL(`domain_aliasses`.`alias_id`, `domain_dns`.`domain_id`) AS id,
-			`domain_dns`.`protected`
+			`protected`
 		FROM
-			`domain_dns`
-		LEFT JOIN
-			`domain_aliasses` USING (`alias_id`, `domain_id`), `domain`
+			`powerdns`.`records`
 		WHERE
-			`domain_dns`.`domain_id` = ?
-		AND
-			`domain_dns`.`domain_dns_id` = ?
-		AND
-			`domain`.`domain_id` = `domain_dns`.`domain_id`
-		;
+			`id` = :record_id
 	";
-
-	$rs = exec_query($sql, $query, array($dmn_id, $dns_id));
-	$dom_name = $rs->fields['domain_name'];
-	$dns_name = $rs->fields['domain_dns'];
-	$id = $rs->fields['id'];
-	$alias_id = $rs->fields['alias_id'];
-
-	// DNS record not found or not owned by current customer ?
-	if ($rs->recordCount() == 0) {
-		// Back to the main page
-		user_goto('domains_manage.php');
-	} elseif($rs->fields['protected'] == 'yes') {
+	
+	DB::prepare($sql_query);
+	$row = DB::execute($sql_param, true);
+	if ($row['protected']==1) {
 		set_page_message(
 			tr('You are not allowed to remove this DNS record!'),
 			'error'
 		);
-		user_goto('domains_manage.php');
+		user_goto('dns_overview.php');
 	}
-
-	// Delete DNS record from the database
-	$query = "
+	
+	$sql_query = "
 		DELETE FROM
-			`domain_dns`
+			`powerdns`.`records`
 		WHERE
-			`domain_dns_id` = ?
-		;
+			`id` = :record_id
 	";
+	
 
-	$rs = exec_query($sql, $query, $dns_id);
-
-	if (empty($alias_id)) {
-
-		$query = "
-			UPDATE
-				`domain`
-			SET
-				`domain`.`domain_status` = ?
-			WHERE
-   				`domain`.`domain_id` = ?
-   			;
-  		";
-
-		exec_query($sql, $query, array($cfg->ITEM_DNSCHANGE_STATUS, $dmn_id));
-
-	} else {
-
-		$query = "
- 			UPDATE
- 				`domain_aliasses`
-			SET
-				`domain_aliasses`.`alias_status` = ?
- 			WHERE
-				`domain_aliasses`.`domain_id` = ?
-			AND
-				`domain_aliasses`.`alias_id` = ?
-			;
-		";
-
-		exec_query(
-			$sql, $query,
-			array($cfg->ITEM_DNSCHANGE_STATUS, $dmn_id, $alias_id)
-		);
+	DB::prepare($sql_query);
+	if (DB::execute($sql_param)) {
+		set_page_message(tr('Custom DNS record scheduled for deletion!'), 'success');
+		user_goto('dns_overview.php');
 	}
-
-	// Send request to ispCP daemon
-	send_request();
-
-	write_log(
-		$_SESSION['user_logged'] . ': deletes dns zone record: ' . $dns_name .
-		' of domain ' . $dom_name
-	);
-
-	set_page_message(tr('Custom DNS record scheduled for deletion!'), 'success');
 }
 
 //  Back to the main page
-user_goto('domains_manage.php');
+user_goto('dns_overview.php');

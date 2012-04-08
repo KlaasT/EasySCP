@@ -520,7 +520,8 @@ function check_fwd_data($tpl, $edit_id) {
 				SELECT
 					`d`.`easyscp_domain_id`,
 					`d`.`easyscp_domain_alias_id`,
-					`d`.`name`
+					`d`.`name`,
+					`d`.`domain_id`
 				FROM
 					`powerdns`.`domains` `d`
 				INNER JOIN
@@ -544,6 +545,7 @@ function check_fwd_data($tpl, $edit_id) {
 		$record_domain = $data['name'];
 		$alias_id = $data['easyscp_domain_alias_id'];
 		$_dns = $data['name'];
+		$domain_id = $data['domain_id'];
 	}
 
 	if (!validate_NAME(array('name' => $_POST['dns_name'], 'domain' => $record_domain), $err)) {
@@ -598,40 +600,59 @@ function check_fwd_data($tpl, $edit_id) {
 	if ($ed_error === '_off_') {
 
 		if ($add_mode) {
-			$query = "
-				INSERT INTO
-					`domain_dns` (
-						`domain_id`, `alias_id`, `domain_dns`, `domain_class`,
-						`domain_type`, `domain_text`
-					) VALUES (
-						?, ?, ?, ?, ?, ?
-					)
-				;
-			";
-
-			$rs = exec_query(
-				$sql, $query,
-				array($dmn_id, $alias_id, $_dns, $_class, $_type, $_text),
-				false
-			);
-
-			# Error because duplicate entry ? (SQLSTATE 23000)
-			if($rs === false) {
-				if($sql->getLastErrorCode() == 23000) {
-					$tpl->assign(
-						array(
-							'MESSAGE' => tr('DNS record already exist!'),
-							'MYG_TYPE' => 'error'
-						)
-					);
-
-					return false;
-				} else { # Another error ? Throw exception
-					throw new EasySCP_Exception_Database(
-						$sql->getLastErrorMessage() . " - Query: $query"
-					);
-				}
+				
+				
+			if ($alias_id > 0) {
+				$sql_query = "
+					SELECT
+						`id`
+					FROM
+						`powerdns`.`domains`
+					WHERE
+						`easyscp_domain_alias_id` = :alias_id
+				";
+				$sql_param = array(
+					'alias_id' => $alias_id,
+				);
+				
+				DB::prepare($sql_query);
+				$data = DB::execute($sql_param, true);
 			}
+			else {
+				$sql_query = "
+					SELECT
+						`id`
+					FROM
+						`powerdns`.`domains`
+					WHERE
+						`easyscp_domain_id` = :domain_id
+				";
+				$sql_param = array(
+					'domain_id' => $dmn_id,
+				);
+				
+				DB::prepare($sql_query);
+				$data = DB::execute($sql_param, true);
+			}
+			$sql_query = "
+				INSERT INTO
+					`powerdns`.`records`
+				(`domain_id`, `name`, `type`, `content`, `ttl`, `prio`)
+					VALUES
+				(:domain_id, :name, :type, :content, :ttl, :prio)
+			";
+			
+			$sql_param = array(
+				'domain_id' => $data['id'],
+				'name'	=> $_dns,
+				'type' => $_type,
+				'content' => $_text,
+				'ttl' => 38400,
+				'prio' => $_dns_srv_prio,
+			);
+			
+			DB::prepare($sql_query);
+			DB::execute($sql_param);
 
 		} else {
 			
@@ -650,7 +671,7 @@ function check_fwd_data($tpl, $edit_id) {
 			";
 			
 			$sql_param = array(
-				'domain_id' => $dmn_id,
+				'domain_id' => $domain_id,
 				'name'	=> $_dns,
 				'type' => $_type,
 				'content' => $_text,

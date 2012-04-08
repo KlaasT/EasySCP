@@ -1263,4 +1263,83 @@ function gen_user_dns_action($action, $dns_id, $status) {
 
 	return array(tr('N/A'), '#');
 }
+
+function check_dns_record_owned($user_id, $record_id) {
+	
+	$sql_query = "
+		SELECT 
+			`d`.`easyscp_domain_alias_id`,
+			`d`.`easyscp_domain_id`
+		FROM
+			`powerdns`.`domains` `d`
+		INNER JOIN
+			`powerdns`.`records` `r`
+		ON
+			(`r`.`domain_id`=`d`.`id`)
+		WHERE
+			`r`.`id` = :record_id
+	";
+	
+	$sql_param = array(
+		'record_id'	=> $record_id,
+	);
+	
+	DB::prepare($sql_query);
+	$row = DB::execute($sql_param, true);
+	
+	if ($row['easyscp_domain_alias_id'] > 0) {
+		$sql_query = "
+			SELECT
+				COUNT(*) AS `total`
+			FROM
+				`domain_aliasses` `da`
+			INNER JOIN
+				`domain` `d`
+			ON
+				(`d`.`domain_id`=`da`.`domain_id`)
+			WHERE
+				`da`.`alias_id` = :alias_id
+			AND
+				`d`.`domain_admin_id` = :domain_admin_id
+		";
+		
+		$sql_param = array(
+			'alias_id'	=> $row['easyscp_domain_alias_id'],
+			'domain_admin_id' => $user_id,
+		);
+		
+		DB::prepare($sql_query);
+		$row = DB::execute($sql_param, true);
+		
+		if ($row['total'] > 0) {
+			return true;
+		}
+	}
+	else {
+		$sql_query = "
+			SELECT
+				COUNT(*) AS `total`
+			FROM
+				`domain` `d`
+			WHERE
+				`d`.`domain_id` = :domain_id
+			AND
+				`d`.`domain_admin_id` = :domain_admin_id
+		";
+		
+		$sql_param = array(
+			'domain_id'	=> $row['easyscp_domain_id'],
+			'domain_admin_id' => $user_id,
+		);
+		
+		DB::prepare($sql_query);
+		$row = DB::execute($sql_param, true);
+		
+		if ($row['total'] > 0) {
+			return true;
+		}
+	}
+	
+	return false;
+}
 ?>
