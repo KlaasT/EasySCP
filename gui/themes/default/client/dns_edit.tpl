@@ -119,10 +119,6 @@
 					<td>{$TR_DNS_TYPE}</td>
 					<td><select name="type" id="dns_type" onchange="dns_type_changed(this.value)">{$SELECT_DNS_TYPE}</select></td>
 				</tr>
-				<tr>
-					<td>{$TR_DNS_CLASS}</td>
-					<td><select name="class">{$SELECT_DNS_CLASS}</select></td>
-				</tr>
 				<tr id="tr_dns_name">
 					<td>{$TR_DNS_NAME}</td>
 					<td><input type="text" name="dns_name" value="{$DNS_NAME}" /></td>

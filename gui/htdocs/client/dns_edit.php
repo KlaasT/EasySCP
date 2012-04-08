@@ -21,6 +21,8 @@
  * @author 		EasySCP Team
  */
 
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
 require_once '../../include/easyscp-lib.php';
 require_once '../../include/Net/DNS.php';
 
@@ -88,12 +90,12 @@ if (isset($_POST['uaction']) && ($_POST['uaction'] === 'modify')) {
 	// Save data to db
 	if (check_fwd_data($tpl, $editid)) {
 		$_SESSION['dnsedit'] = "_yes_";
-		user_goto('domains_manage.php');
+		user_goto('dns_overview.php');
 	}
 } elseif (isset($_POST['uaction']) && ($_POST['uaction'] === 'add')) {
 	if (check_fwd_data($tpl, true)) {
 		$_SESSION['dnsedit'] = "_yes_";
-		user_goto('domains_manage.php');
+		user_goto('dns_overview.php');
 	}
 
 } else {
@@ -118,19 +120,6 @@ unset_messages();
 
 // Begin function block
 
-function mysql_get_enum($sql, $object, &$default = null) {
-
-	list($table, $col) = explode(".", $object);
-
-	$res = exec_query($sql, "SHOW COLUMNS FROM ".$table." LIKE '".$col."'");
-	$row = $res->fetchRow();
-	$default = $row['Default'];
-
-	return (($row)
-		? explode("','", preg_replace("/(enum|set)\('(.+?)'\)/","\\2", $row['Type']))
-		: array(0 => 'None'));
-}
-
 /**
  * @todo use template loop instead of this hardcoded HTML
  */
@@ -152,7 +141,7 @@ function create_options($data, $value = null) {
 // Show user data
 function not_allowed() {
 	$_SESSION['dnsedit'] = '_no_';
-	user_goto('domains_manage.php');
+	user_goto('dns_overview.php');
 }
 
 function decode_zone_data($data) {
@@ -162,27 +151,27 @@ function decode_zone_data($data) {
 
 	if (is_array($data)) {
 		$name = $data['domain_dns'];
-		switch ($data['domain_type']) {
+		switch ($data['type']) {
 			case 'A':
-				$address = $data['domain_text'];
+				$address = $data['content'];
 				break;
 			case 'AAAA':
-				$addressv6 = $data['domain_text'];
+				$addressv6 = $data['content'];
 				break;
 			case 'CNAME':
-				$cname = $data['domain_text'];
+				$cname = $data['content'];
 				break;
 			case 'NS':
-				$ns = $data['domain_text'];
+				$ns = $data['content'];
 				break;
 			case 'SRV':
 				$name = '';
-				if (preg_match('~_([^\.]+)\._([^\s]+)[\s]+([\d]+)~', $data['domain_dns'], $srv)) {
+				if (preg_match('~_([^\.]+)\._([^\s]+)[\s]+([\d]+)~', $data['content'], $srv)) {
 					$srv_name = $srv[1];
 					$srv_proto = $srv[2];
-					$srv_TTL = $srv[3];
+					$srv_TTL = $data['ttl'];
 				}
-				if (preg_match('~([\d]+)[\s]+([\d]+)[\s]+([\d]+)[\s]+([^\s]+)+~', $data['domain_text'], $srv)) {
+				if (preg_match('~([\d]+)[\s]+([\d]+)[\s]+([\d]+)[\s]+([^\s]+)+~', $data['content'], $srv)) {
 					$srv_prio = $srv[1];
 					$srv_weight = $srv[2];
 					$srv_port = $srv[3];
@@ -191,10 +180,8 @@ function decode_zone_data($data) {
 				break;
 			case 'MX':
 				$name = '';
-				if (preg_match('~([\d]+)[\s]+([^\s]+)+~', $data['domain_text'], $srv)) {
-					$srv_prio = $srv[1];
-					$srv_host = $srv[2];
-				}
+				$srv_prio = $data['prio'];
+				$srv_host = $data['content'];
 				break;
 			case 'TXT':
 				$name = '';
@@ -227,6 +214,7 @@ function gen_editdns_page($tpl, $edit_id) {
 	if ($dmn_dns != 'yes') {
 		not_allowed();
 	}
+
 	if ($GLOBALS['add_mode']) {
 		$data = null;
 
@@ -263,26 +251,40 @@ function gen_editdns_page($tpl, $edit_id) {
 		);
 
 	} else {
-		$query = "SELECT * FROM
-					`domain_dns`
-				WHERE
-					`domain_dns_id` = ?
-				AND
-					`domain_id` = ?
-			;";
-		$res = exec_query($sql, $query, array($edit_id, $dmn_id));
-		if ($res->recordCount() <= 0)
-		not_allowed();
-		$data = $res->fetchRow();
-	}
+		$sql_query = "
+					SELECT
+						`r`.*,
+						`d`.`name` AS `domain_dns`
+					FROM
+						`powerdns`.`records` `r`
+					INNER JOIN
+						`powerdns`.`domains` `d`
+					ON
+						(`d`.`id`=`r`.`domain_id`)
+					WHERE
+						`r`.`id` = :record_id
+		";
+		
+		$sql_param = array(
+			'record_id' => $edit_id,
+		);
+		DB::prepare($sql_query);
 
+		$statement = DB::execute($sql_param,false);
+		if ($statement->rowCount() <= 0) {
+			return not_allowed();
+		}
+		
+		$data = $statement->fetch();
+	}
+	
 	list(
 		$name, $address, $addressv6, $srv_name, $srv_proto, $srv_ttl, $srv_prio,
 		$srv_weight, $srv_host, $srv_port, $cname, $plain, $protected, $ns
 	) = decode_zone_data($data);
 
 	// Protection against edition (eg. for external mail MX record)
-	if($protected == 'yes') {
+	if($protected == '1') {
 		set_page_message(
 			tr('You are not allowed to edit this DNS record!'),
 			'error'
@@ -290,13 +292,11 @@ function gen_editdns_page($tpl, $edit_id) {
 		not_allowed();
 	}
 
-	$dns_type = create_options(array_intersect($DNS_allowed_types, mysql_get_enum($sql, "domain_dns.domain_type")), tryPost('type', $data['domain_type']));
-	$dns_class = create_options(mysql_get_enum($sql, "domain_dns.domain_class"), tryPost('class', $data['domain_class']));
+	$dns_type = create_options($DNS_allowed_types, tryPost('type', $data['domain_type']));
 
 	$tpl->assign(
 		array(
 			'SELECT_DNS_TYPE'			=> $dns_type,
-			'SELECT_DNS_CLASS'			=> $dns_class,
 			'DNS_NAME'					=> tohtml($name),
 			'DNS_ADDRESS'				=> tohtml(tryPost('dns_A_address', $address)),
 			'DNS_ADDRESS_V6'			=> tohtml(tryPost('dns_AAAA_address', $addressv6)),
