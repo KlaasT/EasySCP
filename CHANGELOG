@@ -1,6 +1,11 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+2012-04-08 Klaas Tammling
+	- GUI:
+		* Added a new DNS management on set up on PowerDNS
+	- Engine:
+		* Removed Bind and replaced it by PowerDNS
+		
 2012-03-31 Markus Szywon
 	- GUI:
 		* Fixed: Wrong calculation for the graphical bar on traffic usage
