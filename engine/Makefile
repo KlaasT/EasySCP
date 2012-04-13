@@ -41,18 +41,6 @@ install:
 	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/backup
 	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/backup
 
-	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/daemon
-	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/daemon
-
-	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/daemon/extlibs
-	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/daemon/extlibs
-
-	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
-	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
-
-	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_DIR_INSTALL) -m 0700 $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-
 	$(SYSTEM_MAKE_DIRS) $(SYSTEM_ENGINE_ROOT)/messenger
 	$(CMD_DIR_INSTALL) -m 0755 $(SYSTEM_ENGINE_ROOT)/messenger
 
@@ -73,7 +61,6 @@ install:
 	$(CMD_INSTALL) ./easyscp_common_code.pl $(SYSTEM_ENGINE_ROOT)
 	$(CMD_INSTALL) ./easyscp_common_methods.pl $(SYSTEM_ENGINE_ROOT)
 	$(CMD_INSTALL) ./easyscp_common_methods.pm $(SYSTEM_ENGINE_ROOT)
-	$(CMD_INSTALL) ./easyscp_daemon $(SYSTEM_ENGINE_ROOT)
 	$(CMD_INSTALL) ./easyscp-load-db-keys.pl $(SYSTEM_ENGINE_ROOT)
 	$(CMD_INSTALL) ./easyscp-apache-logger $(SYSTEM_ENGINE_ROOT)
 	$(CMD_INSTALL) ./easyscp-rqst-mngr $(SYSTEM_ENGINE_ROOT)
@@ -94,26 +81,6 @@ install:
 	$(CMD_INSTALL) ./backup/easyscp-bk-task $(SYSTEM_ENGINE_ROOT)/backup
 	$(CMD_INSTALL) ./backup/easyscp-backup-all $(SYSTEM_ENGINE_ROOT)/backup
 	$(CMD_INSTALL) ./backup/easyscp-backup-easyscp $(SYSTEM_ENGINE_ROOT)/backup
-
-	$(CMD_INSTALL) ./daemon/DaemonDomain.php $(SYSTEM_ENGINE_ROOT)/daemon
-	$(CMD_INSTALL) ./daemon/Maps.php $(SYSTEM_ENGINE_ROOT)/daemon
-	$(CMD_INSTALL) ./daemon/SocketHandler.php $(SYSTEM_ENGINE_ROOT)/daemon
-
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs
-
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/Exception.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/Options.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon
-
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Arch.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/BSD.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Debian.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Exception.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Fedora.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Linux.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/RedHat.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Ubuntu.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
-	$(CMD_INSTALL) ./daemon/extlibs/Daemon/OS/Windows.php $(SYSTEM_ENGINE_ROOT)/daemon/extlibs/Daemon/OS
 
 	$(CMD_INSTALL) ./messenger/easyscp-arpl-msgr $(SYSTEM_ENGINE_ROOT)/messenger
 

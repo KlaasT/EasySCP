@@ -3,7 +3,8 @@
 <?php
 
 // Set the ip and port we will listen on. '0' = all IPs/Interfaces
-$MyAddress = '127.0.0.1';
+// $MyAddress = '127.0.0.1';
+$MyAddress = '0';
 $MyPort = 9876;
 
 // Allowed arguments & their defaults
@@ -30,9 +31,9 @@ if ($runmode['help'] == true) {
  
 error_reporting(E_ALL);
 require_once(dirname(__FILE__).'/../gui/include/easyscp-lib.php');
-require_once(dirname(__FILE__).'/daemon/extlibs/Daemon.php');
-require_once(dirname(__FILE__).'/daemon/SocketHandler.php');
-require_once(dirname(__FILE__).'/daemon/Maps.php');
+require_once(dirname(__FILE__).'/extlibs/Daemon.php');
+require_once(dirname(__FILE__).'/SocketHandler.php');
+require_once(dirname(__FILE__).'/Maps.php');
 
 // $cfg = EasySCP_Registry::get('Config');
 // $sql = EasySCP_Registry::get('Db');
@@ -102,7 +103,7 @@ while (!System_Daemon::isDying() && $runningOkay) {
 						System_Daemon::info('Running classic Request Manager subprocess.');
 
 						try {
-							exec('perl ' . dirname(__FILE__) . '/easyscp-rqst-mngr', $output, $error);
+							exec('perl ' . dirname(__FILE__) . '../engine/easyscp-rqst-mngr', $output, $error);
 						}
 						catch(Exception $e){
 							System_Daemon::info($e->getMessage());
@@ -123,10 +124,10 @@ while (!System_Daemon::isDying() && $runningOkay) {
 					default:
 						$Input = explode(" ", $Input, 3);
 
-						if ( $StatusMap[$Input[0]] == $Input[1] && file_exists(dirname(__FILE__). '/daemon/' . $ProcedureMap[$Input[0]] . '.php'))
+						if ( $StatusMap[$Input[0]] == $Input[1] && file_exists(dirname(__FILE__). '/' . $ProcedureMap[$Input[0]] . '.php'))
 						{
 							try {
-								require_once(dirname(__FILE__) . '/daemon/' . $ProcedureMap[$Input[0]] . '.php');
+								require_once(dirname(__FILE__) . '/' . $ProcedureMap[$Input[0]] . '.php');
 								// System_Daemon::info('Running '.$Input[0].' '.$Input[1].' subprocess.');
 								System_Daemon::info('Running ' . $ProcedureMap[$Input[0]] . ' subprocess.');
 								// $Subprocess = new $ProcedureMap[$Input[0]]();
