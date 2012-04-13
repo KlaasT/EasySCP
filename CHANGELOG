@@ -1,5 +1,10 @@
 EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+2012-04-13 Markus Szywon
+	- TOOLS:
+		* Updated: phpMyAdmin to version 3.5.0
+
 2012-04-08 Klaas Tammling
 	- GUI:
 		* Added a new DNS management on set up on PowerDNS
