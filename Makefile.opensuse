@@ -56,12 +56,14 @@ install:
 	$(SYSTEM_MAKE_DIRS) $(SYSTEM_APACHE_BACK_LOG)
 
 	cd ./configs && $(MAKE) install
+	cd ./daemon && $(MAKE) install
 	cd ./engine && $(MAKE) install
 	cd ./gui && $(MAKE) install
 
 uninstall:
 
 	cd ./configs && $(MAKE) uninstall
+	cd ./daemon && $(MAKE) uninstall
 	cd ./engine && $(MAKE) uninstall
 	cd ./gui && $(MAKE) uninstall
 
