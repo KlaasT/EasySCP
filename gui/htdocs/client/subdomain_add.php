@@ -188,7 +188,7 @@ function gen_user_add_subdomain_data($tpl, $user_id) {
 			$forward_prefix = clean_input($_POST['forward_prefix']);
 			$check_en = 'checked="checked"';
 			$check_dis = '';
-			$forward = strtolower(clean_input($_POST['forward']));
+			$forward = clean_input($_POST['forward']);
 			$tpl->assign(
 				array(
 					'READONLY_FORWARD' => '',
@@ -460,7 +460,7 @@ function check_subdomain_data($tpl, &$err_sub, $user_id, $dmn_name) {
 		$sub_name = strtolower($_POST['subdomain_name']);
 
 		if ($_POST['status'] == 1) {
-			$forward = strtolower(clean_input($_POST['forward']));
+			$forward = clean_input($_POST['forward']);
 			$forward_prefix = clean_input($_POST['forward_prefix']);
 		} else {
 			$forward = 'no';

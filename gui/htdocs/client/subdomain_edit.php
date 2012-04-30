@@ -162,7 +162,7 @@ function gen_editsubdomain_page($tpl, $sql, $edit_id, $dmn_type) {
 	}
 
 	if (isset($_POST['uaction']) && ($_POST['uaction'] == 'modify')) {
-		$url_forward = strtolower(clean_input($_POST['forward']));
+		$url_forward = clean_input($_POST['forward']);
 	} else {
 		$url_forward = decode_idna(preg_replace('(ftp://|https://|http://)', '', $data['subdomain_url_forward']));
 
@@ -221,16 +221,18 @@ function gen_editsubdomain_page($tpl, $sql, $edit_id, $dmn_type) {
  */
 function check_fwd_data($tpl, $sql, $subdomain_id, $dmn_type) {
 
-	$forward_url = strtolower(clean_input($_POST['forward']));
+	$forward_url = clean_input($_POST['forward']);
 	// unset errors
 	$ed_error = '_off_';
 
 	if (isset($_POST['status']) && $_POST['status'] == 1) {
 		$forward_prefix = clean_input($_POST['forward_prefix']);
-		if (substr_count($forward_url, '.') <= 2) {
-			$ret = validates_dname($forward_url);
+		$surl = @parse_url($forward_prefix.decode_idna($forward_url));
+		$domain = $surl['host'];
+		if (substr_count($domain, '.') <= 2) {
+			$ret = validates_dname($domain);
 		} else {
-			$ret = validates_dname($forward_url, true);
+			$ret = validates_dname($domain, true);
 		}
 		if (!$ret) {
 			$ed_error = tr('Wrong domain part in forward URL!');
