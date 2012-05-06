@@ -2,8 +2,13 @@ EasySCP 1.2.0 ChangeLog
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 2012-05-06 Markus Szywon
+	- Engine:
+		* Some fixes
+	- GUI:
+		* Some fixes
 	- TOOLS:
 		* Updated: phpMyAdmin to version 3.5.1
+		* Updated: jQuery UI to version 1.8.20
 
 2012-04-30 Markus Szywon
 	- GUI:

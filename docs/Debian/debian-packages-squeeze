@@ -6,10 +6,13 @@ awstats
 bash
 bzip2
 chkrootkit
+courier-authlib-mysql
 courier-base
 courier-imap
+courier-imap-ssl
 courier-maildrop
 courier-pop
+courier-pop-ssl
 diff
 dnsutils
 gcc

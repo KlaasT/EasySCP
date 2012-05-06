@@ -38,7 +38,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="EasySCP-Daemon"
 NAME=easyscp_daemon
-DAEMON=/var/www/easyscp/engine/$NAME
+DAEMON=/var/www/easyscp/daemon/$NAME
 DAEMON_ARGS=""
 PIDFILE=/var/run/easyscp_daemon/easyscp_daemon.pid
 SCRIPTNAME=/etc/init.d/easyscp_daemon
