@@ -1795,7 +1795,7 @@ msgstr ""
 msgid "Maintenance mode"
 msgstr ""
 
-msgid "Under this mode only administrators can login"
+msgid "If the system is in maintenance mode, only administrators can login"
 msgstr ""
 
 msgid "Only letters, numbers, dash and underscore are allowed for services names!"

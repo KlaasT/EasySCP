@@ -2013,13 +2013,13 @@ sub setup_mta {
 			'{MTA_HOSTNAME}' => $hostname,
 			'{MTA_LOCAL_DOMAIN}' => "$hostname.local",
 			'{MTA_VERSION}' => $main::cfg{'Version'},
-			'{MTA_TRANSPORT_HASH}' => $main::cfg{'MTA_TRANSPORT_HASH'},
+			'{MTA_TRANSPORT}' => $main::cfg{'MTA_TRANSPORT'},
 			'{MTA_LOCAL_MAIL_DIR}' => $main::cfg{'MTA_LOCAL_MAIL_DIR'},
 			'{MTA_LOCAL_ALIAS_HASH}' => $main::cfg{'MTA_LOCAL_ALIAS_HASH'},
 			'{MTA_VIRTUAL_MAIL_DIR}' => $main::cfg{'MTA_VIRTUAL_MAIL_DIR'},
-			'{MTA_VIRTUAL_DMN_HASH}' => $main::cfg{'MTA_VIRTUAL_DMN_HASH'},
-			'{MTA_VIRTUAL_MAILBOX_HASH}' => $main::cfg{'MTA_VIRTUAL_MAILBOX_HASH'},
-			'{MTA_VIRTUAL_ALIAS_HASH}' => $main::cfg{'MTA_VIRTUAL_ALIAS_HASH'},
+			'{MTA_VIRTUAL_DMN}' => $main::cfg{'MTA_VIRTUAL_DMN'},
+			'{MTA_VIRTUAL_MAILBOX}' => $main::cfg{'MTA_VIRTUAL_MAILBOX'},
+			'{MTA_VIRTUAL_ALIAS}' => $main::cfg{'MTA_VIRTUAL_ALIAS'},
 			'{MTA_MAILBOX_MIN_UID}' => $main::cfg{'MTA_MAILBOX_MIN_UID'},
 			'{MTA_MAILBOX_UID}' => $main::cfg{'MTA_MAILBOX_UID'},
 			'{MTA_MAILBOX_GID}' => $main::cfg{'MTA_MAILBOX_GID'},
@@ -2074,26 +2074,38 @@ sub setup_mta {
 	);
 	return $rs if ($rs != 0);
 
-	## Lookup tables files
+	# Building other configs
 
-	for (qw/aliases domains mailboxes transport sender-access/) {
-		# Storing the new files in the working directory
-		$rs = sys_command("$main::cfg{'CMD_CP'} -pf $vrlDir/$_ $wrkDir/");
+	for (qw/domains email2email forwardings mailboxes transports/) {
+		# Loading the template from /etc/easyscp/postfix/
+		($rs, $cfgTpl) = get_file("$cfgDir/parts/mysql-virtual_$_.cf");
 		return $rs if ($rs != 0);
 
-		# Install the files in the production directory
-		$rs = sys_command(
-			"$main::cfg{'CMD_CP'} -pf $wrkDir/$_ " .
-			"$main::cfg{'MTA_VIRTUAL_CONF_DIR'}/"
+		# Building the file
+		($rs, $$cfg) = prep_tpl(
+			{
+				'{MTA_DB_USER}'	=> $main::cfg{'MTA_DB_USER'},
+				'{MTA_DB_PASS}'	=> $main::cfg{'MTA_DB_PASS'}
+			},
+			$cfgTpl
 		);
 		return $rs if ($rs != 0);
 
-		# Creating/updating Btree databases for all lookup tables
+		# Storing the new file in the working directory
+		$rs = store_file(
+			"$wrkDir/mysql-virtual_$_.cf", $$cfg, $main::cfg{'ROOT_USER'},
+			$main::cfg{'ROOT_GROUP'}, 0644
+		);
+		return $rs if ($rs != 0);
+
+		# Installing the new file in the production dir
 		$rs = sys_command(
-			"$main::cfg{'CMD_POSTMAP'} $main::cfg{'MTA_VIRTUAL_CONF_DIR'}/$_"
+			"$main::cfg{'CMD_CP'} -pf $wrkDir/mysql-virtual_$_.cf " .
+			"$main::cfg{'MTA_VIRTUAL_CONF_DIR'}"
 		);
 		return $rs if ($rs != 0);
 	}
+
 
 	# Rebuilding the database for the mail aliases file - Begin
 	$rs = sys_command("$main::cfg{'CMD_NEWALIASES'}");
@@ -2129,53 +2141,32 @@ sub setup_po {
 	# Do not generate configuration files if the service is disabled
 	return 0 if($main::cfg{'CMD_AUTHD'} =~ /^no$/i);
 
-	my ($rs, $rdata);
+	my ($rs, $rdata, $cfgTpl);
+   	my $cfg = \$cfgTpl;
 
 	# Directories paths
 	my $cfgDir = "$main::cfg{'CONF_DIR'}/courier";
 	my $bkpDir ="$cfgDir/backup";
 	my $wrkDir = "$cfgDir/working";
 
-	# Install:
-	if(!defined &update_engine) {
-		# Saving all system configuration files if they exists
-		for (qw/authdaemonrc userdb/) {
-			if(-e "$main::cfg{'AUTHLIB_CONF_DIR'}/$_" && !-e "$bkpDir/$_.system") {
-				$rs = sys_command(
-					"$main::cfg{'CMD_CP'} -p $main::cfg{'AUTHLIB_CONF_DIR'}/$_ " .
-					"$bkpDir/$_.system"
-				);
-				return $rs if ($rs != 0);
-			}
+	# Saving all system configuration files if they exists
+	for (qw/authdaemonrc authmysqlrc/) {
+		if(-e "$main::cfg{'AUTHLIB_CONF_DIR'}/$_" && !-e "$bkpDir/$_.system") {
 		}
-	# Update:
-	} else {
-		my $timestamp = time;
-
-		# Saving all current production files if they exist
-		for (qw/authdaemonrc userdb/) {
-			next if(!-e "$main::cfg{'AUTHLIB_CONF_DIR'}/$_");
-
 			$rs = sys_command(
 				"$main::cfg{'CMD_CP'} -p $main::cfg{'AUTHLIB_CONF_DIR'}/$_ " .
-				"$bkpDir/$_.$timestamp"
+				"$bkpDir/$_.system"
 			);
 			return $rs if ($rs != 0);
 		}
-	}
 
 	## Building, storage and installation of new file
 
 	# authdaemonrc file
 
 	# Loading the system file from /etc/easyscp/backup
-	($rs, $rdata) = get_file("$bkpDir/authdaemonrc.system");
+	($rs, $rdata) = get_file("$cfgDir/authdaemonrc");
 	return $rs if ($rs != 0);
-
-	# Building the new file (Adding the authuserdb module if needed)
-	if($rdata !~ /^\s*authmodulelist="(?:.*)?authuserdb.*"$/gm) {
-		$rdata =~ s/(authmodulelist=")/$1authuserdb /gm;
-	}
 
 	# Storing the new file in the working directory
 	$rs = store_file(
@@ -2191,29 +2182,37 @@ sub setup_po {
 	);
 	return $rs if ($rs != 0);
 
-	# userdb file
+	# authmysqlrc file
 
-	# Storing the new file in the working directory
-	$rs = sys_command("$main::cfg{'CMD_CP'} -pf $cfgDir/userdb $wrkDir/");
+	# Loading the system file from /etc/easyscp/backup
+	($rs, $rdata) = get_file("$cfgDir/authmysqlrc");
 	return $rs if ($rs != 0);
 
-	# After build this file is world readable which is is bad
-	# Permissions are inherited by production file
-	$rs = setfmode(
-		"$wrkDir/userdb", $main::cfg{'ROOT_USER'},
-		$main::cfg{'ROOT_GROUP'}, 0600
+	# Building the new file
+	($rs, $rdata) = prep_tpl(
+		{
+		'{MTA_DB_USER}' => '',
+		'{MTA_DB_PASS}' => '',
+		'{MTA_MAILBOX_UID}' => $main::cfg{'MTA_MAILBOX_UID'},
+		'{MTA_MAILBOX_GID}' => $main::cfg{'MTA_MAILBOX_GID'},
+		'{MTA_VIRTUAL_MAIL_DIR}' => $main::cfg{'MTA_VIRTUAL_MAIL_DIR'}
+		},
+		$rdata
 	);
-	return $rs if($rs != 0);
+	return $rs if ($rs != 0);
+
+	# Storing the new file in the working directory
+	$rs = store_file(
+		"$wrkDir/authmysqlrc", $rdata, $main::cfg{'ROOT_USER'},
+		$main::cfg{'ROOT_GROUP'}, 0660
+	);
+	return $rs if ($rs != 0);
 
 	# Installing the new file in the production directory
 	$rs = sys_command(
-		"$main::cfg{'CMD_CP'} -pf $wrkDir/userdb " .
-		"$main::cfg{'AUTHLIB_CONF_DIR'}"
+		"$main::cfg{'CMD_CP'} -pf $wrkDir/authmysqlrc " .
+		"$main::cfg{'AUTHLIB_CONF_DIR'}/"
 	);
-	return $rs if ($rs != 0);
-
-	# Creating/Updating userdb.dat file from the contents of the userdb file
-	$rs = sys_command($main::cfg{'CMD_MAKEUSERDB'});
 	return $rs if ($rs != 0);
 
 	push_el(\@main::el, 'setup_po()', 'Ending...');
@@ -2995,7 +2994,7 @@ sub setup_gui_pma {
 }
 
 ################################################################################
-# EasySCP GUI roundcube configuration file (Setup / Update)
+# EasySCP GUI RoundCube configuration file (Setup / Update)
 #
 # This subroutine built, store and install the RoundCube configuration file
 #
@@ -3514,7 +3513,8 @@ sub setup_services_cfg {
 			[\&setup_easyscp_database, 'EasySCP database:'],
 			[\&setup_default_sql_data, 'EasySCP default SQL data:'],
 			[\&setup_hosts, 'EasySCP system hosts file:'],
-			[\&setup_pma_database, 'EasySCP create phpMyAdmin database:'],
+			[\&setup_pma_database, 'EasySCP create PhpMyAdmin database:'],
+			[\&setup_mta_database, 'EasySCP create MTA database:'],
 			[\&setup_roundcube_database, 'EasySCP create RoundCube database:'],
 			[\&setup_powerdns_database, 'EasySCP create Powerdns database:']
 		) {
@@ -3555,7 +3555,7 @@ sub setup_gui_cfg {
 	for (
 		[\&setup_gui_php, 'EasySCP GUI fcgi/PHP configuration:'],
 		[\&setup_gui_httpd, 'EasySCP GUI vhost file:'],
-		[\&setup_gui_pma, 'EasySCP PMA configuration file:'],
+		[\&setup_gui_pma, 'EasySCP PhpMyAdmin configuration file:'],
 		[\&setup_gui_roundcube, 'EasySCP RoundCube configuration file:']
 	) {
 		subtitle($_->[1]);

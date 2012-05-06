@@ -252,7 +252,6 @@ class EasySCP_Update_Database extends EasySCP_Update {
 		";
                 return $sqlUpd;
 	}
-		
 	/*
 	 * DO NOT CHANGE ANYTHING BELOW THIS LINE!
 	 */

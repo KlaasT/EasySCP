@@ -7,7 +7,7 @@
  * All directives are explained in Documentation.html and on phpMyAdmin
  * wiki <http://wiki.phpmyadmin.net>.
  *
- * @package phpMyAdmin
+ * @package PhpMyAdmin
  */
 
 /*
@@ -55,9 +55,12 @@ $cfg['Servers'][$i]['table_coords'] = 'pma_table_coords';
 $cfg['Servers'][$i]['pdf_pages'] = 'pma_pdf_pages';
 $cfg['Servers'][$i]['column_info'] = 'pma_column_info';
 $cfg['Servers'][$i]['history'] = 'pma_history';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma_table_uiprefs';
 $cfg['Servers'][$i]['tracking'] = 'pma_tracking';
 $cfg['Servers'][$i]['designer_coords'] = 'pma_designer_coords';
 $cfg['Servers'][$i]['userconfig'] = 'pma_userconfig';
+$cfg['Servers'][$i]['recent'] = 'pma_recent';
+$cfg['Servers'][$i]['table_uiprefs'] = 'pma_table_uiprefs';
 
 /* Hide some databases from listing */
 $cfg['Servers'][$i]['hide_db'] = '(information_schema|phpmyadmin|mysql)';

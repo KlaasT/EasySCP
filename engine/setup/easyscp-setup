@@ -312,7 +312,7 @@ sub setup_system_dirs {
 		[$main::cfg{'APACHE_USERS_LOG_DIR'}, $main::cfg{'APACHE_USER'},$main::cfg{'APACHE_GROUP'}],
 		[$main::cfg{'APACHE_BACKUP_LOG_DIR'}, $main::cfg{'ROOT_USER'},$main::cfg{'ROOT_GROUP'}],
 		[$main::cfg{'MTA_VIRTUAL_CONF_DIR'}, $main::cfg{'ROOT_USER'},$main::cfg{'ROOT_GROUP'}],
-		[$main::cfg{'MTA_VIRTUAL_MAIL_DIR'}, $main::cfg{'ROOT_USER'},$main::cfg{'ROOT_GROUP'}],
+		[$main::cfg{'MTA_VIRTUAL_MAIL_DIR'}, $main::cfg{'MTA_MAILBOX_UID_NAME'},$main::cfg{'MTA_MAILBOX_GID_NAME'}],
 		[$main::cfg{'LOG_DIR'}, $main::cfg{'ROOT_USER'},$main::cfg{'ROOT_GROUP'}],
 		[$main::cfg{'BACKUP_FILE_DIR'}, $main::cfg{'ROOT_USER'},$main::cfg{'ROOT_GROUP'}],
 		[$main::cfg{'PHP_STARTER_DIR'},
@@ -626,6 +626,113 @@ sub setup_pma_database {
 
 		push_el(\@main::el, 'setup_pma_database()', 'Ending...');
 	}
+}
+
+################################################################################
+# Creating Postfix database
+#
+# @return int 0 on success, other on failure
+#
+sub setup_mta_database {
+
+	push_el(\@main::el, 'setup_mta_database()', 'Starting...');
+
+	# Setting name of Postfix database
+	my $MTADB = "mail";
+
+	# Converting to ASCII (Punycode)
+	my $dbHost = idn_to_ascii($main::db_host, 'utf-8');
+
+	# Setting DSN (We should don't select database here)
+	@main::db_connect = (
+		"DBI:mysql::$dbHost", $main::db_user, $main::db_pwd
+	);
+
+	# Forcing reconnection
+	$main::db = undef;
+
+	my $sql = "SHOW DATABASES LIKE '$MTADB';";
+	my $dbexists = 0;
+
+	# Check if the a database with same name already exist
+	my ($rs, $rdata) = doSQL($sql);
+	return $rs if($rs != 0);
+
+	while(@$rdata[0]) {
+		# Database with same name already exists
+		print colored(['bold yellow'], "\n\n\t[WARNING] ") .
+			"The '$MTADB' database already exist!\n";
+
+		# We must have user confirmation for database drop
+		do {
+			print "\n\tWould you really drop the current database? [Y/n] ";
+			chomp($rdata = <STDIN>);
+
+			if($rdata =~ /^(?:(y|yes|)|(n|no))$/i) {
+				$rs = defined $1 ? 1 : 0;
+			} else {
+				print colored(['bold red'], "\n\t[ERROR] ") .
+					"You entered an unrecognized value!\n";
+
+				$rs = -1;
+			}
+		} while ($rs == -1);
+
+		if($rs) {
+			push_el(
+				\@main::el, 'setup_postfix_database()',
+				"Removing database $MTADB"
+			);
+
+			($rs) = doSQL("DROP DATABASE `$MTADB`;");
+			return $rs if($rs != 0);
+			last;
+		} else {
+			$dbexists = 1;
+		}
+	}
+
+	if(!$dbexists) {
+		## Creating the Postfix database
+
+		my ($rs, $rdata) = get_file("$main::cfg{'CONF_DIR'}/database/mail.sql");
+		return $rs if ($rs != 0);
+
+		# Storing the final SQL file
+		$rs = store_file(
+			'/tmp/mail.sql', $rdata, $main::cfg{'ROOT_USER'}, $main::cfg{'ROOT_GROUP'},
+			0644
+		);
+		return $rs if ($rs != 0);
+
+		# Escape " and ' characters
+		$main::db_pwd =~ s/([\'\"])/\\$1/g;
+
+		$rs = sys_command(
+			"$main::cfg{'CMD_MYSQL'} --host='$dbHost' --user='$main::db_user' " .
+			"--pass='$main::db_pwd' < /tmp/mail.sql"
+		);
+		return $rs if ($rs != 0);
+
+		# Removing the temporary SQL schema file
+		$rs = del_file('/tmp/mail.sql');
+		return $rs if ($rs != 0);
+
+		push_el(\@main::el, 'setup_mta_database()', 'Ending...');
+	}
+
+	$main::cfg{'MTA_DB_USER'} = 'mail_admin';
+	$main::cfg{'MTA_DB_PASS'} = generateRandomPass(9);
+
+	# Adding the mail_admin user
+	($rs) = doSQL(
+		qq/
+			GRANT SELECT, INSERT, UPDATE, DELETE ON `mail`.*
+			TO '$main::cfg{'MTA_DB_USER'}'\@'$dbHost'
+			IDENTIFIED BY '$main::cfg{'MTA_DB_PASS'}' ;
+		/
+	);
+    return -1 if ($rs != 0);
 }
 
 ################################################################################

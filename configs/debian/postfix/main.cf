@@ -39,7 +39,7 @@ append_dot_mydomain          = no
 append_at_myorigin           = yes
 local_transport              = local
 virtual_transport            = virtual
-transport_maps               = hash:{MTA_TRANSPORT_HASH}
+transport_maps               = proxy:{MTA_TRANSPORT}
 alias_maps                   = hash:{MTA_LOCAL_ALIAS_HASH}
 alias_database               = hash:{MTA_LOCAL_ALIAS_HASH}
 
@@ -70,10 +70,10 @@ easyscp-arpl_destination_recipient_limit = 1
 virtual_mailbox_base         = {MTA_VIRTUAL_MAIL_DIR}
 virtual_mailbox_limit        = 0
 
-virtual_mailbox_domains      = hash:{MTA_VIRTUAL_DMN_HASH}
-virtual_mailbox_maps         = hash:{MTA_VIRTUAL_MAILBOX_HASH}
+virtual_mailbox_domains      = proxy:{MTA_VIRTUAL_DMN}
+virtual_mailbox_maps         = proxy:{MTA_VIRTUAL_MAILBOX}
 
-virtual_alias_maps           = hash:{MTA_VIRTUAL_ALIAS_HASH}
+virtual_alias_maps           = proxy:{MTA_VIRTUAL_ALIAS}
 
 virtual_minimum_uid          = {MTA_MAILBOX_MIN_UID}
 virtual_uid_maps             = static:{MTA_MAILBOX_UID}
@@ -111,12 +111,12 @@ smtpd_data_restrictions      = reject_multi_recipient_bounce,
                                reject_unauth_pipelining
 
 # TLS parameters; activate, if avaible/used
-#smtpd_tls_security_level    = may
-#smtpd_tls_loglevel          = 2
-#smtpd_tls_cert_file         = /etc/postfix/cert.pem
-#smtpd_tls_key_file          = /etc/postfix/privkey.pem
-#smtpd_tls_auth_only         = no
-#smtpd_tls_received_header   = yes
+#smtpd_tls_security_level     = may
+#smtpd_tls_loglevel           = 2
+#smtpd_tls_cert_file          = /etc/postfix/cert.pem
+#smtpd_tls_key_file           = /etc/postfix/privkey.pem
+#smtpd_tls_auth_only          = no
+#smtpd_tls_received_header    = yes
 
 # AMaViS parameters; activate, if available/used
 #content_filter               = amavis:[127.0.0.1]:10024
