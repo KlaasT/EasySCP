@@ -79,7 +79,7 @@ removeOldFiles() {
 
 # Remove older files from hosted domain's temporary folders
 for wdir in ${APACHE_WWW_DIR}*; do
-	removeOldFiles "${wdir}/phptmp" "${PHP_STARTER_DIR}${wdir#$APACHE_WWW_DIR}"
+	removeOldFiles "${wdir}/phptmp" "${PHP_STARTER_DIR}/${wdir#$APACHE_WWW_DIR}"
 done
 
 # And finally remove older files from panel's temporary folder
