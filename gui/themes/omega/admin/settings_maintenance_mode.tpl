@@ -12,7 +12,6 @@
 			<h1 class="webtools">{$TR_MENU_SYSTEM_TOOLS}</h1>
 		</div>
 		<ul class="location-menu">
-			
 			<li><a href="../index.php?logout" class="logout">{$TR_MENU_LOGOUT}</a></li>
 		</ul>
 		<ul class="path">

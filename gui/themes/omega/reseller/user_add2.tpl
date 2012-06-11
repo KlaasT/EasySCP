@@ -12,7 +12,6 @@
 			<h1 class="manage_users">{$TR_MENU_MANAGE_USERS}</h1>
 		</div>
 		<ul class="location-menu">
-			<!-- <li><a class="help" href="#">Help</a></li> -->
 			{if isset($YOU_ARE_LOGGED_AS)}
 			<li><a href="change_user_interface.php?action=go_back" class="backadmin">{$YOU_ARE_LOGGED_AS}</a></li>
 			{/if}
@@ -83,6 +82,13 @@
 						<td>
 							<input type="radio" name="cgi" id="cgi_yes" value="_yes_" {$VL_CGIY} />&nbsp;{$TR_YES}
 							<input type="radio" name="cgi" id="cgi_no" value="_no_" {$VL_CGIN} />&nbsp;{$TR_NO}
+						</td>
+					</tr>
+					<tr>
+						<td>{$TR_SSL}</td>
+						<td>
+							<input type="radio" name="ssl" id="ssl_yes" value="_yes_" {$VL_SSLY} />&nbsp;{$TR_YES}
+							<input type="radio" name="ssl" id="ssl_no" value="_no_" {$VL_SSLN} />&nbsp;{$TR_NO}
 						</td>
 					</tr>
 					<tr>

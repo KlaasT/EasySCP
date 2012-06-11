@@ -197,8 +197,30 @@ function generate_page($tpl, $domain_id) {
 		}
 	}
 
+	$sql_param = array(
+		':domain_id' => $domain_id
+	);
+	$sql_query = "
+		SELECT
+			a.admin_id, a.admin_name
+		FROM
+			admin a,
+			domain b
+		WHERE
+			b.domain_created_id = a.admin_id
+		AND
+			b.domain_id = :domain_id
+	";
+
+	// Einzelne Schreibweise
+	DB::prepare($sql_query);
+	$row = DB::execute($sql_param, true);
+
+
 	$tpl->assign(
 		array(
+			'RESELLER_NAME' => $row['admin_name'],
+			'RESELLER_ID' => $row['admin_id'],
 			'MONTH' => $month,
 			'YEAR' => $year,
 			'DOMAIN_ID' => $domain_id,

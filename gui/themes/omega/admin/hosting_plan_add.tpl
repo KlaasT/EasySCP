@@ -21,7 +21,6 @@
 			<h1 class="hosting_plans">{$TR_MENU_HOSTING_PLANS}</h1>
 		</div>
 		<ul class="location-menu">
-			
 			<li><a href="../index.php?logout" class="logout">{$TR_MENU_LOGOUT}</a></li>
 		</ul>
 		<ul class="path">
