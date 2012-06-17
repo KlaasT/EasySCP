@@ -239,7 +239,7 @@ function check_db_user($sql, $db_user) {
  * @todo
  * 	* Database user with same name can be added several times
  *  * If creation of database user fails in MySQL-Table, database user is already
- * 		in loclal ispcp table -> Error handling
+ * 		in loclal EasySCP table -> Error handling
  */
 function add_sql_user($sql, $user_id, $db_id) {
 
@@ -371,7 +371,7 @@ function add_sql_user($sql, $user_id, $db_id) {
 		return;
 	}
 
-	// add user in the ispcp table;
+	// add user in the EasySCP table;
 
 	$query = "
 		INSERT INTO `sql_user`

@@ -265,7 +265,7 @@ $query = "
 $res = exec_query($sql, $query, array($record_id, $user_def_lang,
 		$user_theme_color));
 
-// send query to the ispcp daemon
+// send query to the EasySCP daemon
 send_request();
 
 $admin_login = $_SESSION['user_logged'];

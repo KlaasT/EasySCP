@@ -296,7 +296,7 @@ $main::cfg_re = '^([\_A-Za-z0-9]+) *= *([^\n\r]*)[\n\r]';
 
 use FindBin;
 use lib "$FindBin::Bin/";
-require '../easyscp-load-db-keys.pl';
+require 'easyscp-load-db-keys.pl';
 
 umask(027);
 

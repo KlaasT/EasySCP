@@ -184,11 +184,6 @@ function gen_detaildom_page($tpl, $user_id, $domain_id) {
 			. "FROM `mail_users` "
 			. "WHERE `domain_id` = ? "
 			. "AND `mail_type` NOT RLIKE '_catchall'";
-	if ($cfg->COUNT_DEFAULT_EMAIL_ADDRESSES == 0) {
-		$query .= "AND `mail_acc` != 'abuse' "
-				. "AND `mail_acc` != 'postmaster' "
-				. "AND `mail_acc` != 'webmaster'";
-	}
 	$res6 = exec_query($sql, $query, $data['domain_id']);
 
 	$dat3 = $res6->fetchRow();

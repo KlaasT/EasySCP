@@ -1651,9 +1651,6 @@ msgstr ""
 msgid "Create default E-Mail addresses"
 msgstr ""
 
-msgid "Count default E-Mail addresses"
-msgstr ""
-
 msgid "E-Mail accounts are hard suspended"
 msgstr ""
 
@@ -2742,12 +2739,6 @@ msgid "Alias mails"
 msgstr ""
 
 msgid "Mails total"
-msgstr ""
-
-msgid "Show default E-Mail addresses"
-msgstr ""
-
-msgid "Hide default E-Mail Addresses"
 msgstr ""
 
 msgid "Mailformat of an address in your forward list is incorrect!"

@@ -178,18 +178,6 @@ function get_domain_running_mail_acc_cnt($sql, $domain_id) {
 			`domain_id` = ?
 	";
 
-	if ($cfg->COUNT_DEFAULT_EMAIL_ADDRESSES == 0) {
-		$query .= "
-			AND
-				`mail_acc` != 'abuse'
-			AND
-				`mail_acc` != 'postmaster'
-			AND
-				`mail_acc` != 'webmaster'
-			;
-		";
-	}
-
 	$rs = exec_query($sql, $query, array('normal_', 'normal_catchall', $domain_id));
 	$dmn_mail_acc = $rs->fields['cnt'];
 

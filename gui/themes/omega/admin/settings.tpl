@@ -168,15 +168,6 @@
 						</td>
 					</tr>
 					<tr>
-						<td><label for="count_default_email_addresses">{$TR_COUNT_DEFAULT_EMAIL_ADDRESSES}</label></td>
-						<td>
-							<select name="count_default_email_addresses" id="count_default_email_addresses">
-								<option value="0" {$COUNT_DEFAULT_EMAIL_ADDRESSES_OFF}>{$TR_DISABLED}</option>
-								<option value="1" {$COUNT_DEFAULT_EMAIL_ADDRESSES_ON}>{$TR_ENABLED}</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
 						<td><label for="hard_mail_suspension">{$TR_HARD_MAIL_SUSPENSION}</label></td>
 						<td>
 							<select name="hard_mail_suspension" id="hard_mail_suspension">

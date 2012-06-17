@@ -78,7 +78,7 @@ $tpl->assign(
 		'TR_DIR_TREE_SUBDOMAIN_MOUNT_POINT'	=> tr('Directory tree mount point'),
 		'TR_FORWARD'						=> tr('Forward to URL'),
 		'TR_ADD'							=> tr('Add'),
-		'TR_DMN_HELP'						=> tr('You do not need \'www.\' ispCP will add it on its own.'),
+		'TR_DMN_HELP'						=> tr("You do not need 'www.' EasySCP will add it on its own."),
 		'TR_ENABLE_FWD'						=> tr('Enable Forward'),
 		'TR_ENABLE'							=> tr('Enable'),
 		'TR_DISABLE'						=> tr('Disable'),

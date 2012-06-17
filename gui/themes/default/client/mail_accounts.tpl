@@ -76,13 +76,5 @@
 			</tbody>
 		</table>
 		{/if}
-		{if isset($TR_DEFAULT_EMAILS_BUTTON)}
-		<form action="mail_accounts.php" method="post" id="showdefault">
-			<div class="buttons">
-				<input type="hidden" name="uaction" value="{$VL_DEFAULT_EMAILS_BUTTON}" />
-			  	<input type="submit" name="Submit" value="{$TR_DEFAULT_EMAILS_BUTTON}" />
-			</div>
-		</form>
-		{/if}
 	</div>
 {include file='client/footer.tpl'}

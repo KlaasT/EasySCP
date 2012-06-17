@@ -45,7 +45,7 @@ $tpl->assign(
 		'TR_YES'					=> tr('Yes'),
 		'TR_NO'						=> tr('No'),
 		'TR_NEXT_STEP'				=> tr('Next step'),
-		'TR_DMN_HELP'				=> tr("You do not need 'www.' ispCP will add it on its own."),
+		'TR_DMN_HELP'				=> tr("You do not need 'www.' EasySCP will add it on its own."),
 		'TR_EXPIRE_CHECKBOX'		=> tr('or check if domain should <strong>never</strong> expire'),
 		'TR_SU'						=> tr('Su'),
 		'TR_MO'						=> tr('Mo'), 

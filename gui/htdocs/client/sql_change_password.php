@@ -137,7 +137,7 @@ function change_sql_user_pass($sql, $db_user_id, $db_user_name) {
 
 	$user_pass = $_POST['pass'];
 
-	// update user pass in the ispcp sql_user table;
+	// update user pass in the EasySCP sql_user table;
 	$query = "
 		UPDATE
 			`sql_user`

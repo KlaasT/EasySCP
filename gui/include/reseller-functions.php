@@ -538,17 +538,8 @@ function get_user_props($user_id) {
 	$als_current = records_count('domain_aliasses', 'domain_id', $user_id);
 	$als_max = $data['domain_alias_limit'];
 
-	if ($cfg->COUNT_DEFAULT_EMAIL_ADDRESSES) {
-		// Catch all is not a mailbox and haven't to be count
-		$mail_current = records_count('mail_users', 'mail_type NOT RLIKE \'_catchall\' AND domain_id', $user_id);
-	} else {
-		$where = "`mail_acc` != 'abuse'
-		AND `mail_acc` != 'postmaster'
-		AND `mail_acc` != 'webmaster'
-		AND `mail_type` NOT RLIKE '_catchall'
-		AND `domain_id`";
-		$mail_current = records_count('mail_users', $where, $user_id);
-	}
+	$mail_current = records_count('mail_users', 'mail_type NOT RLIKE \'_catchall\' AND domain_id', $user_id);
+
 	$mail_max = $data['domain_mailacc_limit'];
 
 	$ftp_current = sub_records_rlike_count('domain_name', 'domain', 'domain_id', $user_id,
@@ -1639,6 +1630,19 @@ function client_mail_add_default_accounts($dmn_id, $user_email, $dmn_part,
 				10485760, 'abuse@' . $dmn_part
 			)
 		);
+
+		$sql_param = array(
+			':domain'=> $dmn_part
+		);
+		$sql_query = "
+			INSERT INTO
+					`mail`.`domains`
+						(`domain`)
+			VALUES
+				(:domain)
+		";
+		DB::prepare($sql_query);
+		DB::execute($sql_param);
 
 	}
 

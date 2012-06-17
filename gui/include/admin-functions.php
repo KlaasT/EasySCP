@@ -257,31 +257,9 @@ function get_admin_general_info($tpl, $sql) {
 		)
 	);
 
-	// If COUNT_DEFAULT_EMAIL_ADDRESSES = false, admin total emails show
-	// [total - default_emails]/[total_emails]
-	$retrieve_total_emails = records_count(
+	$show_total_emails = records_count(
 		'mail_users', 'mail_type NOT RLIKE \'_catchall\'', ''
 	);
-
-	if($cfg->COUNT_DEFAULT_EMAIL_ADDRESSES) {
-		$show_total_emails = $retrieve_total_emails;
-	} else {
-		$retrieve_total_default_emails = records_count(
-			'mail_users', 'mail_acc', 'abuse'
-		);
-
-		$retrieve_total_default_emails += records_count(
-			'mail_users', 'mail_acc', 'webmaster'
-		);
-
-		$retrieve_total_default_emails += records_count(
-			'mail_users', 'mail_acc', 'postmaster'
-		);
-
-		$show_total_emails =
-		($retrieve_total_emails - $retrieve_total_default_emails) . '/' .
-			$retrieve_total_emails;
-	}
 
 	$tpl->assign(
 		array(
@@ -989,29 +967,11 @@ function generate_user_props($user_id) {
 	$als_current = records_count('domain_aliasses', 'domain_id', $user_id);
 	$als_max = $rs->fields['domain_alias_limit'];
 
-	// This works with the admin option(Count default E-Mail addresses) is
-	// working - TheCry
-	if($cfg->COUNT_DEFAULT_EMAIL_ADDRESSES) {
-		$mail_current = records_count(
-			'mail_users',
-			"mail_type NOT RLIKE '_catchall' AND domain_id",
-			$user_id
-		);
-	} else {
-		$where = "
-				`mail_acc` != 'abuse'
-			AND
-				`mail_acc` != 'postmaster'
-			AND
-				`mail_acc` != 'webmaster'
-			AND
-				`mail_type` NOT RLIKE '_catchall'
-			AND
-				`domain_id`
-		";
-
-		$mail_current = records_count('mail_users', $where, $user_id);
-	}
+	$mail_current = records_count(
+		'mail_users',
+		"mail_type NOT RLIKE '_catchall' AND domain_id",
+		$user_id
+	);
 
 	$mail_max = $rs->fields['domain_mailacc_limit'];
 

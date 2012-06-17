@@ -593,11 +593,11 @@ function add_new_order($tpl, $sql, $order_id, $user_id) {
 
 	$headers = "From: " . $from . "\n";
 	$headers .= "MIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 7bit\n";
-	$headers .= "X-Mailer: ispCP auto mailer";
+	$headers .= "X-Mailer: EasySCP auto mailer";
 
-	$subject = tr("[ispCP OrderPanel] - You have an update order", true);
+	$subject = tr("[EasySCP OrderPanel] - You have an update order", true);
 
-	$message = tr("You have an update order for the account %s\n\nPlease login into your ispCP control panel at %s for more details",
+	$message = tr("You have an update order for the account %s\n\nPlease login into your EasySCP control panel at %s for more details",
 		true,
 		$_SESSION['user_logged'],
 		$cfg->BASE_SERVER_VHOST_PREFIX . $cfg->BASE_SERVER_VHOST);

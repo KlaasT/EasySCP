@@ -22,7 +22,7 @@
  */
 
 /**
- * This script allows net2ftp authentication from ispCP
+ * This script allows net2ftp authentication from EasySCP
  */
 
 /*******************************************************************************
@@ -164,7 +164,7 @@ function net2ftpAuth($userId) {
  * Main program
  */
 
-// Include all needed libraries and process to the ispCP initialization
+// Include all needed libraries and process to the EasySCP initialization
 require '../../include/easyscp-lib.php';
 
 // Check login

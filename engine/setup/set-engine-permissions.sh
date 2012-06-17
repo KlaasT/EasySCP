@@ -1,36 +1,24 @@
 #!/bin/sh
 
 # EasySCP a Virtual Hosting Control Panel
-# Copyright (C) 2001-2006 by moleSoftware GmbH - http://www.molesoftware.com
-# Copyright (C) 2006-2010 by isp Control Panel - http://ispcp.net
 # Copyright (C) 2010-2012 by Easy Server Control Panel - http://www.easyscp.net
 #
-# The contents of this file are subject to the Mozilla Public License
-# Version 1.1 (the "License"); you may not use this file except in
-# compliance with the License. You may obtain a copy of the License at
-# http://www.mozilla.org/MPL/
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
 #
-# Software distributed under the License is distributed on an "AS IS"
-# basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
-# License for the specific language governing rights and limitations
-# under the License.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-# The Original Code is "VHCS - Virtual Hosting Control System".
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #
-# The Initial Developer of the Original Code is moleSoftware GmbH.
-# Portions created by Initial Developer are Copyright (C) 2001-2006
-# by moleSoftware GmbH. All Rights Reserved.
-#
-# Portions created by the ispCP Team are Copyright (C) 2006-2010 by
-# isp Control Panel. All Rights Reserved.
-#
-# Portions created by the EasySCP Team are Copyright (C) 2010-2012 by
-# Easy Server Control Panel. All Rights Reserved.
-#
-# The Easy Server Control Panel Home Page is:
-#
-#    http://www.easyscp.net
-#
+# @link 		http://www.easyscp.net
+# @author 		EasySCP Team
 
 SELFDIR=$(dirname "$0")
 . $SELFDIR/easyscp-permission-functions.sh
@@ -60,8 +48,6 @@ recursive_set_permissions "$ROOT_DIR/engine/messenger" \
 	$MTA_MAILBOX_UID_NAME $MTA_MAILBOX_GID_NAME 0750 0550
 recursive_set_permissions "$LOG_DIR/easyscp-arpl-msgr" \
 	$MTA_MAILBOX_UID_NAME $MTA_MAILBOX_GID_NAME 0750 0640
-
-# TODO: Fixing fcgid permisions set before 1.0.5
 
 echo " done";
 

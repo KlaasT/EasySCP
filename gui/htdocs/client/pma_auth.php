@@ -24,14 +24,14 @@
 /**
  * Script short description:
  *
- * This script allows PhpMyAdmin authentication from ispCP
+ * This script allows PhpMyAdmin authentication from EasySCP
  */
 
 /**
  * Main program
  */
 
-// Include all needed libraries and process to the ispCP initialization
+// Include all needed libraries and process to the EasySCP initialization
 require '../../include/easyscp-lib.php';
 
 // Check login
@@ -55,7 +55,6 @@ if(isset($_GET['id'])) {
 /**
  * Get database login credentials
  *
- * @author Laurent Declercq <laurent.declercq@ispcp.net>
  * @since  1.0.7
  * @access private
  * @param  int $dbUserId Database user unique identifier
@@ -100,7 +99,6 @@ function _getLoginCredentials($dbUserId) {
 /**
  * Creates all cookies for PhpMyAdmin
  *
- * @author Laurent Declercq <laurent.declercq@ispcp.net>
  * @since  1.0.7
  * @access private
  * @param  array $cookies Array that contains cookies definitions for PMA
@@ -116,7 +114,6 @@ function _pmaCreateCookies($cookies) {
 /**
  * PhpMyAdmin authentication
  *
- * @author Laurent Declercq <laurent.declercq@ispcp.net>
  * @since  1.0.7
  * @param  int $dbUserId Database user unique identifier
  * @return bool TRUE on success, FALSE otherwise

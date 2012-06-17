@@ -38,7 +38,8 @@ function DaemonDomain($Input) {
 	);
 
 	$sql_query = "
-		SELECT `d`.*, `s`.`ip_number`
+		SELECT
+			`d`.*, `s`.`ip_number`
 		FROM
 			`domain` AS `d`,
 			`server_ips` AS `s`

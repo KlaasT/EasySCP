@@ -202,11 +202,6 @@ $config->LOG_LEVEL = E_USER_NOTICE;
 // domain/alias/ subdomain is created
 $config->CREATE_DEFAULT_EMAIL_ADDRESSES = true;
 
-// Count default e-mail (abuse,postmaster,webmaster) in user limit
-// true: default e-mail are counted
-// false: default e-mail are NOT counted
-$config->COUNT_DEFAULT_EMAIL_ADDRESSES = true;
-
 // Use hard mail suspension when suspending a domain:
 // true: email accounts are hard suspended (completely unreachable)
 // false: email accounts are soft suspended (passwords are modified so

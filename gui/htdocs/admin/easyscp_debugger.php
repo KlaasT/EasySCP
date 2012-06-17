@@ -178,7 +178,7 @@ unset_messages();
  *
  * @param  EasySCP_Database $sql EasySCP_Database instance
  * @param  string $statusField status database field name
- * @param  string $tableName ispCP database table name
+ * @param  string $tableName EasySCP database table name
  * @return int Number of request
  */
 function count_requests($sql, $statusField, $tableName) {

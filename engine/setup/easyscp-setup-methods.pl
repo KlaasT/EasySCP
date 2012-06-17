@@ -2191,8 +2191,8 @@ sub setup_po {
 	# Building the new file
 	($rs, $rdata) = prep_tpl(
 		{
-		'{MTA_DB_USER}' => '',
-		'{MTA_DB_PASS}' => '',
+		'{MTA_DB_USER}' => $main::cfg{'MTA_DB_USER'},
+		'{MTA_DB_PASS}' => $main::cfg{'MTA_DB_PASS'},
 		'{MTA_MAILBOX_UID}' => $main::cfg{'MTA_MAILBOX_UID'},
 		'{MTA_MAILBOX_GID}' => $main::cfg{'MTA_MAILBOX_GID'},
 		'{MTA_VIRTUAL_MAIL_DIR}' => $main::cfg{'MTA_VIRTUAL_MAIL_DIR'}

@@ -480,7 +480,7 @@ function schedule_mail_account($sql, $domain_id, $dmn_name, $mail_acc) {
 
 	write_log($_SESSION['user_logged'] . ": adds new mail account: " . (!empty($mail_addr) ? $mail_addr : $mail_acc));
 	set_page_message(tr('Mail account scheduled for addition!'), 'success');
-	send_request();
+	send_request('130 MAIL '.$domain_id);
 	user_goto('mail_accounts.php');
 }
 

@@ -51,8 +51,6 @@ require_once  INCLUDEPATH . '/EasySCP/Config/Handler.php';
  * brute force block time
  * @property int BuildDate ispCP package Build date
  * @property bool CHECK_FOR_UPDATES If TRUE, update cheching is enabled
- * @property bool COUNT_DEFAULT_EMAIL_ADDRESSES If TRUE, count the default mail
- * addresses
  * @property bool CREATE_DEFAULT_EMAIL_ADDRESSES If TRUE, create default email
  * addresse (abuse, postmaster, webmaster)
  * @property int CRITICAL_UPDATE_REVISION Last critical update revision

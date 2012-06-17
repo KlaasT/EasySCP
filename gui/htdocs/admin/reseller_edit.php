@@ -268,8 +268,6 @@ unset_messages();
  * Return an array of cleaned input data. For performance reasons, the cleanup
  * is performed only once.
  *
- * @author Laurent Declercq (nuxwin) <laurent.declercq@ispcp.net>
- * @since rxxxx
  * @return array cleaned data
  */
 function get_clean_input_data() {
@@ -965,7 +963,6 @@ function update_reseller() {
  * Note: The template instance must always be passed as
  * parameter of this function during the first call.
  *
- * @author Laurent Declercq (Nuxwin) <laurent.declercq@ispcp.net>
  * @since r2561
  * @param EasySCP_TemplateEngine $tpl reference to the template instance
  * @return array reseller properties and additional data
@@ -1024,7 +1021,6 @@ function &get_data($tpl = false) {
  *
  * Highlighting erroneous input fields with a appropriate color
  *
- * @author Laurent Declercq (Nuxwin) <laurent.declercq@ispcp.net>
  * @since r2587
  * @param EasySCP_TemplateEngine $tpl reference to the template instance
  * @param array &$errFields reference to the array of error fields indicators

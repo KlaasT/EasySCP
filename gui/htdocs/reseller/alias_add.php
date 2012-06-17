@@ -39,7 +39,7 @@ if (!is_xhr()) {
 
 	$tpl->assign(
 		array(
-			'TR_PAGE_TITLE'			=> tr('ispCP Reseller: Add Alias'),
+			'TR_PAGE_TITLE'			=> tr('EasySCP Reseller: Add Alias'),
 			'TR_MANAGE_DOMAIN_ALIAS'=> tr('Manage domain alias'),
 			'TR_ADD_ALIAS'			=> tr('Add domain alias'),
 			'TR_DOMAIN_NAME'		=> tr('Domain name'),
@@ -48,7 +48,7 @@ if (!is_xhr()) {
 			'TR_DOMAIN_IP'			=> tr('Domain IP'),
 			'TR_FORWARD'			=> tr('Forward to URL'),
 			'TR_ADD'				=> tr('Add alias'),
-			'TR_DMN_HELP'			=> tr("You do not need 'www.' ispCP will add it on its own."),
+			'TR_DMN_HELP'			=> tr("You do not need 'www.' EasySCP will add it on its own."),
 			'TR_JS_EMPTYDATA'		=> tr("Empty data or wrong field!"),
 			'TR_JS_WDNAME'			=> tr("Wrong domain name!"),
 			'TR_JS_MPOINTERROR'		=> tr("Please write mount point!"),
